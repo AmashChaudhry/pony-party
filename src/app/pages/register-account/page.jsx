@@ -17,14 +17,23 @@ export default function RegisterAccount() {
                         <label className="text-black text-opacity-60">Last Name</label><br />
                         <input className="w-[400px] p-[15px] text-[16px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none" type="text" required />
                     </div>
-                    <div className="mb-[15px]">
+                    <div className="mb-[15px] relative">
                         <label className="text-black text-opacity-60" htmlFor="phone">Phone Number</label><br />
-                        <input
-                            className="w-[400px] p-[15px] text-[16px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
-                            type="tel" id="phone" name="phone" placeholder="(123) 456-7890" pattern="^\(\d{3}\) \d{3}-\d{4}$"
-                            title="Phone number should be in the format (123) 456-7890" required
-                        />
+                        <div className="relative">
+                            <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[16px] text-black text-opacity-60">+1</span>
+                            <input
+                                className="w-[400px] pl-[40px] p-[15px] text-[16px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="(123) 456-7890"
+                                pattern="^\(\d{3}\) \d{3}-\d{4}$"
+                                title="Phone number should be in the format (123) 456-7890"
+                                required
+                            />
+                        </div>
                     </div>
+
                     <div className="mb-[15px]">
                         <label className="text-black text-opacity-60" htmlFor="dob">Date of Birth</label><br />
                         <input
@@ -141,6 +150,11 @@ export default function RegisterAccount() {
                             title="Zip code should be in the format 12345 or 12345-6789"
                             required
                         />
+                    </div>
+                    <div>
+                        <p>
+                        Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our Privacy Policy and Term of Service.
+                        </p>
                     </div>
                     <div className="mb-[15px]">
                         <input className="mr-[10px]" type="checkbox" id="remember-me" />
