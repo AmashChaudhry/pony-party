@@ -19,7 +19,7 @@ export default function LoginToAccount() {
                 <button className="bg-[#ffa9f9] text-white py-[15px] px-[20px] hover:bg-black" type="submit">Login</button>
                 <div className="mt-[15px]">
                     <a href="/forgot-password" className="text-[#ffa9f9]">Forgot password?</a><br /><br />
-                    <p className="inline-text">Don’t have an account? <a href="/register" className="text-[#ffa9f9]">Register now</a></p>
+                    <p>Don’t have an account? <a href="/register" className="text-[#ffa9f9]">Register now</a></p>
                 </div>
             </form>
         </div>
