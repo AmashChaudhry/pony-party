@@ -133,7 +133,7 @@ export default function RegisterAccount() {
                     <div>
                         <p>
                             Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our Privacy Policy and Term of Service.
-                        </p>
+                        </p><br />
                     </div>
                     <div className="mb-[15px]">
                         <input className="mr-[10px]" type="checkbox" id="remember-me" />
