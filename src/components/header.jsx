@@ -42,7 +42,7 @@ export default function Header() {
                             <Link href="/AboutMe" className="AboutMe">Community</Link>
                         </li>
                         <li className="inline-block text-black  text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
-                            <Link href="/Contact" className="Contact">Memberships</Link>
+                            <Link href="pages/memberships" className="Contact">Memberships</Link>
                         </li>
                         <li className="inline-block text-black  text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
                             <Link href="/Contact" className="Contact">About Us</Link>
