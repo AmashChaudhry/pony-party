@@ -20,7 +20,7 @@ export default function Header() {
 
     return (
         <header className="sticky top-0 bg-gradient-to-r from-[#fff7ad] to-[#ffa9f9]">
-            <nav className="flex sticky justify-between items-center h-[8vh] mx-auto lg:w-[70vw]">
+            <nav className="flex sticky justify-between items-center h-[8vh] mx-auto w-full lg:max-w-[1200px]">
                 <button className="text-[12px] p-[15px] mx-[15px] bg-black rounded-md text-white lg:hidden" name="menu" onClick={toggleMenu}>{menuOpen ? "Close" : "Menu"}</button>
                 <ul className="flex p-0 items-center">
                     <li className="inline-block text-black text-[14px] py-[4px] px-[10px] mx-[5px]">
