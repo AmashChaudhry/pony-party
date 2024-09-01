@@ -17,72 +17,53 @@ export default function RegisterAccount() {
                         <label className="text-black text-opacity-60">Last Name</label><br />
                         <input className="w-[400px] p-[15px] text-[16px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none" type="text" required />
                     </div>
-                    <div className="mb-[15px] relative">
-                        <label className="text-black text-opacity-60" htmlFor="phone">Phone Number</label><br />
-                        <div className="relative">
-                            <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[16px] text-black text-opacity-60">+1</span>
-                            <input
-                                className="w-[400px] pl-[40px] p-[15px] text-[16px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                placeholder="(123) 456-7890"
-                                pattern="^\(\d{3}\) \d{3}-\d{4}$"
-                                title="Phone number should be in the format (123) 456-7890"
-                                required
-                            />
-                        </div>
-                    </div>
-
                     <div className="mb-[15px]">
-                        <label className="text-black text-opacity-60" htmlFor="dob">Date of Birth</label><br />
-                        <input
-                            className="w-[400px] p-[15px] text-[16px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
-                            type="date" id="dob" name="dob"
+                        <label className="text-black text-opacity-60">Phone Number</label><br />
+                        <input className="w-[400px] pl-[40px] p-[15px] text-[16px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                            type="tel"
+                            placeholder="(123) 456-7890"
+                            pattern="^\(\d{3}\) \d{3}-\d{4}$"
+                            title="Phone number should be in the format (123) 456-7890"
                             required
                         />
                     </div>
                     <div className="mb-[15px]">
-                        <label className="text-black text-opacity-60" htmlFor="country">Country</label><br />
+                        <label className="text-black text-opacity-60" htmlFor="dob">Date of Birth</label><br />
                         <input
                             className="w-[400px] p-[15px] text-[16px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
-                            type="text"
-                            id="country"
-                            name="country"
-                            value="United States"
-                            readOnly
+                            type="date"
+                            required
                         />
                     </div>
-
                     <div className="mb-[15px]">
-                        <label className="text-black text-opacity-60" htmlFor="street-address">Street Address</label><br />
+                        <label className="text-black text-opacity-60">Country</label><br />
+                        <select className="w-[400px] p-[15px] text-[16px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                            required
+                        >
+                            <option value="AL">United State</option>
+                        </select>
+                    </div>
+                    <div className="mb-[15px]">
+                        <label className="text-black text-opacity-60">Street Address</label><br />
                         <input
                             className="w-[400px] p-[15px] text-[16px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
                             type="text"
-                            id="street-address"
-                            name="street-address"
                             placeholder="Enter your street address"
                             required
                         />
                     </div>
                     <div className="mb-[15px]">
-                        <label className="text-black text-opacity-60" htmlFor="city">City</label><br />
+                        <label className="text-black text-opacity-60">City</label><br />
                         <input
                             className="w-[400px] p-[15px] text-[16px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
                             type="text"
-                            id="city"
-                            name="city"
                             placeholder="Enter your city"
                             required
                         />
                     </div>
-
                     <div className="mb-[15px]">
-                        <label className="text-black text-opacity-60" htmlFor="state">State</label><br />
-                        <select
-                            className="w-[400px] p-[15px] text-[16px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
-                            id="state"
-                            name="state"
+                        <label className="text-black text-opacity-60">State</label><br />
+                        <select className="w-[400px] p-[15px] text-[16px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
                             required
                         >
                             <option value="" disabled selected>Select your state</option>
@@ -143,8 +124,6 @@ export default function RegisterAccount() {
                         <input
                             className="w-[400px] p-[15px] text-[16px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
                             type="text"
-                            id="zip"
-                            name="zip"
                             placeholder="Enter your zip code"
                             pattern="\d{5}(-\d{4})?"
                             title="Zip code should be in the format 12345 or 12345-6789"
