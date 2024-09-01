@@ -47,7 +47,7 @@ export default function Home() {
         <div className="flex flex-col items-center w-auto m-[10px] px-[10px]">
           <div className="h-[200px] w-full bg-[#ffa9f9]"></div>
           <Link className="text-[12px] text-center font-bold hover:text-[#ffa9f9]" href="/pages/register-account">DEHYDRATION - $249</Link>
-          <div className="h-[2px] w-[100px] bg-[#ffa9f9] my-[10px]"></div>
+          <div className="h-[2px] w-[100px] bg-[#ffa9f9] my-[10px]"></div> 
           <p className="text-[12px] text-center text-black text-opacity-60 mb-[30px]">Rehydrate and replenish your body with IV fluids</p>
           <button className="bg-[#ffa9f9] text-white font-medium px-[15px] py-[10px]">Book Now</button>
         </div>
