@@ -31,7 +31,7 @@ export default function Header() {
                     </li>
                 </ul>
                 <div className={`lg:static absolute lg:bg-transparent bg-white border-b border-gray-300 lg:min-h-fit min-h-fit left-0 ${menuPosition} lg:w-auto w-full flex items-center px-5 py-[20px]`}>
-                    <ul className="flex lg:flex-row flex-col lg:p-0 lg:items-center lg:gap-0 gap-8">
+                    <ul className="flex lg:flex-row flex-col lg:p-0 lg:items-center lg:gap-0 gap-5">
                         <li className="inline-block text-black  text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
                             <Link href="/">In-Home Services</Link>
                         </li>
