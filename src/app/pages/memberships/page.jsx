@@ -48,7 +48,6 @@ export default function Memberships() {
                     <p className="flex items-center text-4xl font-light text-black w-full mb-4"><span className="text-sm">$</span>550<span className="text-sm">/mo</span></p>
                     <ul className="mb-6">
                         <h3 className="text-gray-500 text-2xl mb-[30px]">2 IV Treatment</h3>
-
                         <li className="flex items-center text-lg">
                             <AiOutlineCheck className="text-[12px] text-[#ffa9f9] mr-2" />
                             <p className="text-[12px]">Up to 30% Discount on Vitamin IVs </p>
@@ -77,9 +76,8 @@ export default function Memberships() {
                 <div className="flex flex-col items-center w-auto max-w-sm h-fit p-6 bg-white shadow-xl">
                     <h3 className="text-[14px] text-gray-500 font-bold mb-4">Elite Plan</h3>
                     <p className="flex items-center text-4xl font-light text-black w-full mb-4"><span className="text-sm">$</span>1000<span className="text-sm">/mo</span></p>
-                    <ul className="space-y-3 mb-6">
+                    <ul className="mb-6">
                         <h3 className="text-gray-500 text-2xl mb-[30px]"> 4 IV Treatment</h3>
-
                         <li className="flex items-center text-lg">
                             <AiOutlineCheck className="text-[12px] text-[#ffa9f9] mr-2" />
                             <p className="text-[12px]">Up to 35% Discount on Vitamin IVs</p>
@@ -108,9 +106,8 @@ export default function Memberships() {
                 <div className="flex flex-col items-center w-auto max-w-sm h-fit p-6 bg-white shadow-xl">
                     <h3 className="text-[14px] text-gray-500 font-bold mb-4">Platinium Plan</h3>
                     <p className="flex items-center text-4xl font-light text-black w-full mb-4"><span className="text-sm">$</span>1800<span className="text-sm">/mo</span></p>
-                    <ul className="space-y-3 mb-6">
+                    <ul className="mb-6">
                         <h3 className="text-gray-500 text-2xl mb-[30px]"> 8 IV Treatment</h3>
-
                         <li className="flex items-center text-lg">
                             <AiOutlineCheck className="text-[12px] text-[#ffa9f9] mr-2" />
                             <p className="text-[12px]">Up to 40% Discount on Vitamin IVs</p>
