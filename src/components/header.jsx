@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Image from "next/image";
 
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -26,8 +27,14 @@ export default function Header() {
                 <ul className="flex p-0 items-center">
                     <li className="inline-block text-black text-[14px] py-[4px] px-[10px] mx-[5px]">
                         <Link href="/" className="flex flex-col items-center justify-center">
-                            <h3 className="text-[16px] font-bold">Pony Party</h3>
-                            <p className="text-[10px]">IV HYDRATION</p>
+                            <div className="relative w-[120px] h-[6vh]">
+                                <Image
+                                    src="/Logo-1.png"
+                                    layout="fill"
+                                    objectFit="contain"
+                                    alt="Dehydration IV Treatment"
+                                />
+                            </div>
                         </Link>
                     </li>
                 </ul>
@@ -35,9 +42,6 @@ export default function Header() {
                     <ul className="flex lg:flex-row flex-col lg:p-0 lg:items-center lg:gap-0 gap-5">
                         <li className="inline-block text-black  text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
                             <Link href="/">In-Home Services</Link>
-                        </li>
-                        <li className="inline-block text-black  text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
-                            <Link href="/Projects" className="Projects">Shipped To You</Link>
                         </li>
                         <li className="inline-block text-black  text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
                             <Link href="/AboutMe" className="AboutMe">Community</Link>
