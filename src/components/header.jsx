@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -21,7 +22,7 @@ export default function Header() {
     return (
         <header className="sticky top-0 bg-gradient-to-r from-[#fff7ad] to-[#ffa9f9] z-50">
             <nav className="flex sticky justify-between items-center h-[8vh] mx-auto w-full lg:max-w-[1200px]">
-                <button className="text-[12px] p-[15px] mx-[15px] bg-black rounded-md text-white lg:hidden" name="menu" onClick={toggleMenu}>{menuOpen ? "Close" : "Menu"}</button>
+                <button className="text-black text-[28px] m-[20px] lg:hidden" name="menu" onClick={toggleMenu}>{menuOpen ? <FaTimes /> : <FaBars />}</button>
                 <ul className="flex p-0 items-center">
                     <li className="inline-block text-black text-[14px] py-[4px] px-[10px] mx-[5px]">
                         <Link href="/" className="flex flex-col items-center justify-center">
@@ -50,7 +51,7 @@ export default function Header() {
                     </ul>
                 </div>
                 <ul className="flex p-0 items-center">
-                    <li className="inline-block text-black text-[14px] py-[4px] mx-[15px]">
+                    <li className="inline-block text-black text-[14px] font-bold m-[20px]">
                         <Link href="/pages/login-to-account">Log in</Link>
                     </li>
                 </ul>
