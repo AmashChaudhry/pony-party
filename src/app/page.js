@@ -5,6 +5,41 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="flex flex-col items-center">
+      <div className="relative w-full h-[40vh] lg:h-fit overflow-hidden">
+        <div className="lg:hidden">
+          <Image
+            src="/Mobile_IV_Therapy__Medical_Services_Delivered_To_You.jpg"
+            alt="Dehydration IV Treatment"
+            layout="fill"
+            objectFit="cover"
+            objectPosition="75% center"
+          />
+        </div>
+        <div className="hidden lg:block">
+          <Image
+            src="/Mobile_IV_Therapy__Medical_Services_Delivered_To_You.jpg"
+            alt="Dehydration IV Treatment"
+            layout="responsive"
+            width={1920}
+            height={1080}
+            objectFit="cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-black sm:bg-transparent opacity-50"></div>
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center sm:items-start sm:justify-start sm:text-start sm:m-[40px] lg:justify-center lg:m-[60px]">
+          <h1 className="flex flex-col text-white text-[26px] font-medium w-[300px] sm:w-full sm:text-black sm: font-normal sm:text-[20px] sm:tracking-widest lg:text-[22px]">
+            <span className="tracking-widest sm:tracking-wide sm:text-[28px] sm:font-medium lg:text-[32px]">Mobile IV Therapy</span>& Medical Services Delivered To You
+          </h1>
+          <div className="mt-4 flex gap-8 sm:flex-col sm:gap-2 lg:flex-row">
+            <button className="px-[15px] py-[10px] bg-gradient-to-r from-[#fff7ad] to-[#ffa9f9] w-[100px] text-[12px] font-bold rounded-xl sm:w-fit sm:rounded-full">
+              <span className="text-black leading-none">Book IV Therapy</span>
+            </button>
+            <button className="px-[15px] py-[10px] bg-gradient-to-r from-[#ffa9f9] to-[#fff7ad] w-[100px] text-[12px] font-bold rounded-xl sm:w-fit sm:rounded-full">
+              <span className="text-black leading-none">View all Services</span>
+            </button>
+          </div>
+        </div>
+      </div>
       <div className="flex flex-col items-center px-[30px] pt-[50px] pb-[30px]">
         <h1 className="text-[20px] font-medium tracking-widest sm:text-[24px]">VITAMIN IV THERAPY</h1>
         <p className="text-[12px] text-center text-gray-500 font-light sm:text-[14px]">Experience all the benefits of IV therapy in the comfort of your own home.</p>
