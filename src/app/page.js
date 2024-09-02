@@ -5,8 +5,8 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="flex flex-col items-center">
-      <div className="flex flex-col items-center px-[30px]">
-        <h1 className="text-[20px] font-medium tracking-widest mt-[50px] sm:text-[24px]">VITAMIN IV THERAPY</h1>
+      <div className="flex flex-col items-center px-[30px] pt-[50px] pb-[30px]">
+        <h1 className="text-[20px] font-medium tracking-widest sm:text-[24px]">VITAMIN IV THERAPY</h1>
         <p className="text-[12px] text-center text-gray-500 font-light sm:text-[14px]">Experience all the benefits of IV therapy in the comfort of your own home.</p>
       </div>
       <div className="grid grid-cols-2 gap-x-[30px] gap-y-[30px] sm:gap-[40px] md:grid-cols-3 lg:grid-cols-4 m-[30px] w-auto lg:max-w-[1200px]">
