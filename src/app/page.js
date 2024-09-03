@@ -10,19 +10,17 @@ export default function Home() {
           <Image
             src="/Mobile_IV_Therapy__Medical_Services_Delivered_To_You.jpg"
             alt="Dehydration IV Treatment"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="75% center"
+            fill
+            style={{ objectFit: "cover", objectPosition: "75% center" }}
           />
         </div>
         <div className="hidden lg:block">
           <Image
             src="/Mobile_IV_Therapy__Medical_Services_Delivered_To_You.jpg"
             alt="Dehydration IV Treatment"
-            layout="responsive"
             width={1920}
             height={1080}
-            objectFit="cover"
+            style={{ objectFit: "cover" }}
           />
         </div>
         <div className="absolute inset-0 bg-black sm:bg-transparent opacity-50"></div>
@@ -45,48 +43,48 @@ export default function Home() {
           <div className="relative w-full h-full">
             <Image
               src="/brand-logos/assets_TEMP_370d4971fc8e47dd9b13cb385bf3fa1d.webp"
-              layout="fill"
-              objectFit="contain"
+              fill
+              style={{ objectFit: "contain" }}
               alt="Dehydration IV Treatment"
             />
           </div>
           <div className="relative w-full h-full">
             <Image
               src="/brand-logos/assets_TEMP_5801e1e44d94427d942badb46ffe9e4a.webp"
-              layout="fill"
-              objectFit="contain"
+              fill
+              style={{ objectFit: "contain" }}
               alt="Dehydration IV Treatment"
             />
           </div>
           <div className="relative w-full h-full">
             <Image
               src="/brand-logos/assets_TEMP_fff87e9ef4494665990194ff6a23a42a.webp"
-              layout="fill"
-              objectFit="contain"
+              fill
+              style={{ objectFit: "contain" }}
               alt="Dehydration IV Treatment"
             />
           </div>
           <div className="relative w-full h-full">
             <Image
               src="/brand-logos/assets_TEMP_10072b43c8de418ba98619c5272a4a07.webp"
-              layout="fill"
-              objectFit="contain"
+              fill
+              style={{ objectFit: "contain" }}
               alt="Dehydration IV Treatment"
             />
           </div>
           <div className="relative w-full h-full">
             <Image
               src="/brand-logos/assets_TEMP_f8ac939bd4134736aa886e231e83fa38.webp"
-              layout="fill"
-              objectFit="contain"
+              fill
+              style={{ objectFit: "contain" }}
               alt="Dehydration IV Treatment"
             />
           </div>
           <div className="relative w-full h-full">
             <Image
               src="/brand-logos/assets_TEMP_bc51997622674349a4599e21ccb19161.webp"
-              layout="fill"
-              objectFit="contain"
+              fill
+              style={{ objectFit: "contain" }}
               alt="Dehydration IV Treatment"
             />
           </div>
@@ -101,8 +99,8 @@ export default function Home() {
           <div className="relative h-[150px] w-full sm:h-[250px]">
             <Image
               src="/Dehydration-IV-Treatment-1-1.jpg"
-              layout="fill"
-              objectFit="contain"
+              fill
+              style={{ objectFit: "contain" }}
               alt="Dehydration IV Treatment"
             />
           </div>
@@ -115,8 +113,8 @@ export default function Home() {
           <div className="relative h-[150px] w-full sm:h-[250px]">
             <Image
               src="/Dehydration-IV-Treatment-1-1.jpg"
-              layout="fill"
-              objectFit="contain"
+              fill
+              style={{ objectFit: "contain" }}
               alt="Dehydration IV Treatment"
             />
           </div>
@@ -129,8 +127,8 @@ export default function Home() {
           <div className="relative h-[150px] w-full sm:h-[250px]">
             <Image
               src="/Dehydration-IV-Treatment-1-1.jpg"
-              layout="fill"
-              objectFit="contain"
+              fill
+              style={{ objectFit: "contain" }}
               alt="Dehydration IV Treatment"
             />
           </div>
@@ -143,8 +141,8 @@ export default function Home() {
           <div className="relative h-[150px] w-full sm:h-[250px]">
             <Image
               src="/Dehydration-IV-Treatment-1-1.jpg"
-              layout="fill"
-              objectFit="contain"
+              fill
+              style={{ objectFit: "contain" }}
               alt="Dehydration IV Treatment"
             />
           </div>
@@ -157,8 +155,8 @@ export default function Home() {
           <div className="relative h-[150px] w-full sm:h-[250px]">
             <Image
               src="/Dehydration-IV-Treatment-1-1.jpg"
-              layout="fill"
-              objectFit="contain"
+              fill
+              style={{ objectFit: "contain" }}
               alt="Dehydration IV Treatment"
             />
           </div>
@@ -171,8 +169,8 @@ export default function Home() {
           <div className="relative h-[150px] w-full sm:h-[250px]">
             <Image
               src="/Dehydration-IV-Treatment-1-1.jpg"
-              layout="fill"
-              objectFit="contain"
+              fill
+              style={{ objectFit: "contain" }}
               alt="Dehydration IV Treatment"
             />
           </div>
@@ -185,8 +183,8 @@ export default function Home() {
           <div className="relative h-[150px] w-full sm:h-[250px]">
             <Image
               src="/Dehydration-IV-Treatment-1-1.jpg"
-              layout="fill"
-              objectFit="contain"
+              fill
+              style={{ objectFit: "contain" }}
               alt="Dehydration IV Treatment"
             />
           </div>
@@ -199,8 +197,8 @@ export default function Home() {
           <div className="relative h-[150px] w-full sm:h-[250px]">
             <Image
               src="/Dehydration-IV-Treatment-1-1.jpg"
-              layout="fill"
-              objectFit="contain"
+              fill
+              style={{ objectFit: "contain" }}
               alt="Dehydration IV Treatment"
             />
           </div>
