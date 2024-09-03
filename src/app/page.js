@@ -26,7 +26,7 @@ export default function Home() {
           />
         </div>
         <div className="absolute inset-0 bg-black sm:bg-transparent opacity-50"></div>
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center sm:items-start sm:justify-start sm:text-start sm:m-[40px] lg:justify-center lg:m-[60px] xl:m-[160px]">
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center sm:items-start sm:justify-start sm:text-start sm:m-[40px] lg:max-w-[1200px] lg:justify-center lg:m-[60px] lg:px-[20px] xl:m-auto">
           <h1 className="flex flex-col text-white text-[26px] font-medium w-[300px] sm:w-full sm:text-black sm: font-normal sm:text-[20px] lg:text-[22px] xl:text-[26px]">
             <span className="tracking-widest sm:tracking-wide sm:text-[28px] sm:font-medium lg:text-[32px] xl:text-[36px]">Mobile IV Therapy</span>& Medical Services Delivered To You
           </h1>
@@ -40,54 +40,56 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-5 w-full h-[120px] bg-[#FAFAFA] px-[20px] py-[20px] sm:h-[150px] lg:px-[40px] lg:py-[60px] lg:h-[260px] lg:gap-10 lg:h-[260px] xl:h-[180px] xl:grid-cols-6 xl:px-[80px]">
-        <div className="relative w-full h-full">
-          <Image
-            src="/brand-logos/assets_TEMP_370d4971fc8e47dd9b13cb385bf3fa1d.webp"
-            layout="fill"
-            objectFit="contain"
-            alt="Dehydration IV Treatment"
-          />
-        </div>
-        <div className="relative w-full h-full">
-          <Image
-            src="/brand-logos/assets_TEMP_5801e1e44d94427d942badb46ffe9e4a.webp"
-            layout="fill"
-            objectFit="contain"
-            alt="Dehydration IV Treatment"
-          />
-        </div>
-        <div className="relative w-full h-full">
-          <Image
-            src="/brand-logos/assets_TEMP_fff87e9ef4494665990194ff6a23a42a.webp"
-            layout="fill"
-            objectFit="contain"
-            alt="Dehydration IV Treatment"
-          />
-        </div>
-        <div className="relative w-full h-full">
-          <Image
-            src="/brand-logos/assets_TEMP_10072b43c8de418ba98619c5272a4a07.webp"
-            layout="fill"
-            objectFit="contain"
-            alt="Dehydration IV Treatment"
-          />
-        </div>
-        <div className="relative w-full h-full">
-          <Image
-            src="/brand-logos/assets_TEMP_f8ac939bd4134736aa886e231e83fa38.webp"
-            layout="fill"
-            objectFit="contain"
-            alt="Dehydration IV Treatment"
-          />
-        </div>
-        <div className="relative w-full h-full">
-          <Image
-            src="/brand-logos/assets_TEMP_bc51997622674349a4599e21ccb19161.webp"
-            layout="fill"
-            objectFit="contain"
-            alt="Dehydration IV Treatment"
-          />
+      <div className="w-full h-[120px] bg-[#FAFAFA] sm:h-[150px] lg:h-[260px] xl:h-[180px]">
+        <div className="grid grid-cols-3 gap-5 w-full h-[120px] bg-[#FAFAFA] px-[20px] py-[20px] sm:h-[150px] lg:max-w-[1200px] lg:px-[40px] lg:py-[60px] lg:h-[260px] lg:gap-10 lg:h-[260px] xl:h-[180px] xl:grid-cols-6 xl:px-[10px] xl:m-auto">
+          <div className="relative w-full h-full">
+            <Image
+              src="/brand-logos/assets_TEMP_370d4971fc8e47dd9b13cb385bf3fa1d.webp"
+              layout="fill"
+              objectFit="contain"
+              alt="Dehydration IV Treatment"
+            />
+          </div>
+          <div className="relative w-full h-full">
+            <Image
+              src="/brand-logos/assets_TEMP_5801e1e44d94427d942badb46ffe9e4a.webp"
+              layout="fill"
+              objectFit="contain"
+              alt="Dehydration IV Treatment"
+            />
+          </div>
+          <div className="relative w-full h-full">
+            <Image
+              src="/brand-logos/assets_TEMP_fff87e9ef4494665990194ff6a23a42a.webp"
+              layout="fill"
+              objectFit="contain"
+              alt="Dehydration IV Treatment"
+            />
+          </div>
+          <div className="relative w-full h-full">
+            <Image
+              src="/brand-logos/assets_TEMP_10072b43c8de418ba98619c5272a4a07.webp"
+              layout="fill"
+              objectFit="contain"
+              alt="Dehydration IV Treatment"
+            />
+          </div>
+          <div className="relative w-full h-full">
+            <Image
+              src="/brand-logos/assets_TEMP_f8ac939bd4134736aa886e231e83fa38.webp"
+              layout="fill"
+              objectFit="contain"
+              alt="Dehydration IV Treatment"
+            />
+          </div>
+          <div className="relative w-full h-full">
+            <Image
+              src="/brand-logos/assets_TEMP_bc51997622674349a4599e21ccb19161.webp"
+              layout="fill"
+              objectFit="contain"
+              alt="Dehydration IV Treatment"
+            />
+          </div>
         </div>
       </div>
       <div className="flex flex-col items-center p-[30px]">
