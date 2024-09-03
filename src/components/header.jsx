@@ -30,8 +30,8 @@ export default function Header() {
                             <div className="relative w-[120px] h-[6vh]">
                                 <Image
                                     src="/Logo-1.png"
-                                    layout="fill"
-                                    objectFit="contain"
+                                    fill
+                                    style={{ objectFit: "contain" }}
                                     alt="Dehydration IV Treatment"
                                 />
                             </div>
@@ -41,16 +41,16 @@ export default function Header() {
                 <div className={`lg:static absolute lg:bg-transparent bg-white border-b border-gray-300 lg:min-h-fit min-h-fit left-0 ${menuPosition} lg:w-auto w-full flex items-center px-5 py-[20px]`}>
                     <ul className="flex lg:flex-row flex-col lg:p-0 lg:items-center lg:gap-0 gap-5">
                         <li className="inline-block text-black  text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
-                            <Link href="/">In-Home Services</Link>
+                            <Link href="/pages/in-home-services">In-Home Services</Link>
                         </li>
                         <li className="inline-block text-black  text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
-                            <Link href="/AboutMe" className="AboutMe">Community</Link>
+                            <Link href="/AboutMe">Community</Link>
                         </li>
                         <li className="inline-block text-black  text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
-                            <Link href="pages/memberships" className="Contact">Memberships</Link>
+                            <Link href="/pages/memberships">Memberships</Link>
                         </li>
                         <li className="inline-block text-black  text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
-                            <Link href="/Contact" className="Contact">About Us</Link>
+                            <Link href="/Contact">About Us</Link>
                         </li>
                     </ul>
                 </div>
