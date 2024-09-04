@@ -208,6 +208,54 @@ export default function Home() {
           <button className="text-[12px] bg-[#ffa9f9] text-white font-medium px-[15px] py-[10px]">Book Now</button>
         </div>
       </div>
+      <span className="h-0 w-full sm:h-[60px]"></span>
+      <div className="flex flex-col items-center w-full h-fit bg-[#FAFAFA] py-[40px]">
+      <h2 className="text-[18px] font-medium tracking-widest sm:text-[26px]">COMMUNITY</h2>
+      <div className="flex flex-wrap justify-center m-auto h-fit w-full max-w-[1200px]">
+        <div className="flex flex-col items-center w-[45%] px-[20px] py-[40px] m-auto sm:w-[275px] sm:m-0">
+          <div className="relative h-[50px] w-full m-[40px] sm:h-[70px]">
+            <Image
+              src="/basic-icons/calendar.png"
+              fill
+              style={{ objectFit: "contain" }}
+              alt="Calender"
+            />
+          </div>
+          <Link className="text-[10px] text-center font-bold hover:text-[#ffa9f9] sm:text-[12px]" href="/pages/register-account">EVENTS</Link>
+          <div className="h-[2px] w-[80px] bg-[#ffa9f9] my-[10px]"></div>
+          <p className="text-[10px] text-center text-black text-opacity-60 h-[60px] mb-[30px] sm:text-[12px]">On-site wellness services to elevate your event and make it one to remember.</p>
+          <button className="text-[12px] bg-[#ffa9f9] text-white font-medium px-[15px] py-[10px]">Book Now</button>
+        </div>
+        <div className="flex flex-col items-center w-[45%] px-[20px] py-[40px] m-auto sm:w-[275px] sm:m-0">
+          <div className="relative h-[50px] w-full m-[40px] sm:h-[70px]">
+            <Image
+              src="/basic-icons/therapeutic.png"
+              fill
+              style={{ objectFit: "contain" }}
+              alt="Dehydration IV Treatment"
+            />
+          </div>
+          <Link className="text-[10px] text-center font-bold hover:text-[#ffa9f9] sm:text-[12px]" href="/pages/register-account">CORPORATE WELLNESS</Link>
+          <div className="h-[2px] w-[80px] bg-[#ffa9f9] my-[10px]"></div>
+          <p className="text-[10px] text-center text-black text-opacity-60 h-[60px] mb-[30px] sm:text-[12px]">Bring comprehensive wellness offerings into the workplace to combat burnout, prevent sickness, and boost productivity.</p>
+          <button className="text-[12px] bg-[#ffa9f9] text-white font-medium px-[15px] py-[10px]">Book Now</button>
+        </div>
+        <div className="flex flex-col items-center w-[45%] px-[20px] py-[40px] m-auto sm:w-[275px] sm:m-0">
+          <div className="relative h-[50px] w-full m-[40px] sm:h-[70px]">
+            <Image
+              src="/basic-icons/communication.png"
+              fill
+              style={{ objectFit: "contain" }}
+              alt="Dehydration IV Treatment"
+            />
+          </div>
+          <Link className="text-[10px] text-center font-bold hover:text-[#ffa9f9] sm:text-[12px]" href="/pages/register-account">LICENSING/CONSULTING</Link>
+          <div className="h-[2px] w-[80px] bg-[#ffa9f9] my-[10px]"></div>
+          <p className="text-[10px] text-center text-black text-opacity-60 h-[60px] mb-[30px] sm:text-[12px]">Explore our wide variety of partnership and licensing opportunities</p>
+          <button className="text-[12px] bg-[#ffa9f9] text-white font-medium px-[15px] py-[10px]">Book Now</button>
+        </div>
+      </div>
+      </div>
     </main>
   );
 }

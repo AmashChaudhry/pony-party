@@ -43,13 +43,16 @@ export default function Header() {
                         <li className="inline-block text-black  text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
                             <Link href="/pages/in-home-services">In-Home Services</Link>
                         </li>
-                        <li className="inline-block text-black  text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
+                        <li className="inline-block text-black text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
                             <Link href="/AboutMe">Community</Link>
                         </li>
-                        <li className="inline-block text-black  text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
+                        <li className="inline-block text-black text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
                             <Link href="/pages/memberships">Memberships</Link>
                         </li>
-                        <li className="inline-block text-black  text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
+                        <li className="inline-block text-black text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
+                            <Link href="/Contact">Locations</Link>
+                        </li>
+                        <li className="inline-block text-black text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
                             <Link href="/Contact">About Us</Link>
                         </li>
                     </ul>
