@@ -10,7 +10,7 @@ export default function Header() {
 
     useEffect(() => {
         if (menuOpen) {
-            setMenuPosition("top-[8vh]");
+            setMenuPosition("top-[80px]");
         } else {
             setMenuPosition("top-[-100vh]");
         }
@@ -22,12 +22,12 @@ export default function Header() {
 
     return (
         <header className="sticky top-0 bg-gradient-to-r from-[#fff7ad] to-[#ffa9f9] z-50">
-            <nav className="flex sticky justify-between items-center h-[8vh] mx-auto w-full lg:max-w-[1200px]">
+            <nav className="flex sticky justify-between items-center h-[80px] mx-auto w-full lg:max-w-[1200px]">
                 <button className="text-black text-[28px] m-[20px] lg:hidden" name="menu" onClick={toggleMenu}>{menuOpen ? <FaTimes /> : <FaBars />}</button>
                 <ul className="flex p-0 items-center">
                     <li className="inline-block text-black text-[14px] py-[4px] px-[10px] mx-[5px]">
                         <Link href="/" className="flex flex-col items-center justify-center">
-                            <div className="relative w-[120px] h-[6vh]">
+                            <div className="relative w-[140px] h-[60px]">
                                 <Image
                                     src="/Logo-1.png"
                                     fill
