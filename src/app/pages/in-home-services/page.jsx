@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import VitaminIV from "@/components/vitamin-iv";
+import VitaminIVTreatments from "@/components/vitamin-iv-treatments";
 
 export default function InHomeServices() {
     return (
@@ -14,7 +14,7 @@ export default function InHomeServices() {
                 <h1 className="text-[20px] text-center font-medium tracking-widest sm:text-[24px]">VITAMIN IV THERAPY</h1>
                 <p className="text-[12px] text-center text-gray-500 font-light sm:text-[14px]">Experience all the benefits of IV therapy in the comfort of your own home.</p>
             </div>
-            <VitaminIV/>
+            <VitaminIVTreatments/>
             <span className="h-0 w-full sm:h-[60px]"></span>
 
 
