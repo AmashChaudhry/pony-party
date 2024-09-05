@@ -3,13 +3,13 @@ import Link from "next/link";
 
 export default function LoginToAccount() {
     return (
-        <div className="flex flex-col items-left w-full max-w-[1200px] m-auto sm:px-[20px] lg:px-[60px]">
-            <form className="flex flex-col items-left w-full max-w-[500px] px-[25px] py-[40px]">
-                <div className="w-full mb-[15px]">
+        <div className="flex flex-col items-start w-full max-w-[1200px] m-auto sm:px-[20px] lg:px-[60px]">
+            <form className="flex flex-col items-start w-full max-w-[500px] px-[25px] py-[40px]">
+                <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Email address (as your login)</label><br />
                     <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none" type="email" required />
                 </div>
-                <div className="w-full mb-[15px]">
+                <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Password</label><br />
                     <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none" type="password" required />
                 </div>

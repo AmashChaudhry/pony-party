@@ -3,23 +3,23 @@ import React from "react";
 export default function RegisterAccount() {
     return (
         <div className="flex flex-col items-center w-full max-w-[1200px] m-auto sm:px-[20px] lg:px-[60px]">
-            <form className="flex flex-col items-left w-full max-w-[500px] px-[25px] py-[40px]">
+            <form className="flex flex-col items-start w-full max-w-[500px] px-[25px] py-[40px]">
                 <div className="flex flex-rox justify-center w-full mb-[30px]">
                     <h2 className="text-[24px] font-bold">Register</h2>
                 </div>
-                <div className="mb-[15px]">
+                <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Email address (as your login)</label><br />
                     <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none" type="email" required />
                 </div>
-                <div className="mb-[15px]">
+                <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">First Name</label><br />
                     <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none" type="text " required />
                 </div>
-                <div className="mb-[15px]">
+                <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Last Name</label><br />
                     <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none" type="text" required />
                 </div>
-                <div className="mb-[15px]">
+                <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Phone Number</label><br />
                     <input className="w-full pl-[40px] p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
                         type="tel"
@@ -29,7 +29,7 @@ export default function RegisterAccount() {
                         required
                     />
                 </div>
-                <div className="mb-[15px]">
+                <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60" htmlFor="dob">Date of Birth</label><br />
                     <input
                         className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
@@ -37,7 +37,7 @@ export default function RegisterAccount() {
                         required
                     />
                 </div>
-                <div className="mb-[15px]">
+                <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Country</label><br />
                     <select className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
                         required
@@ -45,7 +45,7 @@ export default function RegisterAccount() {
                         <option value="AL">United State</option>
                     </select>
                 </div>
-                <div className="mb-[15px]">
+                <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Street Address</label><br />
                     <input
                         className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
@@ -54,7 +54,7 @@ export default function RegisterAccount() {
                         required
                     />
                 </div>
-                <div className="mb-[15px]">
+                <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">City</label><br />
                     <input
                         className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
@@ -63,7 +63,7 @@ export default function RegisterAccount() {
                         required
                     />
                 </div>
-                <div className="mb-[15px]">
+                <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">State</label><br />
                     <select className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
                         required
@@ -121,7 +121,7 @@ export default function RegisterAccount() {
                         <option value="WY">Wyoming</option>
                     </select>
                 </div>
-                <div className="mb-[15px]">
+                <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60" htmlFor="zip">Zip Code</label><br />
                     <input
                         className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
