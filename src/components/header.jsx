@@ -21,7 +21,7 @@ export default function Header() {
     };
 
     return (
-        <header className="sticky top-0 bg-gradient-to-r from-[#fff7ad] to-[#ffa9f9] z-50">
+        <header className="sticky top-0 bg-gradient-to-r from-[#fff7ad] to-[#ffa9f9] w-full z-50">
             <nav className="flex sticky justify-between items-center h-[80px] mx-auto w-full lg:max-w-[1200px]">
                 <button className="text-black text-[28px] m-[20px] lg:hidden" name="menu" onClick={toggleMenu}>{menuOpen ? <FaTimes /> : <FaBars />}</button>
                 <ul className="flex p-0 items-center">
