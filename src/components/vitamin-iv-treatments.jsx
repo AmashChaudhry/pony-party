@@ -2,31 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-
-const treatments = [
-    {
-        title: "DEHYDRATION",
-        subtitle: "Rehydrate and replenish your body with IV fluids",
-        ingrediants: "IV Fluids, Electrolytes",
-        effects: "Revitalize & Replenish",
-        price: "$249",
-        description: "Includes a blend of IV fluids and electrolytes formulated for quick hydration, leaving you feeling revitalized and refreshed.",
-        link: "/pages/vitamin-iv-treatment-detail",
-        src: "/Dehydration-IV-Treatment-1-1.jpg",
-        alt: "Dehydration IV Treatment",
-    },
-    {
-        title: "ENERGY BOOST",
-        subtitle: "Replenish with essential energy-boosting fluids and vitamins.",
-        ingrediants: "B-Complex Vitamins, Vitamin B12, Vitamin C",
-        effects: "Replenish & Revive",
-        price: "$299",
-        description: "Includes a blend of IV fluids, electrolytes, and vitamins to help boost your energy levels and fight off fatigue.",
-        link: "/pages/vitamin-iv-treatment-detail",
-        src: "/Energy-Boost-IV-Treatment-big.jpg",
-        alt: "ENERGY BOOST IV Treatment",
-    },
-];
+import { treatments } from "@/data/vitamin-iv-treatments";
 
 export default function VitaminIVTreatments() {
     return (
@@ -41,20 +17,7 @@ export default function VitaminIVTreatments() {
                             alt={treatment.alt}
                         />
                     </div>
-                    <Link className="text-[10px] text-center font-bold hover:text-[#ffa9f9] sm:text-[12px] xl:text-[14px]"
-                        href={{
-                            pathname: treatment.link,
-                            query: {
-                                title: treatment.title,
-                                ingredients: treatment.ingrediants,
-                                effects: treatment.effects,
-                                price: treatment.price,
-                                description: treatment.description,
-                                src: treatment.src,
-                                alt: treatment.alt,
-                            },
-                        }}
-                    >
+                    <Link className="text-[10px] text-center font-bold hover:text-[#ffa9f9] sm:text-[12px] xl:text-[14px]" href={`/pages/vitamin-iv-treatment/${treatment.id}`}>
                         {`${treatment.title} - ${treatment.price}`}
                     </Link>
                     <div className="h-[2px] w-[80px] bg-[#ffa9f9] my-[10px]"></div>

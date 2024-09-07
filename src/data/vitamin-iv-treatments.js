@@ -1,0 +1,26 @@
+export const treatments = [
+    {
+        id: "dehydration",
+        title: "DEHYDRATION",
+        subtitle: "Rehydrate and replenish your body with IV fluids",
+        ingredients: "IV Fluids, Electrolytes",
+        effects: "Revitalize & Replenish",
+        price: "249",
+        description: "Includes a blend of IV fluids and electrolytes formulated for quick hydration, leaving you feeling revitalized and refreshed.",
+        link: "/pages/vitamin-iv-treatment-detail",
+        src: "/Dehydration-IV-Treatment-1-1.jpg",
+        alt: "Dehydration IV Treatment",
+    },
+    {
+        id: "energy-boost",
+        title: "ENERGY BOOST",
+        subtitle: "Replenish with essential energy-boosting fluids and vitamins.",
+        ingredients: "B-Complex Vitamins, Vitamin B12, Vitamin C",
+        effects: "Replenish & Revive",
+        price: "299",
+        description: "Includes a blend of IV fluids, electrolytes, and vitamins to help boost your energy levels and fight off fatigue.",
+        link: "/pages/vitamin-iv-treatment-detail",
+        src: "/Energy-Boost-IV-Treatment-big.jpg",
+        alt: "ENERGY BOOST IV Treatment",
+    },
+];

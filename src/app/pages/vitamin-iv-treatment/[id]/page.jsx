@@ -1,18 +1,21 @@
-"use client";
-import React from "react";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
+import React from "react";
+import { treatments } from "@/data/vitamin-iv-treatments";
 
-export default function VitaminIVTreatmentDetail() {
-    const treatment = useSearchParams();
+export default function VitaminIVTreatmentDetail({ params }) {
+    const { id } = params;
 
-    const title = treatment.get('title');
-    const ingredients = treatment.get('ingredients');
-    const effects = treatment.get('effects');
-    const price = treatment.get('price');
-    const description = treatment.get('description');
-    const src = treatment.get('src');
-    const alt = treatment.get('alt');
+    const treatmentDetail = treatments.find(treatment => treatment.id === id);
+
+    if (!treatmentDetail) {
+        return (
+            <div className="flex flex-col items-center justify-center w-full" style={{ height: "calc(100vh - 80px)" }}>
+                <h2>Treatment not found</h2>
+            </div>
+        );
+    }
+
+    const { title, ingredients, effects, price, description, src, alt } = treatmentDetail;
 
     return (
         <div className="flex flex-col items-center">
@@ -47,4 +50,4 @@ export default function VitaminIVTreatmentDetail() {
             </div>
         </div>
     );
-}
+};
