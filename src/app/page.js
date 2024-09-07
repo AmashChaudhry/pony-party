@@ -106,10 +106,10 @@ export default function Home() {
           <div className="flex flex-col items-center w-[45%] px-[20px] py-[40px] m-auto sm:w-[310px] sm:m-0 lg:px-[30px]">
             <div className="relative h-[50px] w-full m-[40px] sm:h-[70px]">
               <Image
-                src="/basic-icons/calendar.png"
+                src="/basic-icons/events.png"
                 fill
                 style={{ objectFit: "contain" }}
-                alt="Calender"
+                alt="Events"
               />
             </div>
             <Link className="text-[10px] text-center font-bold hover:text-[#ffa9f9] sm:text-[12px] lg:text-[14px]" href="/pages/register-account">EVENTS</Link>
@@ -120,10 +120,10 @@ export default function Home() {
           <div className="flex flex-col items-center w-[45%] px-[20px] py-[40px] m-auto sm:w-[310px] sm:m-0 lg:px-[30px]">
             <div className="relative h-[50px] w-full m-[40px] sm:h-[70px]">
               <Image
-                src="/basic-icons/therapeutic.png"
+                src="/basic-icons/corporate-wellness.png"
                 fill
                 style={{ objectFit: "contain" }}
-                alt="Dehydration IV Treatment"
+                alt="Corporate Wellness"
               />
             </div>
             <Link className="text-[10px] text-center font-bold hover:text-[#ffa9f9] sm:text-[12px] lg:text-[14px]" href="/pages/register-account">CORPORATE WELLNESS</Link>
@@ -134,10 +134,10 @@ export default function Home() {
           <div className="flex flex-col items-center w-[45%] px-[20px] py-[40px] m-auto sm:w-[310px] sm:m-0 lg:px-[30px]">
             <div className="relative h-[50px] w-full m-[40px] sm:h-[70px]">
               <Image
-                src="/basic-icons/communication.png"
+                src="/basic-icons/licensing-consulting.png"
                 fill
                 style={{ objectFit: "contain" }}
-                alt="Dehydration IV Treatment"
+                alt="Licensing-Consulting"
               />
             </div>
             <Link className="text-[10px] text-center font-bold hover:text-[#ffa9f9] sm:text-[12px] lg:text-[14px]" href="/pages/register-account">LICENSING/CONSULTING</Link>
