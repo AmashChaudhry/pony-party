@@ -124,7 +124,7 @@ export default function InHomeServices() {
                     <div className="flex flex-col items-center w-[45%] px-[20px] py-[40px] m-auto sm:w-[310px] sm:m-0 lg:px-[30px]">
                         <div className="relative h-[50px] w-full m-[40px] sm:h-[70px]">
                             <Image
-                                src="/basic-icons/calendar.png"
+                                src="/basic-icons/events.png"
                                 fill
                                 style={{ objectFit: "contain" }}
                                 alt="Calender"
@@ -138,7 +138,7 @@ export default function InHomeServices() {
                     <div className="flex flex-col items-center w-[45%] px-[20px] py-[40px] m-auto sm:w-[310px] sm:m-0 lg:px-[30px]">
                         <div className="relative h-[50px] w-full m-[40px] sm:h-[70px]">
                             <Image
-                                src="/basic-icons/calendar.png"
+                                src="/basic-icons/events.png"
                                 fill
                                 style={{ objectFit: "contain" }}
                                 alt="Calender"
@@ -152,7 +152,7 @@ export default function InHomeServices() {
                     <div className="flex flex-col items-center w-[45%] px-[20px] py-[40px] m-auto sm:w-[310px] sm:m-0 lg:px-[30px]">
                         <div className="relative h-[50px] w-full m-[40px] sm:h-[70px]">
                             <Image
-                                src="/basic-icons/calendar.png"
+                                src="/basic-icons/events.png"
                                 fill
                                 style={{ objectFit: "contain" }}
                                 alt="Calender"
@@ -166,7 +166,7 @@ export default function InHomeServices() {
                     <div className="flex flex-col items-center w-[45%] px-[20px] py-[40px] m-auto sm:w-[310px] sm:m-0 lg:px-[30px]">
                         <div className="relative h-[50px] w-full m-[40px] sm:h-[70px]">
                             <Image
-                                src="/basic-icons/calendar.png"
+                                src="/basic-icons/events.png"
                                 fill
                                 style={{ objectFit: "contain" }}
                                 alt="Calender"
@@ -180,7 +180,7 @@ export default function InHomeServices() {
                     <div className="flex flex-col items-center w-[45%] px-[20px] py-[40px] m-auto sm:w-[310px] sm:m-0 lg:px-[30px]">
                         <div className="relative h-[50px] w-full m-[40px] sm:h-[70px]">
                             <Image
-                                src="/basic-icons/calendar.png"
+                                src="/basic-icons/events.png"
                                 fill
                                 style={{ objectFit: "contain" }}
                                 alt="Calender"
@@ -194,7 +194,7 @@ export default function InHomeServices() {
                     <div className="flex flex-col items-center w-[45%] px-[20px] py-[40px] m-auto sm:w-[310px] sm:m-0 lg:px-[30px]">
                         <div className="relative h-[50px] w-full m-[40px] sm:h-[70px]">
                             <Image
-                                src="/basic-icons/calendar.png"
+                                src="/basic-icons/events.png"
                                 fill
                                 style={{ objectFit: "contain" }}
                                 alt="Calender"
