@@ -16,13 +16,6 @@ export default function InHomeServices() {
             </div>
             <VitaminIVTreatments/>
             <span className="h-0 w-full sm:h-[60px]"></span>
-
-
-
-
-
-
-
             <div className="flex flex-col items-center w-full h-fit bg-[#FAFAFA] py-[80px]">
                 <h2 className="text-[18px] font-medium tracking-widest sm:text-[26px]">WELLNESS TREATMENTS</h2>
                 <div className="flex flex-wrap justify-center m-auto h-fit w-full max-w-[1200px]">
