@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { NextResponse } from "next/server";
-import { connectionString } from "@/lib/database";
+import { connect } from "@/lib/database_config";
 
 const userModel = new mongoose.Schema({
   name: String,
@@ -10,10 +10,10 @@ const User = mongoose.models.users || mongoose.model("users", userModel);
 
 export async function GET() {
   try {
-    await mongoose.connect(connectionString);
+    connect();
     const data = await User.find();
-    return NextResponse.json({ result: data });
+    return NextResponse.json({ Result: data });
   } catch (error) {
-    return NextResponse.json({ error: "An error occurred" });
+    return NextResponse.json({ Error: error });
   }
 }
