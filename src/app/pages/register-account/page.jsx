@@ -1,6 +1,7 @@
 'use client'
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 export default function RegisterAccount() {
     const router = useRouter();
@@ -13,12 +14,13 @@ export default function RegisterAccount() {
 
     const [buttonDisabled, setButtonDisabled] = useState(true);
     const [loading, setLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
     const register = async (event) => {
         event.preventDefault();
         try {
+            setButtonDisabled(true);
             setLoading(true);
-
             const response = await fetch('/api/register-user', {
                 method: 'POST',
                 headers: {
@@ -27,10 +29,22 @@ export default function RegisterAccount() {
                 body: JSON.stringify(user),
             });
 
+            const data = await response.json();
+
+            if (response.status === 400) {
+                setErrorMessage(data.error);
+            } else if (response.ok) {
+                console.log("Registered successfully");
+                // router.push("/pages/login-to-account");
+            } else {
+                setErrorMessage("An error occurred. Please try again.");
+            }
+
         } catch (error) {
             console.log("Rgisteration failed");
         } finally {
             setLoading(false);
+            setButtonDisabled(false);
         }
     }
 
@@ -50,7 +64,7 @@ export default function RegisterAccount() {
                 </div>
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Email address (as your login)</label><br />
-                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                    <input className={`w-full p-[15px] text-[14px] ${errorMessage ? "bg-red-100 border-l-red-500" : "bg-[rgba(0,0,0,0.05)] border-l-[#ffa9f9]"} bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none`}
                         type="email"
                         id="email"
                         value={user.email}
@@ -210,13 +224,19 @@ export default function RegisterAccount() {
                     <input className="mr-[10px]" type="checkbox" id="remember-me" />
                     <label>I agree to the Term of Service, Privacy Policy, Consent To Treat, and Cancellation Policy</label>
                 </div>
+                {errorMessage && (
+                    <div className="mb-[15px] w-full bg-red-100 p-[10px] rounded">
+                        <p className="text-red-600 text-[14px]">{errorMessage}</p>
+                    </div>
+                )}
                 <div className="flex flex-rox justify-center w-full">
                     <button
-                        className="bg-[#ffa9f9] text-white w-fit py-[15px] px-[20px] hover:bg-black"
+                        className={`${buttonDisabled ? "bg-gray-200 text-gray-400" : "bg-[#ffa9f9] hover:bg-black text-white"} w-fit py-[15px] px-[20px]`}
                         type="submit"
+                        disabled={buttonDisabled}
                         onClick={register}
                     >
-                        { loading ? "Loading..." : "Register"}
+                        {loading ? "Loading..." : "Register"}
                     </button>
                 </div>
             </form>
