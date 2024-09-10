@@ -1,6 +1,44 @@
-import React from "react";
+'use client'
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function RegisterAccount() {
+    const router = useRouter();
+    const [user, setUser] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+    });
+
+    const [buttonDisabled, setButtonDisabled] = useState(true);
+    const [loading, setLoading] = useState(false);
+
+    const register = async () => {
+        try {
+            setLoading(true);
+
+            const response = await fetch('/api/register-user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(user),
+            });
+            
+        } catch (error) {
+            console.log("Rgisteration failed");
+        }
+    }
+
+    useEffect(() => {
+        if (user.firstName.length > 0 && user.lastName.length > 0 && user.email.length > 0 && user.password.length > 7) {
+            setButtonDisabled(false);
+        } else {
+            setButtonDisabled(true);
+        }
+    }, [user]);
+
     return (
         <div className="flex flex-col items-center w-full max-w-[1200px] m-auto sm:px-[20px] lg:px-[60px]">
             <form className="flex flex-col items-start w-full max-w-[500px] px-[25px] py-[40px]">
@@ -9,17 +47,45 @@ export default function RegisterAccount() {
                 </div>
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Email address (as your login)</label><br />
-                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none" type="email" required />
+                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                        type="email"
+                        id="email"
+                        value={user.email}
+                        onChange={(e) => setUser({ ...user, email: e.target.value })}
+                        required
+                    />
                 </div>
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">First Name</label><br />
-                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none" type="text " required />
+                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                        type="text"
+                        id="firstName"
+                        value={user.firstName}
+                        onChange={(e) => setUser({ ...user, firstName: e.target.value })}
+                        required
+                    />
                 </div>
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Last Name</label><br />
-                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none" type="text" required />
+                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                        type="text"
+                        id="lastName"
+                        value={user.lastName}
+                        onChange={(e) => setUser({ ...user, lastName: e.target.value })}
+                        required
+                    />
                 </div>
                 <div className="mb-[15px] w-full">
+                    <label className="text-black text-opacity-60">Password</label><br />
+                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                        type="password"
+                        id="password"
+                        value={user.password}
+                        onChange={(e) => setUser({ ...user, password: e.target.value })}
+                        required
+                    />
+                </div>
+                {/* <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Phone Number</label><br />
                     <input className="w-full pl-[40px] p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
                         type="tel"
@@ -131,7 +197,7 @@ export default function RegisterAccount() {
                         title="Zip code should be in the format 12345 or 12345-6789"
                         required
                     />
-                </div>
+                </div> */}
                 <div>
                     <p>
                         Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our Privacy Policy and Term of Service.
@@ -142,7 +208,13 @@ export default function RegisterAccount() {
                     <label>I agree to the Term of Service, Privacy Policy, Consent To Treat, and Cancellation Policy</label>
                 </div>
                 <div className="flex flex-rox justify-center w-full">
-                    <button className="bg-[#ffa9f9] text-white w-fit py-[15px] px-[20px] hover:bg-black" type="submit">Register</button>
+                    <button
+                        className="bg-[#ffa9f9] text-white w-fit py-[15px] px-[20px] hover:bg-black"
+                        type="submit"
+                        onClick={register}
+                    >
+                        { loading ? "Loading..." : "Register"}
+                    </button>
                 </div>
             </form>
         </div>
