@@ -14,7 +14,8 @@ export default function RegisterAccount() {
     const [buttonDisabled, setButtonDisabled] = useState(true);
     const [loading, setLoading] = useState(false);
 
-    const register = async () => {
+    const register = async (event) => {
+        event.preventDefault();
         try {
             setLoading(true);
 
@@ -25,9 +26,11 @@ export default function RegisterAccount() {
                 },
                 body: JSON.stringify(user),
             });
-            
+
         } catch (error) {
             console.log("Rgisteration failed");
+        } finally {
+            setLoading(false);
         }
     }
 
