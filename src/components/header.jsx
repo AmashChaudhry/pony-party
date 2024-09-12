@@ -8,6 +8,23 @@ export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [menuPosition, setMenuPosition] = useState("top-[-100vh]");
 
+    const [user, setUser] = useState(null);
+
+    const getUserData = async () => {
+        const response = await fetch('/api/current-user', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        const userData = await response.json();
+        setUser(userData.data);
+    };
+
+    useEffect(() => {
+        getUserData();
+    }, []);
+
     useEffect(() => {
         if (menuOpen) {
             setMenuPosition("top-[80px]");
@@ -59,7 +76,9 @@ export default function Header() {
                 </div>
                 <ul className="flex p-0 items-center">
                     <li className="inline-block text-black text-[14px] font-bold m-[20px]">
-                        <Link href="/pages/login-to-account">Log in</Link>
+                        {
+                            user ? <Link href="/pages/user-profile">Profile</Link> : <Link href="/pages/login-to-account">Log in</Link>
+                        }
                     </li>
                 </ul>
             </nav>
