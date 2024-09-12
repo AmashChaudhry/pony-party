@@ -7,18 +7,22 @@ import Image from "next/image";
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [menuPosition, setMenuPosition] = useState("top-[-100vh]");
-
     const [user, setUser] = useState(null);
 
     const getUserData = async () => {
-        const response = await fetch('/api/current-user', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-        const userData = await response.json();
-        setUser(userData.data);
+        try {
+            const response = await fetch('/api/current-user', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            const userData = await response.json();
+            setUser(userData.data);
+        } catch (error) {
+            console.error('Failed to fetch user data:', error);
+            setUser(null);
+        }
     };
 
     useEffect(() => {
