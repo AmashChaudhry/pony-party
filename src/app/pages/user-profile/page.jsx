@@ -1,12 +1,11 @@
-'use client'
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+'use client';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import React, { useState, useEffect } from 'react';
 
 export default function UserProfile() {
-
     const router = useRouter();
-    const [data, setData] = useState("nothing");
+    const [user, setUser] = useState(null);
 
     const getUserData = async () => {
         const response = await fetch('/api/current-user', {
@@ -15,10 +14,13 @@ export default function UserProfile() {
                 'Content-Type': 'application/json',
             },
         });
-        const user = await response.json();
-        setData(user.data._id);
-        console.log(data);
-    }
+        const userData = await response.json();
+        setUser(userData.data);
+    };
+
+    useEffect(() => {
+        getUserData();
+    }, []);
 
     const logout = async () => {
         try {
@@ -28,29 +30,26 @@ export default function UserProfile() {
                     'Content-Type': 'application/json',
                 },
             });
-            router.push("/");
+            router.push('/');
         } catch (error) {
             console.log(error.message);
         }
-    }
+    };
 
     return (
         <div className="flex flex-col items-center justify-center h-screen">
-            <h1>Profile page</h1>
-            <h2>
-                {data === "nothing" ? "Nothing" :
-                    <Link href={`/pages/user-profile/${data}`}>{data}</Link>
-                }
-            </h2>
-            <button
-            className="bg-green-400 text-white p-[10px]"
-                onClick={getUserData}>
-                Get User Data
-            </button>
-            <hr />
-            <button
-            className="bg-red-400 text-white p-[10px]"
-                onClick={logout}>
+            <h1 className='text-[20px] font-medium mb-10'>Profile</h1>
+            {user ?
+                <div className='flex flex-col items-center'>
+                    <p>{user.firstName} {user.lastName}</p>
+                    <p className='mb-5'>{user.email}</p>
+                    <Link href={`/pages/user-profile/${user._id}`} className='text-blue-400 font-semibold'>
+                        View Profle
+                    </Link>
+                </div>
+                : <h1>Loading...</h1>
+            }
+            <button className="bg-red-400 text-white p-[10px] mt-5 rounded" onClick={logout}>
                 Logout
             </button>
         </div>
