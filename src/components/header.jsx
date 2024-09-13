@@ -7,6 +7,7 @@ import Image from "next/image";
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [menuPosition, setMenuPosition] = useState("top-[-100vh]");
+    const [loading, setLoading] = useState(true);
     const [user, setUser] = useState(null);
 
     const getUserData = async () => {
@@ -22,6 +23,8 @@ export default function Header() {
         } catch (error) {
             console.error('Failed to fetch user data:', error);
             setUser(null);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -59,7 +62,7 @@ export default function Header() {
                         </Link>
                     </li>
                 </ul>
-                <div className={`lg:static absolute lg:bg-transparent bg-white border-b border-gray-300 lg:min-h-fit min-h-fit left-0 ${menuPosition} lg:w-auto w-full flex items-center px-5 py-[20px]`}>
+                <div className={`lg:static absolute bg-white border-b border-gray-300 lg:border-transparent lg:bg-transparent lg:min-h-fit min-h-fit left-0 ${menuPosition} lg:w-auto w-full flex items-center px-5 py-[20px]`}>
                     <ul className="flex lg:flex-row flex-col lg:p-0 lg:items-center lg:gap-0 gap-5">
                         <li className="inline-block text-black  text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
                             <Link href="/pages/in-home-services">In-Home Services</Link>
@@ -74,14 +77,20 @@ export default function Header() {
                             <Link href="/Contact">Locations</Link>
                         </li>
                         <li className="inline-block text-black text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
-                            <Link href="/Contact">About Us</Link>
+                            <Link href="/pages/about-us">About Us</Link>
                         </li>
                     </ul>
                 </div>
                 <ul className="flex p-0 items-center">
                     <li className="inline-block text-black text-[14px] font-bold m-[20px]">
                         {
-                            user ? <Link href="/pages/user-profile">Profile</Link> : <Link href="/pages/login-to-account">Log in</Link>
+                            loading ? (
+                                <span></span>
+                            ) : user ? (
+                                <Link href="/pages/user-profile">Profile</Link>
+                            ) : (
+                                <Link href="/pages/login-to-account">Log in</Link>
+                            )
                         }
                     </li>
                 </ul>

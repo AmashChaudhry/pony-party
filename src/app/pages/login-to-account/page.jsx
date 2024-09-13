@@ -34,7 +34,8 @@ export default function LoginToAccount() {
                 setErrorMessage(data.error);
             } else if (response.ok) {
                 console.log("Login successfully");
-                router.push("/pages/in-home-services");
+                window.location.reload();
+                // router.push("/pages/in-home-services");
             } else {
                 setErrorMessage("An error occurred. Please try again.");
             }

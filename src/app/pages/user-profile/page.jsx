@@ -30,7 +30,7 @@ export default function UserProfile() {
                     'Content-Type': 'application/json',
                 },
             });
-            router.push('/');
+            window.location.reload();
         } catch (error) {
             console.log(error.message);
         }
