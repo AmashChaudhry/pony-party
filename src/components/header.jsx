@@ -82,10 +82,10 @@ export default function Header() {
                     </ul>
                 </div>
                 <ul className="flex p-0 items-center">
-                    <li className="inline-block text-black text-[14px] font-bold m-[20px]">
+                    <li className="inline-block text-black text-[12px] m-[20px]">
                         {
                             loading ? (
-                                <span></span>
+                                <div className="h-[15px] w-[50px] bg-white opacity-20 rounded-sm"></div>
                             ) : user ? (
                                 <Link href="/pages/user-profile">Profile</Link>
                             ) : (
