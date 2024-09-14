@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { AiOutlineUser } from "react-icons/ai";
 import Image from "next/image";
 
 export default function Header() {
@@ -87,7 +88,7 @@ export default function Header() {
                             loading ? (
                                 <div className="h-[15px] w-[50px] bg-white opacity-20 rounded-sm"></div>
                             ) : user ? (
-                                <Link href="/pages/user-profile">Profile</Link>
+                                <Link href="/pages/user-profile"><AiOutlineUser size={25} /></Link>
                             ) : (
                                 <Link href="/pages/login-to-account">Log in</Link>
                             )
