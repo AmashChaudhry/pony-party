@@ -34,8 +34,8 @@ export default function LoginToAccount() {
                 setErrorMessage(data.error);
             } else if (response.ok) {
                 console.log("Login successfully");
-                window.location.reload();
                 router.back();
+                window.location.reload();
             } else {
                 setErrorMessage("An error occurred. Please try again.");
             }

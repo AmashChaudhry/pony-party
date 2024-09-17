@@ -42,7 +42,13 @@ export default function UserProfile() {
             {user ?
                 <div className='flex flex-col items-center'>
                     <p>{user.firstName} {user.lastName}</p>
-                    <p className='mb-5'>{user.email}</p>
+                    <p>{user.email}</p>
+                    <p>{user.phoneNumber}</p>
+                    <p>{user.state}</p>
+                    <p>{user.city}</p>
+                    <p>{user.address}</p>
+                    <p>{user.zipCode}</p>
+                    <p className='mb-5'>{new Date(user.dateOfBirth).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
                     <Link href={`/pages/user-profile/${user._id}`} className='text-blue-400 font-semibold'>
                         View Profle
                     </Link>

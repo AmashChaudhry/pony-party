@@ -80,9 +80,14 @@ export default function Header() {
                     <li className="inline-block text-black text-[12px] m-[20px]">
                         {
                             loading ? (
-                                <div className="h-[15px] w-[50px] bg-white opacity-20 rounded-sm"></div>
+                                <div className="h-[30px] w-[30px] bg-white opacity-30 rounded-full"></div>
                             ) : user ? (
-                                <Link href="/pages/user-profile"><AiOutlineUser size={25} /></Link>
+                                <Link href="/pages/user-profile">
+                                    <div className="flex flex-row items-center bg-gray-100 p-[10px] rounded-full lg:px-[10px] lg:py-[5px]">
+                                        <AiOutlineUser size={15} />
+                                        <p className="hidden lg:block text-[14px] ml-[10px]">{user.firstName}</p>
+                                    </div>
+                                </Link>
                             ) : (
                                 <Link href="/pages/login-to-account">Log in</Link>
                             )
