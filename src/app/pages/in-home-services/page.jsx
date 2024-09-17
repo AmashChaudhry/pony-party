@@ -16,7 +16,12 @@ export default function InHomeServices() {
             </div>
             <VitaminIVTreatments/>
             <span className="h-0 w-full sm:h-[60px]"></span>
-            <div className="flex flex-col items-center w-full h-fit bg-[#FAFAFA] py-[80px]">
+
+
+
+
+
+            {/* <div className="flex flex-col items-center w-full h-fit bg-[#FAFAFA] py-[80px]">
                 <h2 className="text-[18px] font-medium tracking-widest sm:text-[26px]">WELLNESS TREATMENTS</h2>
                 <div className="flex flex-wrap justify-center m-auto h-fit w-full max-w-[1200px]">
                     <div className="flex flex-col items-center w-[45%] px-[20px] py-[40px] m-auto sm:w-[310px] sm:m-0 lg:px-[30px]">
@@ -104,14 +109,14 @@ export default function InHomeServices() {
                         <button className="text-[12px] bg-[#ffa9f9] text-white font-medium px-[15px] py-[10px]">Book Now</button>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
 
 
 
 
 
-            <div className="flex flex-col items-center w-full h-fit bg-white py-[80px]">
+            {/* <div className="flex flex-col items-center w-full h-fit bg-white py-[80px]">
                 <h2 className="text-[18px] font-medium tracking-widest sm:text-[26px]">GENERAL MEDICINE</h2>
                 <div className="flex flex-wrap justify-center m-auto h-fit w-full max-w-[1200px]">
                     <div className="flex flex-col items-center w-[45%] px-[20px] py-[40px] m-auto sm:w-[310px] sm:m-0 lg:px-[30px]">
@@ -199,15 +204,13 @@ export default function InHomeServices() {
                         <button className="text-[12px] bg-[#ffa9f9] text-white font-medium px-[15px] py-[10px]">Book Now</button>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
 
 
 
 
-
-
-            <div className="flex flex-col items-center w-full h-fit bg-[#FAFAFA] py-[40px]">
+            {/* <div className="flex flex-col items-center w-full h-fit bg-[#FAFAFA] py-[40px]">
                 <h2 className="text-[18px] font-medium tracking-widest sm:text-[26px]">COMMUNITY</h2>
                 <div className="flex flex-wrap justify-center m-auto h-fit w-full max-w-[1200px]">
                     <div className="flex flex-col items-center w-[45%] px-[20px] py-[40px] m-auto sm:w-[310px] sm:m-0 lg:px-[30px]">
@@ -253,12 +256,9 @@ export default function InHomeServices() {
                         <button className="text-[12px] bg-[#ffa9f9] text-white font-medium px-[15px] py-[10px]">Book Now</button>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
-
-
-
-
+            
 
         </div>
     );

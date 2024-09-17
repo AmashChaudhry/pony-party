@@ -24,7 +24,7 @@ export default function VitaminIVTreatmentDetail({ params }) {
                 <div className="relative flex justify-center h-fit w-[50%] p-[20px]">
                     <Image
                         src={src}
-                        width={450}
+                        width={500}
                         height={1080}
                         style={{ objectFit: "cover" }}
                         alt={alt}

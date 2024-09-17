@@ -14,15 +14,27 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    password: {
-        type: String,
-        required: true,
-    },
     phoneNumber: {
+        type: String,
+    },
+    dateOfBirth: {
+        type: Date,
+    },
+    state: {
+        type: String,
+    },
+    city: {
         type: String,
     },
     address: {
         type: String,
+    },
+    zipCode: {
+        type: String,
+    },
+    password: {
+        type: String,
+        required: true,
     },
     isVerified: {
         type: Boolean,

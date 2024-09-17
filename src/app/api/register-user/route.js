@@ -7,21 +7,38 @@ connect();
 export async function POST(request) {
     try {
         const reqBody = await request.json();
-        const {firstName, lastName, email, password} = reqBody;
-
-        const user = await User.findOne({email});
-
-        if(user) {
-            return NextResponse.json({error: "Given email already linked with another account. Please try another email."}, {status: 400});
-        }
-
-        const newUser = new User ({
+        const {
             firstName,
             lastName,
             email,
+            phoneNumber,
+            dateOfBirth,
+            state,
+            city,
+            address,
+            zipCode,
+            password,
+        } = reqBody;
+
+        const user = await User.findOne({ email });
+
+        if (user) {
+            return NextResponse.json({ error: "Given email already linked with another account. Please try another email." }, { status: 400 });
+        }
+
+        const newUser = new User({
+            firstName,
+            lastName,
+            email,
+            phoneNumber,
+            dateOfBirth,
+            state,
+            city,
+            address,
+            zipCode,
             password,
         });
-        
+
         const savedUser = await newUser.save();
         console.log(savedUser);
 

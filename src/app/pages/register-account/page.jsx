@@ -1,6 +1,7 @@
 'use client'
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function RegisterAccount() {
     const router = useRouter();
@@ -8,6 +9,12 @@ export default function RegisterAccount() {
         firstName: "",
         lastName: "",
         email: "",
+        phoneNumber: "",
+        dateOfBirth: "",
+        city: "",
+        state: "",
+        address: "",
+        zipCode: "",
         password: "",
     });
 
@@ -17,6 +24,10 @@ export default function RegisterAccount() {
 
     const register = async (event) => {
         event.preventDefault();
+        const formattedUser = {
+            ...user,
+            phoneNumber: user.phoneNumber.startsWith('+1') ? user.phoneNumber : `+1${user.phoneNumber}`
+        };
         try {
             setButtonDisabled(true);
             setLoading(true);
@@ -25,7 +36,7 @@ export default function RegisterAccount() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(user),
+                body: JSON.stringify(formattedUser),
             });
 
             const data = await response.json();
@@ -34,7 +45,7 @@ export default function RegisterAccount() {
                 setErrorMessage(data.error);
             } else if (response.ok) {
                 console.log("Registered successfully");
-                // router.push("/pages/login-to-account");
+                router.back();
             } else {
                 setErrorMessage("An error occurred. Please try again.");
             }
@@ -91,6 +102,144 @@ export default function RegisterAccount() {
                         required
                     />
                 </div>
+                <div className="mb-[15px] w-full relative">
+                    <label className="text-black text-opacity-60">Phone Number</label><br />
+                    <div className="flex items-center border-l-4 border-l-[#ffa9f9] bg-[rgba(0,0,0,0.05)] p-[15px] w-full">
+                        <div className="flex items-center space-x-2 mr-2">
+                            <div className="relative w-[30px] h-[30px]">
+                                <Image
+                                    src="/united-states.png"
+                                    fill
+                                    style={{ objectFit: "contain" }}
+                                    alt="Dehydration IV Treatment"
+                                />
+                            </div>
+                            <span className="text-[14px]">+1</span>
+                        </div>
+                        <input
+                            className="flex-1 pl-2 text-[14px] bg-transparent focus:outline-none"
+                            type="tel"
+                            placeholder="1234567890"
+                            value={user.phoneNumber}
+                            onChange={(e) => {
+                                const phoneNumber = e.target.value;
+                                if (phoneNumber.length <= 10 && /^\d*$/.test(phoneNumber)) {
+                                    setUser({ ...user, phoneNumber });
+                                }
+                            }}
+                            required
+                        />
+                    </div>
+                </div>
+                <div className="mb-[15px] w-full">
+                    <label className="text-black text-opacity-60" htmlFor="dob">Date of Birth</label><br />
+                    <input
+                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                        type="date"
+                        id="dateOfBirth"
+                        value={user.dateOfBirth}
+                        onChange={(e) => setUser({ ...user, dateOfBirth: e.target.value })}
+                        required
+                    />
+                </div>
+                <div className="mb-[15px] w-full">
+                    <label className="text-black text-opacity-60">State</label><br />
+                    <select
+                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                        id="state"
+                        value={user.state}
+                        onChange={(e) => setUser({ ...user, state: e.target.value })}
+                        required
+                    >
+                        <option value="" disabled selected>Select your state</option>
+                        <option value="Aabama">Alabama</option>
+                        <option value="Alaska">Alaska</option>
+                        <option value="Arizona">Arizona</option>
+                        <option value="Arkanas">Arkansas</option>
+                        <option value="California">California</option>
+                        <option value="Coloroda">Colorado</option>
+                        <option value="Connecticut">Connecticut</option>
+                        <option value="Delaware">Delaware</option>
+                        <option value="Florida">Florida</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Hawaii">Hawaii</option>
+                        <option value="Idaho">Idaho</option>
+                        <option value="Illinois">Illinois</option>
+                        <option value="Indiana">Indiana</option>
+                        <option value="Iowa">Iowa</option>
+                        <option value="Kansas">Kansas</option>
+                        <option value="Kentucky">Kentucky</option>
+                        <option value="Louisiana">Louisiana</option>
+                        <option value="Maine">Maine</option>
+                        <option value="Maryland">Maryland</option>
+                        <option value="Massachusetts">Massachusetts</option>
+                        <option value="Michigan">Michigan</option>
+                        <option value="Minnesota">Minnesota</option>
+                        <option value="Mississippi">Mississippi</option>
+                        <option value="Missouri">Missouri</option>
+                        <option value="Montana">Montana</option>
+                        <option value="Nebraska">Nebraska</option>
+                        <option value="Nevada">Nevada</option>
+                        <option value="New Hampshire">New Hampshire</option>
+                        <option value="New Jersey">New Jersey</option>
+                        <option value="New Mexico">New Mexico</option>
+                        <option value="New York">New York</option>
+                        <option value="New Carolina">North Carolina</option>
+                        <option value="North Dakota">North Dakota</option>
+                        <option value="Ohio">Ohio</option>
+                        <option value="Oklahoma">Oklahoma</option>
+                        <option value="Oregon">Oregon</option>
+                        <option value="Pennsylavania">Pennsylvania</option>
+                        <option value="Rhode Island">Rhode Island</option>
+                        <option value="South Carolina">South Carolina</option>
+                        <option value="South Dakota">South Dakota</option>
+                        <option value="Tennessee">Tennessee</option>
+                        <option value="Texas">Texas</option>
+                        <option value="Utah">Utah</option>
+                        <option value="Vermont">Vermont</option>
+                        <option value="Virginia">Virginia</option>
+                        <option value="Washington">Washington</option>
+                        <option value="West Virginia">West Virginia</option>
+                        <option value="Wisconsin">Wisconsin</option>
+                        <option value="Wyoming">Wyoming</option>
+                    </select>
+                </div>
+                <div className="mb-[15px] w-full">
+                    <label className="text-black text-opacity-60">City</label><br />
+                    <input
+                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                        type="text"
+                        placeholder="Enter your city"
+                        id="city"
+                        value={user.city}
+                        onChange={(e) => setUser({ ...user, city: e.target.value })}
+                        required
+                    />
+                </div>
+                <div className="mb-[15px] w-full">
+                    <label className="text-black text-opacity-60">Street Address</label><br />
+                    <input
+                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                        type="text"
+                        placeholder="Enter your street address"
+                        id="address"
+                        value={user.address}
+                        onChange={(e) => setUser({ ...user, address: e.target.value })}
+                        required
+                    />
+                </div>
+                <div className="mb-[15px] w-full">
+                    <label className="text-black text-opacity-60" htmlFor="zip">Zip Code</label><br />
+                    <input
+                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                        type="text"
+                        placeholder="Enter your zip code"
+                        id="zipCode"
+                        value={user.zipCode}
+                        onChange={(e) => setUser({ ...user, zipCode: e.target.value })}
+                        required
+                    />
+                </div>
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Password</label><br />
                     <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
@@ -101,119 +250,6 @@ export default function RegisterAccount() {
                         required
                     />
                 </div>
-                {/* <div className="mb-[15px] w-full">
-                    <label className="text-black text-opacity-60">Phone Number</label><br />
-                    <input className="w-full pl-[40px] p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
-                        type="tel"
-                        placeholder="(123) 456-7890"
-                        pattern="^\(\d{3}\) \d{3}-\d{4}$"
-                        title="Phone number should be in the format (123) 456-7890"
-                        required
-                    />
-                </div>
-                <div className="mb-[15px] w-full">
-                    <label className="text-black text-opacity-60" htmlFor="dob">Date of Birth</label><br />
-                    <input
-                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
-                        type="date"
-                        required
-                    />
-                </div>
-                <div className="mb-[15px] w-full">
-                    <label className="text-black text-opacity-60">Country</label><br />
-                    <select className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
-                        required
-                    >
-                        <option value="AL">United State</option>
-                    </select>
-                </div>
-                <div className="mb-[15px] w-full">
-                    <label className="text-black text-opacity-60">Street Address</label><br />
-                    <input
-                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
-                        type="text"
-                        placeholder="Enter your street address"
-                        required
-                    />
-                </div>
-                <div className="mb-[15px] w-full">
-                    <label className="text-black text-opacity-60">City</label><br />
-                    <input
-                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
-                        type="text"
-                        placeholder="Enter your city"
-                        required
-                    />
-                </div>
-                <div className="mb-[15px] w-full">
-                    <label className="text-black text-opacity-60">State</label><br />
-                    <select className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
-                        required
-                    >
-                        <option value="" disabled selected>Select your state</option>
-                        <option value="AL">Alabama</option>
-                        <option value="AK">Alaska</option>
-                        <option value="AZ">Arizona</option>
-                        <option value="AR">Arkansas</option>
-                        <option value="CA">California</option>
-                        <option value="CO">Colorado</option>
-                        <option value="CT">Connecticut</option>
-                        <option value="DE">Delaware</option>
-                        <option value="FL">Florida</option>
-                        <option value="GA">Georgia</option>
-                        <option value="HI">Hawaii</option>
-                        <option value="ID">Idaho</option>
-                        <option value="IL">Illinois</option>
-                        <option value="IN">Indiana</option>
-                        <option value="IA">Iowa</option>
-                        <option value="KS">Kansas</option>
-                        <option value="KY">Kentucky</option>
-                        <option value="LA">Louisiana</option>
-                        <option value="ME">Maine</option>
-                        <option value="MD">Maryland</option>
-                        <option value="MA">Massachusetts</option>
-                        <option value="MI">Michigan</option>
-                        <option value="MN">Minnesota</option>
-                        <option value="MS">Mississippi</option>
-                        <option value="MO">Missouri</option>
-                        <option value="MT">Montana</option>
-                        <option value="NE">Nebraska</option>
-                        <option value="NV">Nevada</option>
-                        <option value="NH">New Hampshire</option>
-                        <option value="NJ">New Jersey</option>
-                        <option value="NM">New Mexico</option>
-                        <option value="NY">New York</option>
-                        <option value="NC">North Carolina</option>
-                        <option value="ND">North Dakota</option>
-                        <option value="OH">Ohio</option>
-                        <option value="OK">Oklahoma</option>
-                        <option value="OR">Oregon</option>
-                        <option value="PA">Pennsylvania</option>
-                        <option value="RI">Rhode Island</option>
-                        <option value="SC">South Carolina</option>
-                        <option value="SD">South Dakota</option>
-                        <option value="TN">Tennessee</option>
-                        <option value="TX">Texas</option>
-                        <option value="UT">Utah</option>
-                        <option value="VT">Vermont</option>
-                        <option value="VA">Virginia</option>
-                        <option value="WA">Washington</option>
-                        <option value="WV">West Virginia</option>
-                        <option value="WI">Wisconsin</option>
-                        <option value="WY">Wyoming</option>
-                    </select>
-                </div>
-                <div className="mb-[15px] w-full">
-                    <label className="text-black text-opacity-60" htmlFor="zip">Zip Code</label><br />
-                    <input
-                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
-                        type="text"
-                        placeholder="Enter your zip code"
-                        pattern="\d{5}(-\d{4})?"
-                        title="Zip code should be in the format 12345 or 12345-6789"
-                        required
-                    />
-                </div> */}
                 <div>
                     <p>
                         Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our Privacy Policy and Term of Service.
