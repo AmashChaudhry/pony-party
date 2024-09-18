@@ -24,10 +24,6 @@ export default function RegisterAccount() {
 
     const register = async (event) => {
         event.preventDefault();
-        const formattedUser = {
-            ...user,
-            phoneNumber: user.phoneNumber.startsWith('+1') ? user.phoneNumber : `+1${user.phoneNumber}`
-        };
         try {
             setButtonDisabled(true);
             setLoading(true);
@@ -36,7 +32,7 @@ export default function RegisterAccount() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formattedUser),
+                body: JSON.stringify(user),
             });
 
             const data = await response.json();
@@ -105,7 +101,7 @@ export default function RegisterAccount() {
                 <div className="mb-[15px] w-full relative">
                     <label className="text-black text-opacity-60">Phone Number</label><br />
                     <div className="flex items-center border-l-4 border-l-[#ffa9f9] bg-[rgba(0,0,0,0.05)] p-[15px] w-full">
-                        <div className="flex items-center space-x-2 mr-2">
+                        <div className="flex items-center space-x-2">
                             <div className="relative w-[30px] h-[30px]">
                                 <Image
                                     src="/united-states.png"
