@@ -70,11 +70,11 @@ export default function UserProfile() {
     return (
         <div className="flex flex-col items-center">
             <div className='flex flex-col w-full max-w-[1200px]'>
-                <div className='p-[20px]'>
-                    <h1 className='text-[22px] font-medium mb-5 mt-[40px]'>Account Details</h1>
+                <div className='p-[20px] mt-[20px] sm:mt-[40px]'>
+                    <h1 className='text-[22px] font-medium mb-5'>Account Details</h1>
                 </div>
-                <div className="flex flex-row w-full">
-                    <ul className="flex flex-col h-fit w-[300px] px-[20px]">
+                <div className="flex flex-col w-full sm:flex-row">
+                    <ul className="flex flex-col h-fit w-full px-[20px] mb-[40px] sm:w-[300px] sm:mb-0">
                         <li className='mb-[20px]'>
                             <Link href="">
                                 <label className='text-[18px] font-light hover:text-[#ffa9f9] cursor-pointer'>Account details</label>
