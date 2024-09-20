@@ -37,7 +37,7 @@ export default function UserProfile() {
                                 href=""
                                 onClick={() => setActiveSection('Account Details')}
                             >
-                                <label className='text-[18px] font-light hover:text-[#ffa9f9] cursor-pointer'>Account details</label>
+                                <label className={`text-[18px] font-light cursor-pointer ${activeSection === 'Account Details' ? 'text-[#ffa9f9]' : 'hover:text-[#ffa9f9]'}`}>Account details</label>
                             </Link>
                             <div className='bg-gray-200 h-[1px] w-full mt-[10px]'></div>
                         </li>
@@ -46,7 +46,7 @@ export default function UserProfile() {
                                 href=""
                                 onClick={() => setActiveSection('Address')}
                             >
-                                <label className='text-[18px] font-light hover:text-[#ffa9f9] cursor-pointer'>Address</label>
+                                <label className={`text-[18px] font-light cursor-pointer ${activeSection === 'Address' ? 'text-[#ffa9f9]' : 'hover:text-[#ffa9f9]'}`}>Address</label>
                             </Link>
                             <div className='bg-gray-200 h-[1px] w-full mt-[10px]'></div>
                         </li>
@@ -55,7 +55,7 @@ export default function UserProfile() {
                                 href=""
                                 onClick={() => setActiveSection('Change Password')}
                             >
-                                <label className='text-[18px] font-light hover:text-[#ffa9f9] cursor-pointer'>Change password</label>
+                                <label className={`text-[18px] font-light cursor-pointer ${activeSection === 'Change Password' ? 'text-[#ffa9f9]' : 'hover:text-[#ffa9f9]'}`}>Change password</label>
                             </Link>
                             <div className='bg-gray-200 h-[1px] w-full mt-[10px]'></div>
                         </li>
@@ -72,7 +72,7 @@ export default function UserProfile() {
                         ) : activeSection === 'Address' ? (
                             <Address />
                         ) : activeSection === 'Change Password' ? (
-                            <ChangePassword/>
+                            <ChangePassword />
                         ) : null
                     }
                 </div>
