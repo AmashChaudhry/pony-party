@@ -1,21 +1,55 @@
+'use client'
 import Image from "next/image";
-import React from "react";
-import { treatments } from "@/data/vitamin-iv-treatments";
+import React, { useState, useEffect } from "react";
 
 export default function VitaminIVTreatmentDetail({ params }) {
     const { id } = params;
+    const [treatment, setTreatment] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-    const treatmentDetail = treatments.find(treatment => treatment.id === id);
+    const getServiceData = async () => {
+        try {
+            const response = await fetch('/api/service', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ _id: id }),
+            });
+            const serviceData = await response.json();
+            setTreatment(serviceData.data);
+        } catch (error) {
+            console.error('Error fetching treatment:', error);
+        } finally {
+            setLoading(false);
+        }
+    };
 
-    if (!treatmentDetail) {
+    useEffect(() => {
+        getServiceData();
+    }, []);
+
+    if (loading) {
         return (
-            <div className="flex flex-col items-center justify-center w-full" style={{ height: "calc(100vh - 80px)" }}>
-                <h2>Treatment not found</h2>
+            <div
+                className="flex flex-col items-center justify-center"
+                style={{ height: 'calc(100vh - 80px)' }}
+            >
+                Loading...
             </div>
         );
     }
 
-    const { title, ingredients, effects, price, description, src, alt } = treatmentDetail;
+    if (!treatment) {
+        return (
+            <div
+                className="flex flex-col items-center justify-center"
+                style={{ height: 'calc(100vh - 80px)' }}
+            >
+                Treatment not found
+            </div>
+        );
+    }
 
     return (
         <div className="flex flex-col items-center">
@@ -23,30 +57,30 @@ export default function VitaminIVTreatmentDetail({ params }) {
             <div className="flex flex-row justify-center w-full max-w-[1200px] m-auto lg:items-center">
                 <div className="relative flex justify-center h-fit w-[50%] p-[20px]">
                     <Image
-                        src={src}
+                        src={treatment.image}
                         width={500}
                         height={1080}
                         style={{ objectFit: "cover" }}
-                        alt={alt}
+                        alt={treatment.title}
                     />
                 </div>
                 <div className="flex flex-col h-fit w-[50%] p-[20px]">
-                    <h2 className="text-[22px] font-medium sm:text-[24px] lg:text-[40px]">{title}</h2>
+                    <h2 className="text-[22px] font-medium sm:text-[24px] lg:text-[40px]">{treatment.title}</h2>
                     <p className="text-[14px] sm:text-[16px]">IV Treatment</p>
-                    <p className="text-[16px] text-[#ffa9f9] mt-[20px]">{effects}</p>
-                    <p className="text-[14px] my-[20px]">$<span className="text-[40px] font-medium">{price}</span></p>
+                    <p className="text-[16px] text-[#ffa9f9] mt-[20px]">{treatment.category}</p>
+                    <p className="text-[14px] my-[20px]">$<span className="text-[40px] font-medium">{treatment.price}</span></p>
                     <button className="w-fit px-[15px] py-[10px] bg-[#ffa9f9] text-white">Book Now</button>
                     <div className="hidden justify-start pt-[20px] sm:block">
-                        <p className="text-black opacity-60">{description}</p>
+                        <p className="text-black opacity-60">{treatment.description}</p>
                         <p className="font-bold">*US locations only</p>
-                        <p className="font-bold my-[20px]">INGREDIENTS: <span className="text-black opacity-60 font-normal">{ingredients}</span></p>
+                        <p className="font-bold my-[20px]">INGREDIENTS: <span className="text-black opacity-60 font-normal">{treatment.ingredients}</span></p>
                     </div>
                 </div>
             </div>
             <div className="flex flex-col justify-start p-[20px] sm:hidden">
-                <p className="text-[16px] text-black opacity-60">{description}</p>
+                <p className="text-[16px] text-black opacity-60">{treatment.description}</p>
                 <p className="font-bold">*US locations only</p>
-                <p className="text-[16px] font-bold my-[20px]">INGREDIENTS: <span className="text-black opacity-60 font-normal">{ingredients}</span></p>
+                <p className="text-[16px] font-bold my-[20px]">INGREDIENTS: <span className="text-black opacity-60 font-normal">{treatment.ingredients}</span></p>
             </div>
         </div>
     );
