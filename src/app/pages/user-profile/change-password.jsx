@@ -1,11 +1,74 @@
 import React, { useEffect, useState } from "react";
 
 export default function ChangePassword() {
-    const [user, setUser] = useState({
+    const [user, setUser] = useState(null);
+    const [password, setPassword] = useState({
         currentPassword: "",
         newPassword: "",
         confirmNewPassword: "",
     });
+    const [loading, setLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState(null);
+    const [successMessage, setSuccessMessage] = useState(null);
+    const [buttonDisabled, setButtonDisabled] = useState(true);
+
+    const getUserData = async () => {
+        const response = await fetch('/api/current-user', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        const userData = await response.json();
+        setUser(userData.data);
+    };
+
+    useEffect(() => {
+        getUserData();
+    }, []);
+
+    const changePassword = async () => {
+        setErrorMessage(null);
+        setSuccessMessage(null);
+        setLoading(true);
+        setButtonDisabled(true);
+        try {
+            const response = await fetch('/api/change-password', {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: user.email,
+                    currentPassword: password.currentPassword,
+                    newPassword: password.newPassword,
+                    confirmNewPassword: password.confirmNewPassword,
+                }),
+            });
+
+            const passwordData = await response.json();
+
+            if (response.status === 400) {
+                setErrorMessage(passwordData.error);
+            } else if (response.ok) {
+                setSuccessMessage(passwordData.message);
+            }
+
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoading(false);
+            setButtonDisabled(false);
+        }
+    };
+
+    useEffect(() => {
+        if (password.currentPassword.length > 7 && password.newPassword.length > 7 && password.confirmNewPassword.length > 7) {
+            setButtonDisabled(false);
+        } else {
+            setButtonDisabled(true);
+        }
+    }, [password]);
 
     return (
         <div className='w-full max-w-[500px] px-[20px]'>
@@ -16,8 +79,8 @@ export default function ChangePassword() {
                         <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
                             type="password"
                             id="currentPassword"
-                            value={user.currentPassword}
-                            onChange={(e) => setUser({ ...user, currentPassword: e.target.value })}
+                            value={password.currentPassword}
+                            onChange={(e) => setPassword({ ...password, currentPassword: e.target.value })}
                             required
                         />
                     </div>
@@ -26,8 +89,8 @@ export default function ChangePassword() {
                         <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
                             type="password"
                             id="newPassword"
-                            value={user.newPassword}
-                            onChange={(e) => setUser({ ...user, newPassword: e.target.value })}
+                            value={password.newPassword}
+                            onChange={(e) => setPassword({ ...password, newPassword: e.target.value })}
                             required
                         />
                     </div>
@@ -36,16 +99,28 @@ export default function ChangePassword() {
                         <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
                             type="password"
                             id="confirmNewPassword"
-                            value={user.confirmNewPassword}
-                            onChange={(e) => setUser({ ...user, confirmNewPassword: e.target.value })}
+                            value={password.confirmNewPassword}
+                            onChange={(e) => setPassword({ ...password, confirmNewPassword: e.target.value })}
                             required
                         />
                     </div>
+                    {errorMessage && (
+                        <div className="mb-[15px] w-full bg-red-100 p-[10px] rounded">
+                            <p className="text-red-600 text-[14px]">{errorMessage}</p>
+                        </div>
+                    )}
+                    {successMessage && (
+                        <div className="mb-[15px] w-full bg-green-100 p-[10px] rounded">
+                            <p className="text-green-600 text-[14px]">{successMessage}</p>
+                        </div>
+                    )}
                     <button
-                        className='bg-[#ffa9f9] hover:bg-black text-white w-fit py-[15px] px-[25px] mt-[10px]'
+                        className={`${buttonDisabled ? "bg-gray-200 text-gray-400" : "bg-[#ffa9f9] hover:bg-black text-white"} w-fit py-[15px] px-[25px]`}
                         type="submit"
+                        disabled={buttonDisabled}
+                        onClick={changePassword}
                     >
-                        Save Changes
+                        {loading ? 'Loading...' : 'Save Changes'}
                     </button>
                 </div>
                 : <div className=' flex flex-col items-center w-full'>
