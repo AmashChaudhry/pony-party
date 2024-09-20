@@ -35,7 +35,6 @@ export const treatments = [
         src: "/iv-treatments/hangover.jpg",
         alt: "ENERGY BOOST IV Treatment",
     },
-    
     {
         id: "immune-boost",
         title: "IMMUNE BOOST",
