@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import AccountDatails from './account-details';
 import Address from './address';
+import ChangePassword from './change-password';
 
 export default function UserProfile() {
     const router = useRouter();
@@ -50,7 +51,10 @@ export default function UserProfile() {
                             <div className='bg-gray-200 h-[1px] w-full mt-[10px]'></div>
                         </li>
                         <li className='mb-[20px]'>
-                            <Link href="">
+                            <Link
+                                href=""
+                                onClick={() => setActiveSection('Change Password')}
+                            >
                                 <label className='text-[18px] font-light hover:text-[#ffa9f9] cursor-pointer'>Change password</label>
                             </Link>
                             <div className='bg-gray-200 h-[1px] w-full mt-[10px]'></div>
@@ -64,11 +68,11 @@ export default function UserProfile() {
                     </ul>
                     {
                         activeSection === 'Account Details' ? (
-                            <AccountDatails/>
+                            <AccountDatails />
                         ) : activeSection === 'Address' ? (
-                            <Address/>
-                        ) : activeSection === 'changePassword' ? (
-                            <div>Change password section</div>
+                            <Address />
+                        ) : activeSection === 'Change Password' ? (
+                            <ChangePassword/>
                         ) : null
                     }
                 </div>
