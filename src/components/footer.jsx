@@ -1,9 +1,33 @@
-import React from "react";
+'use client'
 import Link from "next/link";
 import { SlArrowRight } from "react-icons/sl";
-import { treatments } from "@/data/vitamin-iv-treatments";
+import React, { useState, useEffect } from "react";
 
 export default function Footer() {
+    const [treatments, setTreatments] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    const getServicesData = async () => {
+        try {
+            const response = await fetch('/api/services', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            const serviceData = await response.json();
+            setTreatments(serviceData.data);
+        } catch (error) {
+            console.error('Error fetching treatments:', error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        getServicesData();
+    }, []);
+
     return (
         <div className="flex flex-col bg-gray-100">
             <div className=" flex flex-col w-full max-w-[1200px] mx-auto">
@@ -25,7 +49,7 @@ export default function Footer() {
                                     <div className="flex flex-col items-start w-full pt-[20px]">
                                         {treatments.map((treatment, index) => (
                                             <div key={index} className="flex flex-col items-start w-full">
-                                                <Link className="text-[12px] text-center hover:text-[#ffa9f9]" href={`/pages/vitamin-iv-treatment/${treatment.id}`}>
+                                                <Link className="text-[12px] text-center hover:text-[#ffa9f9]" href={`/pages/vitamin-iv-treatment/${treatment._id}`}>
                                                     {treatment.title}
                                                 </Link>
                                                 <div className="h-[1px] w-full bg-gray-300 mb-[10px]"></div>
@@ -108,7 +132,7 @@ export default function Footer() {
                             </li>
                         </ul>
                     </div>
-                    <div className="w-[50%] py-[40px] pr-[20px] pl-[10px] sm:py-[60px] sm:pr-[40px] pl-[20px]">
+                    <div className="w-[50%] py-[40px] pr-[20px] pl-[10px] sm:py-[60px] sm:pr-[40px] sm:pl-[20px]">
                         <p className="text-[12px]">The services offered have not been reviewed by the Food and Drug Administration. These products are not designed to diagnose, treat, cure, or prevent any disease. The content on this website is for informational purposes only and should not be considered medical advice. Always consult your physician before starting any treatment or therapy program. Any mention of therapies is for marketing purposes and does not represent actual products.</p>
                     </div>
                 </div>
