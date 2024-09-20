@@ -6,8 +6,11 @@ connect();
 
 export async function GET() {
   try {
-    const data = await Service.find();
-    return NextResponse.json({ Result: data });
+    const services = await Service.find();
+    return NextResponse.json({
+      message: "Services found",
+      data: services
+    });
   } catch (error) {
     return NextResponse.json({ Error: error });
   }

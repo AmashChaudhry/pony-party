@@ -16,7 +16,7 @@ export default function VitaminIVTreatments() {
                 },
             });
             const serviceData = await response.json();
-            setTreatments(serviceData.Result);
+            setTreatments(serviceData.data);
         } catch (error) {
             console.error('Error fetching treatments:', error);
         } finally {
