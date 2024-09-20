@@ -36,7 +36,7 @@ export default function VitaminIVTreatmentDetail({ params }) {
                     <p className="text-[16px] text-[#ffa9f9] mt-[20px]">{effects}</p>
                     <p className="text-[14px] my-[20px]">$<span className="text-[40px] font-medium">{price}</span></p>
                     <button className="w-fit px-[15px] py-[10px] bg-[#ffa9f9] text-white">Book Now</button>
-                    <div className="flex flex-col justify-start pt-[20px] hidden sm:block">
+                    <div className="hidden justify-start pt-[20px] sm:block">
                         <p className="text-black opacity-60">{description}</p>
                         <p className="font-bold">*US locations only</p>
                         <p className="font-bold my-[20px]">INGREDIENTS: <span className="text-black opacity-60 font-normal">{ingredients}</span></p>
