@@ -8,16 +8,16 @@ connect();
 export async function POST(request) {
     try {
         const reqBody = await request.json();
-        const {email, password} = reqBody;
+        const { email, password } = reqBody;
 
-        const user = await User.findOne({email});
+        const user = await User.findOne({ email });
 
-        if(!user) {
-            return NextResponse.json({error: "This email address is not registered."}, {status: 400});
+        if (!user) {
+            return NextResponse.json({ error: "This email address is not registered." }, { status: 400 });
         }
 
-        if(password != user.password) {
-            return NextResponse.json({error: "Incorret password"}, {status: 400});
+        if (password != user.password) {
+            return NextResponse.json({ error: "Incorret password" }, { status: 400 });
         }
 
         const tokenData = {
@@ -36,11 +36,14 @@ export async function POST(request) {
 
         response.cookies.set("token", token, {
             httpOnly: true,
+            maxAge: 60 * 60 * 24,
+            sameSite: 'lax',
+            secure: process.env.NODE_ENV === 'production',
         });
 
         return response;
 
     } catch (error) {
-        return Response.NextResponse.json({error: error.message}, {status: 500});
+        return Response.NextResponse.json({ error: error.message }, { status: 500 });
     }
 }
