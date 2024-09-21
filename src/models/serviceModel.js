@@ -27,6 +27,18 @@ const serviceSchema = new mongoose.Schema({
     image: {
         type: String,
     },
+    uses: [
+        {
+            name: {
+                type: String,
+                required: true,
+            },
+            icon: {
+                type: String,
+                required: true,
+            },
+        },
+    ],
     isAvailableForPurchase: {
         type: Boolean,
         default: true,

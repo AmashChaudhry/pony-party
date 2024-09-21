@@ -15,13 +15,10 @@ export async function POST(request) {
             price,
             description,
             image,
+            uses,
         } = reqBody;
 
-        // const service = await Service.findOne({ email });
-
-        // if (user) {
-        //     return NextResponse.json({ error: "Given email already linked with another account. Please try another email." }, { status: 400 });
-        // }
+        console.log("Uses Array:", uses);
 
         const newService = new Service({
             title,
@@ -31,6 +28,7 @@ export async function POST(request) {
             price,
             description,
             image,
+            uses,
         });
 
         const savedService = await newService.save();

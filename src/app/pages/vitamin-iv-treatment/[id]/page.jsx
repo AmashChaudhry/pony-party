@@ -82,6 +82,28 @@ export default function VitaminIVTreatmentDetail({ params }) {
                 <p className="font-bold">*US locations only</p>
                 <p className="text-[16px] font-bold my-[20px]">INGREDIENTS: <span className="text-black opacity-60 font-normal">{treatment.ingredients}</span></p>
             </div>
+            {
+                treatment.uses && treatment.uses.length > 0 && (
+                    <div className="flex flex-col items-center w-full bg-[#FAFAFA] py-[40px]">
+                        <div className="flex flex-col items-center w-full max-w-[1200px]">
+                            <h1 className="text-[26px] font-medium">
+                                Best Uses For {treatment.title.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')} IV
+                            </h1>
+                            <span className="h-[100px]"></span>
+                            <div className="flex flex-wrap justify-around w-full">
+                                {
+                                    treatment.uses.map((use, index) => (
+                                        <div>
+                                            <p key={index}>{use.icon}</p>
+                                            <p key={index}>{use.name}</p>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
         </div>
     );
 };
