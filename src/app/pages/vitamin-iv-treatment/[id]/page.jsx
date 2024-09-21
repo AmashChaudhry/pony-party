@@ -93,7 +93,7 @@ export default function VitaminIVTreatmentDetail({ params }) {
                             <div className="flex flex-wrap justify-around w-full">
                                 {
                                     treatment.uses.map((use, index) => (
-                                        <div>
+                                        <div className="flex flex-col items-center">
                                             <p key={index}>{use.icon}</p>
                                             <p key={index}>{use.name}</p>
                                         </div>
