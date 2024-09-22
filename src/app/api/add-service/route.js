@@ -11,10 +11,12 @@ export async function POST(request) {
             title,
             subTitle,
             ingredients,
+            effects,
             category,
             price,
             description,
             image,
+            icon,
             uses,
         } = reqBody;
 
@@ -24,10 +26,12 @@ export async function POST(request) {
             title,
             subTitle,
             ingredients,
+            effects,
             category,
             price,
             description,
             image,
+            icon,
             uses,
         });
 

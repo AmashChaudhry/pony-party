@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaRegCheckCircle } from "react-icons/fa";
 import VitaminIVTreatments from "@/components/vitamin-iv-treatments";
+import Injections from "@/components/injections";
 
 export default function Home() {
   return (
@@ -49,7 +50,8 @@ export default function Home() {
       </div>
       <VitaminIVTreatments />
       <span className="h-[30px] w-full lg:h-[60px]"></span>
-      <div className="flex flex-col items-center w-full bg-[#FAFAFA] py-[60px]">
+      <Injections />
+      <div className="flex flex-col items-center w-full py-[60px]">
         <div className="flex flex-col items-center w-full max-w-[1200px] px-[20px] md:flex-row">
           <div className="w-full h-full mb-10 md:mb-0">
             <Image
@@ -142,7 +144,7 @@ export default function Home() {
         </div>
       </div>
       <span className="h-0 w-full sm:h-[60px]"></span>
-      <div className="flex flex-col items-center w-full py-[40px]">
+      <div className="flex flex-col items-center w-full bg-[#FAFAFA] py-[40px]">
         <h2 className="text-[24px] font-medium">What Make us Different</h2>
         <div className="flex flex-wrap justify-center mx-auto max-w-[1200px]">
           <div className="flex flex-col items-center h-fit w-[45%] px-[10px] my-[60px] sm:w-[310px]">

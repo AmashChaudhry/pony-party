@@ -66,8 +66,10 @@ export default function VitaminIVTreatmentDetail({ params }) {
                 </div>
                 <div className="flex flex-col h-fit w-[50%] p-[20px]">
                     <h2 className="text-[22px] font-medium sm:text-[24px] lg:text-[40px]">{treatment.title}</h2>
-                    <p className="text-[14px] sm:text-[16px]">IV Treatment</p>
-                    <p className="text-[16px] text-[#ffa9f9] mt-[20px]">{treatment.category}</p>
+                    {
+                        treatment.category === "Drip" ? <p className="text-[14px] sm:text-[16px]">IV Treatment</p> : null
+                    }
+                    <p className="text-[16px] text-[#ffa9f9] mt-[20px]">{treatment.effects}</p>
                     <p className="text-[14px] my-[20px]">$<span className="text-[40px] font-medium">{treatment.price}</span></p>
                     <button className="w-fit px-[15px] py-[10px] bg-[#ffa9f9] text-white">Book Now</button>
                     <div className="hidden justify-start pt-[20px] sm:block">
@@ -90,12 +92,14 @@ export default function VitaminIVTreatmentDetail({ params }) {
                                 Best Uses For {treatment.title.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')} IV
                             </h1>
                             <span className="h-[100px]"></span>
-                            <div className="flex flex-wrap justify-around w-full">
+                            <div className="flex flex-wrap justify-evenly w-full">
                                 {
                                     treatment.uses.map((use, index) => (
-                                        <div className="flex flex-col items-center">
-                                            <p key={index}>{use.icon}</p>
-                                            <p key={index}>{use.name}</p>
+                                        <div className="flex flex-col items-center w-full max-w-[180px] py-[40px]">
+                                            <div className="mb-[40px]">
+                                                <p key={index}>{use.icon}</p>
+                                            </div>
+                                            <p key={index} className="text-center">{use.name}</p>
                                         </div>
                                     ))
                                 }

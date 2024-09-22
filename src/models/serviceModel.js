@@ -7,9 +7,12 @@ const serviceSchema = new mongoose.Schema({
     },
     subTitle: {
         type: String,
-        required: true,
     },
     ingredients: {
+        type: String,
+        required: true,
+    },
+    effects: {
         type: String,
         required: true,
     },
@@ -23,8 +26,13 @@ const serviceSchema = new mongoose.Schema({
     },
     description: {
         type: String,
+        required: true,
     },
     image: {
+        type: String,
+        required: true,
+    },
+    icon: {
         type: String,
     },
     uses: [
