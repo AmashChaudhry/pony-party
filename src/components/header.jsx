@@ -74,6 +74,9 @@ export default function Header() {
                         <li className="inline-block text-black text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
                             <Link href="/pages/about-us">About Us</Link>
                         </li>
+                        <li className="inline-block text-black text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
+                            <Link href="/pages/add-service">Add Service</Link>
+                        </li>
                     </ul>
                 </div>
                 <ul className="flex p-0 items-center">

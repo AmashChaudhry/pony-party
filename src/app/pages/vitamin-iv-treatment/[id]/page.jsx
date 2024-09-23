@@ -89,7 +89,7 @@ export default function VitaminIVTreatmentDetail({ params }) {
                     <div className="flex flex-col items-center w-full bg-[#FAFAFA] py-[40px]">
                         <div className="flex flex-col items-center w-full max-w-[1200px]">
                             <h1 className="text-[26px] font-medium">
-                                Best Uses For {treatment.title.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')} IV
+                                Best Uses For {treatment.title.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')} {treatment.category === "Drip" ? "IV" : null}
                             </h1>
                             <span className="h-[100px]"></span>
                             <div className="flex flex-wrap justify-evenly w-full">

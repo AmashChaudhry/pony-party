@@ -47,7 +47,7 @@ export default function Footer() {
                                 </div>
                                 <div className="overflow-hidden transition-all duration-500 w-full max-h-0 peer-checked:max-h-fit">
                                     <div className="flex flex-col items-start w-full pt-[20px]">
-                                        {treatments.map((treatment, index) => (
+                                        {treatments.filter(treatment => treatment.category === "Drip").map((treatment, index) => (
                                             <div key={index} className="flex flex-col items-start w-full">
                                                 <Link className="text-[12px] text-center hover:text-[#ffa9f9]" href={`/pages/vitamin-iv-treatment/${treatment._id}`}>
                                                     {treatment.title}
