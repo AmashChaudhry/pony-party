@@ -1,41 +1,130 @@
 'use client'
 import React, { useEffect, useState } from "react";
+import { CldUploadWidget, CldImage } from "next-cloudinary";
 
 export default function AddService() {
+    const [inputs, setInputs] = useState([{
+        name: "",
+        icon: "",
+    }]);
     const [service, setService] = useState({
         title: "",
         subTitle: "",
         ingredients: "",
         effects: "",
-        category: "",
+        category: "Drip",
         price: "",
         description: "",
         image: "",
         icon: "",
-        uses: "",
+        uses: inputs,
     });
+    const [publicId, setPublicId] = useState("");
     const [buttonDisabled, setButtonDisabled] = useState(true);
     const [loading, setLoading] = useState(false);
 
-    const [inputs, setInputs] = useState([{ image: "", description: "" }]);
+    useEffect(() => {
+        setService((prevService) => ({
+            ...prevService,
+            uses: inputs,
+        }));
+    }, [inputs]);
 
-    // Function to handle adding more image pickers and input bars
     const addMoreInputs = () => {
-        setInputs([...inputs, { image: "", description: "" }]);
+        setInputs([...inputs, { name: "", icon: "" }]);
     };
 
-    // Function to handle changes for both image and description input fields
     const handleInputChange = (index, event) => {
+        const { name, type, value, files } = event.target;
         const updatedInputs = [...inputs];
-        updatedInputs[index][event.target.name] = event.target.value;
-        setInputs(updatedInputs);
+
+        if (type === "file" && files.length > 0) {
+            const file = files[0];
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                updatedInputs[index].icon = reader.result;
+                // updatedInputs[index].icon = file;
+                setInputs(updatedInputs);
+            };
+            reader.readAsDataURL(file);
+        } else {
+            updatedInputs[index][name] = value;
+            setInputs(updatedInputs);
+        }
     };
+
+    const onChangeHandler = (e) => {
+        setService({ ...service, image: e.target.files[0] })
+        console.log(service.image);
+    }
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        setLoading(true);
+        console.log(service);
+    }
+
+    const handleUpload = async (event) => {
+        event.preventDefault();
+        try {
+            const formData = new FormData();
+            formData.append('image', service.image);
+
+            const response = await fetch('/api/upload-image', {
+                method: 'POST',
+                body: formData,
+            });
+
+            const image = await response.json();
+
+            if (response.ok) {
+                console.log('Uploaded successfully:', data);
+                console.log('Public ID:', image.data.public_id);
+            } else {
+                console.error('Upload failed:', data.error);
+            }
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
 
     return (
         <div className="flex flex-col items-center w-full max-w-[1200px] m-auto sm:px-[20px] lg:px-[60px]">
-            <form className="flex flex-col items-start w-full max-w-[500px] px-[25px] py-[40px]">
+            <div className="flex flex-col items-start w-full max-w-[500px] px-[25px] py-[40px]">
                 <div className="flex flex-rox justify-center w-full mb-[30px]">
                     <h2 className="text-[24px] font-bold">Add Service</h2>
+                </div>
+                <div className="flex flex-col items-center w-full mb-[15px]">
+                    <form onSubmit={handleUpload}>
+                        <input type="file" onChange={onChangeHandler} />
+                        <button type="submit" onClick={handleUpload}>Upload</button>
+                    </form>
+                    {/* {
+                        publicId &&
+                        <div className="h-[250px]">
+                            <CldImage
+                                className="w-full h-full object-cover"
+                                src={publicId}
+                                alt={publicId}
+                                width={150}
+                                height={150}
+                            />
+                        </div>
+                    }
+                    <CldUploadWidget
+                        uploadPreset="ponyPartyServices"
+                        onSuccess={({ event, info }) => {
+                            if (event === "success") {
+                                setPublicId(info.public_id);
+                                setService((prevService) => ({
+                                    ...prevService,
+                                    image: info.public_id,
+                                }));
+                            }
+                        }}
+                    >
+                        {({ open }) => <button onClick={open}>Upload</button>}
+                    </CldUploadWidget> */}
                 </div>
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Service name</label><br />
@@ -112,47 +201,42 @@ export default function AddService() {
                         required
                     />
                 </div>
-                <div className="mb-[15px] w-full">
-                    <label className="text-black text-opacity-60">Effects</label><br />
-                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
-                        type="text"
-                        id="uses"
-                        value={service.uses}
-                        onChange={(e) => setService({ ...service, uses: e.target.value })}
-                        required
-                    />
-                </div>
-                <div className="w-full p-4">
-                    {/* Displaying image pickers and input bars dynamically */}
+                <div className="w-full">
                     {inputs.map((input, index) => (
                         <div key={index} className="mb-4">
-                            {/* Image Picker */}
-                            <label className="block text-gray-700 text-sm font-bold mb-2">
-                                Select Image {index + 1}
-                            </label>
-                            <input
-                                type="file"
-                                name="image"
-                                className="w-full p-2 mb-2 border border-gray-300 rounded"
-                                onChange={(e) => handleInputChange(index, e)}
-                            />
-
-                            {/* Input Bar for description */}
-                            <label className="block text-gray-700 text-sm font-bold mb-2">
-                                Description {index + 1}
-                            </label>
-                            <input
-                                type="text"
-                                name="description"
-                                value={input.description}
-                                onChange={(e) => handleInputChange(index, e)}
-                                className="w-full p-2 border border-gray-300 rounded mb-4"
-                                placeholder="Enter description"
-                            />
+                            <div>
+                                <label className="block text-gray-700 text-sm font-bold mb-2">
+                                    Select Image {index + 1}
+                                </label>
+                                <input
+                                    type="file"
+                                    name="icon"
+                                    className="w-full p-2 mb-2 border border-gray-300 rounded"
+                                    onChange={(e) => handleInputChange(index, e)}
+                                />
+                            </div>
+                            {input.icon && (
+                                <img
+                                    src={input.icon}
+                                    alt={`icon ${index + 1}`}
+                                    className="mt-2 max-w-full h-auto"
+                                />
+                            )}
+                            <div>
+                                <label className="block text-gray-700 text-sm font-bold mb-2">
+                                    Description {index + 1}
+                                </label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={input.name}
+                                    onChange={(e) => handleInputChange(index, e)}
+                                    className="w-full p-2 border border-gray-300 rounded mb-4"
+                                    placeholder="Enter description"
+                                />
+                            </div>
                         </div>
                     ))}
-
-                    {/* Button to add more image pickers and input bars */}
                     <button
                         type="button"
                         className="bg-[#ffa9f9] text-white py-2 px-4 rounded hover:bg-[#ff85f1] transition duration-300"
@@ -163,14 +247,14 @@ export default function AddService() {
                 </div>
                 <div className="flex flex-rox justify-center w-full">
                     <button
-                        className={`${buttonDisabled ? "bg-gray-200 text-gray-400" : "bg-[#ffa9f9] hover:bg-black text-white"} w-fit py-[15px] px-[20px]`}
+                        className="bg-[#ffa9f9] hover:bg-black text-white w-fit py-[15px] px-[20px]"
                         type="submit"
-                        disabled={buttonDisabled}
+                        onClick={handleSubmit}
                     >
-                        {loading ? "Loading..." : "Register"}
+                        Add Service
                     </button>
                 </div>
-            </form>
+            </div>
         </div>
     );
 }

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { connect } from "@/lib/database_config";
+import { connect } from "@/lib/mongodb_config";
 import Service from "@/models/serviceModel";
 
 connect();

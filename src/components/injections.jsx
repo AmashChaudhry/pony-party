@@ -47,7 +47,7 @@ export default function Injections() {
                                     alt={treatment.title}
                                 />
                             </div>
-                            <Link className="text-[12px] text-center font-bold hover:text-[#ffa9f9] sm:text-[14px] xl:text-[16px]" href={`/pages/vitamin-iv-treatment/${treatment._id}`}>
+                            <Link className="text-[12px] text-center font-medium hover:text-[#ffa9f9] sm:text-[14px] xl:text-[16px]" href={`/pages/vitamin-iv-treatment/${treatment._id}`}>
                                 {treatment.title}
                             </Link>
                         </div>
