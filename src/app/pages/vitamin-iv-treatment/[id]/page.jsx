@@ -53,14 +53,12 @@ export default function VitaminIVTreatmentDetail({ params }) {
 
     return (
         <div className="flex flex-col items-center">
-            <span className="h-0 w-full lg:h-[30px]"></span>
+            <span className="h-0 w-full lg:h-[40px]"></span>
             <div className="flex flex-row justify-center w-full max-w-[1200px] m-auto lg:items-center">
-                <div className="relative flex justify-center h-fit w-[50%] p-[20px]">
-                    <Image
+                <div className="relative flex justify-center h-fit w-[50%] px-[40px]">
+                    <img
+                        className="h-full w-auto"
                         src={treatment.image}
-                        width={500}
-                        height={1080}
-                        style={{ objectFit: "cover" }}
                         alt={treatment.title}
                     />
                 </div>

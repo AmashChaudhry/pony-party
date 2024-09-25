@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
 export default function VitaminIVTreatments() {
@@ -37,11 +36,10 @@ export default function VitaminIVTreatments() {
             {
                 treatments.filter(treatment => treatment.category === "Drip").map((treatment, index) => (
                     <div key={index} className="flex flex-col items-center w-auto">
-                        <div className="relative h-[150px] w-full sm:h-[250px]">
-                            <Image
+                        <div className="relative flex justify-center h-[150px] w-full sm:h-[250px]">
+                            <img
+                                className="h-full w-auto object-cover"
                                 src={treatment.image}
-                                fill
-                                style={{ objectFit: "contain" }}
                                 alt={treatment.title}
                             />
                         </div>

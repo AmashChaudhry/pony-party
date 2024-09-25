@@ -1,6 +1,5 @@
 'use client'
 import React, { useEffect, useState } from "react";
-import { CldUploadWidget, CldImage } from "next-cloudinary";
 
 export default function AddService() {
     const [inputs, setInputs] = useState([{
@@ -19,7 +18,7 @@ export default function AddService() {
         icon: "",
         uses: inputs,
     });
-    const [publicId, setPublicId] = useState("");
+    const [image, setImage] = useState(null);
     const [buttonDisabled, setButtonDisabled] = useState(true);
     const [loading, setLoading] = useState(false);
 
@@ -42,7 +41,7 @@ export default function AddService() {
             const file = files[0];
             const reader = new FileReader();
             reader.onloadend = () => {
-                updatedInputs[index].icon = reader.result;
+                updatedInputs[index].icon = "reader.result";
                 // updatedInputs[index].icon = file;
                 setInputs(updatedInputs);
             };
@@ -53,38 +52,59 @@ export default function AddService() {
         }
     };
 
-    const onChangeHandler = (e) => {
-        setService({ ...service, image: e.target.files[0] })
-        console.log(service.image);
-    }
-
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setButtonDisabled(true);
         setLoading(true);
-        console.log(service);
+        try {
+            const uploadedImageURL = await uploadImage();
+            const updatedService = { ...service, image: uploadedImageURL };
+
+            const response = await fetch('/api/add-service', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updatedService),
+            });
+
+            const data = await response.json();
+
+            if (response.status === 400) {
+                setErrorMessage(data.error);
+            } else if (response.ok) {
+                console.log("Added successfully");
+            } else {
+                setErrorMessage("An error occurred. Please try again.");
+            }
+
+        } catch (error) {
+            console.log("Rgisteration failed");
+        }
     }
 
-    const handleUpload = async (event) => {
-        event.preventDefault();
+    const uploadImage = async () => {
         try {
             const formData = new FormData();
-            formData.append('image', service.image);
+            formData.append('image', image);
 
             const response = await fetch('/api/upload-image', {
                 method: 'POST',
                 body: formData,
             });
 
-            const image = await response.json();
+            const imageData = await response.json();
 
             if (response.ok) {
-                console.log('Uploaded successfully:', data);
-                console.log('Public ID:', image.data.public_id);
+                console.log('Uploaded successfully:', imageData);
+                return imageData.data.secure_url;
             } else {
                 console.error('Upload failed:', data.error);
+                return null;
             }
         } catch (error) {
             console.log(error.message);
+            return null;
         }
     }
 
@@ -95,36 +115,13 @@ export default function AddService() {
                     <h2 className="text-[24px] font-bold">Add Service</h2>
                 </div>
                 <div className="flex flex-col items-center w-full mb-[15px]">
-                    <form onSubmit={handleUpload}>
-                        <input type="file" onChange={onChangeHandler} />
-                        <button type="submit" onClick={handleUpload}>Upload</button>
+                    <form>
+                        <input
+                            type="file"
+                            onChange={(e) => setImage(e.target.files[0])}
+                        />
+                        <button type="submit" onClick={uploadImage}>Upload</button>
                     </form>
-                    {/* {
-                        publicId &&
-                        <div className="h-[250px]">
-                            <CldImage
-                                className="w-full h-full object-cover"
-                                src={publicId}
-                                alt={publicId}
-                                width={150}
-                                height={150}
-                            />
-                        </div>
-                    }
-                    <CldUploadWidget
-                        uploadPreset="ponyPartyServices"
-                        onSuccess={({ event, info }) => {
-                            if (event === "success") {
-                                setPublicId(info.public_id);
-                                setService((prevService) => ({
-                                    ...prevService,
-                                    image: info.public_id,
-                                }));
-                            }
-                        }}
-                    >
-                        {({ open }) => <button onClick={open}>Upload</button>}
-                    </CldUploadWidget> */}
                 </div>
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Service name</label><br />
