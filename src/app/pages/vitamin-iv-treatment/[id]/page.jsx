@@ -94,8 +94,13 @@ export default function VitaminIVTreatmentDetail({ params }) {
                                 {
                                     treatment.uses.map((use, index) => (
                                         <div className="flex flex-col items-center w-full max-w-[180px] py-[40px]">
-                                            <div className="mb-[40px]">
-                                                <p key={index}>{use.icon}</p>
+                                            <div className="relative flex justify-center h-[80px] w-auto mb-[20px]">
+                                                <img
+                                                    className="h-full w-auto"
+                                                    key={index}
+                                                    src={use.icon}
+                                                    alt={use.name}
+                                                />
                                             </div>
                                             <p key={index} className="text-center">{use.name}</p>
                                         </div>

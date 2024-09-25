@@ -43,7 +43,8 @@ export default function AddService() {
             const reader = new FileReader();
             reader.onloadend = () => {
                 updatedInputs[index].icon = reader.result;
-                // updatedInputs[index].icon = file;
+                updatedInputs[index].icon = file;
+                console.log(updatedInputs[index].icon);
                 setInputs(updatedInputs);
             };
             reader.readAsDataURL(file);
@@ -61,11 +62,27 @@ export default function AddService() {
             const uploadedImageURL = await uploadImage(image);
             const uploadedIconURL = await uploadImage(icon);
 
+            const updatedUses = await Promise.all(inputs.map(async (input) => {
+                if (input.icon) {
+                    const uploadedIcon = await uploadImage(input.icon); // Upload each icon
+                    return { ...input, icon: uploadedIcon }; // Return the updated input with uploaded URL
+                }
+                return input; // If no icon, return the input as is
+            }));
+    
+            // Update service with the new uses array containing image URLs
             const updatedService = {
                 ...service,
                 image: uploadedImageURL,
-                icon: uploadedIconURL
+                icon: uploadedIconURL,
+                uses: updatedUses, // Updated uses array with image URLs
             };
+
+            // const updatedService = {
+            //     ...service,
+            //     image: uploadedImageURL,
+            //     icon: uploadedIconURL
+            // };
 
             const response = await fetch('/api/add-service', {
                 method: 'POST',

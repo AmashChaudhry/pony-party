@@ -41,7 +41,7 @@ export default function Injections() {
                         <div key={index} className="flex flex-col items-center w-[50%] px-[20px] py-[60px] sm:w-[33.33%]">
                             <div className="relative flex justify-center h-[80px] w-auto mb-[20px]">
                                 <img
-                                className="h-full"
+                                    className="h-full w-auto"
                                     src={treatment.icon}
                                     alt={treatment.title}
                                 />
