@@ -64,18 +64,17 @@ export default function AddService() {
 
             const updatedUses = await Promise.all(inputs.map(async (input) => {
                 if (input.icon) {
-                    const uploadedIcon = await uploadImage(input.icon); // Upload each icon
-                    return { ...input, icon: uploadedIcon }; // Return the updated input with uploaded URL
+                    const uploadedIcon = await uploadImage(input.icon);
+                    return { ...input, icon: uploadedIcon };
                 }
-                return input; // If no icon, return the input as is
+                return input;
             }));
-    
-            // Update service with the new uses array containing image URLs
+
             const updatedService = {
                 ...service,
                 image: uploadedImageURL,
                 icon: uploadedIconURL,
-                uses: updatedUses, // Updated uses array with image URLs
+                uses: updatedUses,
             };
 
             // const updatedService = {
