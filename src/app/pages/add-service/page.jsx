@@ -19,6 +19,7 @@ export default function AddService() {
         uses: inputs,
     });
     const [image, setImage] = useState(null);
+    const [icon, setIcon] = useState(null);
     const [buttonDisabled, setButtonDisabled] = useState(true);
     const [loading, setLoading] = useState(false);
 
@@ -41,7 +42,7 @@ export default function AddService() {
             const file = files[0];
             const reader = new FileReader();
             reader.onloadend = () => {
-                updatedInputs[index].icon = "reader.result";
+                updatedInputs[index].icon = reader.result;
                 // updatedInputs[index].icon = file;
                 setInputs(updatedInputs);
             };
@@ -57,8 +58,14 @@ export default function AddService() {
         setButtonDisabled(true);
         setLoading(true);
         try {
-            const uploadedImageURL = await uploadImage();
-            const updatedService = { ...service, image: uploadedImageURL };
+            const uploadedImageURL = await uploadImage(image);
+            const uploadedIconURL = await uploadImage(icon);
+            
+            const updatedService = {
+                ...service,
+                image: uploadedImageURL,
+                icon: uploadedIconURL
+            };
 
             const response = await fetch('/api/add-service', {
                 method: 'POST',
@@ -83,10 +90,10 @@ export default function AddService() {
         }
     }
 
-    const uploadImage = async () => {
+    const uploadImage = async (file) => {
         try {
             const formData = new FormData();
-            formData.append('image', image);
+            formData.append('image', file);
 
             const response = await fetch('/api/upload-image', {
                 method: 'POST',
@@ -114,15 +121,25 @@ export default function AddService() {
                 <div className="flex flex-rox justify-center w-full mb-[30px]">
                     <h2 className="text-[24px] font-bold">Add Service</h2>
                 </div>
-                <div className="flex flex-col items-center w-full mb-[15px]">
+                <div className="flex flex-col w-full mb-[15px]">
                     <form>
                         <input
                             type="file"
                             onChange={(e) => setImage(e.target.files[0])}
                         />
-                        <button type="submit" onClick={uploadImage}>Upload</button>
                     </form>
                 </div>
+                {
+                    service.category === 'Injection' ?
+                        <div className="flex flex-col w-full mb-[15px]">
+                            <form>
+                                <input
+                                    type="file"
+                                    onChange={(e) => setIcon(e.target.files[0])}
+                                />
+                            </form>
+                        </div> : null
+                }
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Service name</label><br />
                     <input className={`w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none`}
@@ -133,16 +150,19 @@ export default function AddService() {
                         required
                     />
                 </div>
-                <div className="mb-[15px] w-full">
-                    <label className="text-black text-opacity-60">Service sub-title</label><br />
-                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
-                        type="text"
-                        id="subTitle"
-                        value={service.subTitle}
-                        onChange={(e) => setService({ ...service, subTitle: e.target.value })}
-                        required
-                    />
-                </div>
+                {
+                    service.category === 'Drip' ?
+                        <div className="mb-[15px] w-full">
+                            <label className="text-black text-opacity-60">Service sub-title</label><br />
+                            <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                                type="text"
+                                id="subTitle"
+                                value={service.subTitle}
+                                onChange={(e) => setService({ ...service, subTitle: e.target.value })}
+                                required
+                            />
+                        </div> : null
+                }
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Ingredients</label><br />
                     <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"

@@ -39,11 +39,10 @@ export default function Injections() {
                 {
                     treatments.filter(treatment => treatment.category === "Injection").map((treatment, index) => (
                         <div key={index} className="flex flex-col items-center w-[50%] px-[20px] py-[60px] sm:w-[33.33%]">
-                            <div className="relative h-[80px] w-full mb-[20px]">
-                                <Image
+                            <div className="relative flex justify-center h-[80px] w-auto mb-[20px]">
+                                <img
+                                className="h-full"
                                     src={treatment.icon}
-                                    fill
-                                    style={{ objectFit: "contain" }}
                                     alt={treatment.title}
                                 />
                             </div>
