@@ -60,7 +60,7 @@ export default function AddService() {
         try {
             const uploadedImageURL = await uploadImage(image);
             const uploadedIconURL = await uploadImage(icon);
-            
+
             const updatedService = {
                 ...service,
                 image: uploadedImageURL,
@@ -129,17 +129,19 @@ export default function AddService() {
                         />
                     </form>
                 </div>
-                {
-                    service.category === 'Injection' ?
-                        <div className="flex flex-col w-full mb-[15px]">
-                            <form>
-                                <input
-                                    type="file"
-                                    onChange={(e) => setIcon(e.target.files[0])}
-                                />
-                            </form>
-                        </div> : null
-                }
+                <div className="mb-[15px] w-full">
+                    <label className="text-black text-opacity-60">Category</label><br />
+                    <select
+                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                        id="category"
+                        value={service.category}
+                        onChange={(e) => setService({ ...service, category: e.target.value })}
+                        required
+                    >
+                        <option value="Drip">Drip</option>
+                        <option value="Injection">Injection</option>
+                    </select>
+                </div>
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Service name</label><br />
                     <input className={`w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none`}
@@ -183,19 +185,18 @@ export default function AddService() {
                         required
                     />
                 </div>
-                <div className="mb-[15px] w-full">
-                    <label className="text-black text-opacity-60">Category</label><br />
-                    <select
-                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
-                        id="category"
-                        value={service.category}
-                        onChange={(e) => setService({ ...service, category: e.target.value })}
-                        required
-                    >
-                        <option value="Drip">Drip</option>
-                        <option value="Injection">Injection</option>
-                    </select>
-                </div>
+                {
+                    service.category === 'Injection' ?
+                        <div className="flex flex-col w-full mb-[15px]">
+                            <label className="text-black text-opacity-60">Service Icon</label>
+                            <form>
+                                <input
+                                    type="file"
+                                    onChange={(e) => setIcon(e.target.files[0])}
+                                />
+                            </form>
+                        </div> : null
+                }
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Price</label><br />
                     <input
