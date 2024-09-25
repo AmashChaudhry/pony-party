@@ -5,12 +5,13 @@ export async function POST(request) {
     try {
         const formData = await request.formData();
         const image = formData.get('image');
+        const path = formData.get('path');
 
         if (!image) {
             return NextResponse.json({ message: 'No image Selected' }, { status: 400 });
         }
 
-        const imageData = await uploadImage(image, "Pony-Party/Services");
+        const imageData = await uploadImage(image, path);
 
         return NextResponse.json({data: imageData}, {status: 201});
 

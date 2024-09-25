@@ -20,7 +20,7 @@ export default function AddService() {
     });
     const [image, setImage] = useState(null);
     const [icon, setIcon] = useState(null);
-    const [buttonDisabled, setButtonDisabled] = useState(true);
+    const [buttonDisabled, setButtonDisabled] = useState(false);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -59,12 +59,12 @@ export default function AddService() {
         setButtonDisabled(true);
         setLoading(true);
         try {
-            const uploadedImageURL = await uploadImage(image);
-            const uploadedIconURL = await uploadImage(icon);
+            const uploadedImageURL = await uploadImage(image, 'Pony-Party/Services');
+            const uploadedIconURL = await uploadImage(icon, 'Pony-Party/Services/icons');
 
             const updatedUses = await Promise.all(inputs.map(async (input) => {
                 if (input.icon) {
-                    const uploadedIcon = await uploadImage(input.icon);
+                    const uploadedIcon = await uploadImage(input.icon, 'Pony-Party/Services/assets');
                     return { ...input, icon: uploadedIcon };
                 }
                 return input;
@@ -76,12 +76,6 @@ export default function AddService() {
                 icon: uploadedIconURL,
                 uses: updatedUses,
             };
-
-            // const updatedService = {
-            //     ...service,
-            //     image: uploadedImageURL,
-            //     icon: uploadedIconURL
-            // };
 
             const response = await fetch('/api/add-service', {
                 method: 'POST',
@@ -103,13 +97,17 @@ export default function AddService() {
 
         } catch (error) {
             console.log("Rgisteration failed");
+        } finally {
+            setLoading(false);
+            setButtonDisabled(false);
         }
     }
 
-    const uploadImage = async (file) => {
+    const uploadImage = async (file, path) => {
         try {
             const formData = new FormData();
             formData.append('image', file);
+            formData.append('path', path);
 
             const response = await fetch('/api/upload-image', {
                 method: 'POST',
@@ -283,9 +281,10 @@ export default function AddService() {
                     <button
                         className="bg-[#ffa9f9] hover:bg-black text-white w-fit py-[15px] px-[20px]"
                         type="submit"
+                        disabled={buttonDisabled}
                         onClick={handleSubmit}
                     >
-                        Add Service
+                        {loading ? "Loading..." : "Add Service"}
                     </button>
                 </div>
             </div>
