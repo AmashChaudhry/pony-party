@@ -136,12 +136,28 @@ export default function AddService() {
                     <h2 className="text-[24px] font-bold">Add Service</h2>
                 </div>
                 <div className="flex flex-col w-full mb-[15px]">
-                    <form>
-                        <input
-                            type="file"
-                            onChange={(e) => setImage(e.target.files[0])}
-                        />
-                    </form>
+                    <label htmlFor="file-upload" className="w-full cursor-pointer">
+                        <div className="border-2 border-dashed border-gray-300 p-4 text-center rounded-xl hover:border-black transition-all duration-200">
+                            {!image ? (
+                                <p className="text-gray-500">Click to select an image</p>
+                            ) : (
+                                <div className="flex flex-col items-center">
+                                    <img
+                                        className="h-[200px] w-auto object-fit mb-2"
+                                        src={URL.createObjectURL(image)}
+                                        alt="Selected"
+                                    />
+                                    <p className="text-black mt-2">{image.name}</p>
+                                </div>
+                            )}
+                        </div>
+                    </label>
+                    <input
+                        id="file-upload"
+                        type="file"
+                        className="hidden"
+                        onChange={(e) => setImage(e.target.files[0])}
+                    />
                 </div>
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Category</label><br />
@@ -203,12 +219,10 @@ export default function AddService() {
                     service.category === 'Injection' ?
                         <div className="flex flex-col w-full mb-[15px]">
                             <label className="text-black text-opacity-60">Service Icon</label>
-                            <form>
-                                <input
-                                    type="file"
-                                    onChange={(e) => setIcon(e.target.files[0])}
-                                />
-                            </form>
+                            <input
+                                type="file"
+                                onChange={(e) => setIcon(e.target.files[0])}
+                            />
                         </div> : null
                 }
                 <div className="mb-[15px] w-full">
@@ -236,34 +250,41 @@ export default function AddService() {
                 <div className="w-full">
                     {inputs.map((input, index) => (
                         <div key={index} className="mb-4">
-                            <div>
-                                <label className="block text-gray-700 text-sm font-bold mb-2">
-                                    Select Image {index + 1}
+                            <div className="mb-[15px]">
+                                <label htmlFor={`file-upload-${index}`} className="w-full cursor-pointer">
+                                    <div className="border-2 border-dashed border-gray-300 p-4 text-center rounded-xl hover:border-black transition-all duration-200">
+                                        {!inputs[index].icon ? (
+                                            <p className="text-gray-500">Click to select an image</p>
+                                        ) : (
+                                            <div className="flex flex-col items-center">
+                                                <img
+                                                    className="h-[80px] w-auto mb-2"
+                                                    src={inputs[index].icon instanceof File ? URL.createObjectURL(inputs[index].icon) : inputs[index].icon}
+                                                    alt={`Selected Image ${index + 1}`}
+                                                />
+                                                <p className="text-black mt-2">{inputs[index].icon.name}</p>
+                                            </div>
+                                        )}
+                                    </div>
                                 </label>
                                 <input
+                                    id={`file-upload-${index}`}
                                     type="file"
                                     name="icon"
-                                    className="w-full p-2 mb-2 border border-gray-300 rounded"
+                                    className="hidden"
                                     onChange={(e) => handleInputChange(index, e)}
                                 />
                             </div>
-                            {input.icon && (
-                                <img
-                                    src={input.icon}
-                                    alt={`icon ${index + 1}`}
-                                    className="mt-2 max-w-full h-auto"
-                                />
-                            )}
                             <div>
                                 <label className="block text-gray-700 text-sm font-bold mb-2">
-                                    Description {index + 1}
+                                    Use {index + 1}
                                 </label>
                                 <input
                                     type="text"
                                     name="name"
                                     value={input.name}
                                     onChange={(e) => handleInputChange(index, e)}
-                                    className="w-full p-2 border border-gray-300 rounded mb-4"
+                                    className="w-full p-2 border border-gray-300 rounded"
                                     placeholder="Enter description"
                                 />
                             </div>
