@@ -10,7 +10,6 @@ const serviceSchema = new mongoose.Schema({
     },
     ingredients: {
         type: String,
-        required: true,
     },
     effects: {
         type: String,

@@ -131,8 +131,8 @@ export default function AddService() {
 
     return (
         <div className="flex flex-col items-center w-full max-w-[1200px] m-auto py-[60px]">
-            <div className="flex flex-rox justify-center w-full mb-[30px]">
-                <h2 className="text-[24px] font-bold">Add Service</h2>
+            <div className="flex flex-rox justify-center w-full mb-[40px]">
+                <h2 className="text-[28px] font-medium">ADD SERVICE</h2>
             </div>
             <div className='flex flex-col w-full md:flex-row'>
                 <div className="flex flex-col items-start w-full px-[25px] md:py-[40px]">
@@ -222,19 +222,54 @@ export default function AddService() {
                             />
                         </div>
                     </div>
+                    {
+                        service.category === 'Injection' ? (
+                            <div className='w-full'>
+                                <h3 className='text-[18px] font-bold mb-[10px]'>Icon <span className='text-[14px] font-medium'>(Represents your service)</span></h3>
+                                <div className="flex flex-col w-full p-[20px] mb-[20px] border-[0.5px] border-black border-opacity-10 rounded-lg">
+                                    <label className="text-[14px] text-black">Icon (Optional)</label>
+                                    <label htmlFor="icon-upload" className="w-full cursor-pointer">
+                                        <div className="border-2 border-dashed border-gray-300 p-4 text-center rounded-xl hover:border-black transition-all duration-200">
+                                            {!icon ? (
+                                                <p className="text-gray-500">Click to select an icon</p>
+                                            ) : (
+                                                <div className="flex flex-col items-center">
+                                                    <img
+                                                        className="h-[80px] w-auto mb-2"
+                                                        src={URL.createObjectURL(icon)}
+                                                        alt="Selected Icon"
+                                                    />
+                                                    <p className="text-black mt-2">{icon.name}</p>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </label>
+                                    <input
+                                        id="icon-upload"
+                                        type="file"
+                                        className="hidden"
+                                        onChange={(e) => setIcon(e.target.files[0])}
+                                    />
+                                </div>
+                            </div>
+                        ) : null
+                    }
                     <h3 className='text-[18px] font-bold mb-[10px]'>Details</h3>
                     <div className="flex flex-col w-full p-[20px] mb-[20px] border-[0.5px] border-black border-opacity-10 rounded-lg">
-                        <div className="mb-[15px] w-full">
-                            <label className="text-[14px] text-black">Ingredients</label><br />
-                            <input className="w-full p-[15px] text-[14px] border-[1px] border-black border-opacity-10 rounded-md focus:outline-none"
-                                type="text"
-                                id="ingredients"
-                                value={service.ingredients}
-                                placeholder='Enter ingredients'
-                                onChange={(e) => setService({ ...service, ingredients: e.target.value })}
-                                required
-                            />
-                        </div>
+                        {
+                            service.category === 'Drip' ?
+                                <div className="mb-[15px] w-full">
+                                    <label className="text-[14px] text-black">Ingredients</label><br />
+                                    <input className="w-full p-[15px] text-[14px] border-[1px] border-black border-opacity-10 rounded-md focus:outline-none"
+                                        type="text"
+                                        id="ingredients"
+                                        value={service.ingredients}
+                                        placeholder='Enter ingredients'
+                                        onChange={(e) => setService({ ...service, ingredients: e.target.value })}
+                                        required
+                                    />
+                                </div> : null
+                        }
                         <div className="mb-[15px] w-full">
                             <label className="text-[14px] text-black">Effects</label><br />
                             <input className="w-full p-[15px] text-[14px] border-[1px] border-black border-opacity-10 rounded-md focus:outline-none"
@@ -259,34 +294,6 @@ export default function AddService() {
                             />
                         </div>
                     </div>
-                    {
-                        service.category === 'Injection' ? (
-                            <div className="flex flex-col w-full mb-[15px] mt-[10px]">
-                                <label htmlFor="icon-upload" className="w-full cursor-pointer">
-                                    <div className="border-2 border-dashed border-gray-300 p-4 text-center rounded-xl hover:border-black transition-all duration-200">
-                                        {!icon ? (
-                                            <p className="text-gray-500">Click to select an icon</p>
-                                        ) : (
-                                            <div className="flex flex-col items-center">
-                                                <img
-                                                    className="h-[80px] w-auto mb-2"
-                                                    src={URL.createObjectURL(icon)}
-                                                    alt="Selected Icon"
-                                                />
-                                                <p className="text-black mt-2">{icon.name}</p>
-                                            </div>
-                                        )}
-                                    </div>
-                                </label>
-                                <input
-                                    id="icon-upload"
-                                    type="file"
-                                    className="hidden"
-                                    onChange={(e) => setIcon(e.target.files[0])}
-                                />
-                            </div>
-                        ) : null
-                    }
                 </div>
                 <div className="flex flex-col items-end w-full px-[25px] md:py-[40px]">
                     <div className='items-start w-full mb-[10px]'>
@@ -325,7 +332,7 @@ export default function AddService() {
                                 />
                             </div>
                             <div>
-                                <label className="text-black text-opacity-60">Title</label><br />
+                                <label className="text-[14px] text-black">Title</label><br />
                                 <input
                                     className="w-full p-2 border border-gray-300 rounded focus:outline-none"
                                     type="text"
@@ -346,9 +353,9 @@ export default function AddService() {
                     </button>
                 </div>
             </div>
-            <div className="flex flex-rox justify-center w-full">
+            <div className="flex flex-rox justify-center w-full mt-[40px]">
                 <button
-                    className="bg-[#ffa9f9] hover:bg-black text-white w-fit py-[15px] px-[20px]"
+                    className="bg-black hover:shadow-lg text-white w-fit py-[10px] px-[20px] rounded-md"
                     type="submit"
                     disabled={buttonDisabled}
                     onClick={handleSubmit}
