@@ -185,12 +185,12 @@ export default function AddService() {
                     <h3 className='text-[18px] font-bold mb-[10px]'>Basic Information</h3>
                     <div className="flex flex-col w-full p-[20px] mb-[20px] border-[0.5px] border-black border-opacity-10 rounded-lg">
                         <div className="mb-[15px] w-full">
-                            <label className="text-[14px] text-black">Service name</label><br />
+                            <label className="text-[14px] text-black">Service title</label><br />
                             <input className='w-full p-[15px] text-[14px] border-[1px] border-black border-opacity-10 rounded-md focus:outline-none'
                                 type="text"
                                 id="title"
                                 value={service.title}
-                                placeholder='Enter service name'
+                                placeholder='Enter service title'
                                 onChange={(e) => setService({ ...service, title: e.target.value })}
                                 required
                             />
@@ -333,13 +333,13 @@ export default function AddService() {
                             </div>
                             <div>
                                 <label className="text-[14px] text-black">Title</label><br />
-                                <input
-                                    className="w-full p-2 border border-gray-300 rounded focus:outline-none"
+                                <input className='w-full p-[15px] text-[14px] border-[1px] border-black border-opacity-10 rounded-md focus:outline-none'
                                     type="text"
-                                    name="name"
+                                    name='name'
                                     value={input.name}
-                                    onChange={(e) => handleInputChange(index, e)}
                                     placeholder="Enter title"
+                                    onChange={(e) => handleInputChange(index, e)}
+                                    required
                                 />
                             </div>
                         </div>
