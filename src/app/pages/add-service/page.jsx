@@ -130,131 +130,180 @@ export default function AddService() {
     }
 
     return (
-        <div className="flex flex-col items-center w-full max-w-[1200px] m-auto sm:px-[20px] lg:px-[60px]">
-            <div className="flex flex-col items-start w-full max-w-[500px] px-[25px] py-[40px]">
-                <div className="flex flex-rox justify-center w-full mb-[30px]">
-                    <h2 className="text-[24px] font-bold">Add Service</h2>
-                </div>
-                <div className="flex flex-col w-full mb-[15px]">
-                    <label htmlFor="file-upload" className="w-full cursor-pointer">
-                        <div className="border-2 border-dashed border-gray-300 p-4 text-center rounded-xl hover:border-black transition-all duration-200">
-                            {!image ? (
-                                <p className="text-gray-500">Click to select an image</p>
-                            ) : (
-                                <div className="flex flex-col items-center">
-                                    <img
-                                        className="h-[200px] w-auto object-fit mb-2"
-                                        src={URL.createObjectURL(image)}
-                                        alt="Selected"
-                                    />
-                                    <p className="text-black mt-2">{image.name}</p>
-                                </div>
-                            )}
+        <div className="flex flex-col items-center w-full max-w-[1200px] m-auto py-[60px]">
+            <div className="flex flex-rox justify-center w-full mb-[30px]">
+                <h2 className="text-[24px] font-bold">Add Service</h2>
+            </div>
+            <div className='flex flex-col w-full md:flex-row'>
+                <div className="flex flex-col items-start w-full px-[25px] md:py-[40px]">
+                    <h3 className='text-[18px] font-bold mb-[10px]'>Service Image</h3>
+                    <div className="flex flex-col w-full p-[20px] mb-[20px] border-[0.5px] border-black border-opacity-10 rounded-lg">
+                        <label htmlFor="file-upload" className="w-full cursor-pointer">
+                            <div className="border-2 border-dashed border-gray-300 p-4 text-center rounded-xl hover:border-black transition-all duration-200">
+                                {!image ? (
+                                    <p className="text-gray-500">Click to select an image</p>
+                                ) : (
+                                    <div className="flex flex-col items-center">
+                                        <img
+                                            className="h-[200px] w-auto object-fit mb-2"
+                                            src={URL.createObjectURL(image)}
+                                            alt="Selected"
+                                        />
+                                        <p className="text-black mt-2">{image.name}</p>
+                                    </div>
+                                )}
+                            </div>
+                        </label>
+                        <input
+                            id="file-upload"
+                            type="file"
+                            className="hidden"
+                            onChange={(e) => setImage(e.target.files[0])}
+                        />
+                    </div>
+                    <h3 className='text-[18px] font-bold mb-[10px]'>Category</h3>
+                    <div className="w-full p-[20px] mb-[20px] border-[0.5px] border-black border-opacity-10 rounded-lg">
+                        <label className="text-[14px] text-black">Service Category</label><br />
+                        <div className="relative w-full">
+                            <select
+                                className="w-full p-[15px] text-[14px] border-[1px] border-black border-opacity-10 rounded-md focus:outline-none pr-[30px] appearance-none"
+                                id="category"
+                                value={service.category}
+                                onChange={(e) => setService({ ...service, category: e.target.value })}
+                                required
+                            >
+                                <option value="Drip">Drip</option>
+                                <option value="Injection">Injection</option>
+                            </select>
+                            <div className="absolute inset-y-0 right-0 flex items-center pr-[15px] pointer-events-none">
+                                <svg className="w-5 h-5 text-gray-500 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
                         </div>
-                    </label>
-                    <input
-                        id="file-upload"
-                        type="file"
-                        className="hidden"
-                        onChange={(e) => setImage(e.target.files[0])}
-                    />
-                </div>
-                <div className="mb-[15px] w-full">
-                    <label className="text-black text-opacity-60">Category</label><br />
-                    <select
-                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
-                        id="category"
-                        value={service.category}
-                        onChange={(e) => setService({ ...service, category: e.target.value })}
-                        required
-                    >
-                        <option value="Drip">Drip</option>
-                        <option value="Injection">Injection</option>
-                    </select>
-                </div>
-                <div className="mb-[15px] w-full">
-                    <label className="text-black text-opacity-60">Service name</label><br />
-                    <input className={`w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none`}
-                        type="text"
-                        id="title"
-                        value={service.title}
-                        onChange={(e) => setService({ ...service, title: e.target.value })}
-                        required
-                    />
-                </div>
-                {
-                    service.category === 'Drip' ?
+                    </div>
+                    <h3 className='text-[18px] font-bold mb-[10px]'>Basic Information</h3>
+                    <div className="flex flex-col w-full p-[20px] mb-[20px] border-[0.5px] border-black border-opacity-10 rounded-lg">
                         <div className="mb-[15px] w-full">
-                            <label className="text-black text-opacity-60">Service sub-title</label><br />
-                            <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                            <label className="text-[14px] text-black">Service name</label><br />
+                            <input className='w-full p-[15px] text-[14px] border-[1px] border-black border-opacity-10 rounded-md focus:outline-none'
                                 type="text"
-                                id="subTitle"
-                                value={service.subTitle}
-                                onChange={(e) => setService({ ...service, subTitle: e.target.value })}
+                                id="title"
+                                value={service.title}
+                                placeholder='Enter service name'
+                                onChange={(e) => setService({ ...service, title: e.target.value })}
                                 required
                             />
-                        </div> : null
-                }
-                <div className="mb-[15px] w-full">
-                    <label className="text-black text-opacity-60">Ingredients</label><br />
-                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
-                        type="text"
-                        id="ingredients"
-                        value={service.ingredients}
-                        onChange={(e) => setService({ ...service, ingredients: e.target.value })}
-                        required
-                    />
-                </div>
-                <div className="mb-[15px] w-full">
-                    <label className="text-black text-opacity-60">Effects</label><br />
-                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
-                        type="text"
-                        id="effects"
-                        value={service.effects}
-                        onChange={(e) => setService({ ...service, effects: e.target.value })}
-                        required
-                    />
-                </div>
-                {
-                    service.category === 'Injection' ?
-                        <div className="flex flex-col w-full mb-[15px]">
-                            <label className="text-black text-opacity-60">Service Icon</label>
-                            <input
-                                type="file"
-                                onChange={(e) => setIcon(e.target.files[0])}
+                        </div>
+                        {
+                            service.category === 'Drip' ?
+                                <div className="mb-[15px] w-full">
+                                    <label className="text-[14px] text-black">Service sub-title</label><br />
+                                    <input className="w-full p-[15px] text-[14px] border-[1px] border-black border-opacity-10 rounded-md focus:outline-none"
+                                        type="text"
+                                        id="subTitle"
+                                        value={service.subTitle}
+                                        placeholder='Enter sub-title'
+                                        onChange={(e) => setService({ ...service, subTitle: e.target.value })}
+                                        required
+                                    />
+                                </div> : null
+                        }
+                        <div className="w-full">
+                            <label className="text-[14px] text-black">Description</label><br />
+                            <textarea
+                                className="w-full p-[15px] text-[14px] border-[1px] border-black border-opacity-10 rounded-md focus:outline-none resize-none"
+                                id="description"
+                                value={service.description}
+                                placeholder='Description...'
+                                onChange={(e) => setService({ ...service, description: e.target.value })}
+                                rows="4"
+                                required
                             />
-                        </div> : null
-                }
-                <div className="mb-[15px] w-full">
-                    <label className="text-black text-opacity-60">Price</label><br />
-                    <input
-                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
-                        type="number"
-                        id="price"
-                        value={service.price}
-                        onChange={(e) => setService({ ...service, price: e.target.value })}
-                        required
-                    />
+                        </div>
+                    </div>
+                    <h3 className='text-[18px] font-bold mb-[10px]'>Details</h3>
+                    <div className="flex flex-col w-full p-[20px] mb-[20px] border-[0.5px] border-black border-opacity-10 rounded-lg">
+                        <div className="mb-[15px] w-full">
+                            <label className="text-[14px] text-black">Ingredients</label><br />
+                            <input className="w-full p-[15px] text-[14px] border-[1px] border-black border-opacity-10 rounded-md focus:outline-none"
+                                type="text"
+                                id="ingredients"
+                                value={service.ingredients}
+                                placeholder='Enter ingredients'
+                                onChange={(e) => setService({ ...service, ingredients: e.target.value })}
+                                required
+                            />
+                        </div>
+                        <div className="mb-[15px] w-full">
+                            <label className="text-[14px] text-black">Effects</label><br />
+                            <input className="w-full p-[15px] text-[14px] border-[1px] border-black border-opacity-10 rounded-md focus:outline-none"
+                                type="text"
+                                id="effects"
+                                value={service.effects}
+                                placeholder='Enter effects'
+                                onChange={(e) => setService({ ...service, effects: e.target.value })}
+                                required
+                            />
+                        </div>
+                        <div className="mb-[15px] w-full">
+                            <label className="text-[14px] text-black">Price</label><br />
+                            <input
+                                className="w-full p-[15px] text-[14px] border-[1px] border-black border-opacity-10 rounded-md focus:outline-none"
+                                type="number"
+                                id="price"
+                                value={service.price}
+                                placeholder='Enter price'
+                                onChange={(e) => setService({ ...service, price: e.target.value })}
+                                required
+                            />
+                        </div>
+                    </div>
+                    {
+                        service.category === 'Injection' ? (
+                            <div className="flex flex-col w-full mb-[15px] mt-[10px]">
+                                <label htmlFor="icon-upload" className="w-full cursor-pointer">
+                                    <div className="border-2 border-dashed border-gray-300 p-4 text-center rounded-xl hover:border-black transition-all duration-200">
+                                        {!icon ? (
+                                            <p className="text-gray-500">Click to select an icon</p>
+                                        ) : (
+                                            <div className="flex flex-col items-center">
+                                                <img
+                                                    className="h-[80px] w-auto mb-2"
+                                                    src={URL.createObjectURL(icon)}
+                                                    alt="Selected Icon"
+                                                />
+                                                <p className="text-black mt-2">{icon.name}</p>
+                                            </div>
+                                        )}
+                                    </div>
+                                </label>
+                                <input
+                                    id="icon-upload"
+                                    type="file"
+                                    className="hidden"
+                                    onChange={(e) => setIcon(e.target.files[0])}
+                                />
+                            </div>
+                        ) : null
+                    }
                 </div>
-                <div className="mb-[15px] w-full">
-                    <label className="text-black text-opacity-60">Description</label><br />
-                    <textarea
-                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none resize-none"
-                        id="description"
-                        value={service.description}
-                        onChange={(e) => setService({ ...service, description: e.target.value })}
-                        rows="4"
-                        required
-                    />
-                </div>
-                <div className="w-full">
+                <div className="flex flex-col items-end w-full px-[25px] md:py-[40px]">
+                    <div className='items-start w-full mb-[10px]'>
+                        <h3 className='text-[18px] font-bold'>Uses</h3>
+                    </div>
                     {inputs.map((input, index) => (
-                        <div key={index} className="mb-4">
+                        <div key={index} className="w-full p-[20px] mb-[20px] border-[0.5px] border-black border-opacity-10 rounded-lg">
                             <div className="mb-[15px]">
+                                <div className='flex flex-row justify-center items-center px-[40px] mb-[15px]'>
+                                    <div className='h-[1px] w-full bg-gray-300'></div>
+                                    <p className='text-gray-400 text-[12px] tracking-widest w-fit whitespace-nowrap mx-[20px]'>USE {index + 1}</p>
+                                    <div className='h-[1px] w-full bg-gray-300'></div>
+                                </div>
                                 <label htmlFor={`file-upload-${index}`} className="w-full cursor-pointer">
                                     <div className="border-2 border-dashed border-gray-300 p-4 text-center rounded-xl hover:border-black transition-all duration-200">
                                         {!inputs[index].icon ? (
-                                            <p className="text-gray-500">Click to select an image</p>
+                                            <p className="text-gray-500">Click to select an icon</p>
                                         ) : (
                                             <div className="flex flex-col items-center">
                                                 <img
@@ -276,38 +325,36 @@ export default function AddService() {
                                 />
                             </div>
                             <div>
-                                <label className="block text-gray-700 text-sm font-bold mb-2">
-                                    Use {index + 1}
-                                </label>
+                                <label className="text-black text-opacity-60">Title</label><br />
                                 <input
+                                    className="w-full p-2 border border-gray-300 rounded focus:outline-none"
                                     type="text"
                                     name="name"
                                     value={input.name}
                                     onChange={(e) => handleInputChange(index, e)}
-                                    className="w-full p-2 border border-gray-300 rounded"
-                                    placeholder="Enter description"
+                                    placeholder="Enter title"
                                 />
                             </div>
                         </div>
                     ))}
                     <button
+                        className="flex justify-center items-center text-[14px] bg-black text-white py-2 px-4 rounded"
                         type="button"
-                        className="bg-[#ffa9f9] text-white py-2 px-4 rounded hover:bg-[#ff85f1] transition duration-300"
                         onClick={addMoreInputs}
                     >
-                        Add Another
+                        Add another
                     </button>
                 </div>
-                <div className="flex flex-rox justify-center w-full">
-                    <button
-                        className="bg-[#ffa9f9] hover:bg-black text-white w-fit py-[15px] px-[20px]"
-                        type="submit"
-                        disabled={buttonDisabled}
-                        onClick={handleSubmit}
-                    >
-                        {loading ? "Loading..." : "Add Service"}
-                    </button>
-                </div>
+            </div>
+            <div className="flex flex-rox justify-center w-full">
+                <button
+                    className="bg-[#ffa9f9] hover:bg-black text-white w-fit py-[15px] px-[20px]"
+                    type="submit"
+                    disabled={buttonDisabled}
+                    onClick={handleSubmit}
+                >
+                    {loading ? "Loading..." : "Add Service"}
+                </button>
             </div>
         </div>
     );
