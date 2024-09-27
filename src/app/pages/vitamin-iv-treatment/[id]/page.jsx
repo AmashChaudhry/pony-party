@@ -93,7 +93,7 @@ export default function VitaminIVTreatmentDetail({ params }) {
                             <div className="flex flex-wrap justify-evenly w-full">
                                 {
                                     treatment.uses.map((use, index) => (
-                                        <div className="flex flex-col items-center w-full max-w-[180px] py-[40px]">
+                                        <div className="flex flex-col items-center w-full max-w-[190px] px-[10px] py-[40px]">
                                             <div className="relative flex justify-center h-[80px] w-auto mb-[20px]">
                                                 <img
                                                     className="h-full w-auto"
