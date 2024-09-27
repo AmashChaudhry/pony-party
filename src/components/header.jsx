@@ -45,13 +45,19 @@ export default function Header() {
         setMenuOpen(!menuOpen);
     };
 
+    const handleLinkClick = () => {
+        if (menuOpen) {
+            toggleMenu();
+        }
+    };
+
     return (
         <header className="sticky top-0 bg-gradient-to-r from-[#fff7ad] to-[#ffa9f9] w-full z-50">
             <nav className="flex sticky justify-between items-center h-[80px] mx-auto w-full lg:max-w-[1200px]">
                 <button className="text-black text-[28px] m-[20px] lg:hidden" name="menu" onClick={toggleMenu}>{menuOpen ? <FaTimes /> : <FaBars />}</button>
                 <ul className="flex p-0 items-center">
                     <li className="inline-block text-black text-[14px] py-[4px] px-[10px] mx-[5px]">
-                        <Link href="/" className="flex flex-col items-center justify-center">
+                        <Link href="/" onClick={handleLinkClick} className="flex flex-col items-center justify-center">
                             <div className="relative w-[140px] h-[60px]">
                                 <Image
                                     src="/Logo-1.png"
@@ -66,16 +72,16 @@ export default function Header() {
                 <div className={`lg:static absolute bg-white border-b border-gray-300 lg:border-transparent lg:bg-transparent lg:min-h-fit min-h-fit left-0 ${menuPosition} lg:w-auto w-full flex items-center px-5 py-[20px]`}>
                     <ul className="flex lg:flex-row flex-col lg:p-0 lg:items-center lg:gap-0 gap-5">
                         <li className="inline-block text-black  text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
-                            <Link href="/pages/in-home-services">In-Home Services</Link>
+                            <Link href="/pages/in-home-services" onClick={handleLinkClick}>In-Home Services</Link>
                         </li>
                         <li className="inline-block text-black text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
-                            <Link href="/Contact">Locations</Link>
+                            <Link href="/Contact" onClick={handleLinkClick}>Locations</Link>
                         </li>
                         <li className="inline-block text-black text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
-                            <Link href="/pages/about-us">About Us</Link>
+                            <Link href="/pages/about-us" onClick={handleLinkClick}>About Us</Link>
                         </li>
                         <li className="inline-block text-black text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
-                            <Link href="/pages/add-service">Add Service</Link>
+                            <Link href="/pages/add-service" onClick={handleLinkClick}>Add Service</Link>
                         </li>
                     </ul>
                 </div>
