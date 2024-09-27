@@ -55,7 +55,7 @@ export default function VitaminIVTreatmentDetail({ params }) {
         <div className="flex flex-col items-center">
             <span className="h-0 w-full lg:h-[40px]"></span>
             <div className="flex flex-row justify-center w-full max-w-[1200px] m-auto lg:items-center">
-                <div className="relative flex justify-center h-fit w-[50%] px-[40px]">
+                <div className="relative flex justify-center h-fit w-[50%] py-[20px] sm:px-[20px] md:px-[40px]">
                     <img
                         className="h-full w-auto"
                         src={treatment.image}
@@ -86,10 +86,10 @@ export default function VitaminIVTreatmentDetail({ params }) {
                 treatment.uses && treatment.uses.length > 0 && (
                     <div className="flex flex-col items-center w-full bg-[#FAFAFA] py-[40px]">
                         <div className="flex flex-col items-center w-full max-w-[1200px]">
-                            <h1 className="text-[26px] font-medium">
+                            <h1 className="text-[20px] font-medium sm:text-[22px] md:text-[24px] lg:text-[26px]">
                                 Best Uses For {treatment.title.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')} {treatment.category === "Drip" ? "IV" : null}
                             </h1>
-                            <span className="h-[100px]"></span>
+                            <span className="h-[40px] sm:h-[60px] md:h-[80px] lg:h-[100px]"></span>
                             <div className="flex flex-wrap justify-evenly w-full">
                                 {
                                     treatment.uses.map((use, index) => (
