@@ -70,18 +70,22 @@ export default function Header() {
                     </li>
                 </ul>
                 <div className={`lg:static absolute bg-white border-b border-gray-300 lg:border-transparent lg:bg-transparent lg:min-h-fit min-h-fit left-0 ${menuPosition} lg:w-auto w-full flex items-center px-5 py-[20px]`}>
-                    <ul className="flex lg:flex-row flex-col lg:p-0 lg:items-center lg:gap-0 gap-5">
-                        <li className="inline-block text-black  text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
+                    <ul className="flex lg:flex-row flex-col w-full lg:p-0 lg:items-center lg:gap-0 gap-[10px]">
+                        <li className="inline-block text-black text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
                             <Link href="/pages/in-home-services" onClick={handleLinkClick}>In-Home Services</Link>
+                            <div className='bg-gray-200 h-[1px] w-full mt-[5px] lg:h-0 lg:mt-0'></div>
                         </li>
                         <li className="inline-block text-black text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
                             <Link href="/Contact" onClick={handleLinkClick}>Locations</Link>
+                            <div className='bg-gray-200 h-[1px] w-full mt-[5px] lg:h-0 lg:mt-0'></div>
                         </li>
                         <li className="inline-block text-black text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
                             <Link href="/pages/about-us" onClick={handleLinkClick}>About Us</Link>
+                            <div className='bg-gray-200 h-[1px] w-full mt-[5px] lg:h-0 lg:mt-0'></div>
                         </li>
                         <li className="inline-block text-black text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
                             <Link href="/pages/add-service" onClick={handleLinkClick}>Add Service</Link>
+                            <div className='bg-gray-200 h-[1px] w-full mt-[5px] lg:h-0 lg:mt-0'></div>
                         </li>
                     </ul>
                 </div>
@@ -91,7 +95,7 @@ export default function Header() {
                             loading ? (
                                 <div className="h-[30px] w-[30px] bg-white opacity-30 rounded-full"></div>
                             ) : user ? (
-                                <Link href="/pages/user-profile">
+                                <Link href="/pages/user-profile" onClick={handleLinkClick}>
                                     <div className="flex flex-row items-center bg-gray-100 p-[10px] rounded-full lg:px-[10px] lg:py-[5px]">
                                         <AiOutlineUser size={15} />
                                         <p className="hidden lg:block text-[14px] ml-[10px]">{user.firstName}</p>
