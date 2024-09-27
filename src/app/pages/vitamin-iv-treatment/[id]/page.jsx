@@ -63,7 +63,7 @@ export default function VitaminIVTreatmentDetail({ params }) {
                     />
                 </div>
                 <div className="flex flex-col h-fit w-[50%] p-[20px]">
-                    <h2 className="text-[22px] font-medium sm:text-[24px] lg:text-[40px]">{treatment.title}</h2>
+                    <h2 className="text-[22px] font-medium sm:text-[24px] lg:text-[40px]">{treatment.title.toUpperCase()}</h2>
                     {
                         treatment.category === "Drip" ? <p className="text-[14px] sm:text-[16px]">IV Treatment</p> : null
                     }
