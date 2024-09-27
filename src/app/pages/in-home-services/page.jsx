@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import VitaminIVTreatments from "@/components/vitamin-iv-treatments";
+import VitaminIVTreatments from "@/components/drips";
 
 export default function InHomeServices() {
     return (

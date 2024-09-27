@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaRegCheckCircle } from "react-icons/fa";
-import VitaminIVTreatments from "@/components/vitamin-iv-treatments";
+import VitaminIVTreatments from "@/components/drips";
 import Injections from "@/components/injections";
 
 export default function Home() {
