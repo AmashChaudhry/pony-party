@@ -4,7 +4,7 @@ import { SlArrowRight } from "react-icons/sl";
 import React, { useState, useEffect } from "react";
 
 export default function Footer() {
-    const [treatments, setTreatments] = useState([]);
+    const [services, setServices] = useState([]);
     const [loading, setLoading] = useState(true);
 
     const getServicesData = async () => {
@@ -16,7 +16,7 @@ export default function Footer() {
                 },
             });
             const serviceData = await response.json();
-            setTreatments(serviceData.data);
+            setServices(serviceData.data);
         } catch (error) {
             console.error('Error fetching treatments:', error);
         } finally {
@@ -27,6 +27,8 @@ export default function Footer() {
     useEffect(() => {
         getServicesData();
     }, []);
+
+    const drips = services.filter(service => service.category === "Drip");
 
     return (
         <div className="flex flex-col bg-gray-100">
@@ -47,14 +49,16 @@ export default function Footer() {
                                 </div>
                                 <div className="overflow-hidden transition-all duration-500 w-full max-h-0 peer-checked:max-h-fit">
                                     <div className="flex flex-col items-start w-full pt-[20px]">
-                                        {treatments.filter(treatment => treatment.category === "Drip").map((treatment, index) => (
+                                        {
+                                        drips.map((drip, index) => (
                                             <div key={index} className="flex flex-col items-start w-full">
-                                                <Link className="text-[12px] text-center hover:text-[#ffa9f9]" href={`/pages/vitamin-iv-treatment/${treatment._id}`}>
-                                                    {treatment.title}
+                                                <Link className="text-[12px] text-center hover:text-[#ffa9f9]" href={`/pages/vitamin-iv-treatment/${drip._id}`}>
+                                                    {drip.title.toUpperCase()}
                                                 </Link>
                                                 <div className="h-[1px] w-full bg-gray-300 mb-[10px]"></div>
                                             </div>
-                                        ))}
+                                        ))
+                                        }
                                     </div>
                                 </div>
                             </li>
