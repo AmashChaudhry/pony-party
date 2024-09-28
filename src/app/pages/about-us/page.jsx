@@ -53,13 +53,10 @@ export default function AboutUs() {
             </div>
             <span className="h-[60px]"></span>
             <div className="flex flex-col items-center w-full max-w-[1000px] px-[20px] sm:flex-row sm:items-start">
-                <div className="w-full h-full sm:w-[60%]">
-                    <Image
+                <div className="w-full h-full">
+                    <img
+                        className="h-auto w-full"
                         src="/about-us/nurse.jpg"
-                        width={350}
-                        height={350}
-                        className="w-full h-auto"
-                        style={{ objectFit: "cover" }}
                         alt="Nurse"
                     />
                 </div>
@@ -70,6 +67,7 @@ export default function AboutUs() {
                     </p>
                 </div>
             </div>
+            <span className='h-[100px]'></span>
         </div>
     );
 }
