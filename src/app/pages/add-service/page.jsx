@@ -140,8 +140,8 @@ export default function AddService() {
             <div className="flex flex-rox justify-center w-full mb-[40px]">
                 <h2 className="text-[28px] font-medium">ADD SERVICE</h2>
             </div>
-            <div className='flex flex-col w-full md:flex-row'>
-                <div className="flex flex-col items-start w-full px-[25px] md:py-[40px]">
+            <div className='flex flex-col items-center w-full md:flex-row md:justify-center md:items-start'>
+                <div className={`flex flex-col items-start ${service.category === 'Injection' ? 'w-full max-w-[600px]' : 'w-full'} px-[25px] md:py-[40px]`}>
                     <h3 className='text-[18px] font-bold mb-[10px]'>Service Image</h3>
                     <div className="flex flex-col w-full p-[20px] mb-[20px] border-[0.5px] border-black border-opacity-10 rounded-lg">
                         <label htmlFor="file-upload" className="w-full cursor-pointer">
@@ -301,76 +301,82 @@ export default function AddService() {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col items-end w-full px-[25px] md:py-[40px]">
-                    <div className='items-start w-full mb-[10px]'>
-                        <h3 className='text-[18px] font-bold'>Uses</h3>
-                    </div>
-                    {inputs.map((input, index) => (
-                        <div key={index} className="w-full p-[20px] mb-[20px] border-[0.5px] border-black border-opacity-10 rounded-lg">
-                            <div className="mb-[15px]">
-                                <div className='flex flex-row justify-center items-center px-[40px] mb-[15px]'>
-                                    <div className='h-[1px] w-full bg-gray-300'></div>
-                                    <p className='text-gray-400 text-[12px] tracking-widest w-fit whitespace-nowrap mx-[20px]'>USE {index + 1}</p>
-                                    <div className='h-[1px] w-full bg-gray-300'></div>
-                                </div>
-                                <label htmlFor={`file-upload-${index}`} className="w-full cursor-pointer">
-                                    <div className="border-2 border-dashed border-gray-300 p-4 text-center rounded-xl hover:border-black transition-all duration-200">
-                                        {!inputs[index].icon ? (
-                                            <p className="text-gray-500">Click to select an icon</p>
-                                        ) : (
-                                            <div className="flex flex-col items-center">
-                                                <img
-                                                    className="h-[80px] w-auto mb-2"
-                                                    src={inputs[index].icon instanceof File ? URL.createObjectURL(inputs[index].icon) : inputs[index].icon}
-                                                    alt={`Selected Image ${index + 1}`}
-                                                />
-                                                <p className="text-black mt-2">{inputs[index].icon.name}</p>
-                                            </div>
-                                        )}
-                                    </div>
-                                </label>
-                                <input
-                                    id={`file-upload-${index}`}
-                                    type="file"
-                                    name="icon"
-                                    className="hidden"
-                                    onChange={(e) => handleInputChange(index, e)}
-                                />
+                {
+                    service.category === 'Drip' ? (
+                        <div className="flex flex-col items-end w-full px-[25px] md:py-[40px]">
+                            <div className='items-start w-full mb-[10px]'>
+                                <h3 className='text-[18px] font-bold'>Uses</h3>
                             </div>
-                            <div>
-                                <label className="text-[14px] text-black">Title</label><br />
-                                <input className='w-full p-[15px] text-[14px] border-[1px] border-black border-opacity-10 rounded-md focus:outline-none'
-                                    type="text"
-                                    name='name'
-                                    value={input.name}
-                                    placeholder="Enter title"
-                                    onChange={(e) => handleInputChange(index, e)}
-                                    required
-                                />
+                            {inputs.map((input, index) => (
+                                <div key={index} className="w-full p-[20px] mb-[20px] border-[0.5px] border-black border-opacity-10 rounded-lg">
+                                    <div className="mb-[15px]">
+                                        <div className='flex flex-row justify-center items-center px-[40px] mb-[15px]'>
+                                            <div className='h-[1px] w-full bg-gray-300'></div>
+                                            <p className='text-gray-400 text-[12px] tracking-widest w-fit whitespace-nowrap mx-[20px]'>USE {index + 1}</p>
+                                            <div className='h-[1px] w-full bg-gray-300'></div>
+                                        </div>
+                                        <label htmlFor={`file-upload-${index}`} className="w-full cursor-pointer">
+                                            <div className="border-2 border-dashed border-gray-300 p-4 text-center rounded-xl hover:border-black transition-all duration-200">
+                                                {!inputs[index].icon ? (
+                                                    <p className="text-gray-500">Click to select an icon</p>
+                                                ) : (
+                                                    <div className="flex flex-col items-center">
+                                                        <img
+                                                            className="h-[80px] w-auto mb-2"
+                                                            src={inputs[index].icon instanceof File ? URL.createObjectURL(inputs[index].icon) : inputs[index].icon}
+                                                            alt={`Selected Image ${index + 1}`}
+                                                        />
+                                                        <p className="text-black mt-2">{inputs[index].icon.name}</p>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </label>
+                                        <input
+                                            id={`file-upload-${index}`}
+                                            type="file"
+                                            name="icon"
+                                            className="hidden"
+                                            onChange={(e) => handleInputChange(index, e)}
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="text-[14px] text-black">Title</label><br />
+                                        <input className='w-full p-[15px] text-[14px] border-[1px] border-black border-opacity-10 rounded-md focus:outline-none'
+                                            type="text"
+                                            name='name'
+                                            value={input.name}
+                                            placeholder="Enter title"
+                                            onChange={(e) => handleInputChange(index, e)}
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                            ))}
+                            <div className='flex flex-row justify-end w-full gap-x-[10px]'>
+                                {
+                                    inputs.length > 1 && (
+                                        <button
+                                            className="flex justify-center items-center text-[14px] bg-red-500 text-white py-2 px-4 rounded"
+                                            type="button"
+                                            onClick={removeInput}
+                                        >
+                                            Remove use
+                                        </button>
+                                    )
+                                }
+                                <button
+                                    className="flex justify-center items-center text-[14px] bg-black text-white py-2 px-4 rounded"
+                                    type="button"
+                                    onClick={addMoreInputs}
+                                >
+                                    Add use
+                                </button>
                             </div>
                         </div>
-                    ))}
-                    <div className='flex flex-row justify-end w-full gap-x-[10px]'>
-                        {
-                            inputs.length > 1 && (
-                                <button
-                                    className="flex justify-center items-center text-[14px] bg-red-500 text-white py-2 px-4 rounded"
-                                    type="button"
-                                    onClick={removeInput}
-                                >
-                                    Remove use
-                                </button>
-                            )
-                        }
-                        <button
-                            className="flex justify-center items-center text-[14px] bg-black text-white py-2 px-4 rounded"
-                            type="button"
-                            onClick={addMoreInputs}
-                        >
-                            Add use
-                        </button>
-                    </div>
-                </div>
+                    ) : (
+                        null
+                    )
+                }
             </div>
             <div className="flex flex-rox justify-center w-full mt-[40px]">
                 <button

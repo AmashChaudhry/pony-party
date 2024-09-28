@@ -72,7 +72,13 @@ export default function VitaminIVTreatmentDetail({ params }) {
                     <div className="hidden justify-start pt-[20px] sm:block">
                         <p className="text-black opacity-60">{treatment.description}</p>
                         <p className="font-bold">*US locations only</p>
-                        <p className="font-bold my-[20px]">INGREDIENTS: <span className="text-black opacity-60 font-normal">{treatment.ingredients}</span></p>
+                        {
+                            treatment.category === 'Drip' ? (
+                                <p className="font-bold my-[20px]">INGREDIENTS: <span className="text-black opacity-60 font-normal">{treatment.ingredients}</span></p>
+                            ) : (
+                                null
+                            )
+                        }
                     </div>
                 </div>
             </div>
@@ -82,7 +88,7 @@ export default function VitaminIVTreatmentDetail({ params }) {
                 <p className="text-[16px] font-bold my-[20px]">INGREDIENTS: <span className="text-black opacity-60 font-normal">{treatment.ingredients}</span></p>
             </div>
             {
-                treatment.uses && treatment.uses.length > 0 && (
+                treatment.uses && treatment.uses.length > 0 && treatment.category === 'Drip' && (
                     <div className="flex flex-col items-center w-full bg-[#FAFAFA] py-[40px]">
                         <div className="flex flex-col items-center w-full max-w-[1200px]">
                             <h1 className="text-[20px] font-medium sm:text-[22px] md:text-[24px] lg:text-[26px]">
