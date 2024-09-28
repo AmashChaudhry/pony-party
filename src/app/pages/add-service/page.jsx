@@ -358,7 +358,7 @@ export default function AddService() {
                                     type="button"
                                     onClick={removeInput}
                                 >
-                                    Remove last
+                                    Remove use
                                 </button>
                             )
                         }
@@ -367,7 +367,7 @@ export default function AddService() {
                             type="button"
                             onClick={addMoreInputs}
                         >
-                            Add another
+                            Add use
                         </button>
                     </div>
                 </div>
