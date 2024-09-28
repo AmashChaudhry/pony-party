@@ -34,6 +34,12 @@ export default function AddService() {
         setInputs([...inputs, { name: "", icon: "" }]);
     };
 
+    const removeInput = () => {
+        if (inputs.length > 1) {
+            setInputs(inputs.slice(0, -1));
+        }
+    };
+
     const handleInputChange = (index, event) => {
         const { name, type, value, files } = event.target;
         const updatedInputs = [...inputs];
@@ -344,13 +350,26 @@ export default function AddService() {
                             </div>
                         </div>
                     ))}
-                    <button
-                        className="flex justify-center items-center text-[14px] bg-black text-white py-2 px-4 rounded"
-                        type="button"
-                        onClick={addMoreInputs}
-                    >
-                        Add another
-                    </button>
+                    <div className='flex flex-row justify-end w-full gap-x-[10px]'>
+                        {
+                            inputs.length > 1 && (
+                                <button
+                                    className="flex justify-center items-center text-[14px] bg-red-500 text-white py-2 px-4 rounded"
+                                    type="button"
+                                    onClick={removeInput}
+                                >
+                                    Remove last
+                                </button>
+                            )
+                        }
+                        <button
+                            className="flex justify-center items-center text-[14px] bg-black text-white py-2 px-4 rounded"
+                            type="button"
+                            onClick={addMoreInputs}
+                        >
+                            Add another
+                        </button>
+                    </div>
                 </div>
             </div>
             <div className="flex flex-rox justify-center w-full mt-[40px]">
