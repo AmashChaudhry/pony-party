@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
-export default function VitaminIVTreatments() {
+export default function Drips() {
     const [services, setServices] = useState([]);
     const [loading, setLoading] = useState(true);
 

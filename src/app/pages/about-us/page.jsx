@@ -20,7 +20,7 @@ export default function AboutUs() {
                                 alt="Calender"
                             />
                         </div>
-                        <h3 className="text-[14px] text-center font-bold hover:text-[#ffa9f9] mt-[20px] sm:text-[16px]">80+ Cities Worldwide</h3>
+                        <h3 className="text-[14px] text-center font-bold hover:text-[#ffa9f9] mt-[20px] sm:text-[16px]">Personalized Care from Trusted Professionals</h3>
                     </div>
                     <div className="flex flex-col items-center h-fit w-[45%] px-[10px] my-[60px] sm:w-[310px]">
                         <div className="relative h-[100px] w-full m-[10px]">
@@ -31,7 +31,7 @@ export default function AboutUs() {
                                 alt="Calender"
                             />
                         </div>
-                        <h3 className="text-[14px] text-center font-bold hover:text-[#ffa9f9] mt-[20px] sm:text-[16px]">Expert Medical Team</h3>
+                        <h3 className="text-[14px] text-center font-bold hover:text-[#ffa9f9] mt-[20px] sm:text-[16px]">Convenience Meets Comfort</h3>
                     </div>
                     <div className="flex flex-col items-center h-fit w-[45%] px-[10px] my-[60px] sm:w-[310px]">
                         <div className="relative h-[100px] w-full m-[10px]">
@@ -42,7 +42,7 @@ export default function AboutUs() {
                                 alt="Calender"
                             />
                         </div>
-                        <h3 className="text-[14px] text-center font-bold hover:text-[#ffa9f9] mt-[20px] sm:text-[16px]">3,000+ 5-Star Reviews</h3>
+                        <h3 className="text-[14px] text-center font-bold hover:text-[#ffa9f9] mt-[20px] sm:text-[16px]">Holistic Wellness, Elevated</h3>
                     </div>
                 </div>
             </div>

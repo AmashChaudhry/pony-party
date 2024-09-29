@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaRegCheckCircle } from "react-icons/fa";
-import VitaminIVTreatments from "@/components/drips";
+import Drips from "@/components/drips";
 import Injections from "@/components/injections";
 
 export default function Home() {
@@ -48,7 +48,7 @@ export default function Home() {
         <h1 className="text-[20px] font-medium tracking-widest sm:text-[24px]">VITAMIN IV THERAPY</h1>
         <p className="text-[12px] text-center text-gray-500 font-light sm:text-[14px]">Experience all the benefits of IV therapy in the comfort of your own home.</p>
       </div>
-      <VitaminIVTreatments />
+      <Drips />
       <span className="h-[30px] w-full lg:h-[60px]"></span>
       <Injections />
       <div className="flex flex-col items-center w-full py-[60px]">
@@ -156,7 +156,7 @@ export default function Home() {
                 alt="Calender"
               />
             </div>
-            <h3 className="text-[14px] text-center font-bold hover:text-[#ffa9f9] mt-[20px] sm:text-[16px]">80+ Cities Worldwide</h3>
+            <h3 className="text-[14px] text-center font-bold hover:text-[#ffa9f9] mt-[20px] sm:text-[16px]">Personalized Care from Trusted Professionals</h3>
           </div>
           <div className="flex flex-col items-center h-fit w-[45%] px-[10px] my-[60px] sm:w-[310px]">
             <div className="relative h-[100px] w-full m-[10px]">
@@ -167,7 +167,7 @@ export default function Home() {
                 alt="Calender"
               />
             </div>
-            <h3 className="text-[14px] text-center font-bold hover:text-[#ffa9f9] mt-[20px] sm:text-[16px]">Expert Medical Team</h3>
+            <h3 className="text-[14px] text-center font-bold hover:text-[#ffa9f9] mt-[20px] sm:text-[16px]">Convenience Meets Comfort</h3>
           </div>
           <div className="flex flex-col items-center h-fit w-[45%] px-[10px] my-[60px] sm:w-[310px]">
             <div className="relative h-[100px] w-full m-[10px]">
@@ -178,7 +178,7 @@ export default function Home() {
                 alt="Calender"
               />
             </div>
-            <h3 className="text-[14px] text-center font-bold hover:text-[#ffa9f9] mt-[20px] sm:text-[16px]">3,000+ 5-Star Reviews</h3>
+            <h3 className="text-[14px] text-center font-bold hover:text-[#ffa9f9] mt-[20px] sm:text-[16px]">Holistic Wellness, Elevated</h3>
           </div>
         </div>
       </div>
