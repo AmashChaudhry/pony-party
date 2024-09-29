@@ -35,11 +35,6 @@ export default function Home() {
             <button className="px-[15px] py-[10px] bg-gradient-to-r from-[#fff7ad] to-[#ffa9f9] w-[100px] text-[12px] font-bold rounded-xl sm:w-fit sm:rounded-full xl:text-[14px]">
               <span className="text-black leading-none">Book IV Therapy</span>
             </button>
-            <Link href="/pages/in-home-services">
-              <button className="px-[15px] py-[10px] bg-gradient-to-r from-[#ffa9f9] to-[#fff7ad] w-[100px] text-[12px] font-bold rounded-xl sm:w-fit sm:rounded-full xl:text-[14px]">
-                <span className="text-black leading-none">View all Services</span>
-              </button>
-            </Link>
           </div>
         </div>
       </div>

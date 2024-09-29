@@ -19,6 +19,7 @@ export default function RegisterAccount() {
     });
 
     const [buttonDisabled, setButtonDisabled] = useState(true);
+    const [termsAccepted, setTermsAccepted] = useState(false);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
 
@@ -55,12 +56,18 @@ export default function RegisterAccount() {
     }
 
     useEffect(() => {
-        if (user.firstName.length > 0 && user.lastName.length > 0 && user.email.length > 0 && user.password.length > 7) {
+        if (
+            user.firstName.length > 0 &&
+            user.lastName.length > 0 &&
+            user.email.length > 0 &&
+            user.password.length > 7 &&
+            termsAccepted
+        ) {
             setButtonDisabled(false);
         } else {
             setButtonDisabled(true);
         }
-    }, [user]);
+    }, [user, termsAccepted]);
 
     return (
         <div className="flex flex-col items-center w-full max-w-[1200px] m-auto sm:px-[20px] lg:px-[60px]">
@@ -252,7 +259,12 @@ export default function RegisterAccount() {
                     </p><br />
                 </div>
                 <div className="mb-[30px]">
-                    <input className="mr-[10px]" type="checkbox" id="remember-me" />
+                    <input
+                        className="mr-[10px]"
+                        type="checkbox"
+                        id="remember-me"
+                        onChange={(e) => setTermsAccepted(e.target.checked)}
+                    />
                     <label>I agree to the Term of Service, Privacy Policy, Consent To Treat, and Cancellation Policy</label>
                 </div>
                 {errorMessage && (
