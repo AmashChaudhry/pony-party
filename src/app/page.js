@@ -18,12 +18,10 @@ export default function Home() {
           />
         </div>
         <div className="hidden lg:block">
-          <Image
+          <img
+            className='h-full w-full'
             src="/Mobile_IV_Therapy__Medical_Services_Delivered_To_You.jpg"
-            alt="Dehydration IV Treatment"
-            width={1920}
-            height={1080}
-            style={{ objectFit: "cover" }}
+            alt="IV Treatment"
           />
         </div>
         <div className="absolute inset-0 bg-black sm:bg-transparent opacity-50"></div>
