@@ -23,7 +23,7 @@ export async function PATCH(request) {
             return NextResponse.json({ error: "Current password is incorrect." }, { status: 400 });
         }
 
-        if (currentPassword !== newPassword) {
+        if (currentPassword === newPassword) {
             return NextResponse.json({ error: "Please try different password." }, { status: 400 });
         }
 

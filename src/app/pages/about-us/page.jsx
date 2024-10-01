@@ -72,6 +72,13 @@ export default function AboutUs() {
                     We understand firsthand that when you feel your best, you're unstoppable. Your energy is higher, your mood is brighter, and your overall health transforms. At Pony Party, we’re not just offering treatments; we’re offering the chance for you to reclaim your vitality, one carefully curated service at a time. Our range of nutrient-rich therapies is designed to boost your body and soul, so you can return to doing the things you love, feeling more alive than ever.
                 </p>
             </div>
+            <div className="h-full w-full max-w-[1000px] px-[20px] pb-[40px] md:px-[60px]">
+                <img
+                    className="h-auto w-full"
+                    src="/about-us/duo.jpg"
+                    alt="Duo"
+                />
+            </div>
             <div className='w-full max-w-[1000px] px-6'>
                 <p>
                     At Pony Party, our mission is simple: to bring excellence, convenience, and comfort directly to you. We understand that life moves fast, and that’s why our mobile services are designed to fit seamlessly into your world. Whether you need recovery, a mood boost, or simply some time to feel taken care of, we are here for you—ready to bring wellness wherever you are.
