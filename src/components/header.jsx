@@ -84,9 +84,13 @@ export default function Header() {
                             <div className='bg-gray-200 h-[1px] w-full mt-[5px] lg:h-0 lg:mt-0'></div>
                         </li>
                         <li className="inline-block text-black text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
-                            <Link href="/pages/add-service" onClick={handleLinkClick}>Add Service</Link>
+                            <Link href="/pages/blogs" onClick={handleLinkClick}>Blogs</Link>
                             <div className='bg-gray-200 h-[1px] w-full mt-[5px] lg:h-0 lg:mt-0'></div>
                         </li>
+                        {/* <li className="inline-block text-black text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
+                            <Link href="/pages/add-service" onClick={handleLinkClick}>Add Service</Link>
+                            <div className='bg-gray-200 h-[1px] w-full mt-[5px] lg:h-0 lg:mt-0'></div>
+                        </li> */}
                     </ul>
                 </div>
                 <ul className="flex p-0 items-center">
