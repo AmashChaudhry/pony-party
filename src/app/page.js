@@ -11,16 +11,16 @@ export default function Home() {
       <div className="relative w-full h-[400px] lg:h-fit overflow-hidden">
         <div className="lg:hidden">
           <Image
-            src="/home/home-title.png"
+            src="/home/home-title.jpg"
             alt="Dehydration IV Treatment"
             fill
-            style={{ objectFit: "cover", objectPosition: "85% center" }}
+            style={{ objectFit: "cover", objectPosition: "80% center" }}
           />
         </div>
         <div className="hidden lg:block">
           <img
             className='h-full w-full'
-            src="/home/home-title.png"
+            src="/home/home-title.jpg"
             alt="IV Treatment"
           />
         </div>
