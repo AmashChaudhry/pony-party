@@ -11,28 +11,32 @@ export default function Home() {
       <div className="relative w-full h-[400px] lg:h-fit overflow-hidden">
         <div className="lg:hidden">
           <Image
-            src="/Mobile_IV_Therapy__Medical_Services_Delivered_To_You.jpg"
+            src="/home/home-title.png"
             alt="Dehydration IV Treatment"
             fill
-            style={{ objectFit: "cover", objectPosition: "75% center" }}
+            style={{ objectFit: "cover", objectPosition: "85% center" }}
           />
         </div>
         <div className="hidden lg:block">
           <img
             className='h-full w-full'
-            src="/Mobile_IV_Therapy__Medical_Services_Delivered_To_You.jpg"
+            src="/home/home-title.png"
             alt="IV Treatment"
           />
         </div>
         <div className="absolute inset-0 bg-black sm:bg-transparent opacity-50"></div>
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center sm:items-start sm:justify-center sm:text-start sm:m-[40px] lg:max-w-[1200px] lg:justify-center lg:m-[60px] lg:px-[20px] xl:m-auto">
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center sm:items-start sm:justify-start sm:text-start sm:m-[40px] lg:max-w-[1200px] lg:justify-center lg:m-[60px] lg:px-[20px] xl:m-auto">
           <h1 className="flex flex-col text-white text-[26px] w-[300px] sm:w-full sm:text-black sm: font-normal sm:text-[20px] lg:text-[22px] xl:text-[26px]">
-            <span className="tracking-widest sm:tracking-wide sm:text-[28px] sm:font-medium lg:text-[32px] xl:text-[36px]">Mobile IV Therapy</span>& Medical Services Delivered To You
-          </h1>
+            <span className="tracking-widest sm:tracking-wide sm:text-[28px] sm:font-medium lg:text-[32px] xl:text-[36px]">Mobile IV Therapy</span>Excellence, Convenience and Comfort</h1>
           <div className="mt-4 flex gap-8 sm:flex-col sm:gap-2 lg:flex-row">
-            <button className="px-[15px] py-[10px] bg-gradient-to-r from-[#fff7ad] to-[#ffa9f9] w-[100px] text-[12px] font-bold rounded-xl sm:w-fit sm:rounded-full xl:text-[14px]">
+            <button className="px-[15px] py-[10px] bg-gradient-to-r from-[#fff7ad] to-[#ffa9f9] w-[100px] text-[12px] font-bold rounded-xl shadow-lg sm:w-fit sm:rounded-full xl:text-[14px]">
               <span className="text-black leading-none">Book IV Therapy</span>
             </button>
+            <Link href='/pages/in-home-services'>
+              <button className="px-[15px] py-[10px] bg-gradient-to-r from-[#ffa9f9] to-[#fff7ad] w-[100px] text-[12px] font-bold rounded-xl shadow-lg sm:w-fit sm:rounded-full xl:text-[14px]">
+                <span className="text-black leading-none">View all Services</span>
+              </button>
+            </Link>
           </div>
         </div>
       </div>
