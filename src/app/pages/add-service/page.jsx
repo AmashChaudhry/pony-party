@@ -102,7 +102,7 @@ export default function AddService() {
             }
 
         } catch (error) {
-            console.log("Rgisteration failed");
+            console.log("Product not added");
         } finally {
             setLoading(false);
             setButtonDisabled(false);
