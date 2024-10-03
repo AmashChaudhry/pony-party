@@ -1,7 +1,8 @@
 'use client'
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
-export default function Blog() {
+export default function Blogs() {
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -50,19 +51,21 @@ export default function Blog() {
         <div className='flex flex-col items-start w-full max-w-[1200px] mx-auto py-[40px]' style={{ minHeight: 'calc(100vh - 80px)' }}>
             {
                 blogs.map((blog, index) => (
-                    <div key={index} className='flex flex-col p-[20px] sm:items-center sm:flex-row'>
+                    <div key={index} className='flex flex-col p-[20px] sm:flex-row sm:items-center'>
                         <div className='h-auto w-full mb-[20px] sm:h-[175px] sm:w-[225px] sm:mr-[30px] sm:mb-0'>
                             <img
-                                className='w-full h-full object-cover'
+                                className='h-full w-full object-cover'
                                 src={blog.image}
                                 alt={blog.title}
                             />
                         </div>
-                        <div className='flex flex-col'>
-                            <p className='text-[24px] font-semibold md:text-[28px]'>{blog.title}</p>
+                        <div className='flex flex-col w-full sm:w-[75%]'>
+                            <Link href={`/pages/blogs/${blog._id}`}>
+                                <p className='text-[24px] font-semibold sm:line-clamp-1 md:text-[28px]'>{blog.title}</p>
+                            </Link>
                             <p className='text-[16px] text-gray-400 font-light'>{formatDate(blog.createdAt)}</p>
-                            <p className='text-[14px] font-medium'>{blog.categories.join(', ')}</p>
-                            <p>{blog.description}</p>
+                            <p className='text-[14px] font-medium mb-[10px]'>{blog.categories.join(', ')}</p>
+                            <p className='line-clamp-3'>{blog.description}</p>
                         </div>
                     </div>
                 ))
