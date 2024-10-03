@@ -28,6 +28,7 @@ const blogSchema = new mongoose.Schema({
     ],
     categories: {
         type: [String],
+        required: true,
     },
     author: {
         type: String,
