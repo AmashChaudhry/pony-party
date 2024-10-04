@@ -50,7 +50,7 @@ export default function AboutUs() {
                 <h2 className="text-[22px] font-semibold">Our Story</h2>
                 <div className="bg-[#ffa9f9] h-[2px] w-[120px] mt-[5px] mb-[20px]"></div>
                 <p className="max-w-[1000px]">
-                    We understand firsthand that when you feel your best, you're unstoppable. Your energy is higher, your mood is brighter, and your overall health transforms. At Pony Party, we’re not just offering treatments; we’re offering the chance for you to reclaim your vitality, one carefully curated service at a time. Our range of nutrient-rich therapies is designed to boost your body and soul, so you can return to doing the things you love, feeling more alive than ever.
+                    We understand firsthand that when you feel your best, you are unstoppable. Your energy is higher, your mood is brighter, and your overall health transforms. At Pony Party, we are not just offering treatments; we are offering the chance for you to reclaim your vitality, one carefully curated service at a time. Our range of nutrient-rich therapies is designed to boost your body and soul, so you can return to doing the things you love, feeling more alive than ever.
                 </p>
             </div>
             <div className="flex flex-col items-center w-full max-w-[1000px] px-[20px] sm:flex-row sm:items-start">
@@ -63,18 +63,18 @@ export default function AboutUs() {
                 </div>
                 <div className="flex flex-col w-full mt-[40px] sm:ml-10 sm:mt-0">
                     <p className="text-[16px]">
-                        Pony Party began with two best friends who shared more than just a deep bond—they shared an unshakable passion for health, wellness, and the healing power of human care. For years, we've seen how life’s challenges can take a toll on both the body and spirit, especially for those who give their all, whether at work or in play. That’s why we created the ultimate recovery and wellness packages designed to rejuvenate you from the inside out.
+                        Pony Party began with two best friends who shared more than just a deep bond—they shared an unshakable passion for health, wellness, and the healing power of human care. For years, we have seen how life is challenges can take a toll on both the body and spirit, especially for those who give their all, whether at work or in play. That is why we created the ultimate recovery and wellness packages designed to rejuvenate you from the inside out.
                     </p>
                 </div>
             </div>
             <div className='w-full max-w-[1000px] px-[20px] py-[40px]'>
                 <p>
-                    We understand firsthand that when you feel your best, you're unstoppable. Your energy is higher, your mood is brighter, and your overall health transforms. At Pony Party, we’re not just offering treatments; we’re offering the chance for you to reclaim your vitality, one carefully curated service at a time. Our range of nutrient-rich therapies is designed to boost your body and soul, so you can return to doing the things you love, feeling more alive than ever.
+                    We understand firsthand that when you feel your best, you are unstoppable. Your energy is higher, your mood is brighter, and your overall health transforms. At Pony Party, we are not just offering treatments; we are offering the chance for you to reclaim your vitality, one carefully curated service at a time. Our range of nutrient-rich therapies is designed to boost your body and soul, so you can return to doing the things you love, feeling more alive than ever.
                 </p>
             </div>
             <div className='w-full max-w-[1000px] px-6'>
                 <p>
-                    At Pony Party, our mission is simple: to bring excellence, convenience, and comfort directly to you. We understand that life moves fast, and that’s why our mobile services are designed to fit seamlessly into your world. Whether you need recovery, a mood boost, or simply some time to feel taken care of, we are here for you—ready to bring wellness wherever you are.
+                    At Pony Party, our mission is simple: to bring excellence, convenience, and comfort directly to you. We understand that life moves fast, and that is why our mobile services are designed to fit seamlessly into your world. Whether you need recovery, a mood boost, or simply some time to feel taken care of, we are here for you—ready to bring wellness wherever you are.
                 </p>
             </div>
             <span className='h-[100px]'></span>
