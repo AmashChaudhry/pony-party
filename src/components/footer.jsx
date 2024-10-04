@@ -6,6 +6,30 @@ import React, { useState, useEffect } from "react";
 export default function Footer() {
     const [services, setServices] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        getUserData();
+        getServicesData();
+    }, []);
+
+    const getUserData = async () => {
+        try {
+            const response = await fetch('/api/current-user', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            const userData = await response.json();
+            setUser(userData.data);
+        } catch (error) {
+            console.error('Failed to fetch user data:', error);
+            setUser(null);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     const getServicesData = async () => {
         try {
@@ -23,10 +47,6 @@ export default function Footer() {
             setLoading(false);
         }
     };
-
-    useEffect(() => {
-        getServicesData();
-    }, []);
 
     const drips = services.filter(service => service.category === "Drip");
     const injections = services.filter(service => service.category === "Injection");
@@ -107,24 +127,9 @@ export default function Footer() {
                                     </p>
                                 </div>
                             </li>
-                            <li className="relative w-full overflow-hidden mb-[10px]">
-                                <input
-                                    type="checkbox"
-                                    className="peer absolute top-0 inset-x-0 w-full h-[24px] opacity-0 z-10 cursor-pointer"
-                                />
-                                <div className="w-full pr-5 flex items-center justify-between">
-                                    <p className="w-[250px]">About Us & Learn More</p>
-                                </div>
-                                <div className="absolute right-0 top-1.5 text-black transition-transform duration-500 peer-checked:rotate-90">
-                                    <SlArrowRight size={12} />
-                                </div>
-                                <div className="overflow-hidden transition-all duration-500 max-h-0 peer-checked:max-h-40">
-                                    <p className="text-[12px] mt-2">
-                                        Basic and Premium plan treatments are non-transferrable. Elite and Platinum plan
-                                        treatments are shareable if the member is present and also receiving treatment.
-                                    </p>
-                                </div>
-                            </li>
+                            <Link className="flex items-center w-fit mb-[10px]" href='/pages/about-us'>
+                                <p>About Us & Learn More</p>
+                            </Link>
                             <li className="relative w-full overflow-hidden mb-[10px]">
                                 <input
                                     type="checkbox"
@@ -137,10 +142,20 @@ export default function Footer() {
                                     <SlArrowRight size={12} />
                                 </div>
                                 <div className="overflow-hidden transition-all duration-500 max-h-0 peer-checked:max-h-40">
-                                    <p className="text-[12px] mt-2">
-                                        Basic and Premium plan treatments are non-transferrable. Elite and Platinum plan
-                                        treatments are shareable if the member is present and also receiving treatment.
-                                    </p>
+                                    <div className="flex flex-col items-start w-full pt-[20px]">
+                                        {
+                                            user ? (
+                                                <Link className="text-[12px] text-center hover:text-[#ffa9f9]" href='/pages/user-profile'>
+                                                    ACCOUNT PANEL
+                                                </Link>
+                                            ) : (
+                                                <Link className="text-[12px] text-center hover:text-[#ffa9f9]" href='/pages/login-to-account'>
+                                                    LOGIN
+                                                </Link>
+                                            )
+                                        }
+                                        <div className="h-[1px] w-full bg-gray-300 mb-[10px]"></div>
+                                    </div>
                                 </div>
                             </li>
                             <li className="relative w-full overflow-hidden mb-[10px]">
@@ -171,6 +186,6 @@ export default function Footer() {
 
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
