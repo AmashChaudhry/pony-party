@@ -41,13 +41,13 @@ export default function Injections() {
                     injections.length > 0 ? (
                         injections.map((injection, index) => (
                             <div key={index} className="flex flex-col items-center w-[50%] px-[20px] py-[60px] sm:w-[33.33%]">
-                                <div className="relative flex justify-center h-[80px] w-auto mb-[20px]">
+                                <Link className="relative flex justify-center h-[80px] w-auto mb-[20px]" href={`/pages/vitamin-iv-treatment/${injection._id}`}>
                                     <img
                                         className="h-full w-auto"
                                         src={injection.icon}
                                         alt={injection.title}
                                     />
-                                </div>
+                                </Link>
                                 <Link className="text-[12px] text-center font-medium hover:text-[#ffa9f9] sm:text-[14px] xl:text-[16px]" href={`/pages/vitamin-iv-treatment/${injection._id}`}>
                                     {injection.title}
                                 </Link>

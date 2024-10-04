@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function VitaminIVTreatmentDetail({ params }) {
     const { id } = params;
@@ -68,7 +69,13 @@ export default function VitaminIVTreatmentDetail({ params }) {
                     }
                     <p className="text-[16px] text-[#ffa9f9] mt-[20px]">{treatment.effects}</p>
                     <p className="text-[14px] my-[20px]">$<span className="text-[40px] font-medium">{treatment.price}</span></p>
-                    <button className="w-fit px-[15px] py-[10px] bg-[#ffa9f9] text-white">Book Now</button>
+                    <Link
+                        href="https://www.vagaro.com//Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVCl/3CjdOsZZ7EF4p4e+s0hEVod+oJ0uydouotjENszF/xz7ED18KniyrPa7wSf95Zrgy/u8lwz3kRjf9YgBLa6L0e4YbNHKUlTQbEsf1af878yDh27sqGfzsPutzAyUm9FATSJaAO5Ba3ZIlH8afVXudgnLWatlpayldQ3yfZvEyIbF4iQq1MPNKdJln5rXiJVV8vImZiQzq5jGDh1OkChCx/wml8Ytx0PNp7kYhbnfykAmv+u3ZN130RvOzn77rdz7+ibGI8+Lv5IaP6wPT9dv7dsn3aosKxc5hn4plB2Jp5T2EQTcyjtO08IzvkH6fzWNigQqQnR5g4Q6m5nc6QQ9ayEx2y8r2j64SQsDZIHLdmlLiw+syZHFq1uJimdrs+ZD6ddkw2mDEHMf1GjLu0GHFNnY+bPcPGO/2adHXNvB2tw5aFRGrJ7CFJOK4aaKvQ=="
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <button className="w-fit px-[15px] py-[10px] bg-[#ffa9f9] text-white">Book Now</button>
+                    </Link>
                     <div className="hidden justify-start pt-[20px] sm:block">
                         <p className="text-black opacity-60">{treatment.description}</p>
                         <p className="font-bold">*US locations only</p>
