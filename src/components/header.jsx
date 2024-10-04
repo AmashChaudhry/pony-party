@@ -75,10 +75,10 @@ export default function Header() {
                             <Link href="/pages/in-home-services" onClick={handleLinkClick}>In-Home Services</Link>
                             <div className='bg-gray-200 h-[1px] w-full mt-[5px] lg:h-0 lg:mt-0'></div>
                         </li>
-                        <li className="inline-block text-black text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
+                        {/* <li className="inline-block text-black text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
                             <Link href="/Contact" onClick={handleLinkClick}>Locations</Link>
                             <div className='bg-gray-200 h-[1px] w-full mt-[5px] lg:h-0 lg:mt-0'></div>
-                        </li>
+                        </li> */}
                         <li className="inline-block text-black text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
                             <Link href="/pages/blogs" onClick={handleLinkClick}>Blogs</Link>
                             <div className='bg-gray-200 h-[1px] w-full mt-[5px] lg:h-0 lg:mt-0'></div>
