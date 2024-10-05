@@ -2,7 +2,7 @@ import react from "react";
 
 export default function PrivacyPolicy() {
     return (
-        <div className='flex flex-col items-start w-full max-w-[1000px] mx-auto p-5'>
+        <div className='flex flex-col items-start w-full max-w-[1000px] mx-auto px-[20px] py-10'>
             <h1 className="text-2xl font-bold mb-4">Privacy Policy</h1>
             <p className="mb-4">Last updated: October 01, 2024</p>
 
