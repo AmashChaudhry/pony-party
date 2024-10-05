@@ -49,7 +49,7 @@ export default function Blogs() {
     if (blogs.length === 0) {
         return (
             <div className='flex flex-col items-center justify-center w-full' style={{ height: 'calc(100vh - 80px)' }}>
-                <p className='text-center text-gray-400'>No blogs uploaded yet</p>
+                <p className='text-center text-gray-400'>No blogs have been published yet</p>
             </div>
         );
     }
