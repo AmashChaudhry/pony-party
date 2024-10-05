@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useEffect } from "react";
+import { PulseLoader } from "react-spinners";
 import Link from "next/link";
 
 export default function VitaminIVTreatmentDetail({ params }) {
@@ -35,7 +36,7 @@ export default function VitaminIVTreatmentDetail({ params }) {
                 className="flex flex-col items-center justify-center"
                 style={{ height: 'calc(100vh - 80px)' }}
             >
-                Loading...
+                <PulseLoader color="#ffa9f9" size={10} />
             </div>
         );
     }

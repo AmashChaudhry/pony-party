@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { PulseLoader } from "react-spinners";
 import React, { useState, useEffect } from "react";
 
 export default function Injections() {
@@ -28,7 +29,11 @@ export default function Injections() {
     }, []);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return (
+            <div>
+                <PulseLoader color="#ffa9f9" size={10} />
+            </div>
+        );
     }
 
     const injections = services.filter(service => service.category === "Injection");
@@ -48,7 +53,7 @@ export default function Injections() {
                                         alt={injection.title}
                                     />
                                 </Link>
-                                <Link className="text-[12px] text-center font-medium hover:text-[#ffa9f9] sm:text-[14px] xl:text-[16px]" href={`/pages/vitamin-iv-treatment/${injection._id}`}>
+                                <Link className="text-[12px] text-center font-medium hover:text-[#ffa9f9] sm:text-[14px] xl:text-[16px]" href={`/pages/service/${injection._id}`}>
                                     {injection.title}
                                 </Link>
                             </div>

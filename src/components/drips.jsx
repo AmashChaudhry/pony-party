@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { PulseLoader } from "react-spinners";
 import React, { useState, useEffect } from "react";
 
 export default function Drips() {
@@ -28,7 +29,11 @@ export default function Drips() {
     }, []);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return (
+            <div>
+                <PulseLoader color="#ffa9f9" size={10} />
+            </div>
+        );
     }
 
     const drips = services.filter(service => service.category === "Drip");
@@ -45,7 +50,7 @@ export default function Drips() {
                                 alt={drip.title}
                             />
                         </Link>
-                        <Link className="text-[10px] text-center font-bold hover:text-[#ffa9f9] sm:text-[12px] xl:text-[14px]" href={`/pages/vitamin-iv-treatment/${drip._id}`}>
+                        <Link className="text-[10px] text-center font-bold hover:text-[#ffa9f9] sm:text-[12px] xl:text-[14px]" href={`/pages/service/${drip._id}`}>
                             {`${drip.title.toUpperCase()} - $${drip.price}`}
                         </Link>
                         <div className="h-[2px] w-[80px] bg-[#ffa9f9] my-[10px]"></div>
