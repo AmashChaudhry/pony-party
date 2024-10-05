@@ -1,6 +1,7 @@
 'use client'
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { PulseLoader } from "react-spinners";
 import React, { useEffect, useState } from "react";
 
 export default function LoginToAccount() {
@@ -47,7 +48,7 @@ export default function LoginToAccount() {
     }
 
     useEffect(() => {
-        if (user.email.length > 0 && user.password.length > 7) {
+        if (user.email.length > 5 && user.password.length > 7) {
             setButtonDisabled(false);
         } else {
             setButtonDisabled(true);
@@ -92,7 +93,7 @@ export default function LoginToAccount() {
                     disabled={buttonDisabled}
                     onClick={login}
                 >
-                    {loading ? "Loading..." : "Login"}
+                    {loading ? <PulseLoader color="#9CA3AF" size={6} /> : "Login"}
                 </button>
                 <div className="mt-[15px]">
                     <a href="/forgot-password" className="text-[#ffa9f9]">Forgot password?</a><br /><br />

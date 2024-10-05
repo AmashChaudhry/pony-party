@@ -1,3 +1,5 @@
+'use client'
+import { PulseLoader } from "react-spinners";
 import React, { useEffect, useState } from "react";
 
 export default function ChangePassword() {
@@ -115,16 +117,16 @@ export default function ChangePassword() {
                         </div>
                     )}
                     <button
-                        className={`${buttonDisabled ? "bg-gray-200 text-gray-400" : "bg-[#ffa9f9] hover:bg-black text-white"} w-fit py-[15px] px-[25px]`}
+                        className={`${buttonDisabled ? "bg-gray-200 text-gray-400" : "bg-[#ffa9f9] hover:bg-black text-white"} w-[160px] py-[15px] px-[25px]`}
                         type="submit"
                         disabled={buttonDisabled}
                         onClick={changePassword}
                     >
-                        {loading ? 'Loading...' : 'Save Changes'}
+                        {loading ? <PulseLoader color="#9CA3AF" size={6} /> : 'Save Changes'}
                     </button>
                 </div>
                 : <div className=' flex flex-col items-center w-full'>
-                    <h1>Loading...</h1>
+                    <PulseLoader color="#ffa9f9" size={10} />
                 </div>
             }
         </div>

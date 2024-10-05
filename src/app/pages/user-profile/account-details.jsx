@@ -1,9 +1,12 @@
 'use client';
 import Image from 'next/image';
+import { PulseLoader } from "react-spinners";
 import React, { useState, useEffect } from 'react';
 
 export default function AccountDatails() {
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [buttonDisabled, setButtonDisabled] = useState(true);
 
     const getUserData = async () => {
         const response = await fetch('/api/current-user', {
@@ -20,8 +23,18 @@ export default function AccountDatails() {
         getUserData();
     }, []);
 
+    useEffect(() => {
+        if (user && user.firstName.length > 4 && user.phoneNumber.length > 9) {
+            setButtonDisabled(false);
+        } else {
+            setButtonDisabled(true);
+        }
+    }, [user]);
+
     const updateUserData = async () => {
         try {
+            setLoading(true);
+            setButtonDisabled(true);
             await fetch(`/api/update-user-data`, {
                 method: 'PATCH',
                 headers: {
@@ -38,6 +51,9 @@ export default function AccountDatails() {
             window.location.reload();
         } catch (error) {
             console.log('Error updating user details:', error.message);
+        } finally {
+            setLoading(false);
+            setButtonDisabled(false);
         }
     };
 
@@ -125,15 +141,16 @@ export default function AccountDatails() {
                         />
                     </div>
                     <button
-                        className='bg-[#ffa9f9] hover:bg-black text-white w-fit py-[15px] px-[25px] mt-[10px]'
+                        className={`${buttonDisabled ? "bg-gray-200 text-gray-400" : "bg-[#ffa9f9] hover:bg-black text-white"} w-[160px] py-[15px] px-[25px]`}
                         type="submit"
+                        disabled={buttonDisabled}
                         onClick={updateUserData}
                     >
-                        Save Changes
+                        {loading ? <PulseLoader color="#9CA3AF" size={6} /> : "Save Changes"}
                     </button>
                 </div>
                 : <div className=' flex flex-col items-center w-full'>
-                    <h1>Loading...</h1>
+                    <PulseLoader color="#ffa9f9" size={10} />
                 </div>
             }
         </div>

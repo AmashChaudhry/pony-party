@@ -1,7 +1,8 @@
 'use client'
-import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { PulseLoader } from "react-spinners";
+import React, { useEffect, useState } from "react";
 
 export default function RegisterAccount() {
     const router = useRouter();
@@ -279,7 +280,7 @@ export default function RegisterAccount() {
                         disabled={buttonDisabled}
                         onClick={register}
                     >
-                        {loading ? "Loading..." : "Register"}
+                        {loading ? <PulseLoader color="#9CA3AF" size={6} /> : "Register"}
                     </button>
                 </div>
             </form>

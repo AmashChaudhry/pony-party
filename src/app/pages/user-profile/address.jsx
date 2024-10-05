@@ -1,7 +1,11 @@
+'use client'
+import { PulseLoader } from "react-spinners";
 import React, { useEffect, useState } from "react";
 
 export default function Address() {
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [buttonDisabled, setButtonDisabled] = useState(true);
 
     const getUserData = async () => {
         const response = await fetch('/api/current-user', {
@@ -17,6 +21,14 @@ export default function Address() {
     useEffect(() => {
         getUserData();
     }, []);
+
+    useEffect(() => {
+        if (user && user.city.length > 2 && user.address.length > 10 && user.zipCode.length > 2) {
+            setButtonDisabled(false);
+        } else {
+            setButtonDisabled(true);
+        }
+    }, [user]);
 
     const updateUserData = async () => {
         try {
@@ -142,15 +154,16 @@ export default function Address() {
                         />
                     </div>
                     <button
-                        className='bg-[#ffa9f9] hover:bg-black text-white w-fit py-[15px] px-[25px] mt-[10px]'
+                        className={`${buttonDisabled ? "bg-gray-200 text-gray-400" : "bg-[#ffa9f9] hover:bg-black text-white"} w-[160px] py-[15px] px-[25px]`}
                         type="submit"
+                        disabled={buttonDisabled}
                         onClick={updateUserData}
                     >
-                        Save Changes
+                        {loading ? <PulseLoader color="#9CA3AF" size={6} /> : "Save Changes"}
                     </button>
                 </div>
                 : <div className=' flex flex-col items-center w-full'>
-                    <h1>Loading...</h1>
+                    <PulseLoader color="#ffa9f9" size={10} />
                 </div>
             }
         </div>
