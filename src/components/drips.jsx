@@ -13,6 +13,7 @@ export default function Drips() {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Cache-Control': 'no-store',
                 },
             });
             const serviceData = await response.json();
