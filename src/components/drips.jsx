@@ -44,7 +44,7 @@ export default function Drips() {
             {
                 drips.map((drip, index) => (
                     <div key={index} className="flex flex-col items-center w-auto">
-                        <Link className="relative flex justify-center h-[150px] w-full sm:h-[250px]" href={`/pages/vitamin-iv-treatment/${drip._id}`}>
+                        <Link className="relative flex justify-center h-[150px] w-full sm:h-[250px]" href={`/pages/service/${drip._id}`}>
                             <img
                                 className="h-full w-auto object-cover"
                                 src={drip.image}
@@ -58,7 +58,7 @@ export default function Drips() {
                         <p className="text-[10px] text-center text-black text-opacity-60 h-[40px] mb-[30px] sm:text-[12px] xl:text-[14px]">
                             {drip.subTitle}
                         </p>
-                        <Link href={`/pages/vitamin-iv-treatment/${drip._id}`}>
+                        <Link href={`/pages/service/${drip._id}`}>
                             <button className="text-[12px] bg-[#ffa9f9] text-white font-medium px-[15px] py-[10px]">Book Now</button>
                         </Link>
                     </div>
