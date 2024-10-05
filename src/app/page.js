@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import FAQs from "@/components/FAQs";
 import { FaRegCheckCircle } from "react-icons/fa";
 import Drips from "@/components/drips";
 import Injections from "@/components/injections";
@@ -179,6 +180,9 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <span className='h-[100px]'></span>
+      <FAQs />
+      <span className='h-[100px]'></span>
     </main>
   );
 }
