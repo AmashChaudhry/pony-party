@@ -102,7 +102,7 @@ export default function FAQs() {
                     </summary>
                     <div className='bg-white p-[20px]'>
                         <p>
-                            Pony Party IV offers in-home IV therapy throughout Scottsdale, Phoenix, Tempe in Arizona. If you're unsure if we service your area, feel free to reach out to us for more information.
+                            Pony Party IV offers in-home IV therapy throughout Scottsdale, Phoenix, Tempe in Arizona. If you are unsure if we service your area, feel free to reach out to us for more information.
                         </p>
                     </div>
                 </details>
@@ -113,7 +113,7 @@ export default function FAQs() {
                     </summary>
                     <div className='bg-white p-[20px]'>
                         <p>
-                            You can easily book your IV therapy session through our website's booking system, powered by Vaqaro, or by contacting us directly via phone or email. We offer flexible scheduling to accommodate your needs.
+                            You can easily book your IV therapy session through our website&apos;s booking system, powered by Vaqaro, or by contacting us directly via phone or email. We offer flexible scheduling to accommodate your needs.
                         </p>
                     </div>
                 </details>
