@@ -3,7 +3,7 @@ import { PulseLoader } from "react-spinners";
 import React, { useState, useEffect } from "react";
 
 export default function Blog({ params }) {
-    const { blogId } = params;
+    const { id } = params;
     const [blog, setBlog] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -14,7 +14,7 @@ export default function Blog({ params }) {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ _id: blogId }),
+                body: JSON.stringify({ _id: id }),
             });
             const blogData = await response.json();
             setBlog(blogData.data);
