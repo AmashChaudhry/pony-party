@@ -170,10 +170,16 @@ export default function Footer() {
                                     <SlArrowRight size={12} />
                                 </div>
                                 <div className="overflow-hidden transition-all duration-500 max-h-0 peer-checked:max-h-40">
-                                    <p className="text-[12px] mt-2">
-                                        Basic and Premium plan treatments are non-transferrable. Elite and Platinum plan
-                                        treatments are shareable if the member is present and also receiving treatment.
-                                    </p>
+                                    <div className="flex flex-col items-start w-full pt-[20px]">
+                                        <Link className="text-[12px] text-center hover:text-[#ffa9f9]" href='/pages/terms-of-service'>
+                                            TERMS OF SERVICE
+                                        </Link>
+                                        <div className="h-[1px] w-full bg-gray-300 mb-[10px]"></div>
+                                        <Link className="text-[12px] text-center hover:text-[#ffa9f9]" href='/pages/terms-of-service'>
+                                            PRIVACY POLICY
+                                        </Link>
+                                        <div className="h-[1px] w-full bg-gray-300 mb-[10px]"></div>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
