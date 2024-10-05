@@ -175,7 +175,7 @@ export default function Footer() {
                                             TERMS OF SERVICE
                                         </Link>
                                         <div className="h-[1px] w-full bg-gray-300 mb-[10px]"></div>
-                                        <Link className="text-[12px] text-center hover:text-[#ffa9f9]" href='/pages/terms-of-service'>
+                                        <Link className="text-[12px] text-center hover:text-[#ffa9f9]" href='/pages/privacy-policy'>
                                             PRIVACY POLICY
                                         </Link>
                                         <div className="h-[1px] w-full bg-gray-300 mb-[10px]"></div>
