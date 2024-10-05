@@ -1,4 +1,5 @@
 'use client'
+import { PulseLoader } from "react-spinners";
 import React, { useState, useEffect } from "react";
 
 export default function Blog({ params }) {
@@ -31,7 +32,7 @@ export default function Blog({ params }) {
     if (loading) {
         return (
             <div className='flex flex-col items-center justify-center w-full' style={{ height: 'calc(100vh - 80px)' }}>
-                <p className='text-center'>Loading...</p>
+                <PulseLoader color="#ffa9f9" size={10} />
             </div>
         );
     }
@@ -50,7 +51,7 @@ export default function Blog({ params }) {
                 </div>
             </div>
             <div className='w-full px-[40px]'>
-                <div className='h-[1px] w-full bg-gray-300 mb-[40px]'></div>
+                <div className='h-[1px] w-full bg-gray-200 mb-[40px]'></div>
             </div>
             {
                 blog.subTopics.map((subTopic, index) => (

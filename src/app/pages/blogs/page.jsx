@@ -1,5 +1,6 @@
 'use client'
 import Link from "next/link";
+import { PulseLoader } from "react-spinners";
 import React, { useState, useEffect } from "react";
 
 export default function Blogs() {
@@ -41,7 +42,7 @@ export default function Blogs() {
     if (loading) {
         return (
             <div className='flex flex-col items-center justify-center w-full' style={{ height: 'calc(100vh - 80px)' }}>
-                <p className='text-center'>Loading...</p>
+                <PulseLoader color="#ffa9f9" size={10} />
             </div>
         );
     }
