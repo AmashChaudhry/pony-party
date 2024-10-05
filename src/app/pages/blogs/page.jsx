@@ -38,11 +38,18 @@ export default function Blogs() {
         return `${day}${suffix} ${monthYear}`;
     };
 
-
     if (loading) {
         return (
             <div className='flex flex-col items-center justify-center w-full' style={{ height: 'calc(100vh - 80px)' }}>
                 <p className='text-center'>Loading...</p>
+            </div>
+        );
+    }
+
+    if (blogs.length === 0) {
+        return (
+            <div className='flex flex-col items-center justify-center w-full' style={{ height: 'calc(100vh - 80px)' }}>
+                <p className='text-center text-gray-400'>No blogs uploaded yet</p>
             </div>
         );
     }
