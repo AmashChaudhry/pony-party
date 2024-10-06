@@ -143,7 +143,7 @@ export default function Home() {
       </div>
       <span className="h-0 w-full sm:h-[60px]"></span>
       <div className="flex flex-col items-center w-full bg-[#FAFAFA] py-[40px]">
-        <h2 className="text-[24px] font-medium">What Make us Different</h2>
+        <h2 className="text-[24px] font-medium">What Makes us Different</h2>
         <div className="flex flex-wrap justify-center mx-auto max-w-[1200px]">
           <div className="flex flex-col items-center h-fit w-[45%] px-[10px] my-[60px] sm:w-[310px]">
             <div className="relative h-[100px] w-full m-[10px]">

@@ -9,7 +9,7 @@ export default function AboutUs() {
                 <p className="text-[16px] text-center text-gray-600">Pony Party is the global leader of in-home IV therapy and medical services.</p>
             </div>
             <div className="flex flex-col items-center bg-[#FAFAFA] w-full py-[40px]">
-                <h2 className="text-[24px] font-medium">What Make us Different</h2>
+                <h2 className="text-[24px] font-medium">What Makes us Different</h2>
                 <div className="flex flex-wrap justify-center mx-auto max-w-[1200px]">
                     <div className="flex flex-col items-center h-fit w-[45%] px-[10px] my-[60px] sm:w-[310px]">
                         <div className="relative h-[100px] w-full m-[10px]">
