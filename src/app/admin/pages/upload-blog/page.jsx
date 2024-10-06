@@ -79,7 +79,7 @@ export default function UploadBlog() {
             formData.append('image', file);
             formData.append('path', path);
 
-            const response = await fetch('/api/upload-image', {
+            const response = await fetch('/admin/api/upload-image', {
                 method: 'POST',
                 body: formData,
             });
@@ -123,7 +123,7 @@ export default function UploadBlog() {
                 subTopics: updatedSubTopics,
             };
 
-            const response = await fetch('/api/upload-blog', {
+            const response = await fetch('/admin/api/upload-blog', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

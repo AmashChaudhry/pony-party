@@ -83,7 +83,7 @@ export default function AddService() {
                 uses: updatedUses,
             };
 
-            const response = await fetch('/api/add-service', {
+            const response = await fetch('/admin/api/add-service', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -115,7 +115,7 @@ export default function AddService() {
             formData.append('image', file);
             formData.append('path', path);
 
-            const response = await fetch('/api/upload-image', {
+            const response = await fetch('/admin/api/upload-image', {
                 method: 'POST',
                 body: formData,
             });
