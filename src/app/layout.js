@@ -1,12 +1,11 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import { Inter } from "next/font/google";
+import ClientLayout from "./client-layout";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Pony Party | IV Hydration",
+  title: "Pony Party",
   description: "IV Hydration Services Delivered to Your Doorstep",
 };
 
@@ -14,10 +13,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header/>
-        {children}
-        <Footer/>
-        </body>
+        <ClientLayout>
+          {children}
+        </ClientLayout>
+      </body>
     </html>
   );
 }

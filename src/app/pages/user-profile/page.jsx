@@ -1,14 +1,28 @@
 'use client';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AccountDatails from './account-details';
 import Address from './address';
 import ChangePassword from './change-password';
 
 export default function UserProfile() {
-    const router = useRouter();
     const [activeSection, setActiveSection] = useState('Account Details');
+    const [user, setUser] = useState(null);
+
+    const getUserData = async () => {
+        const response = await fetch('/api/current-user', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        const userData = await response.json();
+        setUser(userData.data);
+    };
+
+    useEffect(() => {
+        getUserData();
+    }, []);
 
     const logout = async () => {
         try {
@@ -33,36 +47,47 @@ export default function UserProfile() {
                 <div className="flex flex-col w-full sm:flex-row">
                     <ul className="flex flex-col h-fit w-full px-[20px] mb-[40px] sm:w-[300px] sm:mb-0">
                         <li className='mb-[20px]'>
-                            <Link
-                                href=""
+                            <label
                                 onClick={() => setActiveSection('Account Details')}
                             >
                                 <label className={`text-[18px] font-light cursor-pointer ${activeSection === 'Account Details' ? 'text-[#ffa9f9]' : 'hover:text-[#ffa9f9]'}`}>Account details</label>
-                            </Link>
+                            </label>
                             <div className='bg-gray-200 h-[1px] w-full mt-[10px]'></div>
                         </li>
                         <li className='mb-[20px]'>
-                            <Link
-                                href=""
+                            <label
                                 onClick={() => setActiveSection('Address')}
                             >
                                 <label className={`text-[18px] font-light cursor-pointer ${activeSection === 'Address' ? 'text-[#ffa9f9]' : 'hover:text-[#ffa9f9]'}`}>Address</label>
-                            </Link>
+                            </label>
                             <div className='bg-gray-200 h-[1px] w-full mt-[10px]'></div>
                         </li>
                         <li className='mb-[20px]'>
-                            <Link
-                                href=""
+                            <label
                                 onClick={() => setActiveSection('Change Password')}
                             >
                                 <label className={`text-[18px] font-light cursor-pointer ${activeSection === 'Change Password' ? 'text-[#ffa9f9]' : 'hover:text-[#ffa9f9]'}`}>Change password</label>
-                            </Link>
+                            </label>
                             <div className='bg-gray-200 h-[1px] w-full mt-[10px]'></div>
                         </li>
+                        {
+                            user && user.isAdmin && (
+                                <li className='mb-[20px]'>
+                                    <Link
+                                        href=""
+                                    >
+                                        <label className='text-[18px] font-light hover:text-[#ffa9f9] cursor-pointer'>Admin panel</label>
+                                    </Link>
+                                    <div className='bg-gray-200 h-[1px] w-full mt-[10px]'></div>
+                                </li>
+                            )
+                        }
                         <li className='mb-[20px]'>
-                            <Link href="" onClick={logout}>
+                            <label
+                                onClick={logout}
+                            >
                                 <label className='text-red-400 text-[18px] font-light hover:text-red-600 cursor-pointer'>Log out</label>
-                            </Link>
+                            </label>
                             <div className='bg-gray-200 h-[1px] w-full mt-[10px]'></div>
                         </li>
                     </ul>
