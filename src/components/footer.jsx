@@ -155,6 +155,10 @@ export default function Footer() {
                                             )
                                         }
                                         <div className="h-[1px] w-full bg-gray-300 mb-[10px]"></div>
+                                        <Link className="text-[12px] text-center hover:text-[#ffa9f9]" href='/pages/contact-us'>
+                                            CONTACT US
+                                        </Link>
+                                        <div className="h-[1px] w-full bg-gray-300 mb-[10px]"></div>
                                     </div>
                                 </div>
                             </li>
