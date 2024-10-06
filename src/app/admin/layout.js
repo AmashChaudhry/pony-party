@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
+import Sidebar from "@/components/admin-sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,7 +13,10 @@ export default function Layout({ children }) {
     return (
         <html lang="en">
             <body className={inter.className}>
-                {children}
+                <main className='flex flex-row w-full'>
+                    <Sidebar />
+                    {children}
+                </main>
             </body>
         </html>
     );
