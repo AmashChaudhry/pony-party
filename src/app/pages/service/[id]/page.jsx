@@ -93,7 +93,13 @@ export default function VitaminIVTreatmentDetail({ params }) {
             <div className="flex flex-col justify-start p-[20px] sm:hidden">
                 <p className="text-[16px] text-black opacity-60">{treatment.description}</p>
                 <p className="font-bold">*US locations only</p>
-                <p className="text-[16px] font-bold my-[20px]">INGREDIENTS: <span className="text-black opacity-60 font-normal">{treatment.ingredients}</span></p>
+                {
+                    treatment.category === 'Drip' ? (
+                        <p className="text-[16px] font-bold my-[20px]">INGREDIENTS: <span className="text-black opacity-60 font-normal">{treatment.ingredients}</span></p>
+                    ) : (
+                        null
+                    )
+                }
             </div>
             {
                 treatment.uses && treatment.uses.length > 0 && treatment.category === 'Drip' && (
