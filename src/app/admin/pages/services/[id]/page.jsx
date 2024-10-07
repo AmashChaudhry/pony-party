@@ -182,13 +182,17 @@ export default function EditService({ params }) {
                         <label htmlFor="file-upload" className="w-full cursor-pointer">
                             <div className="border-2 border-dashed border-gray-300 p-4 text-center rounded-xl hover:border-black transition-all duration-200">
                                 {
-                                    loading ? (<p>Loading...</p>) : (
+                                    loading ? (
+                                        <div className='flex flex-col items-center justify-center h-[200px]'>
+                                            <PulseLoader color="#ffa9f9" size={10} />
+                                        </div>
+                                    ) : (
                                         !image ? (
                                             <p className="text-gray-500">Click to select an image</p>
                                         ) : (
                                             <div className="flex flex-col items-center">
                                                 <img
-                                                    className="h-[200px] w-auto object-fit mb-2"
+                                                    className="h-[200px] w-auto object-fit"
                                                     src={image.url instanceof File ? URL.createObjectURL(image.url) : image.url}
                                                     alt="Selected"
                                                 />
@@ -277,18 +281,25 @@ export default function EditService({ params }) {
                                     <label className="text-[14px] text-black">Icon</label>
                                     <label htmlFor="icon-upload" className="w-full cursor-pointer">
                                         <div className="border-2 border-dashed border-gray-300 p-4 text-center rounded-xl hover:border-black transition-all duration-200">
-                                            {!icon ? (
-                                                <p className="text-gray-500">Click to select an icon</p>
-                                            ) : (
-                                                <div className="flex flex-col items-center">
-                                                    <img
-                                                        className="h-[80px] w-auto mb-2"
-                                                        src={icon.url instanceof File ? URL.createObjectURL(icon.url) : icon.url}
-                                                        alt="Selected Icon"
-                                                    />
-                                                    <p className="text-black mt-2">{icon.name}</p>
-                                                </div>
-                                            )}
+                                            {
+                                                loading ? (
+                                                    <div className='flex flex-col items-center justify-center h-[80px]'>
+                                                        <PulseLoader color="#ffa9f9" size={10} />
+                                                    </div>
+                                                ) : (
+                                                    !icon ? (
+                                                        <p className="text-gray-500">Click to select an icon</p>
+                                                    ) : (
+                                                        <div className="flex flex-col items-center">
+                                                            <img
+                                                                className="h-[80px] w-auto"
+                                                                src={icon.url instanceof File ? URL.createObjectURL(icon.url) : icon.url}
+                                                                alt="Selected Icon"
+                                                            />
+                                                        </div>
+                                                    )
+                                                )
+                                            }
                                         </div>
                                     </label>
                                     <input
@@ -372,18 +383,25 @@ export default function EditService({ params }) {
                                         </div>
                                         <label htmlFor={`file-upload-${index}`} className="w-full cursor-pointer">
                                             <div className="border-2 border-dashed border-gray-300 p-4 text-center rounded-xl hover:border-black transition-all duration-200">
-                                                {!inputs[index].icon ? (
-                                                    <p className="text-gray-500">Click to select an icon</p>
-                                                ) : (
-                                                    <div className="flex flex-col items-center">
-                                                        <img
-                                                            className="h-[80px] w-auto mb-2"
-                                                            src={inputs[index].icon instanceof File ? URL.createObjectURL(inputs[index].icon) : inputs[index].icon.url}
-                                                            alt={`Selected Image ${index + 1}`}
-                                                        />
-                                                        <p className="text-black mt-2">{inputs[index].icon.name}</p>
-                                                    </div>
-                                                )}
+                                                {
+                                                    loading ? (
+                                                        <div className='flex flex-col items-center justify-center h-[80px]'>
+                                                            <PulseLoader color="#ffa9f9" size={10} />
+                                                        </div>
+                                                    ) : (
+                                                        !inputs[index].icon ? (
+                                                            <p className="text-gray-500">Click to select an icon</p>
+                                                        ) : (
+                                                            <div className="flex flex-col items-center">
+                                                                <img
+                                                                    className="h-[80px] w-auto"
+                                                                    src={inputs[index].icon instanceof File ? URL.createObjectURL(inputs[index].icon) : inputs[index].icon.url}
+                                                                    alt={`Selected Image ${index + 1}`}
+                                                                />
+                                                            </div>
+                                                        )
+                                                    )
+                                                }
                                             </div>
                                         </label>
                                         <input
