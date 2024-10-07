@@ -1,4 +1,5 @@
 'use client'
+import { PulseLoader } from "react-spinners";
 import React, { useEffect, useState } from "react";
 
 export default function EditService({ params }) {
@@ -24,11 +25,15 @@ export default function EditService({ params }) {
         url: "",
         publicId: "",
     });
-    const [icon, setIcon] = useState(null);
+    const [icon, setIcon] = useState({
+        url: "",
+        publicId: "",
+    });
     const [buttonDisabled, setButtonDisabled] = useState(false);
     const [loading, setLoading] = useState(false);
 
     const getServiceData = async () => {
+        setLoading(true);
         try {
             const response = await fetch('/api/service', {
                 method: 'POST',
@@ -41,6 +46,7 @@ export default function EditService({ params }) {
             setService(serviceData.data);
             setInputs(serviceData.data.uses);
             setImage(serviceData.data.image);
+            setIcon(serviceData.data.icon);
         } catch (error) {
             console.error('Error fetching treatment:', error);
         } finally {
@@ -154,6 +160,14 @@ export default function EditService({ params }) {
         }
     }
 
+    if (loading) {
+        return (
+            <div className='flex flex-col items-center justify-center w-full min-w-screen'>
+                <PulseLoader color="#ffa9f9" size={10} />
+            </div>
+        );
+    }
+
     return (
         <div className="flex flex-col items-center w-full max-w-[1200px] m-auto py-[60px]">
             <div className="flex flex-rox justify-center w-full mb-[40px]">
@@ -207,6 +221,7 @@ export default function EditService({ params }) {
                                 className="w-full p-[15px] text-[14px] border-[1px] border-black border-opacity-10 rounded-md focus:outline-none pr-[30px] appearance-none"
                                 id="category"
                                 value={service.category}
+                                disabled
                                 onChange={(e) => setService({ ...service, category: e.target.value })}
                                 required
                             >
@@ -265,7 +280,7 @@ export default function EditService({ params }) {
                             <div className='w-full'>
                                 <h3 className='text-[18px] font-bold mb-[10px]'>Icon <span className='text-[14px] font-medium'>(Represents your service)</span></h3>
                                 <div className="flex flex-col w-full p-[20px] mb-[20px] border-[0.5px] border-black border-opacity-10 rounded-lg">
-                                    <label className="text-[14px] text-black">Icon (Optional)</label>
+                                    <label className="text-[14px] text-black">Icon</label>
                                     <label htmlFor="icon-upload" className="w-full cursor-pointer">
                                         <div className="border-2 border-dashed border-gray-300 p-4 text-center rounded-xl hover:border-black transition-all duration-200">
                                             {!icon ? (
@@ -274,7 +289,7 @@ export default function EditService({ params }) {
                                                 <div className="flex flex-col items-center">
                                                     <img
                                                         className="h-[80px] w-auto mb-2"
-                                                        src={URL.createObjectURL(icon)}
+                                                        src={icon.url instanceof File ? URL.createObjectURL(icon.url) : icon.url}
                                                         alt="Selected Icon"
                                                     />
                                                     <p className="text-black mt-2">{icon.name}</p>
@@ -286,7 +301,16 @@ export default function EditService({ params }) {
                                         id="icon-upload"
                                         type="file"
                                         className="hidden"
-                                        onChange={(e) => setIcon(e.target.files[0])}
+                                        onChange={async (e) => {
+                                            if (e.target.files.length > 0) {
+                                                setLoading(true);
+                                                setIcon((prevIcon) => ({ ...prevIcon, url: e.target.files[0] }));
+                                                await deleteImage(icon.publicId);
+                                                const iconData = await uploadImage(e.target.files[0], 'Pony-Party/Services/icons');
+                                                await updateService({ _id: id, icon: { url: iconData.secure_url, publicId: iconData.public_id } });
+                                                setLoading(false);
+                                            }
+                                        }}
                                     />
                                 </div>
                             </div>

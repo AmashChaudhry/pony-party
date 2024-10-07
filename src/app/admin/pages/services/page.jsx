@@ -8,6 +8,8 @@ import React, { useState, useEffect } from "react";
 
 export default function Services() {
     const [services, setServices] = useState([]);
+    const [serviceType, setserviceType] = useState('Drip');
+    const [filtedServices, setFiltedServices] = useState([]);
     const [loading, setLoading] = useState(true);
 
     const getServicesData = async () => {
@@ -31,6 +33,12 @@ export default function Services() {
         getServicesData();
     }, []);
 
+    useEffect(() => {
+        if (services.length > 0) {
+            setFiltedServices(services.filter(service => service.category === serviceType));
+        }
+    }, [services, serviceType]);
+
     if (loading) {
         return (
             <div className='flex flex-col items-center justify-center w-full min-w-screen'>
@@ -39,11 +47,26 @@ export default function Services() {
         );
     }
 
-    const drips = services.filter(service => service.category === "Drip");
-
     return (
         <div className='flex flex-col items-center w-full px-[20px] py-[20px]'>
-            <div className='flex flex-col items-end w-full mb-[20px]'>
+            <div className='flex flex-row items-end justify-between w-full mb-[20px]'>
+                <div className="relative w-[200px]">
+                    <select
+                        className="w-full p-[10px] text-[14px] border-[1px] border-black border-opacity-10 rounded-md focus:outline-none pr-[30px] appearance-none"
+                        id="category"
+                        value={serviceType}
+                        onChange={(e) => setserviceType(e.target.value)}
+                        required
+                    >
+                        <option value="Drip">Drip</option>
+                        <option value="Injection">Injection</option>
+                    </select>
+                    <div className="absolute inset-y-0 right-0 flex items-center pr-[15px] pointer-events-none">
+                        <svg className="w-5 h-5 text-gray-500 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                </div>
                 <Link href='/admin/pages/add-service'>
                     <button className='flex flex-row items-center bg-black text-white text-[14px] rounded-md px-[10px] py-[5px]'>
                         <MdAddCircle size={15} className='mr-[5px]' />
@@ -53,26 +76,26 @@ export default function Services() {
             </div>
             <div className="flex flex-col items-start w-full border rounded-md px-[20px] py-[20px]">
                 {
-                    drips.map((drip, index) => (
+                    filtedServices.map((service, index) => (
                         <div key={index} className="flex flex-row items-start w-full border rounded-md p-[20px] mb-[20px]">
-                            <Link className="flex justify-center h-[150px] w-auto mr-[20px]" href={`/pages/service/${drip._id}`}>
+                            <div className="flex justify-center h-[150px] w-auto mr-[20px]">
                                 <img
                                     className="h-full w-auto object-cover"
-                                    src={drip.image.url}
-                                    alt={drip.title}
+                                    src={service.image.url}
+                                    alt={service.title}
                                 />
-                            </Link>
+                            </div>
                             <div className='flex flex-col items-start h-[150px] w-full justify-between'>
                                 <div className='flex flex-col items-start'>
-                                    <Link className="text-[14px] text-start font-bold hover:text-[#ffa9f9]" href={`/pages/service/${drip._id}`}>
-                                        {`${index + 1}. ${drip.title.toUpperCase()} - $${drip.price}`}
-                                    </Link>
+                                    <p className="text-[14px] text-start font-bold">
+                                        {`${index + 1}. ${service.title.toUpperCase()} - $${service.price}`}
+                                    </p>
                                     <p className="text-black text-[14px] text-start text-opacity-60">
-                                        {drip.category}
+                                        {service.category}
                                     </p>
                                 </div>
                                 <div className='flex flex-row w-full space-x-[10px]'>
-                                    <Link href={`/admin/pages/services/${drip._id}`}>
+                                    <Link href={`/admin/pages/services/${service._id}`}>
                                         <button className='flex flex-row items-center bg-black text-white text-[14px] rounded-md px-[10px] py-[5px]'>
                                             <MdModeEdit size={15} className='mr-[5px]' />
                                             Edit
