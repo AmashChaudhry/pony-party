@@ -1,4 +1,5 @@
 'use client'
+import { PulseLoader } from "react-spinners";
 import React, { useEffect, useState } from "react";
 
 export default function AddService() {
@@ -376,7 +377,7 @@ export default function AddService() {
                     disabled={buttonDisabled}
                     onClick={handleSubmit}
                 >
-                    {loading ? "Loading..." : "Add Service"}
+                    {loading ? <PulseLoader color="#ffffff" size={8} /> : "Add Service"}
                 </button>
             </div>
         </div>
