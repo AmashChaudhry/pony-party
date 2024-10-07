@@ -22,7 +22,7 @@ export async function POST(request) {
 
         const tokenData = {
             id: user._id,
-            email: user.email,
+            isAdmin: user.isAdmin,
         }
 
         const token = jwt.sign(tokenData, process.env.TOKEN_SECRET, {
