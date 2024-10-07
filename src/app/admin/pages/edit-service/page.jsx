@@ -14,8 +14,8 @@ export default function AddService() {
         category: "Drip",
         price: "",
         description: "",
-        image: { url: "", publicId: "" },
-        icon: { url: "", publicId: "" },
+        image: "",
+        icon: "",
         uses: inputs,
     });
     const [image, setImage] = useState(null);
@@ -46,8 +46,14 @@ export default function AddService() {
 
         if (type === "file" && files.length > 0) {
             const file = files[0];
-            updatedInputs[index].icon = file;
-            setInputs(updatedInputs);
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                updatedInputs[index].icon = reader.result;
+                updatedInputs[index].icon = file;
+                console.log(updatedInputs[index].icon);
+                setInputs(updatedInputs);
+            };
+            reader.readAsDataURL(file);
         } else {
             updatedInputs[index][name] = value;
             setInputs(updatedInputs);
@@ -59,21 +65,21 @@ export default function AddService() {
         setButtonDisabled(true);
         setLoading(true);
         try {
-            const uploadedImage = await uploadImage(image, 'Pony-Party/Services');
-            const uploadedIcon = await uploadImage(icon, 'Pony-Party/Services/icons');
+            const uploadedImageURL = await uploadImage(image, 'Pony-Party/Services');
+            const uploadedIconURL = await uploadImage(icon, 'Pony-Party/Services/icons');
 
             const updatedUses = await Promise.all(inputs.map(async (input) => {
                 if (input.icon) {
-                    const uploadedUseIcon = await uploadImage(input.icon, 'Pony-Party/Services/assets');
-                    return { ...input, icon: { url: uploadedUseIcon.secure_url, publicId: uploadedUseIcon.public_id } };
+                    const uploadedIcon = await uploadImage(input.icon, 'Pony-Party/Services/assets');
+                    return { ...input, icon: uploadedIcon };
                 }
                 return input;
             }));
 
             const updatedService = {
                 ...service,
-                image: { url: uploadedImage.secure_url, publicId: uploadedImage.public_id },
-                icon: uploadedIcon ? { url: uploadedIcon.secure_url, publicId: uploadedIcon.public_id } : {},
+                image: uploadedImageURL,
+                icon: uploadedIconURL,
                 uses: updatedUses,
             };
 
@@ -86,14 +92,17 @@ export default function AddService() {
             });
 
             const data = await response.json();
-            if (response.ok) {
-                console.log("Service added successfully");
+
+            if (response.status === 400) {
+                setErrorMessage(data.error);
+            } else if (response.ok) {
+                console.log("Added successfully");
             } else {
-                console.error("Error:", data.error);
+                setErrorMessage("An error occurred. Please try again.");
             }
 
         } catch (error) {
-            console.error("Service not added:", error);
+            console.log("Product not added");
         } finally {
             setLoading(false);
             setButtonDisabled(false);
@@ -115,9 +124,9 @@ export default function AddService() {
 
             if (response.ok) {
                 console.log('Uploaded successfully:', imageData);
-                return imageData.data;
+                return imageData.data.secure_url;
             } else {
-                console.error('Upload failed:', imageData.error);
+                console.error('Upload failed:', data.error);
                 return null;
             }
         } catch (error) {
@@ -224,7 +233,7 @@ export default function AddService() {
                             <div className='w-full'>
                                 <h3 className='text-[18px] font-bold mb-[10px]'>Icon <span className='text-[14px] font-medium'>(Represents your service)</span></h3>
                                 <div className="flex flex-col w-full p-[20px] mb-[20px] border-[0.5px] border-black border-opacity-10 rounded-lg">
-                                    <label className="text-[14px] text-black">Icon</label>
+                                    <label className="text-[14px] text-black">Icon (Optional)</label>
                                     <label htmlFor="icon-upload" className="w-full cursor-pointer">
                                         <div className="border-2 border-dashed border-gray-300 p-4 text-center rounded-xl hover:border-black transition-all duration-200">
                                             {!icon ? (

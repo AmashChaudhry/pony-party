@@ -18,3 +18,15 @@ export const uploadImage = async (file, folder) => {
         }).end(bytes);
     })
 }
+
+export const deleteImage = async (publicId) => {
+    return new Promise(async (resolve, reject) => {
+        try{
+            const result = await cloudinary.uploader.destroy(publicId);
+            return resolve(result);
+
+        } catch (error) {
+            reject(new Error(error.message));
+        }
+    })
+}

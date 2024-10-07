@@ -59,7 +59,7 @@ export default function VitaminIVTreatmentDetail({ params }) {
                 <div className="relative flex justify-center h-fit w-[50%] py-[20px] sm:px-[20px] md:px-[40px]">
                     <img
                         className="h-full w-auto"
-                        src={treatment.image}
+                        src={treatment.image.url}
                         alt={treatment.title}
                     />
                 </div>
@@ -110,7 +110,7 @@ export default function VitaminIVTreatmentDetail({ params }) {
                                             <div className="relative flex justify-center h-[80px] w-auto mb-[20px]">
                                                 <img
                                                     className="h-full w-auto"
-                                                    src={use.icon}
+                                                    src={use.icon.url}
                                                     alt={use.name}
                                                 />
                                             </div>

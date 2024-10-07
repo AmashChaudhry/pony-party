@@ -46,7 +46,7 @@ export default function Drips() {
                         <Link className="relative flex justify-center h-[150px] w-full sm:h-[250px]" href={`/pages/service/${drip._id}`}>
                             <img
                                 className="h-full w-auto object-cover"
-                                src={drip.image}
+                                src={drip.image.url}
                                 alt={drip.title}
                             />
                         </Link>

@@ -1,12 +1,14 @@
 'use client'
 import React, { useEffect, useState } from "react";
 
-export default function AddService() {
+export default function EditService({ params }) {
+    const { id } = params;
     const [inputs, setInputs] = useState([{
         name: "",
-        icon: "",
+        icon: { url: "", publicId: "" },
     }]);
     const [service, setService] = useState({
+        _id: id,
         title: "",
         subTitle: "",
         ingredients: "",
@@ -18,10 +20,37 @@ export default function AddService() {
         icon: { url: "", publicId: "" },
         uses: inputs,
     });
-    const [image, setImage] = useState(null);
+    const [image, setImage] = useState({
+        url: "",
+        publicId: "",
+    });
     const [icon, setIcon] = useState(null);
     const [buttonDisabled, setButtonDisabled] = useState(false);
     const [loading, setLoading] = useState(false);
+
+    const getServiceData = async () => {
+        try {
+            const response = await fetch('/api/service', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ _id: id }),
+            });
+            const serviceData = await response.json();
+            setService(serviceData.data);
+            setInputs(serviceData.data.uses);
+            setImage(serviceData.data.image);
+        } catch (error) {
+            console.error('Error fetching treatment:', error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        getServiceData();
+    }, []);
 
     useEffect(() => {
         setService((prevService) => ({
@@ -46,39 +75,26 @@ export default function AddService() {
 
         if (type === "file" && files.length > 0) {
             const file = files[0];
-            updatedInputs[index].icon = file;
-            setInputs(updatedInputs);
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                updatedInputs[index].icon = file;
+                setInputs(updatedInputs);
+            };
+            reader.readAsDataURL(file);
         } else {
             updatedInputs[index][name] = value;
             setInputs(updatedInputs);
         }
     };
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        setButtonDisabled(true);
-        setLoading(true);
+    const handleSubmit = async () => {
+        await updateService(service);
+    }
+
+    const updateService = async (updatedService) => {
         try {
-            const uploadedImage = await uploadImage(image, 'Pony-Party/Services');
-            const uploadedIcon = await uploadImage(icon, 'Pony-Party/Services/icons');
-
-            const updatedUses = await Promise.all(inputs.map(async (input) => {
-                if (input.icon) {
-                    const uploadedUseIcon = await uploadImage(input.icon, 'Pony-Party/Services/assets');
-                    return { ...input, icon: { url: uploadedUseIcon.secure_url, publicId: uploadedUseIcon.public_id } };
-                }
-                return input;
-            }));
-
-            const updatedService = {
-                ...service,
-                image: { url: uploadedImage.secure_url, publicId: uploadedImage.public_id },
-                icon: uploadedIcon ? { url: uploadedIcon.secure_url, publicId: uploadedIcon.public_id } : {},
-                uses: updatedUses,
-            };
-
-            const response = await fetch('/admin/api/add-service', {
-                method: 'POST',
+            const response = await fetch('/admin/api/update-service', {
+                method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -86,19 +102,16 @@ export default function AddService() {
             });
 
             const data = await response.json();
-            if (response.ok) {
-                console.log("Service added successfully");
-            } else {
-                console.error("Error:", data.error);
-            }
 
+            if (response.ok) {
+                console.log('Service updated successfully:', data);
+            } else {
+                console.error('Error updating service:', data.error);
+            }
         } catch (error) {
-            console.error("Service not added:", error);
-        } finally {
-            setLoading(false);
-            setButtonDisabled(false);
+            console.error('Error:', error);
         }
-    }
+    };
 
     const uploadImage = async (file, path) => {
         try {
@@ -117,7 +130,7 @@ export default function AddService() {
                 console.log('Uploaded successfully:', imageData);
                 return imageData.data;
             } else {
-                console.error('Upload failed:', imageData.error);
+                console.error('Upload failed:', data.error);
                 return null;
             }
         } catch (error) {
@@ -126,10 +139,25 @@ export default function AddService() {
         }
     }
 
+    const deleteImage = async (publicId) => {
+
+        const response = await fetch('/admin/api/delete-image', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ publicId }),
+        });
+
+        if (response.ok) {
+            console.log('Image deleted successfully');
+        }
+    }
+
     return (
         <div className="flex flex-col items-center w-full max-w-[1200px] m-auto py-[60px]">
             <div className="flex flex-rox justify-center w-full mb-[40px]">
-                <h2 className="text-[28px] font-medium">ADD SERVICE</h2>
+                <h2 className="text-[28px] font-medium">UPDATE SERVICE</h2>
             </div>
             <div className='flex flex-col items-center w-full md:flex-row md:justify-center md:items-start'>
                 <div className={`flex flex-col items-start ${service.category === 'Injection' ? 'w-full max-w-[600px]' : 'w-full'} px-[25px] md:py-[40px]`}>
@@ -137,25 +165,38 @@ export default function AddService() {
                     <div className="flex flex-col w-full p-[20px] mb-[20px] border-[0.5px] border-black border-opacity-10 rounded-lg">
                         <label htmlFor="file-upload" className="w-full cursor-pointer">
                             <div className="border-2 border-dashed border-gray-300 p-4 text-center rounded-xl hover:border-black transition-all duration-200">
-                                {!image ? (
-                                    <p className="text-gray-500">Click to select an image</p>
-                                ) : (
-                                    <div className="flex flex-col items-center">
-                                        <img
-                                            className="h-[200px] w-auto object-fit mb-2"
-                                            src={URL.createObjectURL(image)}
-                                            alt="Selected"
-                                        />
-                                        <p className="text-black mt-2">{image.name}</p>
-                                    </div>
-                                )}
+                                {
+                                    loading ? (<p>Loading...</p>) : (
+                                        !image ? (
+                                            <p className="text-gray-500">Click to select an image</p>
+                                        ) : (
+                                            <div className="flex flex-col items-center">
+                                                <img
+                                                    className="h-[200px] w-auto object-fit mb-2"
+                                                    src={image.url instanceof File ? URL.createObjectURL(image.url) : image.url}
+                                                    alt="Selected"
+                                                />
+                                            </div>
+                                        )
+                                    )
+                                }
                             </div>
                         </label>
                         <input
                             id="file-upload"
                             type="file"
                             className="hidden"
-                            onChange={(e) => setImage(e.target.files[0])}
+                            disabled={loading}
+                            onChange={async (e) => {
+                                if (e.target.files.length > 0) {
+                                    setLoading(true);
+                                    setImage((prevImage) => ({ ...prevImage, url: e.target.files[0] }));
+                                    await deleteImage(image.publicId);
+                                    const imageData = await uploadImage(e.target.files[0], 'Pony-Party/Services');
+                                    await updateService({ _id: id, image: { url: imageData.secure_url, publicId: imageData.public_id } });
+                                    setLoading(false);
+                                }
+                            }}
                         />
                     </div>
                     <h3 className='text-[18px] font-bold mb-[10px]'>Category</h3>
@@ -224,7 +265,7 @@ export default function AddService() {
                             <div className='w-full'>
                                 <h3 className='text-[18px] font-bold mb-[10px]'>Icon <span className='text-[14px] font-medium'>(Represents your service)</span></h3>
                                 <div className="flex flex-col w-full p-[20px] mb-[20px] border-[0.5px] border-black border-opacity-10 rounded-lg">
-                                    <label className="text-[14px] text-black">Icon</label>
+                                    <label className="text-[14px] text-black">Icon (Optional)</label>
                                     <label htmlFor="icon-upload" className="w-full cursor-pointer">
                                         <div className="border-2 border-dashed border-gray-300 p-4 text-center rounded-xl hover:border-black transition-all duration-200">
                                             {!icon ? (
@@ -282,11 +323,16 @@ export default function AddService() {
                             <label className="text-[14px] text-black">Price</label><br />
                             <input
                                 className="w-full p-[15px] text-[14px] border-[1px] border-black border-opacity-10 rounded-md focus:outline-none"
-                                type="number"
+                                type="text"
                                 id="price"
                                 value={service.price}
-                                placeholder='Enter price'
-                                onChange={(e) => setService({ ...service, price: e.target.value })}
+                                placeholder="Enter price"
+                                onChange={(e) => {
+                                    const value = e.target.value;
+                                    if (/^\d*\.?\d*$/.test(value)) {
+                                        setService({ ...service, price: value });
+                                    }
+                                }}
                                 required
                             />
                         </div>
@@ -314,7 +360,7 @@ export default function AddService() {
                                                     <div className="flex flex-col items-center">
                                                         <img
                                                             className="h-[80px] w-auto mb-2"
-                                                            src={inputs[index].icon instanceof File ? URL.createObjectURL(inputs[index].icon) : inputs[index].icon}
+                                                            src={inputs[index].icon instanceof File ? URL.createObjectURL(inputs[index].icon) : inputs[index].icon.url}
                                                             alt={`Selected Image ${index + 1}`}
                                                         />
                                                         <p className="text-black mt-2">{inputs[index].icon.name}</p>
@@ -327,7 +373,21 @@ export default function AddService() {
                                             type="file"
                                             name="icon"
                                             className="hidden"
-                                            onChange={(e) => handleInputChange(index, e)}
+                                            disabled={loading}
+                                            onChange={async (e) => {
+                                                if (e.target.files.length > 0) {
+                                                    setLoading(true);
+                                                    await deleteImage(service.uses[index].icon.publicId);
+                                                    const imageData = await uploadImage(e.target.files[0], 'Pony-Party/Services/assets');
+                                                    const updatedInputs = [...inputs];
+                                                    updatedInputs[index].icon = {
+                                                        url: imageData.secure_url,
+                                                        publicId: imageData.public_id,
+                                                    };
+                                                    await updateService({ _id: id, uses: updatedInputs });
+                                                    setLoading(false);
+                                                }
+                                            }}
                                         />
                                     </div>
                                     <div>
@@ -376,7 +436,7 @@ export default function AddService() {
                     disabled={buttonDisabled}
                     onClick={handleSubmit}
                 >
-                    {loading ? "Loading..." : "Add Service"}
+                    {loading ? "Loading..." : "Update Service"}
                 </button>
             </div>
         </div>

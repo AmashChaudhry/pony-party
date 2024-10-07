@@ -49,7 +49,7 @@ export default function Injections() {
                                 <Link className="relative flex justify-center h-[80px] w-auto mb-[20px]" href={`/pages/service/${injection._id}`}>
                                     <img
                                         className="h-full w-auto"
-                                        src={injection.icon}
+                                        src={injection.icon.url}
                                         alt={injection.title}
                                     />
                                 </Link>
