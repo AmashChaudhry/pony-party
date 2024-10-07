@@ -29,11 +29,11 @@ export default function EditService({ params }) {
         url: "",
         publicId: "",
     });
-    const [buttonDisabled, setButtonDisabled] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [screenLoading, setScreenLoading] = useState(true);
 
     const getServiceData = async () => {
-        setLoading(true);
+        setScreenLoading(true);
         try {
             const response = await fetch('/api/service', {
                 method: 'POST',
@@ -50,7 +50,7 @@ export default function EditService({ params }) {
         } catch (error) {
             console.error('Error fetching treatment:', error);
         } finally {
-            setLoading(false);
+            setScreenLoading(false);
         }
     };
 
@@ -94,7 +94,9 @@ export default function EditService({ params }) {
     };
 
     const handleSubmit = async () => {
+        setLoading(true);
         await updateService(service);
+        setLoading(false);
     }
 
     const updateService = async (updatedService) => {
@@ -160,7 +162,7 @@ export default function EditService({ params }) {
         }
     }
 
-    if (loading) {
+    if (screenLoading) {
         return (
             <div className='flex flex-col items-center justify-center w-full min-w-screen'>
                 <PulseLoader color="#ffa9f9" size={10} />
@@ -217,17 +219,9 @@ export default function EditService({ params }) {
                     <div className="w-full p-[20px] mb-[20px] border-[0.5px] border-black border-opacity-10 rounded-lg">
                         <label className="text-[14px] text-black">Service Category</label><br />
                         <div className="relative w-full">
-                            <select
-                                className="w-full p-[15px] text-[14px] border-[1px] border-black border-opacity-10 rounded-md focus:outline-none pr-[30px] appearance-none"
-                                id="category"
-                                value={service.category}
-                                disabled
-                                onChange={(e) => setService({ ...service, category: e.target.value })}
-                                required
-                            >
-                                <option value="Drip">Drip</option>
-                                <option value="Injection">Injection</option>
-                            </select>
+                            <div className="w-full p-[15px] text-[14px] border-[1px] border-black border-opacity-10 rounded-md focus:outline-none pr-[30px] appearance-none">
+                                <p>{service.category}</p>
+                            </div>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-[15px] pointer-events-none">
                                 <svg className="w-5 h-5 text-gray-500 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
@@ -455,12 +449,12 @@ export default function EditService({ params }) {
             </div>
             <div className="flex flex-rox justify-center w-full mt-[40px]">
                 <button
-                    className="bg-black hover:shadow-lg text-white w-fit py-[10px] px-[20px] rounded-md"
+                    className="bg-black hover:shadow-lg text-white w-[160px] py-[10px] px-[20px] rounded-md"
                     type="submit"
-                    disabled={buttonDisabled}
+                    disabled={loading}
                     onClick={handleSubmit}
                 >
-                    {loading ? "Loading..." : "Update Service"}
+                    {loading ? <PulseLoader color="#ffffff" size={8} /> : "Update Service"}
                 </button>
             </div>
         </div>

@@ -6,7 +6,14 @@ import { MdMedicalServices } from "react-icons/md";
 
 export default function Sidebar() {
     return (
-        <ul className='sticky top-0 flex flex-col h-screen bg-gray-100 px-[30px] py-[20px]'>
+        <ul className='sticky top-0 flex flex-col h-screen bg-gray-100 px-[20px] py-[20px]'>
+            <div className='w-[150px] mb-[40px]'>
+                <img
+                    className='w-full h-auto object-cover'
+                    src="/logo-1.png"
+                    alt="Pony Party"
+                />
+            </div>
             <Link
                 className='flex flex-row items-center space-x-[20px] text-sm py-[10px]'
                 href='/admin'
