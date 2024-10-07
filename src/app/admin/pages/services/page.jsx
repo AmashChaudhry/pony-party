@@ -74,7 +74,7 @@ export default function Services() {
                     </button>
                 </Link>
             </div>
-            <div className="grid grid-cols-1 gap-x-[20px] gap-y-[20px] items-start w-full border rounded-md px-[20px] py-[20px] lg:grid-cols-2 2xl:grid-cols-3">
+            <div className="grid grid-cols-1 gap-[20px] items-start w-full border rounded-md px-[20px] py-[20px] lg:grid-cols-2 2xl:grid-cols-3">
                 {
                     filtedServices.map((service, index) => (
                         <div key={index} className="flex flex-row items-start w-full border rounded-md p-[20px]">

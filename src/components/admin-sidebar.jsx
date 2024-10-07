@@ -30,7 +30,7 @@ export default function Sidebar() {
             </Link>
             <Link
                 className='flex flex-row items-center space-x-[20px] text-sm py-[10px]'
-                href='/admin/pages/upload-blog'
+                href='/admin/pages/blogs'
             >
                 <ImBlog size={20} color='#6B7280' />
                 <li>Blogs</li>
