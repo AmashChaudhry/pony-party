@@ -14,7 +14,7 @@ export async function middleware(request) {
     }
 
     if (!isPublicPath && !token) {
-        return NextResponse.redirect(new URL('/pages/login-to-account', request.url));
+        return NextResponse.redirect(new URL('/', request.url));
     }
 
     if (isAdminPath) {
