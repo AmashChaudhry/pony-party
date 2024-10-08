@@ -10,7 +10,7 @@ export default function Sidebar() {
             <div className='w-[150px] mb-[40px]'>
                 <img
                     className='w-full h-auto object-cover'
-                    src="/logo-1.png"
+                    src="/Logo-1.png"
                     alt="Pony Party"
                 />
             </div>
