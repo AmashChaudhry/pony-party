@@ -4,7 +4,7 @@ import Service from "@/models/serviceModel";
 
 connect();
 
-export async function GET() {
+export async function POST() {
   try {
     const services = await Service.find();
     return NextResponse.json({

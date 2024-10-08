@@ -10,7 +10,7 @@ export default function Injections() {
     const getServicesData = async () => {
         try {
             const response = await fetch('/api/services', {
-                method: 'GET',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
