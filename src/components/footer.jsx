@@ -5,7 +5,6 @@ import React, { useState, useEffect } from "react";
 
 export default function Footer() {
     const [services, setServices] = useState([]);
-    const [loading, setLoading] = useState(true);
     const [user, setUser] = useState(null);
 
     useEffect(() => {
@@ -34,7 +33,7 @@ export default function Footer() {
     const getServicesData = async () => {
         try {
             const response = await fetch('/api/services', {
-                method: 'GET',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },

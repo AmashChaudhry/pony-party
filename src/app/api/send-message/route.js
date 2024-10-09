@@ -34,7 +34,7 @@ export async function POST(request) {
         const mailOptions = {
             from: `"Pony Party" <${process.env.SENDER_MAIL}>`,
             to: process.env.HOST_MAIL,
-            subject: `Contact Form Submission from ${firstName} ${lastName}`,
+            subject: `Message from ${firstName} ${lastName}`,
             html: `
             <div style="padding: 20px; background-color: #FFA9F91A;">
                 <div style="text-align: center; margin-bottom: 20px;">
@@ -42,7 +42,7 @@ export async function POST(request) {
                 </div>
                 <h1 style="font-weight: 300; margin-bottom: 10px;">Pony Party IV</h1>
                 <h2 style="font-weight: 300; margin: 0;">CONTACT US</h2>
-                <p style="font-size: 14px; font-weight: 300; margin-bottom: 10px;">ponypartyiv.com</p>
+                <p style="font-size: 14px; font-weight: 300; margin-top: 0; margin-bottom: 10px;">ponypartyiv.com</p>
                 <p style="font-size: 14px; font-weight: 600; margin-bottom: 20px;">Message from guest account.</p>
                 <p style="font-size: 14px; font-weight: 300; margin-bottom: 10px;"><strong>Category:</strong> ${category}</p>
                 <p style="font-size: 16px; font-weight: 300; margin-bottom: 20px;">${message}</p>

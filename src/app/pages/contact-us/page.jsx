@@ -61,7 +61,7 @@ export default function ContactUs() {
             }
 
         } catch (error) {
-            console.log("Rgisteration failed");
+            console.log("Failed to send message");
         } finally {
             setLoading(false);
             setButtonDisabled(false);
