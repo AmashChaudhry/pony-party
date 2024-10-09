@@ -8,7 +8,7 @@ connect();
 export async function POST(request) {
     try {
         const reqBody = await request.json();
-        const { email, password } = reqBody;
+        const { email, password, rememberMe } = reqBody;
 
         const user = await User.findOne({ email });
 
@@ -17,7 +17,7 @@ export async function POST(request) {
         }
 
         if (password != user.password) {
-            return NextResponse.json({ error: "Incorret password" }, { status: 400 });
+            return NextResponse.json({ error: "Incorrect password" }, { status: 400 });
         }
 
         const tokenData = {
@@ -34,9 +34,11 @@ export async function POST(request) {
             success: true,
         });
 
+        const cookieMaxAge = rememberMe ? 60 * 60 * 24 * 3 : undefined;
+
         response.cookies.set("token", token, {
             httpOnly: true,
-            maxAge: 60 * 60 * 24 * 3,
+            maxAge: cookieMaxAge,
             sameSite: 'lax',
             secure: process.env.NODE_ENV === 'production',
         });

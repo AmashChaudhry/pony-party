@@ -10,6 +10,7 @@ export default function LoginToAccount() {
         email: "",
         password: "",
     });
+    const [rememberMe, setRememberMe] = useState(false);
     const [buttonDisabled, setButtonDisabled] = useState(true);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
@@ -24,7 +25,7 @@ export default function LoginToAccount() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(user),
+                body: JSON.stringify({ ...user, rememberMe }),
             });
 
             const data = await response.json();
@@ -79,7 +80,13 @@ export default function LoginToAccount() {
                     />
                 </div>
                 <div className="mb-[15px]">
-                    <input className="mr-[10px]" type="checkbox" id="remember-me" />
+                    <input
+                        className="mr-[10px] cursor-pointer"
+                        type="checkbox"
+                        id="remember-me"
+                        checked={rememberMe}
+                        onChange={() => setRememberMe(prevState => !prevState)}
+                    />
                     <label htmlFor="remember-me">Remember me</label>
                 </div>
                 {errorMessage && (
