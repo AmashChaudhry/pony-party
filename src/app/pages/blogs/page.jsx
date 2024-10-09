@@ -63,7 +63,7 @@ export default function Blogs() {
                         <div className='h-auto w-full mb-[20px] sm:h-[175px] sm:w-[225px] sm:mr-[30px] sm:mb-0'>
                             <img
                                 className='h-full w-full object-cover'
-                                src={blog.image}
+                                src={blog.image.url}
                                 alt={blog.title}
                             />
                         </div>

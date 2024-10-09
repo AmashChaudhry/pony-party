@@ -75,7 +75,7 @@ export default function Blogs() {
                             <div className='h-[175px] w-auto'>
                                 <img
                                     className='h-full w-auto object-cover rounded-l-md'
-                                    src={blog.image}
+                                    src={blog.image.url}
                                     alt={blog.title}
                                 />
                             </div>

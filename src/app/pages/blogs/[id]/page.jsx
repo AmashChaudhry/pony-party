@@ -45,7 +45,7 @@ export default function Blog({ params }) {
                 <div className='flex flex-col items-center w-full'>
                     <img
                         className='w-full h-auto object-cover sm:h-[350px] sm:w-auto'
-                        src={blog.image}
+                        src={blog.image.url}
                         alt={blog.title}
                     />
                 </div>
@@ -69,7 +69,7 @@ export default function Blog({ params }) {
                                 <div className='w-full px-[20px] mb-[40px] sm:w-[40%]'>
                                     <img
                                         className='h-auto w-full'
-                                        src={subTopic.image}
+                                        src={subTopic.image.url}
                                         alt={subTopic.title}
                                     />
                                 </div>

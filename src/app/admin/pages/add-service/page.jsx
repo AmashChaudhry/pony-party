@@ -31,16 +31,6 @@ export default function AddService() {
         }));
     }, [inputs]);
 
-    const addMoreInputs = () => {
-        setInputs([...inputs, { name: "", icon: "" }]);
-    };
-
-    const removeInput = () => {
-        if (inputs.length > 1) {
-            setInputs(inputs.slice(0, -1));
-        }
-    };
-
     const handleInputChange = (index, event) => {
         const { name, type, value, files } = event.target;
         const updatedInputs = [...inputs];
@@ -54,6 +44,32 @@ export default function AddService() {
             setInputs(updatedInputs);
         }
     };
+
+    const uploadImage = async (file, path) => {
+        try {
+            const formData = new FormData();
+            formData.append('image', file);
+            formData.append('path', path);
+
+            const response = await fetch('/admin/api/upload-image', {
+                method: 'POST',
+                body: formData,
+            });
+
+            const imageData = await response.json();
+
+            if (response.ok) {
+                console.log('Uploaded successfully:', imageData);
+                return imageData.data;
+            } else {
+                console.error('Upload failed:', imageData.error);
+                return null;
+            }
+        } catch (error) {
+            console.log(error.message);
+            return null;
+        }
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -98,32 +114,6 @@ export default function AddService() {
         } finally {
             setLoading(false);
             setButtonDisabled(false);
-        }
-    }
-
-    const uploadImage = async (file, path) => {
-        try {
-            const formData = new FormData();
-            formData.append('image', file);
-            formData.append('path', path);
-
-            const response = await fetch('/admin/api/upload-image', {
-                method: 'POST',
-                body: formData,
-            });
-
-            const imageData = await response.json();
-
-            if (response.ok) {
-                console.log('Uploaded successfully:', imageData);
-                return imageData.data;
-            } else {
-                console.error('Upload failed:', imageData.error);
-                return null;
-            }
-        } catch (error) {
-            console.log(error.message);
-            return null;
         }
     }
 
@@ -350,7 +340,11 @@ export default function AddService() {
                                         <button
                                             className="flex justify-center items-center text-[14px] bg-red-500 text-white py-2 px-4 rounded"
                                             type="button"
-                                            onClick={removeInput}
+                                            onClick={() => {
+                                                if (inputs.length > 1) {
+                                                    setInputs(inputs.slice(0, -1));
+                                                }
+                                            }}
                                         >
                                             Remove use
                                         </button>
@@ -359,7 +353,9 @@ export default function AddService() {
                                 <button
                                     className="flex justify-center items-center text-[14px] bg-black text-white py-2 px-4 rounded"
                                     type="button"
-                                    onClick={addMoreInputs}
+                                    onClick={() => {
+                                        setInputs([...inputs, { name: "", icon: "" }]);
+                                    }}
                                 >
                                     Add use
                                 </button>

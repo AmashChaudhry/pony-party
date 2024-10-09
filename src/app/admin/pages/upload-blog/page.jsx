@@ -14,7 +14,7 @@ export default function UploadBlog() {
     const [blog, setBlog] = useState({
         title: "",
         description: "",
-        image: "",
+        image: { url: "", publicId: "" },
         subTopics: subTopics,
         categories: categories,
         author: "",
@@ -29,48 +29,18 @@ export default function UploadBlog() {
         }));
     }, [subTopics, categories, image]);
 
-    const addSubTopic = () => {
-        setSubTopics([...subTopics, { title: "", description: "", image: "" }]);
-    };
-
-    const removeSubTopic = () => {
-        if (subTopics.length > 1) {
-            setSubTopics(subTopics.slice(0, -1));
-        }
-    };
-
     const handleSubTopicChange = (index, event) => {
         const { name, type, value, files } = event.target;
         const updatedInputs = [...subTopics];
 
         if (type === "file" && files.length > 0) {
             const file = files[0];
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                updatedInputs[index].image = file;
-                setSubTopics(updatedInputs);
-            };
-            reader.readAsDataURL(file);
+            updatedInputs[index].image = file;
+            setSubTopics(updatedInputs);
         } else {
             updatedInputs[index][name] = value;
             setSubTopics(updatedInputs);
         }
-    };
-
-    const addCategory = () => {
-        setCategories([...categories, ""]);
-    };
-
-    const removeCategory = () => {
-        if (categories.length > 1) {
-            setCategories(categories.slice(0, -1));
-        }
-    };
-
-    const handleCategoryChange = (index, event) => {
-        const updatedCategories = [...categories];
-        updatedCategories[index] = event.target.value;
-        setCategories(updatedCategories);
     };
 
     const uploadImage = async (file, path) => {
@@ -88,7 +58,7 @@ export default function UploadBlog() {
 
             if (response.ok) {
                 console.log('Uploaded successfully:', imageData);
-                return imageData.data.secure_url;
+                return imageData.data;
             } else {
                 console.error('Upload failed:', data.error);
                 return null;
@@ -104,14 +74,13 @@ export default function UploadBlog() {
         setButtonDisabled(true);
         setLoading(true);
         try {
-
-            const uploadedImageURL = await uploadImage(image, 'Pony-Party/Blogs');
+            const uploadedImage = await uploadImage(image, 'Pony-Party/Blogs');
 
             const updatedSubTopics = await Promise.all(
                 subTopics.map(async (subTopic) => {
                     if (subTopic.image) {
-                        const subTopicImageURL = await uploadImage(subTopic.image, 'Pony-Party/Blogs/Sub-Topics');
-                        return { ...subTopic, image: subTopicImageURL };
+                        const uploadedSubTopicImage = await uploadImage(subTopic.image, 'Pony-Party/Blogs/Sub-Topics');
+                        return { ...subTopic, image: { url: uploadedSubTopicImage.secure_url, publicId: uploadedSubTopicImage.public_id } };
                     }
                     return subTopic;
                 })
@@ -119,7 +88,7 @@ export default function UploadBlog() {
 
             const updatedBlog = {
                 ...blog,
-                image: uploadedImageURL,
+                image: { url: uploadedImage.secure_url, publicId: uploadedImage.public_id },
                 subTopics: updatedSubTopics,
             };
 
@@ -192,7 +161,11 @@ export default function UploadBlog() {
                                     type="text"
                                     value={category}
                                     placeholder='Enter category'
-                                    onChange={(e) => handleCategoryChange(index, e)}
+                                    onChange={(event) => {
+                                        const updatedCategories = [...categories];
+                                        updatedCategories[index] = event.target.value;
+                                        setCategories(updatedCategories);
+                                    }}
                                     required
                                 />
                             ))
@@ -203,7 +176,11 @@ export default function UploadBlog() {
                                     <button
                                         className="flex justify-center items-center text-[14px] bg-red-500 text-white py-2 px-4 rounded"
                                         type="button"
-                                        onClick={removeCategory}
+                                        onClick={() => {
+                                            if (categories.length > 1) {
+                                                setCategories(categories.slice(0, -1));
+                                            }
+                                        }}
                                     >
                                         Remove
                                     </button>
@@ -212,7 +189,9 @@ export default function UploadBlog() {
                             <button
                                 className="flex justify-center items-center text-[14px] bg-black text-white py-2 px-4 rounded"
                                 type="button"
-                                onClick={addCategory}
+                                onClick={() => {
+                                    setCategories([...categories, ""]);
+                                }}
                             >
                                 Add Category
                             </button>
@@ -338,7 +317,11 @@ export default function UploadBlog() {
                                 <button
                                     className="flex justify-center items-center text-[14px] bg-red-500 text-white py-2 px-4 rounded"
                                     type="button"
-                                    onClick={removeSubTopic}
+                                    onClick={() => {
+                                        if (subTopics.length > 1) {
+                                            setSubTopics(subTopics.slice(0, -1));
+                                        }
+                                    }}
                                 >
                                     Remove
                                 </button>
@@ -347,7 +330,9 @@ export default function UploadBlog() {
                         <button
                             className="flex justify-center items-center text-[14px] bg-black text-white py-2 px-4 rounded"
                             type="button"
-                            onClick={addSubTopic}
+                            onClick={() => {
+                                setSubTopics([...subTopics, { title: "", description: "", image: "" }]);
+                            }}
                         >
                             Add topic
                         </button>

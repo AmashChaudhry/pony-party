@@ -65,16 +65,6 @@ export default function EditService({ params }) {
         }));
     }, [inputs]);
 
-    const addMoreInputs = () => {
-        setInputs([...inputs, { name: "", icon: "" }]);
-    };
-
-    const removeInput = () => {
-        if (inputs.length > 1) {
-            setInputs(inputs.slice(0, -1));
-        }
-    };
-
     const handleInputChange = (index, event) => {
         const { name, type, value, files } = event.target;
         const updatedInputs = [...inputs];
@@ -90,34 +80,6 @@ export default function EditService({ params }) {
         } else {
             updatedInputs[index][name] = value;
             setInputs(updatedInputs);
-        }
-    };
-
-    const handleSubmit = async () => {
-        setLoading(true);
-        await updateService(service);
-        setLoading(false);
-    }
-
-    const updateService = async (updatedService) => {
-        try {
-            const response = await fetch('/admin/api/update-service', {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(updatedService),
-            });
-
-            const data = await response.json();
-
-            if (response.ok) {
-                console.log('Service updated successfully:', data);
-            } else {
-                console.error('Error updating service:', data.error);
-            }
-        } catch (error) {
-            console.error('Error:', error);
         }
     };
 
@@ -161,6 +123,28 @@ export default function EditService({ params }) {
             console.log('Image deleted successfully');
         }
     }
+
+    const updateService = async (updatedService) => {
+        try {
+            const response = await fetch('/admin/api/update-service', {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updatedService),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                console.log('Service updated successfully:', data);
+            } else {
+                console.error('Error updating service:', data.error);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
 
     if (screenLoading) {
         return (
@@ -306,6 +290,7 @@ export default function EditService({ params }) {
                                         id="icon-upload"
                                         type="file"
                                         className="hidden"
+                                        disabled={loading}
                                         onChange={async (e) => {
                                             if (e.target.files.length > 0) {
                                                 setLoading(true);
@@ -445,7 +430,11 @@ export default function EditService({ params }) {
                                         <button
                                             className="flex justify-center items-center text-[14px] bg-red-500 text-white py-2 px-4 rounded"
                                             type="button"
-                                            onClick={removeInput}
+                                            onClick={() => {
+                                                if (inputs.length > 1) {
+                                                    setInputs(inputs.slice(0, -1));
+                                                }
+                                            }}
                                         >
                                             Remove use
                                         </button>
@@ -454,7 +443,9 @@ export default function EditService({ params }) {
                                 <button
                                     className="flex justify-center items-center text-[14px] bg-black text-white py-2 px-4 rounded"
                                     type="button"
-                                    onClick={addMoreInputs}
+                                    onClick={() => {
+                                        setInputs([...inputs, { name: "", icon: "" }]);
+                                    }}
                                 >
                                     Add use
                                 </button>
@@ -470,7 +461,11 @@ export default function EditService({ params }) {
                     className="bg-black hover:shadow-lg text-white w-[160px] py-[10px] px-[20px] rounded-md"
                     type="submit"
                     disabled={loading}
-                    onClick={handleSubmit}
+                    onClick={async () => {
+                        setLoading(true);
+                        await updateService(service);
+                        setLoading(false);
+                    }}
                 >
                     {loading ? <PulseLoader color="#ffffff" size={8} /> : "Update Service"}
                 </button>

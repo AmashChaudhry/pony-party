@@ -10,8 +10,14 @@ const blogSchema = new mongoose.Schema({
         required: true,
     },
     image: {
-        type: String,
-        required: true,
+        url: {
+            type: String,
+            required: true,
+        },
+        publicId: {
+            type: String,
+            required: true,
+        },
     },
     subTopics: [
         {
@@ -22,7 +28,8 @@ const blogSchema = new mongoose.Schema({
                 type: String,
             },
             image: {
-                type: String,
+                url: { type: String },
+                publicId: { type: String },
             },
         },
     ],
