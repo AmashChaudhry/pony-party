@@ -4,7 +4,7 @@ import Blog from "@/models/blogModel";
 
 connect();
 
-export async function GET() {
+export async function POST() {
   try {
     const blogs = await Blog.find();
     return NextResponse.json({

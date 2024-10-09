@@ -13,7 +13,7 @@ export default function Blogs() {
     const getBlogsData = async () => {
         try {
             const response = await fetch('/api/blogs', {
-                method: 'GET',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -81,9 +81,7 @@ export default function Blogs() {
                             </div>
                             <div className='flex flex-col items-start h-[175px] w-full justify-between p-[20px]'>
                                 <div className='flex flex-col w-full'>
-                                    <Link href={`/pages/blogs/${blog._id}`}>
-                                        <p className='text-[18px] font-semibold line-clamp-2'>{`${index + 1}. ${blog.title}`}</p>
-                                    </Link>
+                                    <p className='text-[18px] font-semibold line-clamp-2'>{`${index + 1}. ${blog.title}`}</p>
                                     <p className='text-[14px] text-gray-400 font-light'>{formatDate(blog.createdAt)}</p>
                                     <p className='text-[14px] font-medium text-[#ffa9f9] line-clamp-1'>{blog.categories.join(', ')}</p>
                                 </div>

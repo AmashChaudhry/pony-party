@@ -84,6 +84,10 @@ export default function Header() {
                             <div className='bg-gray-200 h-[1px] w-full mt-[5px] lg:h-0 lg:mt-0'></div>
                         </li>
                         <li className="inline-block text-black text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
+                            <Link href="/pages/contact-us" onClick={handleLinkClick}>Contact Us</Link>
+                            <div className='bg-gray-200 h-[1px] w-full mt-[5px] lg:h-0 lg:mt-0'></div>
+                        </li>
+                        <li className="inline-block text-black text-[14px] lg:text-[12px] py-[4px] mx-[6px]">
                             <Link href="/pages/about-us" onClick={handleLinkClick}>About Us</Link>
                             <div className='bg-gray-200 h-[1px] w-full mt-[5px] lg:h-0 lg:mt-0'></div>
                         </li>

@@ -10,7 +10,7 @@ export default function Blogs() {
     const getBlogsData = async () => {
         try {
             const response = await fetch('/api/blogs', {
-                method: 'GET',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
