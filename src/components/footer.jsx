@@ -25,8 +25,6 @@ export default function Footer() {
         } catch (error) {
             console.error('Failed to fetch user data:', error);
             setUser(null);
-        } finally {
-            setLoading(false);
         }
     };
 
@@ -42,8 +40,6 @@ export default function Footer() {
             setServices(serviceData.data);
         } catch (error) {
             console.error('Error fetching treatments:', error);
-        } finally {
-            setLoading(false);
         }
     };
 

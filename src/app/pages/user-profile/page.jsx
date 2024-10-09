@@ -27,7 +27,7 @@ export default function UserProfile() {
     const logout = async () => {
         try {
             await fetch('/api/logout', {
-                method: 'GET',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },

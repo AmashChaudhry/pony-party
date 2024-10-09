@@ -3,7 +3,7 @@ import { connect } from "@/lib/mongodb_config";
 
 connect();
 
-export async function GET(request) {
+export async function POST(request) {
     try {
         const response = NextResponse.json({
             message: "Logout successfully",
