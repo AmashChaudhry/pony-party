@@ -31,6 +31,8 @@ export default function Address() {
     }, [user]);
 
     const updateUserData = async () => {
+        setLoading(true);
+        setButtonDisabled(true);
         try {
             await fetch(`/api/update-user-data`, {
                 method: 'PATCH',
@@ -48,6 +50,9 @@ export default function Address() {
             window.location.reload();
         } catch (error) {
             console.log('Error updating user details:', error.message);
+        } finally {
+            setLoading(false);
+            setButtonDisabled(false);
         }
     };
 

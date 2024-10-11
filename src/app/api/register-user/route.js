@@ -1,6 +1,7 @@
 import User from "@/models/userModel";
 import { connect } from "@/lib/mongodb_config";
 import { NextResponse } from "next/server";
+import { verifyEmail } from "@/helpers/mailer";
 
 connect();
 
@@ -41,6 +42,8 @@ export async function POST(request) {
 
         const savedUser = await newUser.save();
         console.log(savedUser);
+
+        await verifyEmail({email, userId: savedUser._id});
 
         return NextResponse.json({
             message: "User registered successfully",

@@ -5,7 +5,10 @@ import React, { useState, useEffect } from 'react';
 
 export default function AccountDatails() {
     const [user, setUser] = useState(null);
+    const [timer, setTimer] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [counterActive, setCounterActive] = useState(false);
+    const [counterLoading, setCounterLoading] = useState(false);
     const [buttonDisabled, setButtonDisabled] = useState(true);
 
     const getUserData = async () => {
@@ -28,6 +31,32 @@ export default function AccountDatails() {
             setButtonDisabled(false);
         } else {
             setButtonDisabled(true);
+        }
+    }, [user]);
+
+    useEffect(() => {
+        if (user && user.verifyTokenExpiry) {
+            const updateTimeLeft = () => {
+                const expiryDate = new Date(user.verifyTokenExpiry);
+                const now = new Date();
+                const timeLeft = expiryDate - now;
+                if (timeLeft > 0) {
+                    const minutes = Math.floor((timeLeft / 1000 / 60) % 60);
+                    const seconds = Math.floor((timeLeft / 1000) % 60);
+                    console.log(`${minutes}:${seconds.toString().padStart(2, '0')}`);
+                    setTimer(`${minutes}:${seconds.toString().padStart(2, '0')}`);
+                    console.log("i am if", timer);
+                    setCounterActive(true);
+                } else {
+                    console.log("i am else", timer);
+                    console.log("Timer expired");
+                    setTimer(null);
+                    setCounterActive(false);
+                }
+            };
+            updateTimeLeft();
+            const intervalId = setInterval(updateTimeLeft, 1000);
+            return () => clearInterval(intervalId);
         }
     }, [user]);
 
@@ -57,6 +86,28 @@ export default function AccountDatails() {
         }
     };
 
+    const sendVerificationEmail = async () => {
+        setCounterLoading(true);
+        setCounterActive(true);
+        try {
+            const response = await fetch('/api/send-email-verification', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email: user.email, userId: user._id }),
+            });
+
+            if (response.ok) {
+                setUser({ ...user, verifyTokenExpiry: Date.now() + 52 * 1000 });
+            }
+        } catch (error) {
+            console.log(error.message);
+        } finally {
+            setCounterLoading(false);
+        }
+    }
+
     const formatDate = (date) => {
         if (!date) return '';
         const d = new Date(date);
@@ -72,13 +123,37 @@ export default function AccountDatails() {
                 <div className='flex flex-col items-start'>
                     <div className="mb-[15px] w-full">
                         <label className="text-black text-opacity-60">Email address (as your login)</label><br />
-                        <input className="text-[14px] text-gray-500 w-full p-[15px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
-                            type="email"
-                            id="email"
-                            value={user.email}
-                            disabled
-                        />
-                        <p className='text-[12px]'>Cannot be changed</p>
+                        <div className={`flex flex-col w-full p-[15px] border-l-4 ${user.isVerified ? "border-l-green-500 bg-green-100" : "border-l-red-500 bg-red-100"}`}>
+                            <p className='text-[14px] text-gray-500'>{user.email}</p>
+                            {
+                                user.isVerified ? (
+                                    <p className='text-[12px] text-green-500 italic'>Your email is verified</p>
+                                ) : (
+                                    <p className='text-[12px] text-red-500 italic'>Your email is not-verified</p>
+                                )
+                            }
+                        </div>
+                        <div className='flex flex-row justify-between mt-[5px]'>
+                            <p className='text-[12px]'>Cannot be changed</p>
+                            {
+                                !user.isVerified && (
+                                    <button
+                                        className='w-[100px] text-[12px] text-white bg-black rounded-md px-[10px] py-[5px]'
+                                        disabled={counterActive}
+                                        onClick={sendVerificationEmail}
+                                    >
+                                        {
+                                            counterLoading ?
+                                                (
+                                                    <PulseLoader color="#ffffff" size={6} />
+                                                ) : (
+                                                    timer ? `${timer}` : 'Verify email'
+                                                )
+                                        }
+                                    </button>
+                                )
+                            }
+                        </div>
                     </div>
                     <div className="mb-[15px] w-full">
                         <label className="text-black text-opacity-60">First Name</label><br />
