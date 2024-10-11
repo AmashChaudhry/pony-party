@@ -1,19 +1,17 @@
 'use client'
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 import { PulseLoader } from "react-spinners";
 import React, { useEffect, useState } from "react";
 
 export default function LoginToAccount() {
-    const router = useRouter();
     const [user, setUser] = useState({
         email: "",
         password: "",
     });
-    const [rememberMe, setRememberMe] = useState(false);
     const [buttonDisabled, setButtonDisabled] = useState(true);
+    const [rememberMe, setRememberMe] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [errorMessage, setErrorMessage] = useState("");
 
     const login = async (event) => {
         event.preventDefault();
@@ -31,13 +29,28 @@ export default function LoginToAccount() {
             const data = await response.json();
 
             if (response.status === 400) {
-                setErrorMessage(data.error);
+                toast.error(
+                    <span className="text-[14px]">{data.error}</span>,
+                    {
+                        position: "top-center",
+                        style: {
+                            marginTop: '80px',
+                        }
+                    }
+                );
             } else if (response.ok) {
                 console.log("Login successfully");
-                router.back();
                 window.location.reload();
             } else {
-                setErrorMessage("An error occurred. Please try again.");
+                toast.error(
+                    <span className="text-[14px]">An error occurred. Please try again.</span>,
+                    {
+                        position: "top-center",
+                        style: {
+                            marginTop: '80px',
+                        }
+                    }
+                );
             }
 
         } catch (error) {
@@ -89,11 +102,6 @@ export default function LoginToAccount() {
                     />
                     <label htmlFor="remember-me">Remember me</label>
                 </div>
-                {errorMessage && (
-                    <div className="mb-[15px] w-full bg-red-100 p-[10px] rounded">
-                        <p className="text-red-600 text-[14px]">{errorMessage}</p>
-                    </div>
-                )}
                 <button
                     className={`${buttonDisabled ? "bg-gray-200 text-gray-400" : "bg-[#ffa9f9] hover:bg-black text-white"} w-fit py-[15px] px-[25px]`}
                     type="submit"

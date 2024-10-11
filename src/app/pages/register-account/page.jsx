@@ -1,11 +1,10 @@
 'use client'
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 import { PulseLoader } from "react-spinners";
 import React, { useEffect, useState } from "react";
 
 export default function RegisterAccount() {
-    const router = useRouter();
     const [user, setUser] = useState({
         firstName: "",
         lastName: "",
@@ -18,11 +17,9 @@ export default function RegisterAccount() {
         zipCode: "",
         password: "",
     });
-
     const [buttonDisabled, setButtonDisabled] = useState(true);
     const [termsAccepted, setTermsAccepted] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [errorMessage, setErrorMessage] = useState("");
 
     const register = async (event) => {
         event.preventDefault();
@@ -40,12 +37,36 @@ export default function RegisterAccount() {
             const data = await response.json();
 
             if (response.status === 400) {
-                setErrorMessage(data.error);
+                toast.error(
+                    <span className="text-[12px]">{data.error}</span>,
+                    {
+                        position: "top-center",
+                        style: {
+                            marginTop: '80px',
+                        },
+                    }
+                );
             } else if (response.ok) {
                 console.log("Registered successfully");
-                router.back();
+                toast.success(
+                    <span className="text-[14px]">Registered successfully</span>,
+                    {
+                        position: "top-center",
+                        style: {
+                            marginTop: '80px',
+                        },
+                    }
+                );
             } else {
-                setErrorMessage("An error occurred. Please try again.");
+                toast.error(
+                    <span className="text-[12px]">An error occurred. Please try again.</span>,
+                    {
+                        position: "top-center",
+                        style: {
+                            marginTop: '80px',
+                        },
+                    }
+                );
             }
 
         } catch (error) {
@@ -58,10 +79,16 @@ export default function RegisterAccount() {
 
     useEffect(() => {
         if (
-            user.firstName.length > 0 &&
-            user.lastName.length > 0 &&
-            user.email.length > 0 &&
+            user.firstName &&
+            user.lastName &&
+            user.email.length > 5 &&
             user.password.length > 7 &&
+            user.phoneNumber.length > 9 &&
+            new Date(user.dateOfBirth) < new Date() &&
+            user.state &&
+            user.city &&
+            user.address &&
+            user.zipCode &&
             termsAccepted
         ) {
             setButtonDisabled(false);
@@ -78,7 +105,7 @@ export default function RegisterAccount() {
                 </div>
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Email address (as your login)</label><br />
-                    <input className={`w-full p-[15px] text-[14px] ${errorMessage ? "bg-red-100 border-l-red-500" : "bg-[rgba(0,0,0,0.05)] border-l-[#ffa9f9]"} bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none`}
+                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
                         type="email"
                         id="email"
                         value={user.email}
@@ -256,23 +283,18 @@ export default function RegisterAccount() {
                 </div>
                 <div>
                     <p>
-                        Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our Privacy Policy and Term of Service.
+                        Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our <a className="text-[#ffa9f9]" href="/pages/privacy-policy">Privacy Policy</a> and <a className="text-[#ffa9f9]" href="/pages/terms-of-service">Term of Service</a>.
                     </p><br />
                 </div>
                 <div className="mb-[30px]">
                     <input
-                        className="mr-[10px]"
+                        className="mr-[10px] cursor-pointer"
                         type="checkbox"
                         id="remember-me"
                         onChange={(e) => setTermsAccepted(e.target.checked)}
                     />
-                    <label>I agree to the Term of Service, Privacy Policy, Consent To Treat, and Cancellation Policy</label>
+                    <label>I agree to the <a className="text-[#ffa9f9]" href="/pages/terms-of-service">Term of Service</a>, <a className="text-[#ffa9f9]" href="/pages/privacy-policy">Privacy Policy</a>, Consent To Treat, and Cancellation Policy</label>
                 </div>
-                {errorMessage && (
-                    <div className="mb-[15px] w-full bg-red-100 p-[10px] rounded">
-                        <p className="text-red-600 text-[14px]">{errorMessage}</p>
-                    </div>
-                )}
                 <div className="flex flex-rox justify-center w-full">
                     <button
                         className={`${buttonDisabled ? "bg-gray-200 text-gray-400" : "bg-[#ffa9f9] hover:bg-black text-white"} w-fit py-[15px] px-[20px]`}

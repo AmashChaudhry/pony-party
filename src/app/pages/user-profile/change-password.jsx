@@ -1,4 +1,5 @@
 'use client'
+import toast from "react-hot-toast";
 import { PulseLoader } from "react-spinners";
 import React, { useEffect, useState } from "react";
 
@@ -10,8 +11,6 @@ export default function ChangePassword() {
         confirmNewPassword: "",
     });
     const [loading, setLoading] = useState(false);
-    const [errorMessage, setErrorMessage] = useState(null);
-    const [successMessage, setSuccessMessage] = useState(null);
     const [buttonDisabled, setButtonDisabled] = useState(true);
 
     const getUserData = async () => {
@@ -30,8 +29,6 @@ export default function ChangePassword() {
     }, []);
 
     const changePassword = async () => {
-        setErrorMessage(null);
-        setSuccessMessage(null);
         setLoading(true);
         setButtonDisabled(true);
         try {
@@ -51,11 +48,31 @@ export default function ChangePassword() {
             const passwordData = await response.json();
 
             if (response.status === 400) {
-                setErrorMessage(passwordData.error);
+                toast.error(
+                    <span className="text-[12px]">{passwordData.error}</span>,
+                    {
+                        position: "top-center",
+                        style: {
+                            marginTop: '80px',
+                        },
+                    }
+                );
             } else if (response.ok) {
-                setSuccessMessage(passwordData.message);
+                toast.success(
+                    <span className="text-[14px]">{passwordData.message}</span>,
+                    {
+                        position: "top-center",
+                        style: {
+                            marginTop: '80px',
+                        },
+                    }
+                );
+                setPassword({
+                    currentPassword: "",
+                    newPassword: "",
+                    confirmNewPassword: "",
+                });
             }
-
         } catch (error) {
             console.log(error);
         } finally {
@@ -106,16 +123,6 @@ export default function ChangePassword() {
                             required
                         />
                     </div>
-                    {errorMessage && (
-                        <div className="mb-[15px] w-full bg-red-100 p-[10px] rounded">
-                            <p className="text-red-600 text-[14px]">{errorMessage}</p>
-                        </div>
-                    )}
-                    {successMessage && (
-                        <div className="mb-[15px] w-full bg-green-100 p-[10px] rounded">
-                            <p className="text-green-600 text-[14px]">{successMessage}</p>
-                        </div>
-                    )}
                     <button
                         className={`${buttonDisabled ? "bg-gray-200 text-gray-400" : "bg-[#ffa9f9] hover:bg-black text-white"} w-[160px] py-[15px] px-[25px]`}
                         type="submit"

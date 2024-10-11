@@ -1,4 +1,5 @@
 'use client'
+import toast from "react-hot-toast";
 import { PulseLoader } from "react-spinners";
 import React, { useEffect, useState } from "react";
 
@@ -34,7 +35,7 @@ export default function Address() {
         setLoading(true);
         setButtonDisabled(true);
         try {
-            await fetch(`/api/update-user-data`, {
+            const response = await fetch(`/api/update-user-data`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -47,7 +48,18 @@ export default function Address() {
                     zipCode: user.zipCode,
                 }),
             });
-            window.location.reload();
+
+            if(response.ok) {
+                toast.success(
+                    <span className="text-[14px]">Updated successfully</span>,
+                    {
+                        position: "top-center",
+                        style: {
+                            marginTop: '80px',
+                        },
+                    }
+                );
+            }
         } catch (error) {
             console.log('Error updating user details:', error.message);
         } finally {

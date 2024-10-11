@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import toast from "react-hot-toast";
 import { PulseLoader } from "react-spinners";
 import React, { useState, useEffect } from 'react';
 
@@ -60,7 +61,7 @@ export default function AccountDatails() {
         try {
             setLoading(true);
             setButtonDisabled(true);
-            await fetch(`/api/update-user-data`, {
+            const response = await fetch(`/api/update-user-data`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -73,7 +74,18 @@ export default function AccountDatails() {
                     dateOfBirth: user.dateOfBirth,
                 }),
             });
-            window.location.reload();
+
+            if(response.ok) {
+                toast.success(
+                    <span className="text-[14px]">Updated successfully</span>,
+                    {
+                        position: "top-center",
+                        style: {
+                            marginTop: '80px',
+                        },
+                    }
+                );
+            }
         } catch (error) {
             console.log('Error updating user details:', error.message);
         } finally {
@@ -95,7 +107,16 @@ export default function AccountDatails() {
             });
 
             if (response.ok) {
-                setUser({ ...user, verifyTokenExpiry: Date.now() + 52 * 1000 });
+                setUser({ ...user, verifyTokenExpiry: Date.now() + 60 * 1000 });
+                toast.success(
+                    <span className="text-[12px]">{`A verification email has been successfully sent to ${user.email}`}</span>,
+                    {
+                        position: "top-center",
+                        style: {
+                            marginTop: '80px',
+                        },
+                    }
+                );
             }
         } catch (error) {
             console.log(error.message);
