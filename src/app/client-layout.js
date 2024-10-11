@@ -18,6 +18,8 @@ export default function ClientLayout({ children }) {
     '/pages/service',
     '/pages/terms-of-service',
     '/pages/user-profile',
+    '/pages/user-profile/address',
+    '/pages/user-profile/change-password',
   ];
 
   const showHeaderAndFooter = paths.includes(pathname) || /^\/pages\/blogs\/\w+/.test(pathname) || /^\/pages\/service\/\w+/.test(pathname);

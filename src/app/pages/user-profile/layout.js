@@ -1,21 +1,20 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
-import Sidebar from "@/components/admin-sidebar";
+import ClientLayout from "./client-layout";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-    title: "Admin Panel | Pony Party",
-    description: "Manage Pony Party Services",
+    title: "User Profile | Pony Party",
+    description: "Manage your profile",
 };
 
 export default function Layout({ children }) {
     return (
         <div className={inter.className}>
-            <div className='flex flex-row w-full'>
-                <Sidebar />
+            <ClientLayout>
                 {children}
-            </div>
+            </ClientLayout>
         </div>
     );
 }

@@ -31,7 +31,7 @@ export const config = {
     matcher: [
         '/pages/login-to-account',
         '/pages/register-account',
-        '/pages/user-profile',
+        '/pages/user-profile/:path*',
         '/admin/:path*',
     ],
 }
