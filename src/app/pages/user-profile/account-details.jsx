@@ -43,13 +43,9 @@ export default function AccountDatails() {
                 if (timeLeft > 0) {
                     const minutes = Math.floor((timeLeft / 1000 / 60) % 60);
                     const seconds = Math.floor((timeLeft / 1000) % 60);
-                    console.log(`${minutes}:${seconds.toString().padStart(2, '0')}`);
                     setTimer(`${minutes}:${seconds.toString().padStart(2, '0')}`);
-                    console.log("i am if", timer);
                     setCounterActive(true);
                 } else {
-                    console.log("i am else", timer);
-                    console.log("Timer expired");
                     setTimer(null);
                     setCounterActive(false);
                 }
