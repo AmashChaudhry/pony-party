@@ -1,4 +1,3 @@
-import react from "react";
 import Link from "next/link";
 import { ImBlog } from "react-icons/im"
 import { IoHome } from "react-icons/io5";
