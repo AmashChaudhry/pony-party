@@ -1,7 +1,7 @@
 'use client'
 import { MdError } from "react-icons/md";
 import { PulseLoader } from "react-spinners";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 
 export default function VerifyEmail({ params }) {
@@ -35,7 +35,7 @@ export default function VerifyEmail({ params }) {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center p-[20px]" style={{ minHeight: '100vh' }}>
+        <div className="flex flex-col items-center justify-center p-[20px]">
             {
                 verified ? (
                     <div className="flex flex-col items-center">
