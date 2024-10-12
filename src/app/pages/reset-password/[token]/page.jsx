@@ -42,9 +42,6 @@ export default function ResetPassword({ params }) {
                     <span className="text-[14px]">{data.error}</span>,
                     {
                         position: "top-center",
-                        style: {
-                            marginTop: '80px',
-                        }
                     }
                 );
             }
