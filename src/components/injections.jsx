@@ -40,7 +40,7 @@ export default function Injections() {
 
     return (
         <div className="flex flex-col items-center w-full bg-[#FAFAFA] py-[40px]">
-            <h1 className="text-[20px] font-medium tracking-widest sm:text-[24px]">INJECTIONS</h1>
+            <h1 className="text-[20px] font-medium tracking-widest mb-[20px] sm:text-[24px] sm:mb-[40px]">INJECTIONS</h1>
             <div className="flex flex-wrap justify-center w-full max-w-[1000px]">
                 {
                     injections.length > 0 ? (
