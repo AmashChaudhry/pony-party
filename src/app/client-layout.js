@@ -13,6 +13,7 @@ export default function ClientLayout({ children }) {
     '/pages/contact-us',
     '/pages/in-home-services',
     '/pages/login-to-account',
+    '/pages/forgot-password',
     '/pages/privacy-policy',
     '/pages/register-account',
     '/pages/service',

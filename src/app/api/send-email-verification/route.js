@@ -9,8 +9,6 @@ export async function POST(request) {
         const reqBody = await request.json();
         const { email, userId } = reqBody;
 
-        console.log(email, userId);
-
         await verifyEmail({email, userId: userId});
 
         return NextResponse.json({

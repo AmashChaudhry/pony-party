@@ -50,6 +50,12 @@ const userSchema = new mongoose.Schema({
     verifyTokenExpiry: {
         type: Date,
     },
+    resetPasswordToken: {
+        type: String,
+    },
+    resetPasswordTokenExpiry: {
+        type: Date,
+    },
 });
 
 const User = mongoose.models.User || mongoose.model("User", userSchema);

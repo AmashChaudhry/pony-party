@@ -70,7 +70,7 @@ export default function LoginToAccount() {
     }, [user]);
 
     return (
-        <div className="flex flex-col items-start w-full max-w-[1200px] m-auto sm:px-[20px] lg:px-[60px]" style={{ height: 'calc(100vh - 80px)' }}>
+        <div className="flex flex-col items-start w-full max-w-[1200px] mx-auto sm:px-[20px] lg:px-[60px]" style={{ minHeight: 'calc(100vh - 80px)' }}>
             <form className="flex flex-col items-start w-full max-w-[500px] px-[25px] py-[40px]">
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Email address (as your login)</label><br />
@@ -111,7 +111,7 @@ export default function LoginToAccount() {
                     {loading ? <PulseLoader color="#9CA3AF" size={6} /> : "Login"}
                 </button>
                 <div className="mt-[15px]">
-                    <a href="/forgot-password" className="text-[#ffa9f9]">Forgot password?</a><br /><br />
+                    <a href="/pages/forgot-password" className="text-[#ffa9f9]">Forgot password?</a><br /><br />
                     <p>Don’t have an account? <Link href="/pages/register-account" className="text-[#ffa9f9]">Register now</Link></p>
                 </div>
             </form>
