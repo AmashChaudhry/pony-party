@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server'
 export async function middleware(request) {
     const path = request.nextUrl.pathname;
 
-    const isPublicPath = path === '/pages/login-to-account' || path === '/pages/register-account';
+    const isPublicPath = path === '/pages/login-to-account' || path === '/pages/register-account' || path === '/pages/forgot-password';
     const isAdminPath = path.startsWith('/admin');
 
     const token = request.cookies.get("token")?.value || '';
@@ -31,6 +31,7 @@ export const config = {
     matcher: [
         '/pages/login-to-account',
         '/pages/register-account',
+        '/pages/forgot-password',
         '/pages/user-profile/:path*',
         '/admin/:path*',
     ],
