@@ -49,14 +49,6 @@ export default function Home() {
       <Drips />
       <span className="h-[30px] w-full lg:h-[60px]"></span>
       <Injections />
-
-
-
-
-
-
-
-
       <div className="flex flex-col items-center w-full py-[40px]">
         <h1 className="text-[20px] font-medium tracking-widest mb-[20px] sm:text-[24px] sm:mb-[40px]">MEMBERSHIPS</h1>
         <div className="flex flex-wrap justify-evenly w-full max-w-[1200px] mx-auto">
@@ -95,12 +87,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-
-
-
-
-
       <div className="flex flex-col items-center w-full bg-[#FAFAFA] py-[40px]">
         <h1 className="text-[20px] font-medium tracking-widest mb-[20px] sm:text-[24px] sm:mb-[40px]">ADD ONS</h1>
         <div className="flex flex-wrap justify-evenly w-full max-w-[1200px] mx-auto">
@@ -139,12 +125,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-
-
-
-
-
       <div className="flex flex-col items-center w-full py-[60px]">
         <div className="flex flex-col items-center w-full max-w-[1200px] px-[20px] md:flex-row">
           <div className="w-full h-full mb-10 md:mb-0">
