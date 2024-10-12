@@ -104,26 +104,8 @@ export default function Footer() {
                                     </div>
                                 </div>
                             </li>
-                            <li className="relative w-full overflow-hidden mb-[10px]">
-                                <input
-                                    type="checkbox"
-                                    className="peer absolute top-0 inset-x-0 w-full h-[24px] opacity-0 z-10 cursor-pointer"
-                                />
-                                <div className="w-full pr-5 flex items-center justify-between">
-                                    <p className="w-[250px]">Location Areas</p>
-                                </div>
-                                <div className="absolute right-0 top-1.5 text-black transition-transform duration-500 peer-checked:rotate-90">
-                                    <SlArrowRight size={12} />
-                                </div>
-                                <div className="overflow-hidden transition-all duration-500 max-h-0 peer-checked:max-h-40">
-                                    <p className="text-[12px] mt-2">
-                                        Basic and Premium plan treatments are non-transferrable. Elite and Platinum plan
-                                        treatments are shareable if the member is present and also receiving treatment.
-                                    </p>
-                                </div>
-                            </li>
                             <Link className="flex items-center w-fit mb-[10px]" href='/pages/about-us'>
-                                <p>About Us & Learn More</p>
+                                <p>About Us & Service Areas</p>
                             </Link>
                             <li className="relative w-full overflow-hidden mb-[10px]">
                                 <input
