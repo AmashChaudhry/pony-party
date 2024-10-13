@@ -50,14 +50,15 @@ export default function RegisterAccount() {
                 );
             } else if (response.ok) {
                 toast.success(
-                    <span className="text-[14px]">Registered successfully</span>,
+                    <span className="text-[14px]">Registered successfully! Now you can log in to your account.</span>,
                     {
                         position: "top-center",
                         style: {
                             marginTop: '80px',
                         },
+                        duration: 5000,
                     }
-                    
+
                 );
                 router.back();
             } else {
