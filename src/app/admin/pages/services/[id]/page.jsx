@@ -195,6 +195,14 @@ export default function EditService({ params }) {
                     <div className='flex flex-row items-center justify-between w-full mb-[20px]'>
                         <p className="text-[16px] text-black font-semibold">Availability:</p>
                         <Switch
+                            sx={{
+                                '& .MuiSwitch-switchBase.Mui-checked': {
+                                    color: 'black',
+                                },
+                                '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+                                    backgroundColor: 'grey',
+                                },
+                            }}
                             checked={service.isAvailableForPurchase}
                             onChange={(e) => setService({ ...service, isAvailableForPurchase: e.target.checked })}
                         />
