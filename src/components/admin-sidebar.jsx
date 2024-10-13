@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ImBlog } from "react-icons/im";
+import { IoExit } from "react-icons/io5";
 import { ImUsers } from "react-icons/im";
 import { IoHome } from "react-icons/io5";
 import { MdMedicalServices } from "react-icons/md";
@@ -52,6 +53,13 @@ export default function Sidebar() {
             >
                 <ImUsers size={20} color='#6B7280' />
                 <li>User Details</li>
+            </Link>
+            <Link
+                className='flex flex-row items-center space-x-[20px] text-sm py-[10px]'
+                href='/'
+            >
+                <IoExit size={20} color='#6B7280' />
+                <li>Exit</li>
             </Link>
         </ul>
     );
