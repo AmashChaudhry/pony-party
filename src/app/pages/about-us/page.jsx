@@ -77,6 +77,46 @@ export default function AboutUs() {
                     At Pony Party, our mission is simple: to bring excellence, convenience, and comfort directly to you. We understand that life moves fast, and that is why our mobile services are designed to fit seamlessly into your world. Whether you need recovery, a mood boost, or simply some time to feel taken care of, we are here for you—ready to bring wellness wherever you are.
                 </p>
             </div>
+            <span className='h-[40px]'></span>
+            <div className="flex flex-col items-start w-full max-w-[1000px] px-[20px]">
+                <div className="mb-[40px]">
+                    <img
+                        className="h-auto w-full"
+                        src="/about-us/pony-party-service-areas.jpg"
+                        alt="Pony Party Service Areas"
+                    />
+                </div>
+                <div className="flex flex-col items-center w-full mb-[20px]">
+                    <h2 className="text-[22px] font-semibold">Service Areas</h2>
+                    <div className="bg-[#ffa9f9] h-[2px] w-[120px] mt-[5px] mb-[20px]"></div>
+                </div>
+                <div className="grid grid-cols-2 gap-[20px] w-full md:grid-cols-3">
+                    <div className="bg-gray-50 px-[20px] py-[10px] hover:bg-gray-100 border rounded-lg">
+                        <p className="text-[16px] text-start font-light">Phoenix</p>
+                    </div>
+                    <div className="bg-gray-50 px-[20px] py-[10px] hover:bg-gray-100 border rounded-lg">
+                        <p className="text-[16px] text-start font-light">Scottsdale</p>
+                    </div>
+                    <div className="bg-gray-50 px-[20px] py-[10px] hover:bg-gray-100 border rounded-lg">
+                        <p className="text-[16px] text-start font-light">Tempe</p>
+                    </div>
+                    <div className="bg-gray-50 px-[20px] py-[10px] hover:bg-gray-100 border rounded-lg">
+                        <p className="text-[16px] text-start font-light">Mesa</p>
+                    </div>
+                    <div className="bg-gray-50 px-[20px] py-[10px] hover:bg-gray-100 border rounded-lg">
+                        <p className="text-[16px] text-start font-light">Gilbert</p>
+                    </div>
+                    <div className="bg-gray-50 px-[20px] py-[10px] hover:bg-gray-100 border rounded-lg">
+                        <p className="text-[16px] text-start font-light">Chandler</p>
+                    </div>
+                    <div className="bg-gray-50 px-[20px] py-[10px] hover:bg-gray-100 border rounded-lg">
+                        <p className="text-[16px] text-start font-light">Fountain Hills</p>
+                    </div>
+                    <div className="bg-gray-50 px-[20px] py-[10px] hover:bg-gray-100 border rounded-lg">
+                        <p className="text-[16px] text-start font-light">Paradise Valley</p>
+                    </div>
+                </div>
+            </div>
             <span className='h-[100px]'></span>
         </div>
     );
