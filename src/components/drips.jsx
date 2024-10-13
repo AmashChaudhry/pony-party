@@ -36,7 +36,7 @@ export default function Drips() {
         );
     }
 
-    const drips = services.filter(service => service.category === "Drip");
+    const drips = services.filter(service => service.category === "Drip" && service.isAvailableForPurchase);
 
     return (
         <div className="grid grid-cols-2 gap-x-[30px] gap-y-[30px] sm:gap-[40px] md:grid-cols-3 lg:grid-cols-4 m-[30px] w-auto lg:max-w-[1200px]">

@@ -36,7 +36,7 @@ export default function Injections() {
         );
     }
 
-    const injections = services.filter(service => service.category === "Injection");
+    const injections = services.filter(service => service.category === "Injection" && service.isAvailableForPurchase);
 
     return (
         <div className="flex flex-col items-center w-full bg-[#FAFAFA] py-[40px]">

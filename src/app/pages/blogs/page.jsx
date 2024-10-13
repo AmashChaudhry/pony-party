@@ -39,6 +39,8 @@ export default function Blogs() {
         return `${day}${suffix} ${monthYear}`;
     };
 
+    const publishedBlogs = blogs.filter(blog =>  blog.published);
+
     if (loading) {
         return (
             <div className='flex flex-col items-center justify-center w-full' style={{ height: 'calc(100vh - 80px)' }}>
@@ -58,7 +60,7 @@ export default function Blogs() {
     return (
         <div className='flex flex-col items-start w-full max-w-[1200px] mx-auto py-[40px]' style={{ minHeight: 'calc(100vh - 80px)' }}>
             {
-                blogs.map((blog, index) => (
+                publishedBlogs.map((blog, index) => (
                     <div key={index} className='flex flex-col p-[20px] sm:flex-row sm:items-start'>
                         <div className='h-auto w-full mb-[20px] sm:h-[175px] sm:w-[225px] sm:mr-[30px] sm:mb-0'>
                             <img

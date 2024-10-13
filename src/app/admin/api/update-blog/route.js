@@ -7,7 +7,7 @@ connect();
 export async function PATCH(request) {
     try {
         const reqBody = await request.json();
-        const { _id, title, description, image, subTopics, categories, author, conclusion } = reqBody;
+        const { _id, title, description, image, subTopics, categories, author, conclusion, published } = reqBody;
 
         const blog = await Blog.findOne({ _id });
         if (!blog) {
@@ -21,6 +21,9 @@ export async function PATCH(request) {
         if (categories) blog.categories = categories;
         if (author) blog.author = author;
         if (conclusion) blog.conclusion = conclusion;
+        if (typeof published === 'boolean') {
+            blog.published = published;
+        }
 
         const updatedBlog = await blog.save();
         console.log(updatedBlog);

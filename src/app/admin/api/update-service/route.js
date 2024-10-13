@@ -7,7 +7,7 @@ connect();
 export async function PATCH(request) {
     try {
         const reqBody = await request.json();
-        const { _id, title, subTitle, ingredients, effects, category, price, description, image, icon, uses } = reqBody;
+        const { _id, title, subTitle, ingredients, effects, category, price, description, image, icon, uses, isAvailableForPurchase } = reqBody;
 
         const service = await Service.findOne({ _id });
         if (!service) {
@@ -24,6 +24,9 @@ export async function PATCH(request) {
         if (image) service.image = image;
         if (icon) service.icon = icon;
         if (uses) service.uses = uses;
+        if (typeof isAvailableForPurchase === 'boolean') {
+            service.isAvailableForPurchase = isAvailableForPurchase;
+        }
 
         const updatedService = await service.save();
         console.log(updatedService);

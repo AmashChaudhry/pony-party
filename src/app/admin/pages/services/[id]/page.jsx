@@ -1,4 +1,5 @@
 'use client'
+import { Switch } from '@mui/material';
 import { PulseLoader } from "react-spinners";
 import React, { useEffect, useState } from "react";
 
@@ -8,19 +9,7 @@ export default function EditService({ params }) {
         name: "",
         icon: { url: "", publicId: "" },
     }]);
-    const [service, setService] = useState({
-        _id: id,
-        title: "",
-        subTitle: "",
-        ingredients: "",
-        effects: "",
-        category: "Drip",
-        price: "",
-        description: "",
-        image: { url: "", publicId: "" },
-        icon: { url: "", publicId: "" },
-        uses: inputs,
-    });
+    const [service, setService] = useState({});
     const [image, setImage] = useState({
         url: "",
         publicId: "",
@@ -201,6 +190,13 @@ export default function EditService({ params }) {
                                     setLoading(false);
                                 }
                             }}
+                        />
+                    </div>
+                    <div className='flex flex-row items-center justify-between w-full mb-[20px]'>
+                        <p className="text-[16px] text-black font-semibold">Availability:</p>
+                        <Switch
+                            checked={service.isAvailableForPurchase}
+                            onChange={(e) => setService({ ...service, isAvailableForPurchase: e.target.checked })}
                         />
                     </div>
                     <h3 className='text-[18px] font-bold mb-[10px]'>Category</h3>

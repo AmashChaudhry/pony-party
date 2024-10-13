@@ -1,4 +1,5 @@
 'use client'
+import { Switch } from '@mui/material';
 import { PulseLoader } from "react-spinners";
 import React, { useEffect, useState } from "react";
 
@@ -196,6 +197,13 @@ export default function EditBlog({ params }) {
                                     setLoading(false);
                                 }
                             }}
+                        />
+                    </div>
+                    <div className='flex flex-row items-center justify-between w-full mb-[20px]'>
+                        <p className="text-[16px] text-black font-semibold">Published:</p>
+                        <Switch
+                            checked={blog.published}
+                            onChange={(e) => setBlog({ ...blog, published: e.target.checked })}
                         />
                     </div>
                     <h3 className='text-[18px] font-bold mb-[10px]'>Category</h3>
