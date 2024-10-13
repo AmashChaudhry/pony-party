@@ -2,11 +2,13 @@
 import Link from "next/link";
 import { MdDelete } from "react-icons/md";
 import { MdModeEdit } from "react-icons/md";
+import { useRouter } from "next/navigation";
 import { MdAddCircle } from "react-icons/md";
 import { PulseLoader } from "react-spinners";
 import React, { useState, useEffect } from "react";
 
 export default function Services() {
+    const router = useRouter();
     const [services, setServices] = useState([]);
     const [serviceType, setServiceType] = useState('Drip');
     const [filtedServices, setFiltedServices] = useState([]);
@@ -61,7 +63,13 @@ export default function Services() {
                         className="w-full p-[10px] text-[14px] border-[1px] border-black border-opacity-10 rounded-md focus:outline-none pr-[30px] appearance-none"
                         id="category"
                         value={serviceType}
-                        onChange={(e) => setserviceType(e.target.value)}
+                        onChange={(e) => {
+                            const selectedType = e.target.value;
+                            setServiceType(selectedType);
+                            const params = new URLSearchParams(window.location.search);
+                            params.set('serviceType', selectedType);
+                            router.push(`?${params.toString()}`, undefined, { shallow: true });
+                        }}
                         required
                     >
                         <option value="Drip">Drip</option>

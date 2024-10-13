@@ -123,7 +123,7 @@ export default function Home() {
             </div>
             <div className='grid grid-cols-1 gap-[20px] items-start w-full p-[20px] md:grid-cols-2 xl:grid-cols-3'>
                 <Link
-                    href='/admin/pages/services'
+                    href='/admin/pages/services?serviceType=Drip'
                     className="flex flex-col items-start w-full bg-gray-50 border rounded-xl p-[20px]"
                 >
                     <h2 className="text-2xl font-medium mb-[40px]">Drips:</h2>
