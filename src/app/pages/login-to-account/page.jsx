@@ -39,7 +39,6 @@ export default function LoginToAccount() {
                     }
                 );
             } else if (response.ok) {
-                console.log("Login successfully");
                 window.location.reload();
             } else {
                 toast.error(
@@ -103,7 +102,7 @@ export default function LoginToAccount() {
                     <label htmlFor="remember-me">Remember me</label>
                 </div>
                 <button
-                    className={`${buttonDisabled ? "bg-gray-200 text-gray-400" : "bg-[#ffa9f9] hover:bg-black text-white"} w-fit py-[15px] px-[25px]`}
+                    className={`${buttonDisabled ? "bg-gray-200 text-gray-400" : "bg-[#ffa9f9] hover:bg-black text-white"} w-[100px] py-[15px] px-[25px]`}
                     type="submit"
                     disabled={buttonDisabled}
                     onClick={login}

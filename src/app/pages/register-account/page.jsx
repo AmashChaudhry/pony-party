@@ -1,10 +1,12 @@
 'use client'
 import Image from "next/image";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 import { PulseLoader } from "react-spinners";
 import React, { useEffect, useState } from "react";
 
 export default function RegisterAccount() {
+    const router = useRouter();
     const [user, setUser] = useState({
         firstName: "",
         lastName: "",
@@ -47,7 +49,6 @@ export default function RegisterAccount() {
                     }
                 );
             } else if (response.ok) {
-                console.log("Registered successfully");
                 toast.success(
                     <span className="text-[14px]">Registered successfully</span>,
                     {
@@ -56,7 +57,9 @@ export default function RegisterAccount() {
                             marginTop: '80px',
                         },
                     }
+                    
                 );
+                router.back();
             } else {
                 toast.error(
                     <span className="text-[12px]">An error occurred. Please try again.</span>,
@@ -297,7 +300,7 @@ export default function RegisterAccount() {
                 </div>
                 <div className="flex flex-rox justify-center w-full">
                     <button
-                        className={`${buttonDisabled ? "bg-gray-200 text-gray-400" : "bg-[#ffa9f9] hover:bg-black text-white"} w-fit py-[15px] px-[20px]`}
+                        className={`${buttonDisabled ? "bg-gray-200 text-gray-400" : "bg-[#ffa9f9] hover:bg-black text-white"} w-[120px] py-[15px] px-[20px]`}
                         type="submit"
                         disabled={buttonDisabled}
                         onClick={register}
