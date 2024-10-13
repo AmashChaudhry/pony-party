@@ -8,7 +8,7 @@ import React, { useState, useEffect } from "react";
 
 export default function Services() {
     const [services, setServices] = useState([]);
-    const [serviceType, setserviceType] = useState('Drip');
+    const [serviceType, setServiceType] = useState('Drip');
     const [filtedServices, setFiltedServices] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -30,6 +30,12 @@ export default function Services() {
     };
 
     useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        const serviceTypeFromUrl = params.get('serviceType');
+        if (serviceTypeFromUrl) {
+            setServiceType(serviceTypeFromUrl);
+        }
+
         getServicesData();
     }, []);
 
