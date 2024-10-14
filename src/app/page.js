@@ -94,7 +94,7 @@ export default function Home() {
           >
             <div className="relative h-fit max-h-[400px]">
               <img
-                className="h-full w-auto"
+                className="h-full w-auto object-contain"
                 src="/memberships/3.png"
                 alt="Pony Party"
               />
