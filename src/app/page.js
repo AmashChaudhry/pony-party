@@ -60,7 +60,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="relative h-fit max-h-[400px]">
+            <div className="relative h-auto max-h-[400px]">
               <img
                 className="h-full w-auto object-contain"
                 src="/memberships/1.png"
