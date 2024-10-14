@@ -68,7 +68,7 @@ export default function Footer() {
                                         {
                                             drips.map((drip, index) => (
                                                 <div key={index} className="flex flex-col items-start w-full">
-                                                    <Link className="text-[12px] text-center hover:text-[#ffa9f9]" href={`/pages/vitamin-iv-treatment/${drip._id}`}>
+                                                    <Link className="text-[12px] text-center hover:text-[#ffa9f9]" href={`/pages/service/${drip._id}`}>
                                                         {drip.title.toUpperCase()}
                                                     </Link>
                                                     <div className="h-[1px] w-full bg-gray-300 mb-[10px]"></div>
@@ -94,7 +94,7 @@ export default function Footer() {
                                         {
                                             injections.map((injection, index) => (
                                                 <div key={index} className="flex flex-col items-start w-full">
-                                                    <Link className="text-[12px] text-center hover:text-[#ffa9f9]" href={`/pages/vitamin-iv-treatment/${injection._id}`}>
+                                                    <Link className="text-[12px] text-center hover:text-[#ffa9f9]" href={`/pages/service/${injection._id}`}>
                                                         {injection.title.toUpperCase()}
                                                     </Link>
                                                     <div className="h-[1px] w-full bg-gray-300 mb-[10px]"></div>
