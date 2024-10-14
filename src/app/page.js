@@ -30,9 +30,11 @@ export default function Home() {
           <h1 className="flex flex-col text-white text-[26px] w-[300px] sm:w-full sm:text-black sm: font-normal sm:text-[20px] lg:text-[22px] xl:text-[26px]">
             <span className="tracking-widest sm:tracking-wide sm:text-[28px] sm:font-medium lg:text-[32px] xl:text-[36px]">Mobile IV Therapy</span>Convenience and Comfort</h1>
           <div className="mt-4 flex gap-8 sm:flex-col sm:gap-2 lg:flex-row">
+          <Link href='/pages/book-iv-therapy'>
             <button className="px-[15px] py-[10px] bg-gradient-to-r from-[#fff7ad] to-[#ffa9f9] w-[100px] text-[12px] font-bold rounded-xl shadow-lg sm:w-fit sm:rounded-full xl:text-[14px]">
               <span className="text-black leading-none">Book IV Therapy</span>
             </button>
+            </Link>
             <Link href='/pages/in-home-services'>
               <button className="px-[15px] py-[10px] bg-gradient-to-r from-[#ffa9f9] to-[#fff7ad] w-[100px] text-[12px] font-bold rounded-xl shadow-lg sm:w-fit sm:rounded-full xl:text-[14px]">
                 <span className="text-black leading-none">View all Services</span>

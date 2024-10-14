@@ -85,6 +85,11 @@ export default function ContactUs() {
                         <option value="Scottsdale">Scottsdale</option>
                         <option value="Phoenix">Phoenix</option>
                         <option value="Tempe">Tempe</option>
+                        <option value="Mesa">Mesa</option>
+                        <option value="Gilbert">Gilbert</option>
+                        <option value="Chandler">Chandler</option>
+                        <option value="Fountain Hills">Fountain Hills</option>
+                        <option value="Paradise Valley">Paradise Valley</option>
                     </select>
                 </div>
                 <div className="mb-[25px] w-full">

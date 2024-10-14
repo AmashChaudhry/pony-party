@@ -12,6 +12,7 @@ export default function ClientLayout({ children }) {
     '/pages/blogs',
     '/pages/contact-us',
     '/pages/in-home-services',
+    '/pages/book-iv-therapy',
     '/pages/login-to-account',
     '/pages/forgot-password',
     '/pages/privacy-policy',
