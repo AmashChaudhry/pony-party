@@ -33,7 +33,7 @@ export async function middleware(request) {
         }
 
         if (isAdmin && !adminToken && !isAdminPublicPath) {
-            return NextResponse.redirect(new URL('/pages/otp-verification', request.url));
+            return NextResponse.redirect(new URL('/pages/user-profile', request.url));
         }
     }
 
