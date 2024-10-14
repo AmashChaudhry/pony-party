@@ -131,7 +131,7 @@ export default function ContactUs() {
                     />
                 </div>
                 <div className="mb-[15px] w-full relative">
-                    <div className="flex items-center border-l-4 border-l-[#ffa9f9] bg-[rgba(0,0,0,0.05)] p-[15px] w-full">
+                    <div className="flex items-center border-l-4 border-l-[#ffa9f9] bg-[rgba(0,0,0,0.05)] p-[10.5px] w-full">
                         <div className="flex items-center space-x-2">
                             <div className="relative w-[30px] h-[30px]">
                                 <Image
