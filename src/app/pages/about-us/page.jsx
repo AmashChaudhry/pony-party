@@ -69,15 +69,10 @@ export default function AboutUs() {
             </div>
             <div className='w-full max-w-[1000px] px-[20px] py-[40px]'>
                 <p>
-                    We understand firsthand that when you feel your best, you are unstoppable. Your energy is higher, your mood is brighter, and your overall health transforms. At Pony Party, we are not just offering treatments; we are offering the chance for you to reclaim your vitality, one carefully curated service at a time. Our range of nutrient-rich therapies is designed to boost your body and soul, so you can return to doing the things you love, feeling more alive than ever.
-                </p>
-            </div>
-            <div className='w-full max-w-[1000px] px-6'>
-                <p>
                     At Pony Party, our mission is simple: to bring excellence, convenience, and comfort directly to you. We understand that life moves fast, and that is why our mobile services are designed to fit seamlessly into your world. Whether you need recovery, a mood boost, or simply some time to feel taken care of, we are here for you—ready to bring wellness wherever you are.
                 </p>
             </div>
-            <span className='h-[60px]'></span>
+            <span className='h-[40px]'></span>
             <div className="flex flex-col items-start w-full max-w-[1000px] px-[20px]">
                 <div className="flex flex-col items-center w-full mb-[20px]">
                     <h2 className="text-[22px] font-semibold">Service Areas</h2>
