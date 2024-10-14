@@ -69,7 +69,7 @@ export default function UserProfileSidebar() {
                     user && user.isAdmin && (
                         <li className='mb-[20px]'>
                             <Link
-                                href="/admin"
+                                href="/pages/otp-verification"
                             >
                                 <label className='text-[18px] font-light hover:text-[#ffa9f9] cursor-pointer'>Admin panel</label>
                             </Link>

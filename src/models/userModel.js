@@ -44,6 +44,12 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    adminOtp: {
+        type: String,
+    },
+    adminOtpExpiry: {
+        type: Date,
+    },
     verifyToken: {
         type: String,
     },
