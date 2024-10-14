@@ -7,7 +7,7 @@ export default function FAQs() {
             <div className='flex flex-col w-full md:w-[50%]'>
                 <details className='bg-gray-100 shadow w-full group'>
                     <summary className='list-none flex flex-row items-center justify-between p-[20px] space-x-5 cursor-pointer'>
-                        <h3 className='font-semibold'>What is Pony Party IV?</h3>
+                        <h3 className='font-semibold flex-grow text-left'>What is Pony Party IV?</h3>
                         <FiChevronRight className='group-open:rotate-90 transition-transform' />
                     </summary>
                     <div className='bg-white p-[20px]'>
@@ -18,7 +18,7 @@ export default function FAQs() {
                 </details>
                 <details className='bg-gray-100 shadow w-full group'>
                     <summary className='list-none flex flex-row items-center justify-between p-[20px] space-x-5 cursor-pointer'>
-                        <h3 className='font-semibold'>How does IV therapy work?</h3>
+                        <h3 className='font-semibold flex-grow text-left'>How does IV therapy work?</h3>
                         <FiChevronRight className='group-open:rotate-90 transition-transform' />
                     </summary>
                     <div className='bg-white p-[20px]'>
@@ -29,7 +29,7 @@ export default function FAQs() {
                 </details>
                 <details className='bg-gray-100 shadow w-full group'>
                     <summary className='list-none flex flex-row items-center justify-between p-[20px] space-x-5 cursor-pointer'>
-                        <h3 className='font-semibold'>Who can benefit from IV therapy?</h3>
+                        <h3 className='font-semibold flex-grow text-left'>Who can benefit from IV therapy?</h3>
                         <FiChevronRight className='group-open:rotate-90 transition-transform' />
                     </summary>
                     <div className='bg-white p-[20px]'>
@@ -40,7 +40,7 @@ export default function FAQs() {
                 </details>
                 <details className='bg-gray-100 shadow w-full group'>
                     <summary className='list-none flex flex-row items-center justify-between p-[20px] space-x-5 cursor-pointer'>
-                        <h3 className='font-semibold'>What types of treatments do you offer?</h3>
+                        <h3 className='font-semibold flex-grow text-left'>What types of treatments do you offer?</h3>
                         <FiChevronRight className='group-open:rotate-90 transition-transform' />
                     </summary>
                     <div className='bg-white p-[20px]'>
@@ -51,7 +51,7 @@ export default function FAQs() {
                 </details>
                 <details className='bg-gray-100 shadow w-full group'>
                     <summary className='list-none flex flex-row items-center justify-between p-[20px] space-x-5 cursor-pointer'>
-                        <h3 className='font-semibold'>Is IV therapy safe?</h3>
+                        <h3 className='font-semibold flex-grow text-left'>Is IV therapy safe?</h3>
                         <FiChevronRight className='group-open:rotate-90 transition-transform' />
                     </summary>
                     <div className='bg-white p-[20px]'>
@@ -64,7 +64,7 @@ export default function FAQs() {
             <div className='flex flex-col w-full md:w-[50%]'>
                 <details className='bg-gray-100 shadow w-full group'>
                     <summary className='list-none flex flex-row items-center justify-between p-[20px] space-x-5 cursor-pointer'>
-                        <h3 className='font-semibold'>How long does an IV therapy session take?</h3>
+                        <h3 className='font-semibold flex-grow text-left'>How long does an IV therapy session take?</h3>
                         <FiChevronRight className='group-open:rotate-90 transition-transform' />
                     </summary>
                     <div className='bg-white p-[20px]'>
@@ -75,7 +75,7 @@ export default function FAQs() {
                 </details>
                 <details className='bg-gray-100 shadow w-full group'>
                     <summary className='list-none flex flex-row items-center justify-between p-[20px] space-x-5 cursor-pointer'>
-                        <h3 className='font-semibold'>Do I need a consultation before booking?</h3>
+                        <h3 className='font-semibold flex-grow text-left'>Do I need a consultation before booking?</h3>
                         <FiChevronRight className='group-open:rotate-90 transition-transform' />
                     </summary>
                     <div className='bg-white p-[20px]'>
@@ -86,7 +86,7 @@ export default function FAQs() {
                 </details>
                 <details className='bg-gray-100 shadow w-full group'>
                     <summary className='list-none flex flex-row items-center justify-between p-[20px] space-x-5 cursor-pointer'>
-                        <h3 className='font-semibold'>Can I book an IV treatment for a group?</h3>
+                        <h3 className='font-semibold flex-grow text-left'>Can I book an IV treatment for a group?</h3>
                         <FiChevronRight className='group-open:rotate-90 transition-transform' />
                     </summary>
                     <div className='bg-white p-[20px]'>
@@ -97,7 +97,7 @@ export default function FAQs() {
                 </details>
                 <details className='bg-gray-100 shadow w-full group'>
                     <summary className='list-none flex flex-row items-center justify-between p-[20px] space-x-5 cursor-pointer'>
-                        <h3 className='font-semibold'>What areas do you serve?</h3>
+                        <h3 className='font-semibold flex-grow text-left'>What areas do you serve?</h3>
                         <FiChevronRight className='group-open:rotate-90 transition-transform' />
                     </summary>
                     <div className='bg-white p-[20px]'>
@@ -108,7 +108,7 @@ export default function FAQs() {
                 </details>
                 <details className='bg-gray-100 shadow w-full group'>
                     <summary className='list-none flex flex-row items-center justify-between p-[20px] space-x-5 cursor-pointer'>
-                        <h3 className='font-semibold'>How do I book an appointment?</h3>
+                        <h3 className='font-semibold flex-grow text-left'>How do I book an appointment?</h3>
                         <FiChevronRight className='group-open:rotate-90 transition-transform' />
                     </summary>
                     <div className='bg-white p-[20px]'>

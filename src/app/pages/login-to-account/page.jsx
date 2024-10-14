@@ -73,7 +73,7 @@ export default function LoginToAccount() {
             <form className="flex flex-col items-start w-full max-w-[500px] px-[25px] py-[40px]">
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Email address (as your login)</label><br />
-                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none rounded-none"
                         type="email"
                         id="email"
                         value={user.email}
@@ -83,7 +83,7 @@ export default function LoginToAccount() {
                 </div>
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Password</label><br />
-                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none rounded-none"
                         type="password"
                         id="password"
                         value={user.password}

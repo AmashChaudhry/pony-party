@@ -95,7 +95,7 @@ export default function ChangePassword() {
                 <div className='flex flex-col items-start'>
                     <div className="mb-[15px] w-full">
                         <label className="text-black text-opacity-60">Current Password</label><br />
-                        <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                        <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none rounded-none"
                             type="password"
                             id="currentPassword"
                             value={password.currentPassword}
@@ -105,7 +105,7 @@ export default function ChangePassword() {
                     </div>
                     <div className="mb-[15px] w-full">
                         <label className="text-black text-opacity-60">New Password</label><br />
-                        <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                        <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none rounded-none"
                             type="password"
                             id="newPassword"
                             value={password.newPassword}
@@ -115,7 +115,7 @@ export default function ChangePassword() {
                     </div>
                     <div className="mb-[15px] w-full">
                         <label className="text-black text-opacity-60">Confirm New Password</label><br />
-                        <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                        <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none rounded-none"
                             type="password"
                             id="confirmNewPassword"
                             value={password.confirmNewPassword}

@@ -75,7 +75,7 @@ export default function Address() {
                     <div className="mb-[15px] w-full">
                         <label className="text-black text-opacity-60">State</label><br />
                         <select
-                            className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                            className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none rounded-none appearance-none text-left min-h-[48px]"
                             id="state"
                             value={user.state}
                             onChange={(e) => setUser({ ...user, state: e.target.value })}
@@ -137,7 +137,7 @@ export default function Address() {
                     <div className="mb-[15px] w-full">
                         <label className="text-black text-opacity-60">City</label><br />
                         <input
-                            className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                            className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none rounded-none"
                             type="text"
                             placeholder="Enter your city"
                             id="city"
@@ -149,7 +149,7 @@ export default function Address() {
                     <div className="mb-[15px] w-full">
                         <label className="text-black text-opacity-60">Street Address</label><br />
                         <input
-                            className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                            className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none rounded-none"
                             type="text"
                             placeholder="Enter your street address"
                             id="address"
@@ -161,7 +161,7 @@ export default function Address() {
                     <div className="mb-[15px] w-full">
                         <label className="text-black text-opacity-60" htmlFor="zip">Zip Code</label><br />
                         <input
-                            className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                            className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none rounded-none"
                             type="text"
                             placeholder="Enter your zip code"
                             id="zipCode"

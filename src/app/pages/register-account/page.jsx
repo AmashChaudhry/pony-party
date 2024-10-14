@@ -109,7 +109,7 @@ export default function RegisterAccount() {
                 </div>
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Email address (as your login)</label><br />
-                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none rounded-none"
                         type="email"
                         id="email"
                         value={user.email}
@@ -119,7 +119,7 @@ export default function RegisterAccount() {
                 </div>
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">First Name</label><br />
-                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none rounded-none"
                         type="text"
                         id="firstName"
                         value={user.firstName}
@@ -129,7 +129,7 @@ export default function RegisterAccount() {
                 </div>
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Last Name</label><br />
-                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none rounded-none"
                         type="text"
                         id="lastName"
                         value={user.lastName}
@@ -139,7 +139,7 @@ export default function RegisterAccount() {
                 </div>
                 <div className="mb-[15px] w-full relative">
                     <label className="text-black text-opacity-60">Phone Number</label><br />
-                    <div className="flex items-center border-l-4 border-l-[#ffa9f9] bg-[rgba(0,0,0,0.05)] p-[15px] w-full">
+                    <div className="flex items-center border-l-4 border-l-[#ffa9f9] bg-[rgba(0,0,0,0.05)] p-[10.5px] w-full">
                         <div className="flex items-center space-x-2">
                             <div className="relative w-[30px] h-[30px]">
                                 <Image
@@ -152,7 +152,7 @@ export default function RegisterAccount() {
                             <span className="text-[14px]">+1</span>
                         </div>
                         <input
-                            className="flex-1 pl-2 text-[14px] bg-transparent focus:outline-none"
+                            className="flex-1 pl-2 text-[14px] bg-transparent focus:outline-none rounded-none"
                             type="tel"
                             placeholder="1234567890"
                             value={user.phoneNumber}
@@ -169,7 +169,7 @@ export default function RegisterAccount() {
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60" htmlFor="dob">Date of Birth</label><br />
                     <input
-                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                        className="w-full items-start p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none rounded-none appearance-none text-left min-h-[48px]"
                         type="date"
                         id="dateOfBirth"
                         value={user.dateOfBirth}
@@ -180,7 +180,7 @@ export default function RegisterAccount() {
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">State</label><br />
                     <select
-                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none appearance-none text-left min-h-[48px]"
                         id="state"
                         value={user.state}
                         onChange={(e) => setUser({ ...user, state: e.target.value })}
@@ -242,7 +242,7 @@ export default function RegisterAccount() {
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">City</label><br />
                     <input
-                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none rounded-none"
                         type="text"
                         placeholder="Enter your city"
                         id="city"
@@ -254,7 +254,7 @@ export default function RegisterAccount() {
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Street Address</label><br />
                     <input
-                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none rounded-none"
                         type="text"
                         placeholder="Enter your street address"
                         id="address"
@@ -266,7 +266,7 @@ export default function RegisterAccount() {
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60" htmlFor="zip">Zip Code</label><br />
                     <input
-                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none rounded-none"
                         type="text"
                         placeholder="Enter your zip code"
                         id="zipCode"
@@ -277,7 +277,7 @@ export default function RegisterAccount() {
                 </div>
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">Password</label><br />
-                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none rounded-none"
                         type="password"
                         id="password"
                         value={user.password}

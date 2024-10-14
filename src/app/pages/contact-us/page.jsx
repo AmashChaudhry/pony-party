@@ -76,7 +76,7 @@ export default function ContactUs() {
                 <div className="mb-[15px] w-full">
                     <label className="text-black text-opacity-60">City</label><br />
                     <select
-                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none appearance-none text-left min-h-[48px]"
                         id="city"
                         value={guest.city}
                         onChange={(e) => setGuest({ ...guest, city: e.target.value })}
@@ -95,7 +95,7 @@ export default function ContactUs() {
                 <div className="mb-[25px] w-full">
                     <label className="text-black text-opacity-60">How can we help?</label><br />
                     <select
-                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none appearance-none text-left min-h-[48px]"
                         id="category"
                         value={guest.category}
                         onChange={(e) => setGuest({ ...guest, category: e.target.value })}
@@ -111,7 +111,7 @@ export default function ContactUs() {
                     </select>
                 </div>
                 <div className="mb-[15px] w-full">
-                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none rounded-none"
                         type="text"
                         id="firstName"
                         placeholder="First Name"
@@ -121,7 +121,7 @@ export default function ContactUs() {
                     />
                 </div>
                 <div className="mb-[15px] w-full">
-                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none"
+                    <input className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none rounded-none"
                         type="text"
                         id="lastName"
                         placeholder="Last Name"
@@ -144,7 +144,7 @@ export default function ContactUs() {
                             <span className="text-[14px]">+1</span>
                         </div>
                         <input
-                            className="flex-1 pl-2 text-[14px] bg-transparent focus:outline-none"
+                            className="flex-1 pl-2 text-[14px] bg-transparent focus:outline-none rounded-none"
                             type="tel"
                             placeholder="Phone Number"
                             value={guest.phoneNumber}
@@ -159,7 +159,7 @@ export default function ContactUs() {
                     </div>
                 </div>
                 <div className="mb-[15px] w-full">
-                    <input className='w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none'
+                    <input className='w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none rounded-none'
                         type="email"
                         id="email"
                         placeholder="Email"
@@ -170,7 +170,7 @@ export default function ContactUs() {
                 </div>
                 <div className="w-full mb-[15px]">
                     <textarea
-                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none resize-none"
+                        className="w-full p-[15px] text-[14px] bg-[rgba(0,0,0,0.05)] border-l-4 border-l-[#ffa9f9] focus:outline-none resize-none rounded-none"
                         id="description"
                         placeholder='What can we help you with?'
                         rows="5"

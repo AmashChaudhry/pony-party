@@ -21,3 +21,16 @@
     text-wrap: balance;
   }
 }
+
+details summary {
+  list-style: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary::-moz-list-bullet {
+  display: none;
+}
+
