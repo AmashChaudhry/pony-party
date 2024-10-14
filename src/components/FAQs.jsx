@@ -124,7 +124,7 @@ export default function FAQs() {
                         </div>                    </summary>
                     <div className='bg-white p-[20px]'>
                         <p>
-                            You can easily book your IV therapy session through our website&apos;s booking system, powered by Vaqaro, or by contacting us directly via phone or email. We offer flexible scheduling to accommodate your needs.
+                            You can easily book your IV therapy session through our website&apos;s booking system, powered by Vagaro, or by contacting us directly via phone or email. We offer flexible scheduling to accommodate your needs.
                         </p>
                     </div>
                 </details>
