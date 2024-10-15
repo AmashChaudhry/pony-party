@@ -44,8 +44,8 @@ export default function Blogs() {
 
     if (loading) {
         return (
-            <div className='flex flex-col items-center justify-center w-full' style={{ minHeight: 'calc(100vh - 80px)' }}>
-                <PulseLoader color="#ffa9f9" size={10} />
+            <div className='flex flex-col items-center justify-center w-full min-w-screen' style={{ minHeight: 'calc(100vh - 140px)' }}>
+                <PulseLoader color="#A1A1AA" size={10} />
             </div>
         );
     }
@@ -62,7 +62,7 @@ export default function Blogs() {
         <div className='flex flex-col items-center w-full px-[20px] py-[20px]'>
             <div className='flex flex-row items-end justify-end w-full mb-[10px]'>
                 <Link href='/admin/pages/upload-blog'>
-                <button className='flex flex-row items-center bg-black text-white text-[14px] rounded-md px-[10px] py-[10px]'>
+                    <button className='flex flex-row items-center bg-black text-white text-[14px] rounded-md px-[10px] py-[10px]'>
                         <MdAddCircle size={23} className="sm:mr-[5px]" />
                         <p className="hidden sm:block">Upload Blog</p>
                     </button>

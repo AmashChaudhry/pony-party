@@ -123,8 +123,8 @@ export default function OtpVerification() {
 
     if (screenLoading) {
         return (
-            <div className='flex flex-col items-center justify-center h-full min-h-[100vh] w-full'>
-                <PulseLoader color="#ffa9f9" size={10} />
+            <div className='flex flex-col items-center justify-center w-full min-w-screen' style={{ minHeight: 'calc(100vh - 60px)' }}>
+                <PulseLoader color="#A1A1AA" size={10} />
             </div>
         );
     }

@@ -37,7 +37,7 @@ export default function Sidebar() {
         <>
             <header className="sticky top-0 flex justify-between items-center h-[80px] w-full px-[20px] bg-gray-100 z-50 md:hidden ">
                 <button
-                    className="bg-black text-white p-[8px] rounded-xl"
+                    className="bg-black text-white p-[8px] rounded-full"
                     onClick={toggleSidebar}
                 >
                     {
