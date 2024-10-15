@@ -82,9 +82,9 @@ export default function Services() {
                     </div>
                 </div>
                 <Link href='/admin/pages/add-service'>
-                    <button className='flex flex-row items-center bg-black text-white text-[14px] rounded-md px-[10px] py-[5px]'>
-                        <MdAddCircle size={15} className='mr-[5px]' />
-                        Add Service
+                    <button className='flex flex-row items-center bg-black text-white text-[14px] rounded-md px-[10px] py-[10px]'>
+                        <MdAddCircle size={23} className="sm:mr-[5px]" />
+                        <p className="hidden sm:block">Add Service</p>
                     </button>
                 </Link>
             </div>

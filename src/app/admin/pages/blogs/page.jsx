@@ -62,9 +62,9 @@ export default function Blogs() {
         <div className='flex flex-col items-center w-full px-[20px] py-[20px]'>
             <div className='flex flex-row items-end justify-end w-full mb-[10px]'>
                 <Link href='/admin/pages/upload-blog'>
-                    <button className='flex flex-row items-center bg-black text-white text-[14px] rounded-md px-[10px] py-[5px]'>
-                        <MdAddCircle size={15} className='mr-[5px]' />
-                        Upload Blog
+                <button className='flex flex-row items-center bg-black text-white text-[14px] rounded-md px-[10px] py-[10px]'>
+                        <MdAddCircle size={23} className="sm:mr-[5px]" />
+                        <p className="hidden sm:block">Upload Blog</p>
                     </button>
                 </Link>
             </div>
@@ -75,7 +75,7 @@ export default function Blogs() {
                 {
                     blogs.map((blog, index) => (
                         <div key={index} className='flex flex-col md:flex-row items-start w-full border rounded-md'>
-                            <div className='h-auto w-full md:h-[175px] md:w-auto'>
+                            <div className='relative flex h-auto w-full md:h-[175px] md:w-auto'>
                                 <img
                                     className='h-full w-auto object-cover rounded-t-md md:rounded-tl-md md:rounded-bl-md md:rounded-tr-none md:rounded-br-none'
                                     src={blog.image.url}

@@ -169,7 +169,7 @@ export default function EditBlog({ params }) {
                                         !image.url ? (
                                             <p className="text-gray-500">Click to select an image</p>
                                         ) : (
-                                            <div className="flex flex-col items-center">
+                                            <div className="relative flex items-center">
                                                 <img
                                                     className="h-full w-auto object-fit rounded-xl"
                                                     src={image.url instanceof File ? URL.createObjectURL(image.url) : image.url}
@@ -337,7 +337,7 @@ export default function EditBlog({ params }) {
                                                 !subTopics[index].image ? (
                                                     <p className="text-gray-500">Click to select an image</p>
                                                 ) : (
-                                                    <div className="flex flex-col items-center">
+                                                    <div className="relative flex items-center">
                                                         <img
                                                             className="h-full w-auto rounded-xl"
                                                             src={subTopics[index].image instanceof File ? URL.createObjectURL(subTopics[index].image) : subTopics[index].image.url}
