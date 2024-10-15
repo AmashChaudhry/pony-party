@@ -12,7 +12,7 @@ export const metadata = {
 export default function Layout({ children }) {
     return (
         <div className={inter.className}>
-            <div className='flex flex-row w-full'>
+            <div className='flex flex-col w-full md:flex-row'>
                 <Sidebar />
                 {children}
             </div>
