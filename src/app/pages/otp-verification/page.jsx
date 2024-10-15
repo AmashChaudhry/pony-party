@@ -158,12 +158,10 @@ export default function OtpVerification() {
                                 '& input': {
                                     textAlign: 'center',
                                     padding: '0',
-                                    inputMode: 'numeric',
-                                    pattern: '[0-9]*',
                                 },
                                 '&.Mui-focused': {
                                     border: 'black',
-                                    boxShadow: '0 0 0 1px rgba(0, 0, 0, 0.5)',
+                                    boxShadow: '0 0 0 1px rgba(0, 0, 0, 0.2)',
 
                                 },
                                 '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
