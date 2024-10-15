@@ -142,7 +142,10 @@ export default function OtpVerification() {
                 <div className="relative">
                     <MuiOtpInput
                         value={otp}
-                        onChange={handleChange}
+                        onChange={(value) => {
+                            const numericValue = value.replace(/[^0-9]/g, '');
+                            handleChange(numericValue);
+                        }}
                         onComplete={handleComplete}
                         length={6}
                         sx={{
@@ -155,11 +158,16 @@ export default function OtpVerification() {
                                 '& input': {
                                     textAlign: 'center',
                                     padding: '0',
+                                    inputMode: 'numeric',
+                                    pattern: '[0-9]*',
                                 },
                                 '&.Mui-focused': {
-                                    border: 'green',
-                                    boxShadow: '0 0 0 2px rgba(0, 0, 0, 0.2)',
+                                    border: 'black',
+                                    boxShadow: '0 0 0 1px rgba(0, 0, 0, 0.5)',
 
+                                },
+                                '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                    border: 'none',
                                 },
                             },
                         }}
