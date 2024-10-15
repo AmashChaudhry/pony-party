@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
+import { IoMdAdd } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
 import { MdModeEdit } from "react-icons/md";
 import { useRouter } from "next/navigation";
-import { MdAddCircle } from "react-icons/md";
 import { PulseLoader } from "react-spinners";
 import React, { useState, useEffect } from "react";
 
@@ -83,8 +83,8 @@ export default function Services() {
                 </div>
                 <Link href='/admin/pages/add-service'>
                     <button className='flex flex-row items-center bg-black text-white text-[14px] rounded-md px-[10px] py-[10px]'>
-                        <MdAddCircle size={23} className="sm:mr-[5px]" />
-                        <p className="hidden sm:block">Add Service</p>
+                        <IoMdAdd size={23} className="sm:mr-[5px]" />
+                        <p className="hidden pr-[5px] sm:block">Add Service</p>
                     </button>
                 </Link>
             </div>

@@ -1,8 +1,8 @@
 'use client'
 import Link from "next/link";
+import { IoMdAdd } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
 import { MdModeEdit } from "react-icons/md";
-import { MdAddCircle } from "react-icons/md";
 import { PulseLoader } from "react-spinners";
 import React, { useState, useEffect } from "react";
 
@@ -63,7 +63,7 @@ export default function Blogs() {
             <div className='flex flex-row items-end justify-end w-full mb-[10px]'>
                 <Link href='/admin/pages/upload-blog'>
                     <button className='flex flex-row items-center bg-black text-white text-[14px] rounded-md px-[10px] py-[10px]'>
-                        <MdAddCircle size={23} className="sm:mr-[5px]" />
+                        <IoMdAdd size={23} className="sm:mr-[5px]" />
                         <p className="hidden sm:block">Upload Blog</p>
                     </button>
                 </Link>
