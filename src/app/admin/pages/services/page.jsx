@@ -57,7 +57,7 @@ export default function Services() {
 
     return (
         <div className='flex flex-col items-center w-full px-[20px] py-[20px]'>
-            <div className='flex flex-row items-end justify-between w-full mb-[20px]'>
+            <div className='flex flex-row items-end justify-between w-full mb-[10px]'>
                 <div className="relative w-[200px]">
                     <select
                         className="w-full p-[10px] text-[14px] border-[1px] border-black border-opacity-10 rounded-md focus:outline-none pr-[30px] appearance-none"
@@ -88,7 +88,10 @@ export default function Services() {
                     </button>
                 </Link>
             </div>
-            <div className="grid grid-cols-1 gap-[20px] items-start w-full border rounded-md px-[20px] py-[20px] lg:grid-cols-2 2xl:grid-cols-3">
+            <div className="items-center w-full mb-[20px] md:hidden">
+                <div className="h-[1px] w-full bg-black opacity-10"></div>
+            </div>
+            <div className="grid grid-cols-1 gap-[20px] items-start w-full md:border rounded-md md:px-[20px] md:py-[20px] lg:grid-cols-2 2xl:grid-cols-3">
                 {
                     filtedServices.map((service, index) => (
                         <div key={index} className="flex flex-row items-start w-full border rounded-md p-[20px]">

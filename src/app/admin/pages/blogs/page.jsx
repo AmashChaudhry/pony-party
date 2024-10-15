@@ -60,7 +60,7 @@ export default function Blogs() {
 
     return (
         <div className='flex flex-col items-center w-full px-[20px] py-[20px]'>
-            <div className='flex flex-row items-end justify-end w-full mb-[20px]'>
+            <div className='flex flex-row items-end justify-end w-full mb-[10px]'>
                 <Link href='/admin/pages/upload-blog'>
                     <button className='flex flex-row items-center bg-black text-white text-[14px] rounded-md px-[10px] py-[5px]'>
                         <MdAddCircle size={15} className='mr-[5px]' />
@@ -68,7 +68,10 @@ export default function Blogs() {
                     </button>
                 </Link>
             </div>
-            <div className='grid grid-cols-1 gap-[20px] items-start w-full border rounded-md px-[20px] py-[20px] 2xl:grid-cols-2'>
+            <div className="items-center w-full mb-[20px] md:hidden">
+                <div className="h-[1px] w-full bg-black opacity-10"></div>
+            </div>
+            <div className='grid grid-cols-1 gap-[20px] items-start w-full md:border md:rounded-md md:px-[20px] md:py-[20px] 2xl:grid-cols-2'>
                 {
                     blogs.map((blog, index) => (
                         <div key={index} className='flex flex-row items-start w-full border rounded-md'>

@@ -29,18 +29,24 @@ export default function Sidebar() {
         }
     };
 
+    const handleLinkClick = () => {
+        setIsOpen(false);
+    };
+
     return (
         <>
             <header className="sticky top-0 flex justify-between items-center h-[80px] w-full px-[20px] bg-gray-100 z-50 md:hidden ">
                 <button
                     className="bg-black text-white p-[8px] rounded-xl"
-                    onClick={toggleSidebar}>
+                    onClick={toggleSidebar}
+                >
                     {
                         isOpen ? <IoCloseSharp size={24} /> : <IoMenu size={24} />
                     }
                 </button>
                 <Link
                     href="/admin"
+                    onClick={handleLinkClick}
                     className='flex h-[50px]'
                 >
                     <img
@@ -58,6 +64,7 @@ export default function Sidebar() {
             >
                 <Link
                     href="/admin"
+                    onClick={handleLinkClick}
                     className='hidden w-[150px] mb-[40px] pt-[60px] md:flex md:pt-0'
                 >
                     <img
@@ -69,6 +76,7 @@ export default function Sidebar() {
                 <Link
                     className='flex flex-row items-center space-x-[20px] text-sm py-[10px] pt-[80px] md:pt-0'
                     href='/admin'
+                    onClick={handleLinkClick}
                 >
                     <IoHome size={20} color='#6B7280' />
                     <li>Home</li>
@@ -76,6 +84,7 @@ export default function Sidebar() {
                 <Link
                     className='flex flex-row items-center space-x-[20px] text-sm py-[10px]'
                     href='/admin/pages/services'
+                    onClick={handleLinkClick}
                 >
                     <MdMedicalServices size={20} color='#6B7280' />
                     <li>Services</li>
@@ -83,6 +92,7 @@ export default function Sidebar() {
                 <Link
                     className='flex flex-row items-center space-x-[20px] text-sm py-[10px]'
                     href='/admin/pages/blogs'
+                    onClick={handleLinkClick}
                 >
                     <ImBlog size={20} color='#6B7280' />
                     <li>Blogs</li>
@@ -90,6 +100,7 @@ export default function Sidebar() {
                 <Link
                     className='flex flex-row items-center space-x-[20px] text-sm py-[10px]'
                     href='/admin/pages/messages'
+                    onClick={handleLinkClick}
                 >
                     <BiSolidMessageSquareDetail size={20} color='#6B7280' />
                     <li>Messages</li>
@@ -97,6 +108,7 @@ export default function Sidebar() {
                 <Link
                     className='flex flex-row items-center space-x-[20px] text-sm py-[10px]'
                     href='/admin/pages/users'
+                    onClick={handleLinkClick}
                 >
                     <ImUsers size={20} color='#6B7280' />
                     <li>User Details</li>
