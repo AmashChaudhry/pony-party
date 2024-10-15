@@ -74,10 +74,10 @@ export default function Blogs() {
             <div className='grid grid-cols-1 gap-[20px] items-start w-full md:border md:rounded-md md:px-[20px] md:py-[20px] 2xl:grid-cols-2'>
                 {
                     blogs.map((blog, index) => (
-                        <div key={index} className='flex flex-row items-start w-full border rounded-md'>
-                            <div className='h-[175px] w-auto'>
+                        <div key={index} className='flex flex-col md:flex-row items-start w-full border rounded-md'>
+                            <div className='h-auto w-full md:h-[175px] md:w-auto'>
                                 <img
-                                    className='h-full w-auto object-cover rounded-l-md'
+                                    className='h-full w-auto object-cover rounded-t-md md:rounded-l-md'
                                     src={blog.image.url}
                                     alt={blog.title}
                                 />
