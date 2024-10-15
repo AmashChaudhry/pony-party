@@ -34,7 +34,7 @@ export default function Messages() {
 
     if (loading) {
         return (
-            <div className='flex flex-col items-center justify-center w-full min-w-screen'>
+            <div className='flex flex-col items-center justify-center w-full min-w-screen' style={{ minHeight: 'calc(100vh - 80px)' }}>
                 <PulseLoader color="#ffa9f9" size={10} />
             </div>
         );
