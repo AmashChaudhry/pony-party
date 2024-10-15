@@ -77,7 +77,7 @@ export default function Blogs() {
                         <div key={index} className='flex flex-col md:flex-row items-start w-full border rounded-md'>
                             <div className='h-auto w-full md:h-[175px] md:w-auto'>
                                 <img
-                                    className='h-full w-auto object-cover rounded-t-md md:rounded-l-md'
+                                    className='h-full w-auto object-cover rounded-t-md md:rounded-tl-md md:rounded-bl-md md:rounded-tr-none md:rounded-br-none'
                                     src={blog.image.url}
                                     alt={blog.title}
                                 />
