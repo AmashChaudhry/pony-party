@@ -49,7 +49,9 @@ export default function Sidebar() {
                         alt="Pony Party"
                     />
                 </Link>
-                <div></div>
+                <button className="bg-transparent text-transparent p-[8px]">
+                    <IoMenu size={24} />
+                </button>
             </header>
             <ul
                 className={`fixed top-0 left-0 h-screen w-[250px] bg-gray-100 px-[20px] py-[20px] transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 z-40 md:translate-x-0 md:relative md:flex md:flex-col md:w-[250px]`}
