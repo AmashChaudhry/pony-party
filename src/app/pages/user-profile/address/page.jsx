@@ -24,7 +24,7 @@ export default function Address() {
     }, []);
 
     useEffect(() => {
-        if (user && user.city.length > 2 && user.address.length > 10 && user.zipCode.length > 2) {
+        if (user && user.city && user.address && user.zipCode) {
             setButtonDisabled(false);
         } else {
             setButtonDisabled(true);

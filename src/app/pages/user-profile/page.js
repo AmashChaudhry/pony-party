@@ -28,7 +28,7 @@ export default function AccountDatails() {
     }, []);
 
     useEffect(() => {
-        if (user && user.firstName.length > 4 && user.lastName.length > 1 && user.phoneNumber.length > 9) {
+        if (user && user.firstName && user.lastName && user.phoneNumber.length > 9) {
             setButtonDisabled(false);
         } else {
             setButtonDisabled(true);

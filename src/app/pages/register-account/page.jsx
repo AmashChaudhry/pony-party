@@ -90,7 +90,7 @@ export default function RegisterAccount() {
         if (
             user.firstName &&
             user.lastName &&
-            user.email.length > 5 &&
+            user.email.length > 0 &&
             validateEmail(user.email) &&
             user.password.length > 7 &&
             user.phoneNumber.length > 9 &&
