@@ -151,7 +151,7 @@ export default function Blogs() {
             </div>
             {
                 deleteModalOpen && (
-                    <div className="fixed inset-0 flex items-center justify-center z-50">
+                    <div className="fixed inset-0 flex items-center justify-center px-[20px] z-50">
                         <div className="absolute inset-0 bg-black opacity-50" />
                         <div className="bg-white p-[20px] rounded-xl shadow-lg z-10" onClick={(e) => e.stopPropagation()}>
                             <h2 className="text-[16px] font-light mb-[20px]">
