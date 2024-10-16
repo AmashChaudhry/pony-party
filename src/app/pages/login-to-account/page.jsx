@@ -60,8 +60,13 @@ export default function LoginToAccount() {
         }
     }
 
+    const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
     useEffect(() => {
-        if (user.email.length > 5 && user.password.length > 7) {
+        if (user.email.length > 5 && validateEmail(user.email) && user.password.length > 7) {
             setButtonDisabled(false);
         } else {
             setButtonDisabled(true);

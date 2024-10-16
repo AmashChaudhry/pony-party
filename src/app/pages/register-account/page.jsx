@@ -81,11 +81,17 @@ export default function RegisterAccount() {
         }
     }
 
+    const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
     useEffect(() => {
         if (
             user.firstName &&
             user.lastName &&
             user.email.length > 5 &&
+            validateEmail(user.email) &&
             user.password.length > 7 &&
             user.phoneNumber.length > 9 &&
             new Date(user.dateOfBirth) < new Date() &&

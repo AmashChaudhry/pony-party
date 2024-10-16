@@ -17,11 +17,17 @@ export default function ContactUs() {
         message: "",
     });
 
+    const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
     useEffect(() => {
         if (
             guest.firstName.length > 0 &&
             guest.lastName.length > 0 &&
-            guest.email.length > 8 &&
+            guest.email.length > 0 && 
+            validateEmail(guest.email) &&
             guest.phoneNumber.length > 9 &&
             guest.message.length > 19
         ) {
