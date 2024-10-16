@@ -60,7 +60,7 @@ export default function Sidebar() {
                 </button>
             </header>
             <ul
-                className={`fixed top-0 left-0 h-screen w-[250px] bg-gray-100 px-[20px] py-[20px] transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 z-40 md:translate-x-0 md:relative md:flex md:flex-col md:w-[250px]`}
+                className={`fixed top-0 left-0 h-screen w-[250px] bg-gray-100 px-[20px] py-[20px] transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 z-40 md:sticky md:top-0 md:flex md:flex-col md:w-[250px] md:translate-x-0`}
             >
                 <Link
                     href="/admin"

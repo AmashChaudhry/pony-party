@@ -12,13 +12,27 @@ export async function POST(request) {
 
         const service = await Service.findOne({ _id: id });
 
-        await deleteImage();
-
-        const deletedService = await Service.findByIdAndDelete(id);
-
-        if (!deletedService) {
-            return NextResponse.json({ error: "Service not found" }, { status: 400 });
+        if (!service) {
+            return NextResponse.json({ error: "Service not found" }, { status: 404 });
         }
+
+        const publicIdsToDelete = [service.image.publicId];
+        if (service.icon && service.icon.publicId) {
+            publicIdsToDelete.push(service.icon.publicId);
+        }
+        if (service.uses && service.uses.length > 0) {
+            service.uses.forEach(use => {
+                if (use.icon && use.icon.publicId) {
+                    publicIdsToDelete.push(use.icon.publicId);
+                }
+            });
+        }
+
+        for (const publicId of publicIdsToDelete) {
+            await deleteImage(publicId);
+        }
+
+        await Service.findByIdAndDelete(id);
 
         return NextResponse.json({
             message: "Service successfully deleted",

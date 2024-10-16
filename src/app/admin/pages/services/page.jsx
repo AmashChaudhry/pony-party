@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import toast from "react-hot-toast";
 import { IoMdAdd } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
 import { MdModeEdit } from "react-icons/md";
@@ -12,7 +13,10 @@ export default function Services() {
     const [services, setServices] = useState([]);
     const [serviceType, setServiceType] = useState('Drip');
     const [filtedServices, setFiltedServices] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+    const [selectedService, setSelectedService] = useState(null);
+    const [screenLoading, setScreenLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const getServicesData = async () => {
         try {
@@ -27,7 +31,7 @@ export default function Services() {
         } catch (error) {
             console.error('Error fetching treatments:', error);
         } finally {
-            setLoading(false);
+            setScreenLoading(false);
         }
     };
 
@@ -47,7 +51,45 @@ export default function Services() {
         }
     }, [services, serviceType]);
 
-    if (loading) {
+    const handleDeleteClick = (service) => {
+        setSelectedService(service);
+        setDeleteModalOpen(true);
+    };
+
+    const handleConfirmDelete = async (serviceId) => {
+        setLoading(true);
+        try {
+            const response = await fetch('/admin/api/delete-service', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id: serviceId }),
+            });
+
+            if (response.ok) {
+                setFiltedServices(prevServices => prevServices.filter(service => service._id !== serviceId));
+                setDeleteModalOpen(false);
+                const isMobile = window.innerWidth <= 768;
+                toast.success(
+                    <span className="text-[12px]">Deleted successfully</span>,
+                    {
+                        position: "top-center",
+                        style: {
+                            marginTop: isMobile ? '80px' : '0px',
+                        },
+                        duration: 5000,
+                    }
+                );
+            }
+        } catch (error) {
+            console.log(error.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    if (screenLoading) {
         return (
             <div className='flex flex-col items-center justify-center w-full min-w-screen' style={{ minHeight: 'calc(100vh - 140px)' }}>
                 <PulseLoader color="#A1A1AA" size={10} />
@@ -118,7 +160,10 @@ export default function Services() {
                                             Edit
                                         </button>
                                     </Link>
-                                    <button className='flex flex-row items-center bg-red-500 text-white text-[14px] rounded-md px-[10px] py-[5px]'>
+                                    <button
+                                        className='flex flex-row items-center bg-red-500 text-white text-[14px] rounded-md px-[10px] py-[5px]'
+                                        onClick={() => handleDeleteClick(service)}
+                                    >
                                         <MdDelete size={15} className='mr-[5px]' />
                                         Delete
                                     </button>
@@ -128,6 +173,32 @@ export default function Services() {
                     ))
                 }
             </div>
+            {
+                deleteModalOpen && (
+                    <div className="fixed inset-0 flex items-center justify-center z-50">
+                        <div className="absolute inset-0 bg-black opacity-50" />
+                        <div className="bg-white p-[20px] rounded-xl shadow-lg z-10" onClick={(e) => e.stopPropagation()}>
+                            <h2 className="text-[16px] font-light mb-[20px]">
+                                Are you sure you want to delete "{selectedService.title}"?
+                            </h2>
+                            <div className="flex flex-row justify-end space-x-[10px]">
+                                <button
+                                    className="bg-green-500 text-white  px-[10px] py-[5px] rounded-md"
+                                    onClick={() => setDeleteModalOpen(false)}
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    className="bg-red-500 text-white w-[80px] py-[5px] rounded-md"
+                                    onClick={() => handleConfirmDelete(selectedService._id)}
+                                >
+                                    {loading ? <PulseLoader color="#ffffff" size={6} /> : "Delete"}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
         </div>
     );
 }
