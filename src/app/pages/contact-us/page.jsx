@@ -192,7 +192,7 @@ export default function ContactUs() {
                     )
                 }
                 <button
-                    className={`${buttonDisabled ? "bg-gray-200 text-gray-400" : "bg-[#ffa9f9] hover:bg-black text-white"} w-fit py-[15px] px-[20px]`}
+                    className={`${buttonDisabled ? "bg-gray-200 text-gray-400" : "bg-[#ffa9f9] hover:bg-black text-white"} w-[100px] py-[15px] px-[20px]`}
                     type="submit"
                     disabled={buttonDisabled}
                     onClick={sendMessage}
