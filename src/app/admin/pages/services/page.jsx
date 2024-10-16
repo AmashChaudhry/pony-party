@@ -179,7 +179,7 @@ export default function Services() {
                         <div className="absolute inset-0 bg-black opacity-50" />
                         <div className="bg-white p-[20px] rounded-xl shadow-lg z-10" onClick={(e) => e.stopPropagation()}>
                             <h2 className="text-[16px] font-light mb-[20px]">
-                                Are you sure you want to delete "{selectedService.title}"?
+                                Are you sure you want to delete &quot;{selectedService.title}&quot;?
                             </h2>
                             <div className="flex flex-row justify-end space-x-[10px]">
                                 <button
