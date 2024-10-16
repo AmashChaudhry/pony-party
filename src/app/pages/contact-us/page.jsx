@@ -19,8 +19,8 @@ export default function ContactUs() {
 
     useEffect(() => {
         if (
-            guest.firstName.length > 4 &&
-            guest.lastName.length > 2 &&
+            guest.firstName.length > 0 &&
+            guest.lastName.length > 0 &&
             guest.email.length > 8 &&
             guest.phoneNumber.length > 9 &&
             guest.message.length > 19
@@ -178,6 +178,9 @@ export default function ContactUs() {
                         onChange={(e) => setGuest({ ...guest, message: e.target.value })}
                         required
                     />
+                    <div className="flex justify-end w-full">
+                        <p className="text-[14px] text-black text-opacity-50">{`Minimum ${guest.message.length}/20`}</p>
+                    </div>
                 </div>
                 {
                     sent ? (

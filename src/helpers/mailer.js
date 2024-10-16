@@ -21,7 +21,9 @@ export const verifyEmail = async ({ email, userId }) => {
     });
 
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: 'smtp.hostinger.com',
+        port: 465,
+        secure: true,
         auth: {
             user: process.env.SENDER_MAIL,
             pass: process.env.SENDER_MAIL_PASS_KEY,
@@ -68,7 +70,9 @@ export const resetPassword = async ({ email, userId }) => {
     });
 
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: 'smtp.hostinger.com',
+        port: 465,
+        secure: true,
         auth: {
             user: process.env.SENDER_MAIL,
             pass: process.env.SENDER_MAIL_PASS_KEY,
@@ -109,7 +113,9 @@ export const adminVerification = async ({ email, userId }) => {
     });
 
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: 'smtp.hostinger.com',
+        port: 465,
+        secure: true,
         auth: {
             user: process.env.SENDER_MAIL,
             pass: process.env.SENDER_MAIL_PASS_KEY,
