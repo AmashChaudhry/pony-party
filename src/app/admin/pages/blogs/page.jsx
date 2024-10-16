@@ -8,7 +8,10 @@ import React, { useState, useEffect } from "react";
 
 export default function Blogs() {
     const [blogs, setBlogs] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+    const [selectedBlog, setSelectedBlog] = useState(null);
+    const [screenLoading, setScreenLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const getBlogsData = async () => {
         try {
@@ -23,7 +26,7 @@ export default function Blogs() {
         } catch (error) {
             console.error('Error fetching treatments:', error);
         } finally {
-            setLoading(false);
+            setScreenLoading(false);
         }
     };
 
@@ -42,7 +45,45 @@ export default function Blogs() {
         return `${day}${suffix} ${monthYear}`;
     };
 
-    if (loading) {
+    const handleDeleteClick = (blog) => {
+        setSelectedBlog(blog);
+        setDeleteModalOpen(true);
+    };
+
+    const handleConfirmDelete = async (blogId) => {
+        setLoading(true);
+        try {
+            const response = await fetch('/admin/api/delete-blog', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id: blogId }),
+            });
+
+            if (response.ok) {
+                setBlogs(prevBlogs => prevBlogs.filter(blog => blog._id !== blogId));
+                setDeleteModalOpen(false);
+                const isMobile = window.innerWidth <= 768;
+                toast.success(
+                    <span className="text-[12px]">Deleted successfully</span>,
+                    {
+                        position: "top-center",
+                        style: {
+                            marginTop: isMobile ? '80px' : '0px',
+                        },
+                        duration: 5000,
+                    }
+                );
+            }
+        } catch (error) {
+            console.log(error.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    if (screenLoading) {
         return (
             <div className='flex flex-col items-center justify-center w-full min-w-screen' style={{ minHeight: 'calc(100vh - 140px)' }}>
                 <PulseLoader color="#A1A1AA" size={10} />
@@ -95,7 +136,10 @@ export default function Blogs() {
                                             Edit
                                         </button>
                                     </Link>
-                                    <button className='flex flex-row items-center bg-red-500 text-white text-[14px] rounded-md px-[10px] py-[5px]'>
+                                    <button
+                                        className='flex flex-row items-center bg-red-500 text-white text-[14px] rounded-md px-[10px] py-[5px]'
+                                        onClick={() => handleDeleteClick(blog)}
+                                    >
                                         <MdDelete size={15} className='mr-[5px]' />
                                         Delete
                                     </button>
@@ -105,6 +149,32 @@ export default function Blogs() {
                     ))
                 }
             </div>
+            {
+                deleteModalOpen && (
+                    <div className="fixed inset-0 flex items-center justify-center z-50">
+                        <div className="absolute inset-0 bg-black opacity-50" />
+                        <div className="bg-white p-[20px] rounded-xl shadow-lg z-10" onClick={(e) => e.stopPropagation()}>
+                            <h2 className="text-[16px] font-light mb-[20px]">
+                                Are you sure you want to delete the blog?
+                            </h2>
+                            <div className="flex flex-row justify-end space-x-[10px]">
+                                <button
+                                    className="bg-green-500 text-white  px-[10px] py-[5px] rounded-md"
+                                    onClick={() => setDeleteModalOpen(false)}
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    className="bg-red-500 text-white w-[80px] py-[5px] rounded-md"
+                                    onClick={() => handleConfirmDelete(selectedBlog._id)}
+                                >
+                                    {loading ? <PulseLoader color="#ffffff" size={6} /> : "Delete"}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
         </div>
     );
 }

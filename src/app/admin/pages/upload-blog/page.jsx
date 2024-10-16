@@ -1,4 +1,5 @@
 'use client'
+import { PulseLoader } from "react-spinners";
 import React, { useEffect, useState } from "react";
 
 export default function UploadBlog() {
@@ -346,7 +347,7 @@ export default function UploadBlog() {
                     disabled={buttonDisabled}
                     onClick={handleSubmit}
                 >
-                    {loading ? "Loading..." : "Upload Blog"}
+                    {loading ? <PulseLoader color="#ffffff" size={8} /> : "Upload Blog"}
                 </button>
             </div>
         </div>

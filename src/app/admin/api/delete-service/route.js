@@ -13,7 +13,7 @@ export async function POST(request) {
         const service = await Service.findOne({ _id: id });
 
         if (!service) {
-            return NextResponse.json({ error: "Service not found" }, { status: 404 });
+            return NextResponse.json({ error: "Service not found" }, { status: 400 });
         }
 
         const publicIdsToDelete = [service.image.publicId];
