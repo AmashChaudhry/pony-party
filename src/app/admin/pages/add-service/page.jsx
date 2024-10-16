@@ -368,7 +368,7 @@ export default function AddService() {
             </div>
             <div className="flex flex-rox justify-center w-full mt-[40px]">
                 <button
-                    className="bg-black hover:shadow-lg text-white w-fit py-[10px] px-[20px] rounded-md"
+                    className="bg-black hover:shadow-lg text-white w-[140px] py-[10px] px-[20px] rounded-md"
                     type="submit"
                     disabled={buttonDisabled}
                     onClick={handleSubmit}
