@@ -36,6 +36,7 @@ export default function InHomeServices() {
                         </div>
                         <p className="text-[10px] text-center font-semibold sm:text-[12px] xl:text-[14px]">$300 for 1 IV bag & 1 injection</p>
                         <p className="text-[10px] text-center sm:text-[12px] xl:text-[14px]">*excluding NAD and NAD+</p>
+                        <button className="text-[12px] bg-[#ffa9f9] text-white font-medium px-[15px] py-[10px] mt-[40px]">Book Now</button>
                     </Link>
                     <Link
                         className="flex flex-col items-center w-[45%] py-[20px] sm:w-[300px]"
@@ -52,6 +53,7 @@ export default function InHomeServices() {
                         </div>
                         <p className="text-[10px] text-center font-semibold sm:text-[12px] xl:text-[14px]">$600 for 2 IV treatments & 1 injection</p>
                         <p className="text-[10px] text-center sm:text-[12px] xl:text-[14px]">*excluding NAD and NAD+</p>
+                        <button className="text-[12px] bg-[#ffa9f9] text-white font-medium px-[15px] py-[10px] mt-[40px]">Book Now</button>
                     </Link>
                     <Link
                         className="flex flex-col items-center w-[45%] py-[20px] sm:w-[300px]"
@@ -68,6 +70,7 @@ export default function InHomeServices() {
                         </div>
                         <p className="text-[10px] text-center font-semibold sm:text-[12px] xl:text-[14px]">$1000 for 4 IV treatments  & 2 injections</p>
                         <p className="text-[10px] text-center sm:text-[12px] xl:text-[14px]">*excluding NAD and NAD+</p>
+                        <button className="text-[12px] bg-[#ffa9f9] text-white font-medium px-[15px] py-[10px] mt-[40px]">Book Now</button>
                     </Link>
                 </div>
             </div>
