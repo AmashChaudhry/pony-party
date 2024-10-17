@@ -34,7 +34,7 @@ export default function InHomeServices() {
                                 alt="Pony Party"
                             />
                         </Link>
-                        <p className="text-[10px] text-center font-semibold sm:text-[12px] xl:text-[14px]">$300 for 1 IV bag & 1 injection</p>
+                        <p className="text-[10px] text-center font-semibold sm:text-[12px] xl:text-[14px]">$300 for 1 IV treatment & 1 injection</p>
                         <p className="text-[10px] text-center sm:text-[12px] xl:text-[14px] mb-[40px]">*excluding NAD and NAD+</p>
                         <Link
                             href="https://www.vagaro.com//Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVCl/3CjdOsZZ7EF4p4e+s0hEVod+oJ0uydouotjENszF/xz7ED18KniyrPa7wSf95Zrgy/u8lwz3kRjf9YgBLa6L0e4YbNHKUlTQbEsf1af878yDh27sqGfzsPutzAyUm9FATSJaAO5Ba3ZIlH8afVXudgnLWatlpayldQ3yfZvEyIbF4iQq1MPNKdJln5rXiJVV8vImZiQzq5jGDh1OkChCx/wml8Ytx0PNp7kYhbnfykAmv+u3ZN130RvOzn77rdz7+ibGI8+Lv5IaP6wPT9dv7dsn3aosKxc5hn4plB2Jp5T2EQTcyjtO08IzvkH6fzWNigQqQnR5g4Q6m5nc6QQ9ayEx2y8r2j64SQsDZIHLdmlLiw+syZHFq1uJimdrs+ZD6ddkw2mDEHMf1GjLu0GHFNnY+bPcPGO/2adHXNvB2tw5aFRGrJ7CFJOK4aaKvQ=="
