@@ -6,7 +6,7 @@ export default function AboutUs() {
         <div className="flex flex-col items-center">
             <div className="flex flex-col items-center px-6 py-[40px] sm:my-[60px]">
                 <h1 className="text-[24px] font-medium mb-4">About Us</h1>
-                <p className="text-[16px] text-center text-gray-600">Pony Party is the global leader of in-home IV therapy and medical services.</p>
+                {/* <p className="text-[16px] text-center text-gray-600">Pony Party is the global leader of in-home IV therapy and medical services.</p> */}
             </div>
             <div className="flex flex-col items-center bg-[#FAFAFA] w-full py-[40px]">
                 <h2 className="text-[24px] font-medium">What Makes us Different</h2>
@@ -63,7 +63,17 @@ export default function AboutUs() {
                 </div>
                 <div className="flex flex-col w-full mt-[40px] sm:ml-10 sm:mt-0">
                     <p className="text-[16px]">
-                        Pony Party began with two best friends who shared more than just a deep bond—they shared an unshakable passion for health, wellness, and the healing power of human care. For years, we have seen how life is challenges can take a toll on both the body and spirit, especially for those who give their all, whether at work or in play. That is why we created the ultimate recovery and wellness packages designed to rejuvenate you from the inside out.
+                        We are two best friends with a passion for health, wellness, and healing. For
+                        those of you who work hard and like to play hard we have the ultimate recovery
+                        packages! We know that when you feel your best you perform even better. We
+                        offer a variety of nutrients to help boost your mood, energy, and overall health.
+                        With an extensive background and years of clinical experience as nurses we are
+                        committed to providing the safest and most efficient quality of care to each of our
+                        clients. IV nutrition offers you the opportunity to reclaim your vitality and optimal
+                        health. We understand that life moves fast and that is why our mobile services
+                        are designed to fit seamlessly into your day to day life and busy schedules. At
+                        Pony Party we believe health is wealth, which is why we strive to deliver
+                        excellence, convenience, and comfort with all of our services.
                     </p>
                 </div>
             </div>
