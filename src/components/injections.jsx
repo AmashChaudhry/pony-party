@@ -53,8 +53,11 @@ export default function Injections() {
                                         alt={injection.title}
                                     />
                                 </Link>
-                                <Link className="text-[12px] text-center font-medium hover:text-[#ffa9f9] sm:text-[14px] xl:text-[16px]" href={`/pages/service/${injection._id}`}>
+                                <Link className="text-[12px] text-center font-medium mb-[40px] hover:text-[#ffa9f9] sm:text-[14px] xl:text-[16px]" href={`/pages/service/${injection._id}`}>
                                     {injection.title}
+                                </Link>
+                                <Link href={`/pages/service/${injection._id}`}>
+                                    <button className="text-[12px] bg-[#ffa9f9] text-white font-medium px-[15px] py-[10px]">Book Now</button>
                                 </Link>
                             </div>
                         ))
