@@ -57,7 +57,7 @@ export default function Home() {
           <div className="flex flex-col items-center w-[45%] py-[20px] sm:w-[300px]">
             <Link
               className="relative flex justify-center max-h-[400px]"
-              href="https://www.vagaro.com//Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVCl/3CjdOsZZ7EF4p4e+s0hEVod+oJ0uydouotjENszF/xz7ED18KniyrPa7wSf95Zrgy/u8lwz3kRjf9YgBLa6L0e4YbNHKUlTQbEsf1af878yDh27sqGfzsPutzAyUm9FATSJaAO5Ba3ZIlH8afVXudgnLWatlpayldQ3yfZvEyIbF4iQq1MPNKdJln5rXiJVV8vImZiQzq5jGDh1OkChCx/wml8Ytx0PNp7kYhbnfykAmv+u3ZN130RvOzn77rdz7+ibGI8+Lv5IaP6wPT9dv7dsn3aosKxc5hn4plB2Jp5T2EQTcyjtO08IzvkH6fzWNigQqQnR5g4Q6m5nc6QQ9ayEx2y8r2j64SQsDZIHLdmlLiw+syZHFq1uJimdrs+ZD6ddkw2mDEHMf1GjLu0GHFNnY+bPcPGO/2adHXNvB2tw5aFRGrJ7CFJOK4aaKvQ=="
+              href="https://www.vagaro.com//Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVCl/3CjdOsZZ7EF4p4e+s0hEVod+oJ0uydouotjENszF/xz7ED18KniyrPa7wSf95Zrgy/u8lwz3kRjf9YgBLa6Hh9IKo/iaF2G3ArDtWgHnkrzsCAhIxrPanXQ37lr3PPNYEAgomQaACwNnh4wd5qsEcy7pQrphud2gnXih5l6g5982toMx3tzKIdcXEIBjfLq33qqK8jO98BrLDCBK4hWTZAs6kWRzzov4eOAMZtehefCYDcD5Y9Ui79h2cRBstQndlUp5YJ5EffSP3eQv5m4W2JFYa1hNGpYUpWnbw9y0xWFznfCos987gx8L5W+lgb96MAhCy9oM3np6Gj+jeL3GK3zeNiAFgGhxDLIl+GHnlt7AOy3k8d2K3AkDnKqvkpImMwuAS511FKZ5FbJcTmlnEWxgY25F2l9JB+7Vvuzf8O9++GjYZbIxLdsgHrdB7g=="
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -70,7 +70,7 @@ export default function Home() {
             <p className="text-[10px] text-center font-semibold sm:text-[12px] xl:text-[14px]">$300 for 1 IV treatment & 1 injection</p>
             <p className="text-[10px] text-center sm:text-[12px] xl:text-[14px] mb-[40px]">*excluding NAD and NAD+</p>
             <Link
-              href="https://www.vagaro.com//Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVCl/3CjdOsZZ7EF4p4e+s0hEVod+oJ0uydouotjENszF/xz7ED18KniyrPa7wSf95Zrgy/u8lwz3kRjf9YgBLa6L0e4YbNHKUlTQbEsf1af878yDh27sqGfzsPutzAyUm9FATSJaAO5Ba3ZIlH8afVXudgnLWatlpayldQ3yfZvEyIbF4iQq1MPNKdJln5rXiJVV8vImZiQzq5jGDh1OkChCx/wml8Ytx0PNp7kYhbnfykAmv+u3ZN130RvOzn77rdz7+ibGI8+Lv5IaP6wPT9dv7dsn3aosKxc5hn4plB2Jp5T2EQTcyjtO08IzvkH6fzWNigQqQnR5g4Q6m5nc6QQ9ayEx2y8r2j64SQsDZIHLdmlLiw+syZHFq1uJimdrs+ZD6ddkw2mDEHMf1GjLu0GHFNnY+bPcPGO/2adHXNvB2tw5aFRGrJ7CFJOK4aaKvQ=="
+              href="https://www.vagaro.com//Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVCl/3CjdOsZZ7EF4p4e+s0hEVod+oJ0uydouotjENszF/xz7ED18KniyrPa7wSf95Zrgy/u8lwz3kRjf9YgBLa6Hh9IKo/iaF2G3ArDtWgHnkrzsCAhIxrPanXQ37lr3PPNYEAgomQaACwNnh4wd5qsEcy7pQrphud2gnXih5l6g5982toMx3tzKIdcXEIBjfLq33qqK8jO98BrLDCBK4hWTZAs6kWRzzov4eOAMZtehefCYDcD5Y9Ui79h2cRBstQndlUp5YJ5EffSP3eQv5m4W2JFYa1hNGpYUpWnbw9y0xWFznfCos987gx8L5W+lgb96MAhCy9oM3np6Gj+jeL3GK3zeNiAFgGhxDLIl+GHnlt7AOy3k8d2K3AkDnKqvkpImMwuAS511FKZ5FbJcTmlnEWxgY25F2l9JB+7Vvuzf8O9++GjYZbIxLdsgHrdB7g=="
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -80,7 +80,7 @@ export default function Home() {
           <div className="flex flex-col items-center w-[45%] py-[20px] sm:w-[300px]">
             <Link
               className="relative flex justify-center max-h-[400px]"
-              href="https://www.vagaro.com//Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVCl/3CjdOsZZ7EF4p4e+s0hEVod+oJ0uydouotjENszF/xz7ED18KniyrPa7wSf95Zrgy/u8lwz3kRjf9YgBLa6L0e4YbNHKUlTQbEsf1af878yDh27sqGfzsPutzAyUm9FATSJaAO5Ba3ZIlH8afVXudgnLWatlpayldQ3yfZvEyIbF4iQq1MPNKdJln5rXiJVV8vImZiQzq5jGDh1OkChCx/wml8Ytx0PNp7kYhbnfykAmv+u3ZN130RvOzn77rdz7+ibGI8+Lv5IaP6wPT9dv7dsn3aosKxc5hn4plB2Jp5T2EQTcyjtO08IzvkH6fzWNigQqQnR5g4Q6m5nc6QQ9ayEx2y8r2j64SQsDZIHLdmlLiw+syZHFq1uJimdrs+ZD6ddkw2mDEHMf1GjLu0GHFNnY+bPcPGO/2adHXNvB2tw5aFRGrJ7CFJOK4aaKvQ=="
+              href="https://www.vagaro.com//Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVCl/3CjdOsZZ7EF4p4e+s0hEVod+oJ0uydouotjENszF/xz7ED18KniyrPa7wSf95Zrgy/u8lwz3kRjf9YgBLa6Hh9IKo/iaF2G3ArDtWgHnkrzsCAhIxrPanXQ37lr3PPNYEAgomQaACwNnh4wd5qsEcy7pQrphud2gnXih5l6g5982toMx3tzKIdcXEIBjfLq33qqK8jO98BrLDCBK4hWTZAs6kWRzzov4eOAMZtehefCYDcD5Y9Ui79h2cRBstQndlUp5YJ5EffSP3eQv5m4W2JFYa1hNGpYUpWnbw9y0xWFznfCos987gx8L5W+lgb96MAhCy9oM3np6Gj+jeL3GK3zeNiAFgGhxDLIl+GHnlt7AOy3k8d2K3AkDnKqvkpImMwuAS511FKZ5FbJcTmlnEWxgY25F2l9JB+7Vvuzf8O9++GjYZbIxLdsgHrdB7g=="
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -93,7 +93,7 @@ export default function Home() {
             <p className="text-[10px] text-center font-semibold sm:text-[12px] xl:text-[14px]">$600 for 2 IV treatments & 1 injection</p>
             <p className="text-[10px] text-center sm:text-[12px] xl:text-[14px] mb-[40px]">*excluding NAD and NAD+</p>
             <Link
-              href="https://www.vagaro.com//Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVCl/3CjdOsZZ7EF4p4e+s0hEVod+oJ0uydouotjENszF/xz7ED18KniyrPa7wSf95Zrgy/u8lwz3kRjf9YgBLa6L0e4YbNHKUlTQbEsf1af878yDh27sqGfzsPutzAyUm9FATSJaAO5Ba3ZIlH8afVXudgnLWatlpayldQ3yfZvEyIbF4iQq1MPNKdJln5rXiJVV8vImZiQzq5jGDh1OkChCx/wml8Ytx0PNp7kYhbnfykAmv+u3ZN130RvOzn77rdz7+ibGI8+Lv5IaP6wPT9dv7dsn3aosKxc5hn4plB2Jp5T2EQTcyjtO08IzvkH6fzWNigQqQnR5g4Q6m5nc6QQ9ayEx2y8r2j64SQsDZIHLdmlLiw+syZHFq1uJimdrs+ZD6ddkw2mDEHMf1GjLu0GHFNnY+bPcPGO/2adHXNvB2tw5aFRGrJ7CFJOK4aaKvQ=="
+              href="https://www.vagaro.com//Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVCl/3CjdOsZZ7EF4p4e+s0hEVod+oJ0uydouotjENszF/xz7ED18KniyrPa7wSf95Zrgy/u8lwz3kRjf9YgBLa6Hh9IKo/iaF2G3ArDtWgHnkrzsCAhIxrPanXQ37lr3PPNYEAgomQaACwNnh4wd5qsEcy7pQrphud2gnXih5l6g5982toMx3tzKIdcXEIBjfLq33qqK8jO98BrLDCBK4hWTZAs6kWRzzov4eOAMZtehefCYDcD5Y9Ui79h2cRBstQndlUp5YJ5EffSP3eQv5m4W2JFYa1hNGpYUpWnbw9y0xWFznfCos987gx8L5W+lgb96MAhCy9oM3np6Gj+jeL3GK3zeNiAFgGhxDLIl+GHnlt7AOy3k8d2K3AkDnKqvkpImMwuAS511FKZ5FbJcTmlnEWxgY25F2l9JB+7Vvuzf8O9++GjYZbIxLdsgHrdB7g=="
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -103,7 +103,7 @@ export default function Home() {
           <div className="flex flex-col items-center w-[45%] py-[20px] sm:w-[300px]">
             <Link
               className="relative flex justify-center max-h-[400px]"
-              href="https://www.vagaro.com//Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVCl/3CjdOsZZ7EF4p4e+s0hEVod+oJ0uydouotjENszF/xz7ED18KniyrPa7wSf95Zrgy/u8lwz3kRjf9YgBLa6L0e4YbNHKUlTQbEsf1af878yDh27sqGfzsPutzAyUm9FATSJaAO5Ba3ZIlH8afVXudgnLWatlpayldQ3yfZvEyIbF4iQq1MPNKdJln5rXiJVV8vImZiQzq5jGDh1OkChCx/wml8Ytx0PNp7kYhbnfykAmv+u3ZN130RvOzn77rdz7+ibGI8+Lv5IaP6wPT9dv7dsn3aosKxc5hn4plB2Jp5T2EQTcyjtO08IzvkH6fzWNigQqQnR5g4Q6m5nc6QQ9ayEx2y8r2j64SQsDZIHLdmlLiw+syZHFq1uJimdrs+ZD6ddkw2mDEHMf1GjLu0GHFNnY+bPcPGO/2adHXNvB2tw5aFRGrJ7CFJOK4aaKvQ=="
+              href="https://www.vagaro.com//Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVCl/3CjdOsZZ7EF4p4e+s0hEVod+oJ0uydouotjENszF/xz7ED18KniyrPa7wSf95Zrgy/u8lwz3kRjf9YgBLa6Hh9IKo/iaF2G3ArDtWgHnkrzsCAhIxrPanXQ37lr3PPNYEAgomQaACwNnh4wd5qsEcy7pQrphud2gnXih5l6g5982toMx3tzKIdcXEIBjfLq33qqK8jO98BrLDCBK4hWTZAs6kWRzzov4eOAMZtehefCYDcD5Y9Ui79h2cRBstQndlUp5YJ5EffSP3eQv5m4W2JFYa1hNGpYUpWnbw9y0xWFznfCos987gx8L5W+lgb96MAhCy9oM3np6Gj+jeL3GK3zeNiAFgGhxDLIl+GHnlt7AOy3k8d2K3AkDnKqvkpImMwuAS511FKZ5FbJcTmlnEWxgY25F2l9JB+7Vvuzf8O9++GjYZbIxLdsgHrdB7g=="
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -116,7 +116,7 @@ export default function Home() {
             <p className="text-[10px] text-center font-semibold sm:text-[12px] xl:text-[14px]">$1000 for 4 IV treatments & 2 injections</p>
             <p className="text-[10px] text-center sm:text-[12px] xl:text-[14px] mb-[40px]">*excluding NAD and NAD+</p>
             <Link
-              href="https://www.vagaro.com//Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVCl/3CjdOsZZ7EF4p4e+s0hEVod+oJ0uydouotjENszF/xz7ED18KniyrPa7wSf95Zrgy/u8lwz3kRjf9YgBLa6L0e4YbNHKUlTQbEsf1af878yDh27sqGfzsPutzAyUm9FATSJaAO5Ba3ZIlH8afVXudgnLWatlpayldQ3yfZvEyIbF4iQq1MPNKdJln5rXiJVV8vImZiQzq5jGDh1OkChCx/wml8Ytx0PNp7kYhbnfykAmv+u3ZN130RvOzn77rdz7+ibGI8+Lv5IaP6wPT9dv7dsn3aosKxc5hn4plB2Jp5T2EQTcyjtO08IzvkH6fzWNigQqQnR5g4Q6m5nc6QQ9ayEx2y8r2j64SQsDZIHLdmlLiw+syZHFq1uJimdrs+ZD6ddkw2mDEHMf1GjLu0GHFNnY+bPcPGO/2adHXNvB2tw5aFRGrJ7CFJOK4aaKvQ=="
+              href="https://www.vagaro.com//Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVCl/3CjdOsZZ7EF4p4e+s0hEVod+oJ0uydouotjENszF/xz7ED18KniyrPa7wSf95Zrgy/u8lwz3kRjf9YgBLa6Hh9IKo/iaF2G3ArDtWgHnkrzsCAhIxrPanXQ37lr3PPNYEAgomQaACwNnh4wd5qsEcy7pQrphud2gnXih5l6g5982toMx3tzKIdcXEIBjfLq33qqK8jO98BrLDCBK4hWTZAs6kWRzzov4eOAMZtehefCYDcD5Y9Ui79h2cRBstQndlUp5YJ5EffSP3eQv5m4W2JFYa1hNGpYUpWnbw9y0xWFznfCos987gx8L5W+lgb96MAhCy9oM3np6Gj+jeL3GK3zeNiAFgGhxDLIl+GHnlt7AOy3k8d2K3AkDnKqvkpImMwuAS511FKZ5FbJcTmlnEWxgY25F2l9JB+7Vvuzf8O9++GjYZbIxLdsgHrdB7g=="
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -132,7 +132,7 @@ export default function Home() {
             <p className="text-[10px] text-center font-semibold sm:text-[12px] xl:text-[14px]">Famotidine (Pepcid) $20</p>
             <p className="text-[10px] text-center mb-[20px] sm:text-[12px] xl:text-[14px]">USE: Antacid</p>
             <Link
-              href="https://www.vagaro.com//Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVCl/3CjdOsZZ7EF4p4e+s0hEVod+oJ0uydouotjENszF/xz7ED18KniyrPa7wSf95Zrgy/u8lwz3kRjf9YgBLa6L0e4YbNHKUlTQbEsf1af878yDh27sqGfzsPutzAyUm9FATSJaAO5Ba3ZIlH8afVXudgnLWatlpayldQ3yfZvEyIbF4iQq1MPNKdJln5rXiJVV8vImZiQzq5jGDh1OkChCx/wml8Ytx0PNp7kYhbnfykAmv+u3ZN130RvOzn77rdz7+ibGI8+Lv5IaP6wPT9dv7dsn3aosKxc5hn4plB2Jp5T2EQTcyjtO08IzvkH6fzWNigQqQnR5g4Q6m5nc6QQ9ayEx2y8r2j64SQsDZIHLdmlLiw+syZHFq1uJimdrs+ZD6ddkw2mDEHMf1GjLu0GHFNnY+bPcPGO/2adHXNvB2tw5aFRGrJ7CFJOK4aaKvQ=="
+              href="https://www.vagaro.com//Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVCl/3CjdOsZZ7EF4p4e+s0hEVod+oJ0uydouotjENszF/xz7ED18KniyrPa7wSf95Zrgy/u8lwz3kRjf9YgBLa6Hh9IKo/iaF2G3ArDtWgHnkrzsCAhIxrPanXQ37lr3PPNYEAgomQaACwNnh4wd5qsEcy7pQrphud2gnXih5l6g5982toMx3tzKIdcXEIBjfLq33qqK8jO98BrLDCBK4hWTZAs6kWRzzov4eOAMZtehefCYDcD5Y9Ui79h2cRBstQndlUp5YJ5EffSP3eQv5m4W2JFYa1hNGpYUpWnbw9y0xWFznfCos987gx8L5W+lgb96MAhCy9oM3np6Gj+jeL3GK3zeNiAFgGhxDLIl+GHnlt7AOy3k8d2K3AkDnKqvkpImMwuAS511FKZ5FbJcTmlnEWxgY25F2l9JB+7Vvuzf8O9++GjYZbIxLdsgHrdB7g=="
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -143,7 +143,7 @@ export default function Home() {
             <p className="text-[10px] text-center font-semibold sm:text-[12px] xl:text-[14px]">Ondansetron (Zofran) $20</p>
             <p className="text-[10px] text-center mb-[20px] sm:text-[12px] xl:text-[14px]">USE: Anti Nausea</p>
             <Link
-              href="https://www.vagaro.com//Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVCl/3CjdOsZZ7EF4p4e+s0hEVod+oJ0uydouotjENszF/xz7ED18KniyrPa7wSf95Zrgy/u8lwz3kRjf9YgBLa6L0e4YbNHKUlTQbEsf1af878yDh27sqGfzsPutzAyUm9FATSJaAO5Ba3ZIlH8afVXudgnLWatlpayldQ3yfZvEyIbF4iQq1MPNKdJln5rXiJVV8vImZiQzq5jGDh1OkChCx/wml8Ytx0PNp7kYhbnfykAmv+u3ZN130RvOzn77rdz7+ibGI8+Lv5IaP6wPT9dv7dsn3aosKxc5hn4plB2Jp5T2EQTcyjtO08IzvkH6fzWNigQqQnR5g4Q6m5nc6QQ9ayEx2y8r2j64SQsDZIHLdmlLiw+syZHFq1uJimdrs+ZD6ddkw2mDEHMf1GjLu0GHFNnY+bPcPGO/2adHXNvB2tw5aFRGrJ7CFJOK4aaKvQ=="
+              href="https://www.vagaro.com//Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVCl/3CjdOsZZ7EF4p4e+s0hEVod+oJ0uydouotjENszF/xz7ED18KniyrPa7wSf95Zrgy/u8lwz3kRjf9YgBLa6Hh9IKo/iaF2G3ArDtWgHnkrzsCAhIxrPanXQ37lr3PPNYEAgomQaACwNnh4wd5qsEcy7pQrphud2gnXih5l6g5982toMx3tzKIdcXEIBjfLq33qqK8jO98BrLDCBK4hWTZAs6kWRzzov4eOAMZtehefCYDcD5Y9Ui79h2cRBstQndlUp5YJ5EffSP3eQv5m4W2JFYa1hNGpYUpWnbw9y0xWFznfCos987gx8L5W+lgb96MAhCy9oM3np6Gj+jeL3GK3zeNiAFgGhxDLIl+GHnlt7AOy3k8d2K3AkDnKqvkpImMwuAS511FKZ5FbJcTmlnEWxgY25F2l9JB+7Vvuzf8O9++GjYZbIxLdsgHrdB7g=="
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -154,7 +154,7 @@ export default function Home() {
             <p className="text-[10px] text-center font-semibold sm:text-[12px] xl:text-[14px]">Toradol $20</p>
             <p className="text-[10px] text-center mb-[20px] sm:text-[12px] xl:text-[14px]">USE: Pain Relief/Inflammation</p>
             <Link
-              href="https://www.vagaro.com//Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVCl/3CjdOsZZ7EF4p4e+s0hEVod+oJ0uydouotjENszF/xz7ED18KniyrPa7wSf95Zrgy/u8lwz3kRjf9YgBLa6L0e4YbNHKUlTQbEsf1af878yDh27sqGfzsPutzAyUm9FATSJaAO5Ba3ZIlH8afVXudgnLWatlpayldQ3yfZvEyIbF4iQq1MPNKdJln5rXiJVV8vImZiQzq5jGDh1OkChCx/wml8Ytx0PNp7kYhbnfykAmv+u3ZN130RvOzn77rdz7+ibGI8+Lv5IaP6wPT9dv7dsn3aosKxc5hn4plB2Jp5T2EQTcyjtO08IzvkH6fzWNigQqQnR5g4Q6m5nc6QQ9ayEx2y8r2j64SQsDZIHLdmlLiw+syZHFq1uJimdrs+ZD6ddkw2mDEHMf1GjLu0GHFNnY+bPcPGO/2adHXNvB2tw5aFRGrJ7CFJOK4aaKvQ=="
+              href="https://www.vagaro.com//Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVCl/3CjdOsZZ7EF4p4e+s0hEVod+oJ0uydouotjENszF/xz7ED18KniyrPa7wSf95Zrgy/u8lwz3kRjf9YgBLa6Hh9IKo/iaF2G3ArDtWgHnkrzsCAhIxrPanXQ37lr3PPNYEAgomQaACwNnh4wd5qsEcy7pQrphud2gnXih5l6g5982toMx3tzKIdcXEIBjfLq33qqK8jO98BrLDCBK4hWTZAs6kWRzzov4eOAMZtehefCYDcD5Y9Ui79h2cRBstQndlUp5YJ5EffSP3eQv5m4W2JFYa1hNGpYUpWnbw9y0xWFznfCos987gx8L5W+lgb96MAhCy9oM3np6Gj+jeL3GK3zeNiAFgGhxDLIl+GHnlt7AOy3k8d2K3AkDnKqvkpImMwuAS511FKZ5FbJcTmlnEWxgY25F2l9JB+7Vvuzf8O9++GjYZbIxLdsgHrdB7g=="
               target="_blank"
               rel="noopener noreferrer"
             >
