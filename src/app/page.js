@@ -8,7 +8,7 @@ import Injections from "@/components/injections";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center">
+    <main className="flex flex-col items-center bg-white">
       <div className="relative w-full h-[400px] lg:h-fit overflow-hidden">
         <div className="lg:hidden">
           <Image
